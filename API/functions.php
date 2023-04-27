@@ -6,15 +6,8 @@ function sendJSON($data, $statusCode = 200) {
     echo $json;
     exit();
 }
-
-function saveToFile($filename, $array) {
+function saveToFile($file, $array) {
     $json = json_encode($array, JSON_PRETTY_PRINT);
-    file_put_contents($filename, $json);
+    file_put_contents($file, $json);
 }
-
-function readFile($filename) {
-    $json = file_get_contents($filename);
-    return json_decode($json, true); 
-}
-
 ?>
