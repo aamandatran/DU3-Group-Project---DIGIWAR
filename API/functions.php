@@ -10,4 +10,10 @@ function saveToFile($file, $array) {
     $json = json_encode($array, JSON_PRETTY_PRINT);
     file_put_contents($file, $json);
 }
+
+function getFileContents($filename) {
+    $json = file_get_contents($filename);
+    return json_decode($json, true); 
+}
+
 ?>
