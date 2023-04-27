@@ -1,0 +1,56 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+
+}
+
+button#RegisterButton,
+button#LoginButton {
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 30px;
+    font-weight: 150;
+}
+
+
+main {
+    width: 60%;
+    height: 60%;
+    background-color: #accdea;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+
+}
+
+#submitButtonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#submitButton {
+    width: 30%;
+}
+
+.InputHeader {
+    margin-bottom: 0;
+}
+
+#LoginRegisterContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 2px solid grey;
+    width: 80%;
+}
