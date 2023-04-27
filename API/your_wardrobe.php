@@ -15,7 +15,7 @@ $requestData = json_decode($requestJSON, true);
 
 if(isset($_FILES["item"])) {
     $source = $_FILES["item"]["tmp_name"];
-    $destination = "../media/" . $_FILES["item"]["name"];
+    $destination = "../MEDIA/" . $_FILES["item"]["name"];
 
     if (move_uploaded_file($source, $destination)) {
         $newItem = ["path" => $destination, "id" => [intval($_POST["id"])]];
