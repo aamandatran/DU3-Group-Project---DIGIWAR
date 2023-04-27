@@ -5,9 +5,9 @@ function sendJSON($data, $statusCode = 200) {
     $json = json_encode($data);
     echo $json;
     exit();
+}
 function saveToFile($file, $array) {
     $json = json_encode($array, JSON_PRETTY_PRINT);
     file_put_contents($file, $json);
-}
 }
 ?>
