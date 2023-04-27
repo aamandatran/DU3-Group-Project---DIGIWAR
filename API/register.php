@@ -2,16 +2,15 @@
 ini_set("display_errors", 1);
 require_once("functions.php");
 
-$filename = "users.json";
 $method = $_SERVER["REQUEST_METHOD"];
 
 if($method == "GET") {
-    
+    $profilePics = getFileContents("profilepictures.json");
 }
 if($method == "POST") {
 
-    if(!file_exists($filename)) {
-        file_put_contents($filename, "{}");
+    if(!file_exists("users.json")) {
+        file_put_contents("users.json", "{}");
     }
 
     $data
