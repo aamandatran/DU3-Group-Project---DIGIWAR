@@ -13,8 +13,7 @@ if($method == "POST") {
     $username = $data["username"];
     $password = $data["password"];
 
-    $usersJSON = file_get_contents($filename);
-    $users = json_decode($usersJSON, true);
+    $users = getFileContents($filename);
 
     if($username == "" or $password == "") {
         $error = [
