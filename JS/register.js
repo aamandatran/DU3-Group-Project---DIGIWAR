@@ -11,8 +11,13 @@ function renderRegisterPage() {
     <button id=RegisterButton>JOIN</button>
     </div>
 
-    <div id=ProfilePic>
-    Hello
+    <div id=ProfilePicContainer>
+    <div id=SelectedProfile></div>
+    <div class=profileOption></div>
+    <div class=profileOption></div>
+    <div class=profileOption></div>
+    <div class=profileOption></div>
+    <div class=profileOption></div>
     </div>
 
     <form>
@@ -36,17 +41,21 @@ function renderRegisterPage() {
         let username = document.querySelector("#username").value;
         let password = document.querySelector("#password").value;
 
-        let data = {
+        let userData = {
             username: username,
             password: password
         };
 
-        let response = await fetch("api / register.php", {
+        let response = await fetch("api/register.php", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
+            body: JSON.stringify(userData)
         })
+        let data = await response.json()
 
+        if (!response.ok) {
+            //
+        }
     })
 
 }
