@@ -21,4 +21,31 @@ function renderLoginPage() {
     let RegisterButton = document.querySelector("#RegisterButton");
     RegisterButton.addEventListener("click", renderRegisterPage);
 
+
+    let registerForm = document.querySelector("form");
+    registerForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        let username = document.querySelector("#username").value;
+        let password = document.querySelector("#password").value;
+
+        let userData = {
+            username: username,
+            password: password
+        };
+
+        let response = await fetch("api/register.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(userData)
+        })
+        let data = await response.json()
+
+        if (!response.ok) {
+            feedBack(data)
+        } else {
+            //Om statusen är ok och man lyckas logga in ska man komma till garderoben via en funktion kanske renderWardrobe
+        }
+
+    }
 }

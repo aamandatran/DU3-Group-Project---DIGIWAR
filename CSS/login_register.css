@@ -3,8 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-
-
+    margin: 0;
 }
 
 button#RegisterButton,
@@ -18,7 +17,7 @@ button#LoginButton {
 
 
 main {
-    width: 60%;
+    width: 30%;
     height: 60%;
     background-color: #accdea;
     border-radius: 20px;
@@ -41,6 +40,7 @@ form {
 
 #submitButton {
     width: 30%;
+    margin-top: 50px;
 }
 
 .InputHeader {
@@ -53,4 +53,27 @@ form {
     justify-content: space-evenly;
     border-bottom: 2px solid grey;
     width: 80%;
+}
+
+#ProfilePicContainer {
+    height: 20%;
+    width: 80%;
+    margin: 15px;
+    display: flex;
+    align-items: end;
+}
+
+
+#SelectedProfile {
+    height: 100%;
+    width: 12vw;
+    border: 1px solid gray;
+    border-radius: 50%;
+}
+
+.profileOption {
+    height: 50%;
+    width: 6vw;
+    border: 1px solid gray;
+    border-radius: 50%;
 }

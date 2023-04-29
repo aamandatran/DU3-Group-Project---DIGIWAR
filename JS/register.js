@@ -44,6 +44,7 @@ function renderRegisterPage() {
         let userData = {
             username: username,
             password: password
+            //Här ska även profilbilden man valt finnas så att den skickas med till databasen
         };
 
         let response = await fetch("api/register.php", {
@@ -53,9 +54,7 @@ function renderRegisterPage() {
         })
         let data = await response.json()
 
-        if (!response.ok) {
-            //
-        }
+        feedBack(data)
     })
 
 }
