@@ -34,7 +34,7 @@ function renderLoginPage() {
             password: password
         };
 
-        let response = await fetch("api/register.php", {
+        let response = await fetch("api/login.php", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(userData)
@@ -42,10 +42,11 @@ function renderLoginPage() {
         let data = await response.json()
 
         if (!response.ok) {
+            //funkar inte inloggningen så kommer man få upp en feedback ruta.
             feedBack(data)
         } else {
             //Om statusen är ok och man lyckas logga in ska man komma till garderoben via en funktion kanske renderWardrobe
         }
 
-    }
+    })
 }

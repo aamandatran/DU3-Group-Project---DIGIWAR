@@ -34,6 +34,10 @@ function renderRegisterPage() {
     let LoginButton = document.querySelector("#LoginButton");
     LoginButton.addEventListener("click", renderLoginPage);
 
+    //Någonstans här måste jag hämta profilbilderna från databasen och lägga in dem i "profileOption"
+    //Sedan måste jag förmodligen skapa en funktion som gör så att när man klickar på en av "profileOption"
+    //Så läggs bilden till som andvändarens egna profilbild alltså i "SelectedProfile".
+
     let registerForm = document.querySelector("form");
     registerForm.addEventListener("submit", async function (event) {
         event.preventDefault();
