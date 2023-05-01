@@ -22,7 +22,7 @@ if($method == "GET") {
     $profilepicture = $data["profilepicture"];
     //Vi hämtar informationen från request
 
-    $user = getFileContents("users.json");
+    $users = getFileContents("users.json");
 
     if($username == "" or $password == "") {
     //Ifall inputfälten är tomma
