@@ -45,7 +45,7 @@ if($method == "GET") {
     } else {
         foreach($users as $user) {
         //Ifall användarnamnet är taget
-            if($user["username"] == $username) {
+            if($users["username"] == $username) {
                 $error = [
                     "message" => "Username is already taken"
                 ];
