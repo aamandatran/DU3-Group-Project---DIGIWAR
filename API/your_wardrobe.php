@@ -13,13 +13,18 @@ $requestMethod = $_SERVER["REQUEST_METHOD"];
 $requestJSON = file_get_contents("php://input");
 $requestData = json_decode($requestJSON, true);
 
+// If we received an upload
 if(isset($_FILES["item"])) {
     $source = $_FILES["item"]["tmp_name"];
     $destination = "../MEDIA/" . $_FILES["item"]["name"];
 
     if (move_uploaded_file($source, $destination)) {
-        $newItem = ["path" => $destination, "id" => [intval($_POST["id"])]];
+        $newItem = [
+            "path" => $destination, 
+            "id" => [intval($_POST["id"])]
+        ];
 
+        // Checks which JSON file to save newItem to
         if($_POST["file"] == "tops.json") {
             $tops[] = $newItem;
             saveToFile("tops.json", $tops);
@@ -31,10 +36,16 @@ if(isset($_FILES["item"])) {
             saveToFile("shoes.json", $shoes);
         }
     
-        $message = ["message" => "The item has been added successfully!"];
+        $message = [
+            "message" => "The item has been added successfully!",
+            "path" => "MEDIA/" . $_FILES["item"]["name"]
+        ];
         sendJSON($message, 200);
     } else {
-        $message = ["message" => "Something went wrong with uploading the item... please try again!"];
+        // If we received no upload, an error message is sent back
+        $message = [
+            "message" => "Something went wrong with uploading the item... please try again!"
+        ];
         sendJSON($message, 409);
     } 
 }
