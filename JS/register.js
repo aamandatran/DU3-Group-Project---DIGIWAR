@@ -4,20 +4,31 @@
 
 let main = document.querySelector("main");
 
-function renderRegisterPage() {
+async function renderRegisterPage() {
+
+    let response = await fetch("api/register.php");
+    let profilepictures = await response.json();
+
+    function displayProfilePics (array) {
+        let html = "";
+        for (let profilepic of profilepictures) {
+            html += `
+            <div class=profileOption>
+            <img src=${profilepic}>
+            </div>
+            `;
+        }
+        return html;
+    }
+
+    console.log(profilepictures);
+
     main.innerHTML = `
     <div id=LoginRegisterContainer> 
     <button id=LoginButton>SIGN IN</button>
     <button id=RegisterButton>JOIN</button>
     </div>
-
-    <div id=ProfilePicContainer>
-    <div id=SelectedProfile></div>
-    <div class=profileOption></div>
-    <div class=profileOption></div>
-    <div class=profileOption></div>
-    <div class=profileOption></div>
-    <div class=profileOption></div>
+        ${displayProfilePics(profilepictures)}
     </div>
 
     <form>
@@ -30,7 +41,7 @@ function renderRegisterPage() {
     </div>
     </form>
     
-    `
+    `;
     let LoginButton = document.querySelector("#LoginButton");
     LoginButton.addEventListener("click", renderLoginPage);
 
