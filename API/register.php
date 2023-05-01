@@ -52,6 +52,7 @@ if($method == "GET") {
                 sendJSON($error, 409);
             } 
         }
+    }
         //Annars så skapas användaren, läggs till i databasen och skickas tillbaka.
         $newUser = [
             "username" => $username,
@@ -64,7 +65,7 @@ if($method == "GET") {
         saveToFile("users.json", $users);
 
         sendJSON($newUser);
-    }
+    
 
 } else {
 //Om en annan request än GET eller POST används
