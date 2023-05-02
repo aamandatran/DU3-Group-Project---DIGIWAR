@@ -6,11 +6,12 @@ let main = document.querySelector("main");
 
 async function renderRegisterPage() {
 
+
     let response = await fetch("api/register.php");
     let profilepictures = await response.json();
 
-    
-    function displayProfilePics (array) {
+
+    function displayProfilePics(array) {
         let html = "";
         for (let profilepic of profilepictures) {
             html += `
@@ -24,7 +25,7 @@ async function renderRegisterPage() {
 
     console.log(profilepictures);
 
-    function Selectedprofilepic (event) {
+    function Selectedprofilepic(event) {
         console.log(event.target.attributes.src.nodeValue);
         let source = event.target.attributes.src.nodeValue;
         document.getElementById("SelectedProfile").innerHTML = `
@@ -59,7 +60,7 @@ async function renderRegisterPage() {
 
     let list = document.querySelector("ul").querySelectorAll("li > img");
     console.log(list);
-    for(let item of list) {
+    for (let item of list) {
         item.addEventListener("click", Selectedprofilepic);
     }
 
@@ -97,12 +98,12 @@ async function renderRegisterPage() {
             let data = await response.json()
             console.log(data);
 
-            if(!response.ok) {
+            if (!response.ok) {
                 console.log(data.message);
             } else {
                 console.log(data.message);
             }
-        } catch(err) {
+        } catch (err) {
             console.log(err.message);
         }
 
