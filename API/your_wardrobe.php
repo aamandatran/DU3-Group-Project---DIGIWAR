@@ -24,23 +24,32 @@ if(isset($_FILES["item"])) {
             "id" => [intval($_POST["id"])]
         ];
 
+        // Message to server if item was added successfully
+        $message = [
+            "message" => "The item has been added successfully!",
+            "path" => $destination,
+            "ok" => true
+        ];
+
         // Checks which JSON file to save newItem to
         if($_POST["file"] == "tops.json") {
             $tops[] = $newItem;
             saveToFile("tops.json", $tops);
+            sendJSON($message, 200);
         } elseif($_POST["file"] == "bottoms.json") {
             $bottoms[] = $newItem;
             saveToFile("bottoms.json", $bottoms);
+            sendJSON($message, 200);
         } elseif($_POST["file"] == "shoes.json") {
             $shoes[] = $newItem;
             saveToFile("shoes.json", $shoes);
+            sendJSON($message, 200);
+        } else{
+            $message = [
+                "message" => "No category was selected... please select a category."
+            ];
+            sendJSON($message, 409);
         }
-    
-        $message = [
-            "message" => "The item has been added successfully!",
-            "path" => "MEDIA/" . $_FILES["item"]["name"]
-        ];
-        sendJSON($message, 200);
     } else {
         // If we received no upload, an error message is sent back
         $message = [
