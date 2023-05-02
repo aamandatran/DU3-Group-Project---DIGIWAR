@@ -4,21 +4,46 @@
 
 let main = document.querySelector("main");
 
-function renderRegisterPage() {
+async function renderRegisterPage() {
+
+    let response = await fetch("api/register.php");
+    let profilepictures = await response.json();
+
+    
+    function displayProfilePics (array) {
+        let html = "";
+        for (let profilepic of profilepictures) {
+            html += `
+            <li class=profileOption>
+            <img src=${profilepic}>
+            </li>
+            `;
+        }
+        return html;
+    }
+
+    console.log(profilepictures);
+
+    function Selectedprofilepic (event) {
+        console.log(event.target.attributes.src.nodeValue);
+        let source = event.target.attributes.src.nodeValue;
+        document.getElementById("SelectedProfile").innerHTML = `
+        <img id="selectedpicture" src=${source}>
+        `;
+    }
+
     main.innerHTML = `
-    <div id=LoginRegisterContainer> 
-    <button id=LoginButton>SIGN IN</button>
-    <button id=RegisterButton>JOIN</button>
+    <div id = LoginRegisterContainer> 
+    <button id = LoginButton>SIGN IN</button>
+    <button id = RegisterButton>JOIN</button>
     </div>
 
-    <div id=ProfilePicContainer>
-    <div id=SelectedProfile></div>
-    <div class=profileOption></div>
-    <div class=profileOption></div>
-    <div class=profileOption></div>
-    <div class=profileOption></div>
-    <div class=profileOption></div>
+    <div id = SelectedProfile>
     </div>
+
+    <ul class = profileOptions>
+        ${displayProfilePics(profilepictures)}
+    </ul>
 
     <form>
     <p class=InputHeader>Username</p>
@@ -30,7 +55,15 @@ function renderRegisterPage() {
     </div>
     </form>
     
-    `
+    `;
+
+    let list = document.querySelector("ul").querySelectorAll("li > img");
+    console.log(list);
+    for(let item of list) {
+        item.addEventListener("click", Selectedprofilepic);
+    }
+
+
     let LoginButton = document.querySelector("#LoginButton");
     LoginButton.addEventListener("click", renderLoginPage);
 
@@ -44,21 +77,38 @@ function renderRegisterPage() {
 
         let username = document.querySelector("#username").value;
         let password = document.querySelector("#password").value;
+        let profilepicture = document.getElementById("selectedpicture").attributes.src.nodeValue;
+        console.log(document.getElementById("selectedpicture").attributes.src.nodeValue);
 
         let userData = {
             username: username,
-            password: password
-            //Här ska även profilbilden man valt finnas så att den skickas med till databasen
+            password: password,
+            profilepicture: profilepicture
         };
 
-        let response = await fetch("api/register.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(userData)
-        })
-        let data = await response.json()
+        try {
+            let response = await fetch("api/register.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(userData)
+            })
 
-        feedBack(data)
+            console.log(response);
+            let data = await response.json()
+            console.log(data);
+
+            if(!response.ok) {
+                console.log(data.message);
+            } else {
+                console.log(data.message);
+            }
+        } catch(err) {
+            console.log(err.message);
+        }
+
+
+
+        //feedBack(data);
     })
 
 }

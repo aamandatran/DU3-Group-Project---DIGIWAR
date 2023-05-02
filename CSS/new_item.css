@@ -1,0 +1,8 @@
+#itemImage {
+    height: 300px;
+    width: 300px;
+}
+
+#itemImage>img {
+    width: 300px;
+}
