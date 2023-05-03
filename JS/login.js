@@ -34,18 +34,24 @@ function renderLoginPage() {
             password: password
         };
 
-        let response = await fetch("api/login.php", {
+        let request = await fetch("api/login.php", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(userData)
         })
-        let data = await response.json()
 
-        if (!response.ok) {
-            //funkar inte inloggningen så kommer man få upp en feedback ruta.
-            feedBack(data)
+        const response = await fetch(request);
+
+        if(response.status === 200) {
+        //Om förfrågan lyckades så ska användaren logga in
+            feedback("login succeeded");
+            console.log("login succeeded");
+            window.localStorage.setItem("isLoggedIn", true)
         } else {
-            //Om statusen är ok och man lyckas logga in ska man komma till garderoben via en funktion kanske renderWardrobe
+        //Om förfrågan misslyckades så ska felmeddelandet dyka upp
+            let error = await response.json();
+            console.log(error.error);
+            feedback(error.message);
         }
 
     })

@@ -1,16 +1,16 @@
 "use strict"
 
-
-
 let main = document.querySelector("main");
 
 async function renderRegisterPage() {
 
     let response = await fetch("api/profilepics.php");
     let profilepictures = await response.json();
+    //Hämtar profilbilderna
 
     
     function displayProfilePics (array) {
+    //Skapar varje profilbild
         let html = "";
         for (let profilepic of profilepictures) {
             html += `
@@ -22,9 +22,8 @@ async function renderRegisterPage() {
         return html;
     }
 
-    console.log(profilepictures);
-
     function Selectedprofilepic (event) {
+    //När man valt en profilbild så ska den dyka upp
         console.log(event.target.attributes.src.nodeValue);
         let source = event.target.attributes.src.nodeValue;
         document.getElementById("SelectedProfile").innerHTML = `
@@ -66,10 +65,6 @@ async function renderRegisterPage() {
 
     let LoginButton = document.querySelector("#LoginButton");
     LoginButton.addEventListener("click", renderLoginPage);
-
-    //Någonstans här måste jag hämta profilbilderna från databasen och lägga in dem i "profileOption"
-    //Sedan måste jag förmodligen skapa en funktion som gör så att när man klickar på en av "profileOption"
-    //Så läggs bilden till som andvändarens egna profilbild alltså i "SelectedProfile".
 
     let registerForm = document.querySelector("form");
     registerForm.addEventListener("submit", async function (event) {
