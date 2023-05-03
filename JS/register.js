@@ -1,16 +1,16 @@
 "use strict"
 
+
+
 let main = document.querySelector("main");
 
 async function renderRegisterPage() {
 
     let response = await fetch("api/profilepics.php");
     let profilepictures = await response.json();
-    //Hämtar profilbilderna
 
     
     function displayProfilePics (array) {
-    //Skapar varje profilbild
         let html = "";
         for (let profilepic of profilepictures) {
             html += `
@@ -22,8 +22,9 @@ async function renderRegisterPage() {
         return html;
     }
 
+    console.log(profilepictures);
+
     function Selectedprofilepic (event) {
-    //När man valt en profilbild så ska den dyka upp
         console.log(event.target.attributes.src.nodeValue);
         let source = event.target.attributes.src.nodeValue;
         document.getElementById("SelectedProfile").innerHTML = `
@@ -81,17 +82,32 @@ async function renderRegisterPage() {
             profilepicture: profilepicture
         };
 
-            let response = await fetch("api/register.php", {
+            const request = new Request ("api/register.php", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {"Content-type": "application/json; charset=UTF-8"},
                 body: JSON.stringify(userData),
-            })
+            });
 
-            console.log(response);
+            const response = await fetch(request);
+
+            if(response.status === 200) {
+                feedback("Registration Complete. Please proceed to login.");
+                console.log("Registration succeeded");
+            } else {
+                let error = await response.json();
+                console.log(error.error);
+                feedback(error.message);
+            }
+
             let data = await response.json();
-            console.log(data);
 
-    });
+            localStorage.setItem("username", data.username);
+            localStorage.setItem("password", data.password);
+            localStorage.setItem("id", data.id);
+            localStorage.setItem("profilepicture", data.profilepicture);
+
+        }      
+    )
 
 }
 
