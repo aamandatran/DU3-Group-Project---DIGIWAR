@@ -6,7 +6,8 @@
     },
     {
         "username": "kajsa",
-        "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png"
+        "password": "Test",
+        "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png",
+        "profilePicture": null
     }
 ]

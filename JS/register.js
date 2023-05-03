@@ -114,4 +114,4 @@ async function renderRegisterPage() {
 
 }
 
-renderRegisterPage();
+//renderRegisterPage();

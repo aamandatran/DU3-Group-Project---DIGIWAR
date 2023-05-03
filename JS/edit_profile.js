@@ -1,6 +1,6 @@
 "use strict"
 
-editProfile()
+
 
 async function editProfile(event) {
 
@@ -32,11 +32,12 @@ async function editProfile(event) {
 
         let oldPassword = document.querySelector("#oldPassword").value;
         let newPassword = document.querySelector("#newPassword").value;
-
+        //let userName = localStorage.getItem("userName");
 
         let userData = {
             oldPassword: oldPassword,
             newPassword: newPassword,
+            userName: "kajsa"
         };
 
         try {
@@ -61,3 +62,5 @@ async function editProfile(event) {
 
     })
 }
+
+editProfile()
