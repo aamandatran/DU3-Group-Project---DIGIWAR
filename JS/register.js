@@ -6,7 +6,7 @@ let main = document.querySelector("main");
 
 async function renderRegisterPage() {
 
-    let response = await fetch("api/register.php");
+    let response = await fetch("api/profilepics.php");
     let profilepictures = await response.json();
 
     
@@ -47,9 +47,9 @@ async function renderRegisterPage() {
 
     <form>
     <p class=InputHeader>Username</p>
-    <input type=text placeholder=Username id=username>
+    <input type=text placeholder=username id=username>
     <p class=InputHeader>Password</p>
-    <input type=password placeholder=Password id=password>
+    <input type=password placeholder=password id=password>
     <div id=submitButtonContainer>
     <button id=submitButton type=submit>Join</button>
     </div>
@@ -86,29 +86,16 @@ async function renderRegisterPage() {
             profilepicture: profilepicture
         };
 
-        try {
             let response = await fetch("api/register.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(userData)
+                body: JSON.stringify(userData),
             })
 
             console.log(response);
-            let data = await response.json()
+            let data = await response.json();
             console.log(data);
 
-            if(!response.ok) {
-                console.log(data.message);
-            } else {
-                console.log(data.message);
-            }
-        } catch(err) {
-            console.log(err.message);
-        }
-
-
-
-        //feedBack(data);
     })
 
 }
