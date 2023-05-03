@@ -1,152 +1,20 @@
 [
     {
         "id": 1,
-        "username": "vvv",
-        "password": "vvv",
+        "username": "kailee",
+        "password": "asd",
         "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png"
     },
     {
         "id": 2,
-        "username": "kajan",
-        "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png"
-    },
-    {
-        "id": 3,
-        "username": "xxx",
-        "password": "xxx",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 4,
-        "username": "asad",
-        "password": "asad",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 5,
-        "username": "ppppppppppp",
-        "password": "aaa",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 6,
-        "username": "\u00e5\u00e5\u00e5\u00e5\u00e5\u00e5\u00e5\u00e5",
-        "password": "\u00e5\u00e5\u00e5",
-        "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png"
-    },
-    {
-        "id": 7,
-        "username": "nnnnnnnnn",
-        "password": "nnnnn",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 8,
-        "username": "nnnnnnnnnnnnnnnnn",
-        "password": "nnnnnnnnnn",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 9,
         "username": "kairo",
         "password": "asd",
         "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
     },
     {
-        "id": 10,
-        "username": "kaj",
-        "password": "san",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 11,
-        "username": "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
-        "password": "NNNNNNNNNNNNNNN",
-        "profilepicture": "..\/MEDIA\/profilepictures\/97057c70bc6dfcd8706a6dc4b2f811d2.png"
-    },
-    {
-        "id": 12,
-        "username": "asdasdasdasdakjmxccccccccccc",
-        "password": "xcxc",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 13,
-        "username": "000000000",
-        "password": "00000000",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 14,
-        "username": "iiiiiiiiiiiiiiiii",
-        "password": "iiiiiiii",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 15,
-        "username": "nbbbbbbbbbkkk",
-        "password": "kkkk",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 16,
-        "username": "rwerwer",
-        "password": "werwe",
+        "id": 3,
+        "username": "kajsas",
+        "password": "123",
         "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png"
-    },
-    {
-        "id": 17,
-        "username": "bnbnbnb",
-        "password": "mnmm",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 18,
-        "username": "klklklkl",
-        "password": "klkl",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 19,
-        "username": "rtttttttttt",
-        "password": "rtrt",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 20,
-        "username": "ooooooooooop",
-        "password": "ooop",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 21,
-        "username": "popppp",
-        "password": "popp",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 22,
-        "username": "oiioioi",
-        "password": "popopo",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 23,
-        "username": "xxcxcxxc",
-        "password": "xcxc",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 24,
-        "username": "kajanm",
-        "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 25,
-        "username": "kajsasa",
-        "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/97057c70bc6dfcd8706a6dc4b2f811d2.png"
     }
 ]
