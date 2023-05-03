@@ -16,5 +16,11 @@
         "username": "kajsas",
         "password": "123",
         "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png"
+    },
+    {
+        "id": 4,
+        "username": "kaj",
+        "password": "saa",
+        "profilepicture": "..\/MEDIA\/profilepictures\/unnamed.png"
     }
 ]
