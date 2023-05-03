@@ -1,15 +1,14 @@
 "use strict"
 
-
-
 let main = document.querySelector("main");
 
 async function renderRegisterPage() {
 
+    //Hämtar profilbilderna
     let response = await fetch("api/profilepics.php");
     let profilepictures = await response.json();
 
-    
+    //Skapar profilbilderna
     function displayProfilePics (array) {
         let html = "";
         for (let profilepic of profilepictures) {
@@ -24,6 +23,7 @@ async function renderRegisterPage() {
 
     console.log(profilepictures);
 
+    //Visar den valda profilbilden
     function Selectedprofilepic (event) {
         console.log(event.target.attributes.src.nodeValue);
         let source = event.target.attributes.src.nodeValue;
@@ -62,7 +62,7 @@ async function renderRegisterPage() {
     for(let item of list) {
         item.addEventListener("click", Selectedprofilepic);
     }
-
+    //Ger varje profilbild ett event 
 
     let LoginButton = document.querySelector("#LoginButton");
     LoginButton.addEventListener("click", renderLoginPage);
@@ -73,14 +73,11 @@ async function renderRegisterPage() {
 
         let username = document.querySelector("#username").value;
         let password = document.querySelector("#password").value;
-        let profilepicture = document.querySelector("#SelectedProfile").value;
-        
-        console.log("FÖRE" + profilepicture);
-        if(profilepicture === undefined) {
-            profilepicture = "";
-        }
-        console.log("Efter" + profilepicture);
-
+        let selectedImage = document.querySelector("#SelectedProfile > img");
+        let profilepicture = selectedImage ? selectedImage.getAttribute("src") : "";
+        //Om en profilbild är vald så kommer sökvägen sparas
+        //Om en profilbild inte är vald så kommer en tom sträng att sparas. Eftersom annars hade det sparats "null" och sabbat koden
+    
         let userData = {
             username: username,
             password: password,
@@ -96,9 +93,11 @@ async function renderRegisterPage() {
             const response = await fetch(request);
 
             if(response.status === 200) {
+            //Om förfrågan lyckades så skapas användaren
                 feedback("Registration Complete. Please proceed to login.");
                 console.log("Registration succeeded");
             } else {
+            //Om förfrågan misslyckades så skickas felmeddelande
                 let error = await response.json();
                 console.log(error.message);
                 feedback(error.message);
@@ -110,6 +109,7 @@ async function renderRegisterPage() {
             localStorage.setItem("password", data.password);
             localStorage.setItem("id", data.id);
             localStorage.setItem("profilepicture", data.profilepicture);
+            //Här sätter vi all data i local storage så vi kan nå användaren överallt på sidan
 
         }      
     )
