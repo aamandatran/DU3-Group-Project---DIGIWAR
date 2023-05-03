@@ -6,8 +6,12 @@ let main = document.querySelector("main");
 
 async function renderRegisterPage() {
 
+<<<<<<< HEAD
 
     let response = await fetch("api/register.php");
+=======
+    let response = await fetch("api/profilepics.php");
+>>>>>>> main
     let profilepictures = await response.json();
 
 
@@ -48,9 +52,9 @@ async function renderRegisterPage() {
 
     <form>
     <p class=InputHeader>Username</p>
-    <input type=text placeholder=Username id=username>
+    <input type=text placeholder=username id=username>
     <p class=InputHeader>Password</p>
-    <input type=password placeholder=Password id=password>
+    <input type=password placeholder=password id=password>
     <div id=submitButtonContainer>
     <button id=submitButton type=submit>Join</button>
     </div>
@@ -87,30 +91,43 @@ async function renderRegisterPage() {
             profilepicture: profilepicture
         };
 
-        try {
-            let response = await fetch("api/register.php", {
+            const request = new Request ("api/register.php", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(userData)
-            })
+                headers: {"Content-type": "application/json; charset=UTF-8"},
+                body: JSON.stringify(userData),
+            });
 
-            console.log(response);
-            let data = await response.json()
-            console.log(data);
+            const response = await fetch(request);
 
+<<<<<<< HEAD
             if (!response.ok) {
                 console.log(data.message);
+=======
+            if(response.status === 200) {
+                feedback("Registration Complete. Please proceed to login.");
+                console.log("Registration succeeded");
+>>>>>>> main
             } else {
-                console.log(data.message);
+                let error = await response.json();
+                console.log(error.error);
+                feedback(error.message);
             }
+<<<<<<< HEAD
         } catch (err) {
             console.log(err.message);
         }
+=======
+>>>>>>> main
 
+            let data = await response.json();
 
+            localStorage.setItem("username", data.username);
+            localStorage.setItem("password", data.password);
+            localStorage.setItem("id", data.id);
+            localStorage.setItem("profilepicture", data.profilepicture);
 
-        //feedBack(data);
-    })
+        }      
+    )
 
 }
 
