@@ -34,21 +34,19 @@ function renderLoginPage() {
             password: password
         };
 
-        let request = await fetch("api/login.php", {
+        const request = new Request ("api/login.php", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(userData)
-        })
+            headers: {"Content-type": "application/json; charset=UTF-8"},
+            body: JSON.stringify(userData),
+        });
 
         const response = await fetch(request);
 
         if(response.status === 200) {
-        //Om förfrågan lyckades så ska användaren logga in
             feedback("login succeeded");
             console.log("login succeeded");
             window.localStorage.setItem("isLoggedIn", true)
         } else {
-        //Om förfrågan misslyckades så ska felmeddelandet dyka upp
             let error = await response.json();
             console.log(error.error);
             feedback(error.message);
