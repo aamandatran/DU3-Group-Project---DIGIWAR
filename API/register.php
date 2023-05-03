@@ -24,47 +24,51 @@ if ($method == "POST") {
             "message" => "Empty values"
         ];
         sendJSON($error, 400);
-    } else if(strlen($username) < 3 or strlen($password) < 3) {
+    } 
+    
+    if(strlen($username) < 3 or strlen($password) < 3) {
         $error = [
             "message" => "Username or Password needs to be at least 3 characters"
         ];
         sendJSON($error, 400);
-    } else if($profilepicture == "") {
+    }
+    
+    if($profilepicture == "") {
         $error = [
             "message" => "Profile picture not selected"
         ];
         sendJSON($error, 400);
-    } else {
-
-        foreach ($users as $user) {
-            if ($user["username"] == $username) {
-                $error = [
-                    "message" => "Conflict (the username is already taken)"
-                ];
-                sendJSON($error, 409);
-            }
+    } 
+    
+    foreach ($users as $user) {
+        if ($user["username"] == $username) {
+            $error = [
+                "message" => "Conflict (the username is already taken)"
+            ];
+            sendJSON($error, 409);
         }
-    
-        $highestID = 0;
-    
-        foreach($users as $user) {
-            if($user["id"] > $highestID) {
-                $highestID = $user["id"];
-            }
-        }
-    
-        $id = $highestID + 1;
-    
-        $newUser = [
-            "id" => $id,
-            "username" => $username,
-            "password" => $password,
-            "profilepicture" => $profilepicture
-        ];
-    
-        $users[] = $newUser;
-        saveToFile("users.json", $users);
-        sendJSON($newUser, 200);        
     }
+    
+    $highestID = 0;
+    
+    foreach($users as $user) {
+        if($user["id"] > $highestID) {
+            $highestID = $user["id"];
+        }
+    }
+    
+    $id = $highestID + 1;
+    
+    $newUser = [
+        "id" => $id,
+        "username" => $username,
+        "password" => $password,
+        "profilepicture" => $profilepicture
+    ];
+    
+    $users[] = $newUser;
+    saveToFile("users.json", $users);
+    sendJSON($newUser, 200);        
 }
+
 ?>
