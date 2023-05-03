@@ -67,18 +67,19 @@ async function renderRegisterPage() {
     let LoginButton = document.querySelector("#LoginButton");
     LoginButton.addEventListener("click", renderLoginPage);
 
-    //Någonstans här måste jag hämta profilbilderna från databasen och lägga in dem i "profileOption"
-    //Sedan måste jag förmodligen skapa en funktion som gör så att när man klickar på en av "profileOption"
-    //Så läggs bilden till som andvändarens egna profilbild alltså i "SelectedProfile".
-
     let registerForm = document.querySelector("form");
     registerForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
         let username = document.querySelector("#username").value;
         let password = document.querySelector("#password").value;
-        let profilepicture = document.getElementById("selectedpicture").attributes.src.nodeValue;
-        console.log(document.getElementById("selectedpicture").attributes.src.nodeValue);
+        let profilepicture = document.querySelector("#SelectedProfile").value;
+        
+        console.log("FÖRE" + profilepicture);
+        if(profilepicture === undefined) {
+            profilepicture = "";
+        }
+        console.log("Efter" + profilepicture);
 
         let userData = {
             username: username,
@@ -99,7 +100,7 @@ async function renderRegisterPage() {
                 console.log("Registration succeeded");
             } else {
                 let error = await response.json();
-                console.log(error.error);
+                console.log(error.message);
                 feedback(error.message);
             }
 
