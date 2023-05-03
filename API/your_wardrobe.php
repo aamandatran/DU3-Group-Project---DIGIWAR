@@ -24,23 +24,35 @@ if(isset($_FILES["item"])) {
             "id" => [intval($_POST["id"])]
         ];
 
+        // Message to server if item was added successfully
+        $message = [
+            "message" => "The item has been added successfully!",
+            "path" => $destination,
+            "ok" => true
+        ];
+
         // Checks which JSON file to save newItem to
         if($_POST["file"] == "tops.json") {
             $tops[] = $newItem;
             saveToFile("tops.json", $tops);
+            $message["file"] = "tops.json";
+            sendJSON($message, 200);
         } elseif($_POST["file"] == "bottoms.json") {
             $bottoms[] = $newItem;
             saveToFile("bottoms.json", $bottoms);
+            $message["file"] = "bottoms.json";
+            sendJSON($message, 200);
         } elseif($_POST["file"] == "shoes.json") {
             $shoes[] = $newItem;
             saveToFile("shoes.json", $shoes);
+            $message["file"] = "shoes.json";
+            sendJSON($message, 200);
+        } else{
+            $message = [
+                "message" => "No category was selected... please select a category."
+            ];
+            sendJSON($message, 409);
         }
-    
-        $message = [
-            "message" => "The item has been added successfully!",
-            "path" => "MEDIA/" . $_FILES["item"]["name"]
-        ];
-        sendJSON($message, 200);
     } else {
         // If we received no upload, an error message is sent back
         $message = [
@@ -50,5 +62,52 @@ if(isset($_FILES["item"])) {
     } 
 }
 
+// Sends back every item to display on website
+if($requestMethod == "GET") {
+    $wardrobe = [
+        "tops" => $tops,
+        "bottoms" => $bottoms,
+        "shoes" => $shoes
+    ];
+
+    sendJSON($wardrobe, 200);
+}
+
+
+if($requestMethod == "DELETE") {
+    $path = $requestData["path"];
+    $JSONfile = $requestData["file"];
+
+    // Check which JSON file to iterate over and search for the item
+    if($JSONfile == "tops.json") {
+        $items =& $tops;
+    } elseif($JSONfile == "bottoms.json") {
+        $items =& $bottoms;
+    } elseif($JSONfile == "shoes.json") {
+        $items =& $shoes;
+    } else {
+        // If something went wrong, for example if no file was sent
+        $message = ["message" => "Something went wrong... please try again!"];
+        sendJSON($message, 418);
+    }
+
+    foreach($items as $key => $item) {
+        if($path == $item["path"]) {
+            // Remove the item from the array
+            unset($items[$key]);
+
+            // Save the updated array back to the file
+            saveToFile($JSONfile, $items);
+
+            // Send a success response
+            $message = [
+                "message" => "The item has been deleted successfully!",
+                "ok" => true
+            ];
+            sendJSON($message, 200);
+        }
+    }
+
+}
 
 ?>
