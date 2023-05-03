@@ -1,20 +1,20 @@
 [
     {
         "id": 1,
-        "username": "kailee",
-        "password": "asd",
+        "username": "Kajsa",
+        "password": "123",
         "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png"
     },
     {
         "id": 2,
-        "username": "kairo",
-        "password": "asd",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
+        "username": "Amanda",
+        "password": "123",
+        "profilepicture": "..\/MEDIA\/profilepictures\/unnamed.png"
     },
     {
         "id": 3,
-        "username": "kajsas",
+        "username": "Wille",
         "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png"
+        "profilepicture": "..\/MEDIA\/profilepictures\/97057c70bc6dfcd8706a6dc4b2f811d2.png"
     }
 ]
