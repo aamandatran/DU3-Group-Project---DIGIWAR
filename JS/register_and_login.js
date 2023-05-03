@@ -1,8 +1,8 @@
 "use strict"
 
 
-
 let main = document.querySelector("main");
+
 
 async function renderRegisterPage() {
 
@@ -22,10 +22,7 @@ async function renderRegisterPage() {
         return html;
     }
 
-    console.log(profilepictures);
-
     function Selectedprofilepic (event) {
-        console.log(event.target.attributes.src.nodeValue);
         let source = event.target.attributes.src.nodeValue;
         document.getElementById("SelectedProfile").innerHTML = `
         <img id="selectedpicture" src=${source}>
@@ -57,19 +54,14 @@ async function renderRegisterPage() {
     
     `;
 
+    let LoginButton = document.querySelector("#LoginButton");
+    LoginButton.addEventListener("click", renderLoginPage);
+
     let list = document.querySelector("ul").querySelectorAll("li > img");
     console.log(list);
     for(let item of list) {
         item.addEventListener("click", Selectedprofilepic);
     }
-
-
-    let LoginButton = document.querySelector("#LoginButton");
-    LoginButton.addEventListener("click", renderLoginPage);
-
-    //Någonstans här måste jag hämta profilbilderna från databasen och lägga in dem i "profileOption"
-    //Sedan måste jag förmodligen skapa en funktion som gör så att när man klickar på en av "profileOption"
-    //Så läggs bilden till som andvändarens egna profilbild alltså i "SelectedProfile".
 
     let registerForm = document.querySelector("form");
     registerForm.addEventListener("submit", async function (event) {
@@ -92,27 +84,61 @@ async function renderRegisterPage() {
                 body: JSON.stringify(userData),
             });
 
-            const response = await fetch(request);
+            check_request(request, "register");
 
-            if(response.status === 200) {
-                feedback("Registration Complete. Please proceed to login.");
-                console.log("Registration succeeded");
-            } else {
-                let error = await response.json();
-                console.log(error.error);
-                feedback(error.message);
-            }
+            response = fetch(request);
+            user = response.json();
 
-            let data = await response.json();
+            localStorage.setItem("User", user);
 
-            localStorage.setItem("username", data.username);
-            localStorage.setItem("password", data.password);
-            localStorage.setItem("id", data.id);
-            localStorage.setItem("profilepicture", data.profilepicture);
+    });
 
-        }      
-    )
+}
 
+function renderLoginPage() {
+    main.innerHTML = `
+    <div id=LoginRegisterContainer> 
+    <button id=LoginButton>SIGN IN</button>
+    <button id=RegisterButton>JOIN</button>
+    </div>
+
+    <form>
+    <p class=InputHeader>Username</p>
+    <input type=text placeholder=Username id=username>
+    <p class=InputHeader>Password</p>
+    <input type=password placeholder=Password id=password>
+    <div id=submitButtonContainer>
+    <button id=submitButton type=submit>Join</button>
+    </div>
+    </form>
+    
+    `
+
+    let RegisterButton = document.querySelector("#RegisterButton");
+    RegisterButton.addEventListener("click", renderRegisterPage);
+
+
+    let registerForm = document.querySelector("form");
+    registerForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        let username = document.querySelector("#username").value;
+        let password = document.querySelector("#password").value;
+
+        let userData = {
+            username: username,
+            password: password,
+        };
+
+        const request = new Request ("api/register.php", {
+            method: "POST",
+            headers: {"Content-type": "application/json; charset=UTF-8"},
+            body: JSON.stringify(userData),
+        });
+
+        check_request(request, "login");
+
+    })
 }
 
 renderRegisterPage();
