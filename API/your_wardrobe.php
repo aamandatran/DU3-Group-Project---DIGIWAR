@@ -63,11 +63,27 @@ if(isset($_FILES["item"])) {
 }
 
 // Sends back every item to display on website
-if($requestMethod == "GET") {
+if($requestMethod == "POST") {
+    if(!isset($requestData["id"])) {
+        $message = ["message" => "Id of user was not sent..."];
+    }
+
+    // Filter items by user ID
+    function filterUsersItems($category) {
+        $usersItems = [];
+        foreach($category as $key => $value) {
+            if(in_array($requestData["id"], $value["id"])) {
+                $usersItems[] = $value;
+            }
+        }
+
+        return $usersItems;
+    }
+
     $wardrobe = [
-        "tops" => $tops,
-        "bottoms" => $bottoms,
-        "shoes" => $shoes
+        "tops" => filterUsersItems($tops),
+        "bottoms" => filterUsersItems($bottoms),
+        "shoes" => filterUsersItems($shoes)
     ];
 
     sendJSON($wardrobe, 200);
@@ -107,7 +123,6 @@ if($requestMethod == "DELETE") {
             sendJSON($message, 200);
         }
     }
-
 }
 
 ?>
