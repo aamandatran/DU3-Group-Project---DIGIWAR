@@ -52,5 +52,17 @@
         "username": "12344",
         "password": "12344",
         "profilepicture": "..\/MEDIA\/profilepictures\/memoji.png"
+    },
+    {
+        "id": 9,
+        "username": "akskdasd",
+        "password": "asd",
+        "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png"
+    },
+    {
+        "id": 10,
+        "username": "woooa",
+        "password": "www",
+        "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png"
     }
 ]
