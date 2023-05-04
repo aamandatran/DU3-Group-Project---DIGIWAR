@@ -70,7 +70,7 @@ function renderUploadItemPopUp() {
             // Filename that was sent when this function was called
             formData.append("file", filename);
             // Id of user
-            const id = localStorage.getItem("username");
+            const id = localStorage.getItem("id");
             formData.append("id", id);
             const request = new Request("API/your_wardrobe.php", {
                 method: "POST",
