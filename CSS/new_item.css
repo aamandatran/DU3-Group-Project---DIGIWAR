@@ -8,6 +8,15 @@
     justify-content: center;
 }
 
+div.cancel {
+    display: flex;
+    justify-content: flex-end;
+    width: 37vw;
+    font-size: 5vh;
+    height: 8vh;
+    align-items: center;
+}
+
 div#itemImage {
     width: 25vw;
     height: 55vh;
@@ -45,4 +54,11 @@ fieldset>button {
 
 #upload {
     gap: 1vh;
+}
+
+button#done {
+    border-radius: 20px;
+    padding: 1.5vh 5vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }

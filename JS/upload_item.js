@@ -3,6 +3,7 @@
 function renderUploadItemPopUp() {
     main.innerHTML = ` 
     <div class="popUp"> 
+        <div class="cancel">X</div>
         <h1>New item</h1>
             <fieldset id="categories">
                 <legend>Choose a category</legend>
@@ -12,6 +13,10 @@ function renderUploadItemPopUp() {
             </fieldset>
     </div>  
     `;
+
+    document.querySelector("div.cancel").addEventListener("click", function (event) {
+        main.innerHTML = "";
+    })
 
     // Event listener for each button to add item to the correct JSON file
     let topsButton = main.querySelector("#tops");
@@ -35,18 +40,26 @@ function renderUploadItemPopUp() {
     function showUploadPage(filename) {
         main.innerHTML = ` 
         <div class="popUp">
+            <div class="cancel">X</div>
             <h1>New item</h1>
             <div id="itemImage"></div>
             <form id="upload" action="API/your_wardrobe.php" method="POST">
                 <input type="file" name="item">
                 <button type="submit">Upload image</button>
             </form>
-            <div>
-                <p>Username</p>
-                <button id="done">DONE</button>
-            </div>
+            <button id="done">DONE</button>
         </div>
     `;
+
+        document.querySelector("div.cancel").addEventListener("click", function (event) {
+            main.innerHTML = "";
+        })
+
+        document.querySelector("button#done").addEventListener("click", function (event) {
+            main.innerHTML = "";
+        })
+
+
 
         const form = document.getElementById("upload");
         form.addEventListener("submit", function (event) {
