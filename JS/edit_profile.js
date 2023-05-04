@@ -4,12 +4,18 @@
 
 async function editProfile(event) {
 
+    let edit_profile_main = document.querySelector("main");
 
-    main.innerHTML = `
+    edit_profile_main.innerHTML = `
     <div id=editProfile>
     <h1 id=editHeader>EDIT PROFILE</h1>
     <h2 id=profileHeader>PROFILE PICTURE</h2>
 
+    <form>
+    <div>
+
+    </div>
+    </form>
 
 
     <form>
@@ -32,12 +38,12 @@ async function editProfile(event) {
 
         let oldPassword = document.querySelector("#oldPassword").value;
         let newPassword = document.querySelector("#newPassword").value;
-        //let userName = localStorage.getItem("userName");
+        let userName = localStorage.getItem("username");
 
         let userData = {
             oldPassword: oldPassword,
             newPassword: newPassword,
-            userName: "kajsa"
+            userName: userName
         };
 
         try {

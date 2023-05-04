@@ -25,7 +25,7 @@ $data=getFileContents("php://input");
 
 $oldPassword=$data["oldPassword"];
 $newPassword=$data["newPassword"];
-$profilePicture=$data["profilePicture"];
+//$profilePicture=$data["profilePicture"];
 $userName=$data["userName"];
 //Hämtar informationen från requesten. 
 
@@ -45,7 +45,7 @@ if ($newPassword==="" or $oldPassword==="") {
     ];
     sendJSON($error,400);
 }else{
-        if ($oldPassword===$newPassword) {
+        if ($oldPassword==$newPassword) {
             //Kollar så att det nya lösenordet inte är samma som det gamla.
            $error=[
             "message"=>"Your new password can NOT be the same as your old password"
@@ -53,10 +53,15 @@ if ($newPassword==="" or $oldPassword==="") {
            sendJSON($error,400);
         }
 }
+if ($oldPassword!==$user["password"]) {
+    $error=[
+        "message"=>"Incorrect old password!"
+    ];
+    sendJSON($error,401);
+}
 
 foreach ($users as $index=> $user) {
-  if ($userName===$user["username"]) {
-    if ($oldPassword===$user["password"]) {
+  if ($userName==$user["username"]) {
         
         //Här går vi igenom alla andvändares lösenord och hittar rätt andvändare med hjälp av det gamla lösenordet. 
         $users[$index]["password"]=$newPassword;
@@ -69,12 +74,7 @@ foreach ($users as $index=> $user) {
         ];
         sendJSON($response);
         break;
-    }else{
-        $error=[
-            "message"=>"Incorrect old password!"
-        ];
-        sendJSON($error,401);
-    }
+
   }
 }
 

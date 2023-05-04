@@ -30,12 +30,6 @@
         "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
     },
     {
-<<<<<<< HEAD
-        "username": "kajsa",
-        "password": "Test",
-        "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png",
-        "profilePicture": null
-=======
         "id": 6,
         "username": "abcdef",
         "password": "123",
@@ -106,6 +100,5 @@
         "username": "ulla",
         "password": "123",
         "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
->>>>>>> main
     }
 ]
