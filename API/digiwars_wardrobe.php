@@ -59,6 +59,7 @@ if($requestMethod == "PATCH") {
             $message = [
                 "message" => "The item has been successfully added to your wardrobe!",
                 "ok" => true
+            ];
             sendJSON($message, 200);
         }
     }
