@@ -25,6 +25,43 @@ if($requestMethod == "GET") {
     sendJSON($wardrobe, 200);
 }
 
+// Add a user Id to the array containing every Id who has access to the item from DIGIWARS wardrobe
+if($requestMethod == "PATCH") {
+    $path = $requestData["path"];
+    $JSONfile = $requestData["file"];
+    $id = $requestData["id"];
 
+    // Check which JSON file to iterate over and search for the item
+    if($JSONfile == "tops.json") {
+        $items =& $tops;
+    } elseif($JSONfile == "bottoms.json") {
+        $items =& $bottoms;
+    } elseif($JSONfile == "shoes.json") {
+        $items =& $shoes;
+    } else {
+        // If something went wrong, for example if no file was sent
+        $message = ["message" => "Something went wrong... please try again!"];
+        sendJSON($message, 409);
+    }
+
+    foreach($items as $key => $item) {
+        if($path == $item["path"]) {
+            // Adds the new Id to the array
+            $item["id"][] = $id;
+
+            // Updates the item in the array
+            $items[$key] = $item;
+
+            // Saves the updated array back to the file
+            saveToFile($JSONfile, $items);
+
+            // Sends a success response
+            $message = [
+                "message" => "The item has been successfully added to your wardrobe!",
+                "ok" => true
+            sendJSON($message, 200);
+        }
+    }
+}
 
 ?>
