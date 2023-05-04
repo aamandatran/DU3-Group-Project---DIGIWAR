@@ -68,22 +68,11 @@ if($requestMethod == "POST") {
         $message = ["message" => "Id of user was not sent..."];
     }
 
-    // Filter items by user ID
-    function filterUsersItems($category) {
-        $usersItems = [];
-        foreach($category as $key => $value) {
-            if(in_array($requestData["id"], $value["id"])) {
-                $usersItems[] = $value;
-            }
-        }
-
-        return $usersItems;
-    }
-
+    // Function filetItemsById is located in functions.php
     $wardrobe = [
-        "tops" => filterUsersItems($tops),
-        "bottoms" => filterUsersItems($bottoms),
-        "shoes" => filterUsersItems($shoes)
+        "tops" => filterItemsById($tops, $requestData["id"]),
+        "bottoms" => filterItemsById($bottoms, $requestData["id"]),
+        "shoes" => filterItemsById($shoes, $requestData["id"])
     ];
 
     sendJSON($wardrobe, 200);
