@@ -62,7 +62,7 @@ function renderUploadItemPopUp() {
 
 
         const form = document.getElementById("upload");
-        form.addEventListener("submit", function (event) {
+        form.addEventListener("submit", async function (event) {
             // Prevents deafault action of form
             event.preventDefault();
 
@@ -70,17 +70,14 @@ function renderUploadItemPopUp() {
             // Filename that was sent when this function was called
             formData.append("file", filename);
             // Get Id of user
-            let users = getUsers();
-            async function getUsers() {
-                let request = await fetch("api/users.php");
-                let users = await request.json();
-                return users;
-            }
+            let usersRequest = await fetch("api/users.php");
+            let users = await usersRequest.json();
 
             const username = localStorage.getItem("username");
             for (let user of users) {
                 if (user.username === username) {
                     let id = user.id;
+                    console.log(id);
                     formData.append("id", id);
                 }
             }
