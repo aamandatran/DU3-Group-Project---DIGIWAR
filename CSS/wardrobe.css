@@ -1,0 +1,62 @@
+#wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+div#top {
+    text-align: center;
+}
+
+nav>a:first-child,
+nav>a:nth-child(2) {
+    border-right: 1px solid black;
+    padding-right: 9vh;
+}
+
+nav {
+    display: flex;
+    gap: 10vh;
+    justify-content: center;
+    font-size: 3vh;
+}
+
+nav>a {
+    text-decoration: none;
+    color: black;
+}
+
+div#bottom {
+    display: flex;
+    gap: 2vh;
+    width: 100vw;
+    padding: 3vh;
+}
+
+div#filtering {
+    margin-left: 3vh;
+}
+
+div#wardrobeFeed {
+    width: 70vw;
+    border-top: 1px solid black;
+}
+
+div#wardrobeFeed>ul {
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    gap: 1vh;
+    grid-auto-rows: 300px;
+}
+
+.feedImages {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid grey;
+    margin-bottom: 2vh;
+}
+
+button#addClothes {
+    border-radius: 20px;
+    padding: 1.5vh 5vw;
+}

@@ -21,6 +21,7 @@ div#itemImage {
     width: 25vw;
     height: 55vh;
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     border: 1px solid grey;
     margin-bottom: 2vh;
