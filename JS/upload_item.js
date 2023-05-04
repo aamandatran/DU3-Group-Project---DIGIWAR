@@ -69,9 +69,22 @@ function renderUploadItemPopUp() {
             const formData = new FormData(form);
             // Filename that was sent when this function was called
             formData.append("file", filename);
-            // Id of user
-            const id = localStorage.getItem("id");
-            formData.append("id", id);
+            // Get Id of user
+            let users = getUsers();
+            async function getUsers() {
+                let request = await fetch("api/users.php");
+                let users = await request.json();
+                return users;
+            }
+
+            const username = localStorage.getItem("username");
+            for (let user of users) {
+                if (user.username === username) {
+                    let id = user.id;
+                    formData.append("id", id);
+                }
+            }
+
             const request = new Request("API/your_wardrobe.php", {
                 method: "POST",
                 body: formData
