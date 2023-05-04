@@ -82,14 +82,14 @@ async function renderGeneratorPage () {
                 let selectedBottom = bottoms[Math.floor(Math.random() * bottoms.length)];
                 let selectedShoe = shoes[Math.floor(Math.random() * shoes.length)];
               
-                document.getElementById("selectedTop").innerHTML = `<img src=${selectedTop}>`;
-                document.getElementById("selectedBottom").innerHTML = `<img src=${selectedBottom}>`;
-                document.getElementById("selectedShoe").innerHTML = `<img src=${selectedShoe}>`;
+                document.getElementById("selectedTop").innerHTML = `<img src=${selectedTop.path}>`;
+                document.getElementById("selectedBottom").innerHTML = `<img src=${selectedBottom.path}>`;
+                document.getElementById("selectedShoe").innerHTML = `<img src=${selectedShoe.path}>`;
 
             }
 
             let saveIt = document.querySelector("#saveIt");
-            saveIt.addEventListener("click", renderNewOutfitPopUp);
+           // saveIt.addEventListener("click", renderNewOutfitPopUp);
         }
     }
 
