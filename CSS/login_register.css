@@ -57,10 +57,16 @@ form {
 
 
 #SelectedProfile {
-    height: 100%;
-    width: 12vw;
+    height: 60px;
+    width: 60px;
     border: 1px solid gray;
     border-radius: 50%;
+}
+
+#SelectedProfile > img {
+    object-fit: contain;
+    width: 50px;
+    height: 50px;    
 }
 
 .profileOption {
@@ -68,4 +74,26 @@ form {
     width: 6vw;
     border: 1px solid gray;
     border-radius: 50%;
+}
+
+ul .profileOption {
+    background-color: pink;
+    height: 50px;
+    width: 50px;
+}
+
+ul {
+    display: flex;
+}
+
+li > img {
+    object-fit: contain;
+    width: 50px;
+    height: 50px;    
+}
+
+li {
+    height: 50px;
+    width: 50px;
+    list-style: none;
 }

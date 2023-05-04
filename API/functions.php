@@ -16,4 +16,15 @@ function getFileContents($filename) {
     return json_decode($json, true); 
 }
 
+function filterItemsById($category, $id) {
+    $items = [];
+    foreach($category as $key => $value) {
+        if(in_array($id, $value["id"])) {
+            $items[] = $value;
+        }
+    }
+
+    return $items;
+}
+
 ?>

@@ -33,7 +33,7 @@ if ($method == "POST") {
         sendJSON($error, 400);
     }
     
-    if($profilepicture == "") {
+    if(!$profilepicture) {
         $error = [
             "message" => "Profile picture not selected"
         ];

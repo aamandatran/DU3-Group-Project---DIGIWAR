@@ -6,7 +6,7 @@ function feedback(message) {
     document.querySelector("body").append(feedback);
 
     feedback.querySelector("button").addEventListener("click", () => {
-        feedback.classList.add("hide");
+        feedback.remove();
     });
 
 }

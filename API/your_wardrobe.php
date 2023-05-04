@@ -68,22 +68,11 @@ if($requestMethod == "POST") {
         $message = ["message" => "Id of user was not sent..."];
     }
 
-    // Filter items by user ID
-    function filterUsersItems($category) {
-        $usersItems = [];
-        foreach($category as $key => $value) {
-            if(in_array($requestData["id"], $value["id"])) {
-                $usersItems[] = $value;
-            }
-        }
-
-        return $usersItems;
-    }
-
+    // Function filetItemsById is located in functions.php
     $wardrobe = [
-        "tops" => filterUsersItems($tops),
-        "bottoms" => filterUsersItems($bottoms),
-        "shoes" => filterUsersItems($shoes)
+        "tops" => filterItemsById($tops, $requestData["id"]),
+        "bottoms" => filterItemsById($bottoms, $requestData["id"]),
+        "shoes" => filterItemsById($shoes, $requestData["id"])
     ];
 
     sendJSON($wardrobe, 200);
@@ -104,20 +93,20 @@ if($requestMethod == "DELETE") {
     } else {
         // If something went wrong, for example if no file was sent
         $message = ["message" => "Something went wrong... please try again!"];
-        sendJSON($message, 418);
+        sendJSON($message, 409);
     }
 
     foreach($items as $key => $item) {
         if($path == $item["path"]) {
-            // Remove the item from the array
+            // Removes the item from the array
             unset($items[$key]);
 
-            // Save the updated array back to the file
+            // Saves the updated array back to the file
             saveToFile($JSONfile, $items);
 
-            // Send a success response
+            // Sends a success response
             $message = [
-                "message" => "The item has been deleted successfully!",
+                "message" => "The item has been successfully deleted!",
                 "ok" => true
             ];
             sendJSON($message, 200);

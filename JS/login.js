@@ -43,10 +43,13 @@ function renderLoginPage() {
         const response = await fetch(request);
 
         if(response.status === 200) {
+        //Om förfrågan lyckades så loggas man in och local storage item "isLoggedIn" sparas. Denna kan man använda för att
+        //Kontrollera om den är true eller false att användaren är inloggad
             feedback("login succeeded");
             console.log("login succeeded");
             window.localStorage.setItem("isLoggedIn", true)
         } else {
+        //Om förfrågan misslyckades så skickas felmeddelande
             let error = await response.json();
             console.log(error.error);
             feedback(error.message);

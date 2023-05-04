@@ -4,5 +4,24 @@
         "id": [
             1
         ]
+    },
+    {
+        "path": "..\/MEDIA\/top2.jpg",
+        "id": [
+            0,
+            1
+        ]
+    },
+    {
+        "path": "..\/MEDIA\/top3.jpg",
+        "id": [
+            0
+        ]
+    },
+    {
+        "path": "..\/MEDIA\/top4.jpg",
+        "id": [
+            0
+        ]
     }
 ]

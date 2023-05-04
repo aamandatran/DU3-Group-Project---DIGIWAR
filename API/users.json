@@ -42,63 +42,15 @@
         "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png"
     },
     {
+        "id": 4,
+        "username": "kaj",
+        "password": "saa",
+        "profilepicture": "..\/MEDIA\/profilepictures\/unnamed.png"
+    },
+    {
         "id": 8,
-        "username": "Malin",
-        "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 9,
-        "username": "Kerstin",
-        "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 10,
-        "username": "Annabelle",
-        "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 11,
-        "username": "Linda",
-        "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 12,
-        "username": "Lolita",
-        "password": "111",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 13,
-        "username": "Mamma",
-        "password": "111",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 14,
-        "username": "pappa",
-        "password": "111",
-        "profilepicture": "..\/MEDIA\/profilepictures\/97057c70bc6dfcd8706a6dc4b2f811d2.png"
-    },
-    {
-        "id": 15,
-        "username": "Mud",
-        "password": "111",
-        "profilepicture": "..\/MEDIA\/profilepictures\/97057c70bc6dfcd8706a6dc4b2f811d2.png"
-    },
-    {
-        "id": 16,
-        "username": "bbb",
-        "password": "111",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 17,
-        "username": "ulla",
-        "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
+        "username": "12344",
+        "password": "12344",
+        "profilepicture": "..\/MEDIA\/profilepictures\/memoji.png"
     }
 ]

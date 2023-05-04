@@ -1,21 +1,28 @@
 "use strict"
 
-
-
 let main = document.querySelector("main");
 
 async function renderRegisterPage() {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     let response = await fetch("api/register.php");
 =======
+=======
+    //Hämtar profilbilderna
+>>>>>>> main
     let response = await fetch("api/profilepics.php");
 >>>>>>> main
     let profilepictures = await response.json();
 
+<<<<<<< HEAD
 
     function displayProfilePics(array) {
+=======
+    //Skapar profilbilderna
+    function displayProfilePics (array) {
+>>>>>>> main
         let html = "";
         for (let profilepic of profilepictures) {
             html += `
@@ -29,7 +36,12 @@ async function renderRegisterPage() {
 
     console.log(profilepictures);
 
+<<<<<<< HEAD
     function Selectedprofilepic(event) {
+=======
+    //Visar den valda profilbilden
+    function Selectedprofilepic (event) {
+>>>>>>> main
         console.log(event.target.attributes.src.nodeValue);
         let source = event.target.attributes.src.nodeValue;
         document.getElementById("SelectedProfile").innerHTML = `
@@ -67,14 +79,10 @@ async function renderRegisterPage() {
     for (let item of list) {
         item.addEventListener("click", Selectedprofilepic);
     }
-
+    //Ger varje profilbild ett event 
 
     let LoginButton = document.querySelector("#LoginButton");
     LoginButton.addEventListener("click", renderLoginPage);
-
-    //Någonstans här måste jag hämta profilbilderna från databasen och lägga in dem i "profileOption"
-    //Sedan måste jag förmodligen skapa en funktion som gör så att när man klickar på en av "profileOption"
-    //Så läggs bilden till som andvändarens egna profilbild alltså i "SelectedProfile".
 
     let registerForm = document.querySelector("form");
     registerForm.addEventListener("submit", async function (event) {
@@ -82,9 +90,11 @@ async function renderRegisterPage() {
 
         let username = document.querySelector("#username").value;
         let password = document.querySelector("#password").value;
-        let profilepicture = document.getElementById("selectedpicture").attributes.src.nodeValue;
-        console.log(document.getElementById("selectedpicture").attributes.src.nodeValue);
-
+        let selectedImage = document.querySelector("#SelectedProfile > img");
+        let profilepicture = selectedImage ? selectedImage.getAttribute("src") : "";
+        //Om en profilbild är vald så kommer sökvägen sparas
+        //Om en profilbild inte är vald så kommer en tom sträng att sparas. Eftersom annars hade det sparats "null" och sabbat koden
+    
         let userData = {
             username: username,
             password: password,
@@ -104,12 +114,14 @@ async function renderRegisterPage() {
                 console.log(data.message);
 =======
             if(response.status === 200) {
+            //Om förfrågan lyckades så skapas användaren
                 feedback("Registration Complete. Please proceed to login.");
                 console.log("Registration succeeded");
 >>>>>>> main
             } else {
+            //Om förfrågan misslyckades så skickas felmeddelande
                 let error = await response.json();
-                console.log(error.error);
+                console.log(error.message);
                 feedback(error.message);
             }
 <<<<<<< HEAD
@@ -125,6 +137,7 @@ async function renderRegisterPage() {
             localStorage.setItem("password", data.password);
             localStorage.setItem("id", data.id);
             localStorage.setItem("profilepicture", data.profilepicture);
+            //Här sätter vi all data i local storage så vi kan nå användaren överallt på sidan
 
         }      
     )
