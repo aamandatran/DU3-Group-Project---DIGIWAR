@@ -4,25 +4,17 @@ let main = document.querySelector("main");
 
 async function renderRegisterPage() {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-    let response = await fetch("api/register.php");
-=======
-=======
+
+
     //Hämtar profilbilderna
->>>>>>> main
+
     let response = await fetch("api/profilepics.php");
->>>>>>> main
+
     let profilepictures = await response.json();
 
-<<<<<<< HEAD
-
-    function displayProfilePics(array) {
-=======
     //Skapar profilbilderna
-    function displayProfilePics (array) {
->>>>>>> main
+    function displayProfilePics(array) {
         let html = "";
         for (let profilepic of profilepictures) {
             html += `
@@ -36,12 +28,8 @@ async function renderRegisterPage() {
 
     console.log(profilepictures);
 
-<<<<<<< HEAD
-    function Selectedprofilepic(event) {
-=======
     //Visar den valda profilbilden
-    function Selectedprofilepic (event) {
->>>>>>> main
+    function Selectedprofilepic(event) {
         console.log(event.target.attributes.src.nodeValue);
         let source = event.target.attributes.src.nodeValue;
         document.getElementById("SelectedProfile").innerHTML = `
@@ -94,52 +82,41 @@ async function renderRegisterPage() {
         let profilepicture = selectedImage ? selectedImage.getAttribute("src") : "";
         //Om en profilbild är vald så kommer sökvägen sparas
         //Om en profilbild inte är vald så kommer en tom sträng att sparas. Eftersom annars hade det sparats "null" och sabbat koden
-    
+
         let userData = {
             username: username,
             password: password,
             profilepicture: profilepicture
         };
 
-            const request = new Request ("api/register.php", {
-                method: "POST",
-                headers: {"Content-type": "application/json; charset=UTF-8"},
-                body: JSON.stringify(userData),
-            });
+        const request = new Request("api/register.php", {
+            method: "POST",
+            headers: { "Content-type": "application/json; charset=UTF-8" },
+            body: JSON.stringify(userData),
+        });
 
-            const response = await fetch(request);
+        const response = await fetch(request);
 
-<<<<<<< HEAD
-            if (!response.ok) {
-                console.log(data.message);
-=======
-            if(response.status === 200) {
+        if (response.status === 200) {
             //Om förfrågan lyckades så skapas användaren
-                feedback("Registration Complete. Please proceed to login.");
-                console.log("Registration succeeded");
->>>>>>> main
-            } else {
+            feedback("Registration Complete. Please proceed to login.");
+            console.log("Registration succeeded");
+        } else {
             //Om förfrågan misslyckades så skickas felmeddelande
-                let error = await response.json();
-                console.log(error.message);
-                feedback(error.message);
-            }
-<<<<<<< HEAD
-        } catch (err) {
-            console.log(err.message);
+            let error = await response.json();
+            console.log(error.message);
+            feedback(error.message);
         }
-=======
->>>>>>> main
 
-            let data = await response.json();
+        let data = await response.json();
 
-            localStorage.setItem("username", data.username);
-            localStorage.setItem("password", data.password);
-            localStorage.setItem("id", data.id);
-            localStorage.setItem("profilepicture", data.profilepicture);
-            //Här sätter vi all data i local storage så vi kan nå användaren överallt på sidan
+        localStorage.setItem("username", data.username);
+        localStorage.setItem("password", data.password);
+        localStorage.setItem("id", data.id);
+        localStorage.setItem("profilepicture", data.profilepicture);
+        //Här sätter vi all data i local storage så vi kan nå användaren överallt på sidan
 
-        }      
+    }
     )
 
 }

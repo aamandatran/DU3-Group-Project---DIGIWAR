@@ -2,7 +2,23 @@
 
 
 
-async function editProfile(event) {
+async function editProfile() {
+
+
+    let response = await fetch("API/profilepics.php");
+    let profilepictures = await response.json();
+
+    function displayProfilePics(array) {
+        let html = "";
+        for (let profilepic of profilepictures) {
+            html += `
+                    <li class=profileOption>
+                    <img src=${profilepic}>
+                    </li>
+                    `;
+        }
+        return html;
+    }
 
     let edit_profile_main = document.querySelector("main");
 
@@ -11,14 +27,15 @@ async function editProfile(event) {
     <h1 id=editHeader>EDIT PROFILE</h1>
     <h2 id=profileHeader>PROFILE PICTURE</h2>
 
-    <form>
-    <div>
-
+    <div id = SelectedProfile>
     </div>
-    </form>
+
+    <ul class = profileOptions>
+        ${displayProfilePics(profilepictures)}
+    </ul>
 
 
-    <form>
+    <form id=editProfileForm> 
     <p class=InputHeader>Old password</p>
     <input type=text placeholder=old id=oldPassword>
     <p class=InputHeader>New password</p>
@@ -31,8 +48,19 @@ async function editProfile(event) {
     </div>
 
     `
+    let profileOptions = document.querySelectorAll(".profileOption");
+    let selectedProfilePic;
 
-    let registerForm = document.querySelector("form");
+    for (let option of profileOptions) {
+        option.addEventListener("click", function (event) {
+            selectedProfilePic = event.target.src;
+            document.querySelector("#SelectedProfile").innerHTML = `
+            <img src=${event.target.src} class=selectedProfilePic>`
+        })
+
+    }
+
+    let registerForm = document.querySelector("#editProfileForm");
     registerForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
@@ -40,11 +68,14 @@ async function editProfile(event) {
         let newPassword = document.querySelector("#newPassword").value;
         let userName = localStorage.getItem("username");
 
+
         let userData = {
             oldPassword: oldPassword,
             newPassword: newPassword,
-            userName: userName
+            userName: userName,
+            profilePic: selectedProfilePic
         };
+
 
         try {
             let response = await fetch("api/edit_profile.php", {

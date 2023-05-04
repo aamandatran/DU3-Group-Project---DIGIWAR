@@ -25,20 +25,21 @@ $data=getFileContents("php://input");
 
 $oldPassword=$data["oldPassword"];
 $newPassword=$data["newPassword"];
-//$profilePicture=$data["profilePicture"];
+$selectedProfilePicture=$data["profilePic"];
 $userName=$data["userName"];
 //Hämtar informationen från requesten. 
 
 $users=getFileContents($filename);
 //Hämtar all information från json filen. 
 
-if ($newPassword==="" or $oldPassword==="") {
+
+if ($newPassword=="" or $oldPassword=="") {
     //Kollar så att fälten är ifyllda
     $error=[
         "message"=>"Empty values"
     ];
     sendJSON($error,400);
-}elseif (strlen($newPassword<3)) {
+}elseif (strlen($newPassword)<3) {
     //Kollar så att man inte skrivit i ett för kort lösenord. 
     $error=[
         "message"=>"New password needs to be atleast 3 characters"
@@ -53,33 +54,34 @@ if ($newPassword==="" or $oldPassword==="") {
            sendJSON($error,400);
         }
 }
-if ($oldPassword!==$user["password"]) {
-    $error=[
-        "message"=>"Incorrect old password!"
-    ];
-    sendJSON($error,401);
-}
+
 
 foreach ($users as $index=> $user) {
-  if ($userName==$user["username"]) {
-        
-        //Här går vi igenom alla andvändares lösenord och hittar rätt andvändare med hjälp av det gamla lösenordet. 
-        $users[$index]["password"]=$newPassword;
-        //När vi hittat rätt andvändare så bytar vi ut det nya mot det gamla. 
-        $users[$index]["profilepicture"]=$profilePicture;
-        //Vi bytar ut den selecterade profilbilden mot den gamla. 
-        $response=[
-            "newPassword"=>$newPassword,
-            "message"=>"Profile updated succesfully!"
-        ];
-        sendJSON($response);
-        break;
+    if ($userName==$user["username"]) {
+        if ($oldPassword==$user["password"]) {
+            //Här går vi igenom alla andvändares lösenord och hittar rätt andvändare med hjälp av det gamla lösenordet. 
+            $users[$index]["password"]=$newPassword;
+            //När vi hittat rätt andvändare så bytar vi ut det nya mot det gamla. 
+            $users[$index]["profilepicture"]=$selectedProfilePicture;
+            //Vi bytar ut den selecterade profilbilden mot den gamla. 
+            $response=[
+                "newPassword"=>$newPassword,
+                "message"=>"Profile updated succesfully!"
+            ];
+            saveToFile($filename,$users);
+            sendJSON($response);
+            break;
 
-  }
+    }else{
+        $error=[
+            "message"=>"Incorrect old password!"
+        ];
+        sendJSON($error,401);
+        }
+    }
 }
 
 
-saveToFile($filename,$users);
 
 
 ?>
