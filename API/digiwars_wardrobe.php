@@ -16,22 +16,12 @@ $requestData = json_decode($requestJSON, true);
 // Sends back every item to display on website
 if($requestMethod == "GET") {
     // Filter items by DIGIWARS ID which is 0
-    function filterItems($category) {
-        $items = [];
-        foreach($category as $key => $value) {
-            if(in_array(0, $value["id"])) {
-                $items[] = $value;
-            }
-        }
-
-        return $items;
-    }
-
     $wardrobe = [
-        "tops" => filterItems($tops),
-        "bottoms" => filterItems($bottoms),
-        "shoes" => filterItems($shoes)
+        "tops" => filterItems($tops, 0),
+        "bottoms" => filterItems($bottoms, 0),
+        "shoes" => filterItems($shoes, 0)
     ];
 
     sendJSON($wardrobe, 200);
 }
+
