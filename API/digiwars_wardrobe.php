@@ -17,11 +17,14 @@ $requestData = json_decode($requestJSON, true);
 if($requestMethod == "GET") {
     // Filter items by DIGIWARS ID which is 0
     $wardrobe = [
-        "tops" => filterItems($tops, 0),
-        "bottoms" => filterItems($bottoms, 0),
-        "shoes" => filterItems($shoes, 0)
+        "tops" => filterItemsById($tops, 0),
+        "bottoms" => filterItemsById($bottoms, 0),
+        "shoes" => filterItemsById($shoes, 0)
     ];
 
     sendJSON($wardrobe, 200);
 }
 
+
+
+?>
