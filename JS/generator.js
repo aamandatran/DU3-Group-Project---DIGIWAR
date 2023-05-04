@@ -8,7 +8,7 @@ async function renderGeneratorPage () {
                 <img>
             </div>
             <div></div>
-            <div></div>
+            <div id="selectedTop"></div>
             <div></div>
             <div id="arrow">
                 <img>
@@ -20,7 +20,7 @@ async function renderGeneratorPage () {
                 <img>
             </div>
             <div></div>
-            <div></div>
+            <div id="selectedBottom"></div>
             <div></div>
             <div id="arrow">
                 <img>
@@ -32,7 +32,7 @@ async function renderGeneratorPage () {
                 <img>
             </div>
             <div></div>
-            <div></div>
+            <div id="selectedShoe"></div>
             <div></div>
             <div id="arrow">
                 <img>
@@ -41,7 +41,7 @@ async function renderGeneratorPage () {
 
         <div class = "generateOrSave">
         <button>GENERATOR</button>
-        <p>Save it</p>
+        <p id="saveIt">Save it</p>
         </div>
     `;
 
@@ -65,13 +65,31 @@ async function renderGeneratorPage () {
             });
         
             const response = await fetch(post_request);
-            let clothes = await response.json();
+            let wardrobe = await response.json();
             console.log(response);
-            console.log(clothes);
+            console.log(wardrobe);
+
+            let tops = wardrobe.tops;
+            let bottoms = wardrobe.bottoms;
+            let shoes = wardrobe.shoes;
+
+            let generateButton = document.querySelector("button");
+            generateButton.addEventListener("click", generator);
         
-            function generator (type, array) {
-        
+            function generator (event) {
+
+                let selectedTop = tops[Math.floor(Math.random() * tops.length)];
+                let selectedBottom = bottoms[Math.floor(Math.random() * bottoms.length)];
+                let selectedShoe = shoes[Math.floor(Math.random() * shoes.length)];
+              
+                document.getElementById("selectedTop").innerHTML = `<img src=${selectedTop}>`;
+                document.getElementById("selectedBottom").innerHTML = `<img src=${selectedBottom}>`;
+                document.getElementById("selectedShoe").innerHTML = `<img src=${selectedShoe}>`;
+
             }
+
+            let saveIt = document.querySelector("#saveIt");
+            saveIt.addEventListener("click", renderNewOutfitPopUp);
         }
     }
 
