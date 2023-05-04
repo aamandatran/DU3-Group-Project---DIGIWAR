@@ -46,5 +46,11 @@
         "username": "kaj",
         "password": "saa",
         "profilepicture": "..\/MEDIA\/profilepictures\/unnamed.png"
+    },
+    {
+        "id": 8,
+        "username": "12344",
+        "password": "12344",
+        "profilepicture": "..\/MEDIA\/profilepictures\/memoji.png"
     }
 ]
