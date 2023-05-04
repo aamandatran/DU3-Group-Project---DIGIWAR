@@ -47,7 +47,10 @@ function renderLoginPage() {
         //Kontrollera om den är true eller false att användaren är inloggad
             feedback("login succeeded");
             console.log("login succeeded");
-            window.localStorage.setItem("isLoggedIn", true)
+            window.localStorage.setItem("isLoggedIn", true);
+            window.localStorage.setItem("username", username);
+            window.localStorage.setItem("password", password);
+            //Nu ska man bli skickad till startsidan alltså ens garderob
         } else {
         //Om förfrågan misslyckades så skickas felmeddelande
             let error = await response.json();
