@@ -93,20 +93,20 @@ if($requestMethod == "DELETE") {
     } else {
         // If something went wrong, for example if no file was sent
         $message = ["message" => "Something went wrong... please try again!"];
-        sendJSON($message, 418);
+        sendJSON($message, 409);
     }
 
     foreach($items as $key => $item) {
         if($path == $item["path"]) {
-            // Remove the item from the array
+            // Removes the item from the array
             unset($items[$key]);
 
-            // Save the updated array back to the file
+            // Saves the updated array back to the file
             saveToFile($JSONfile, $items);
 
-            // Send a success response
+            // Sends a success response
             $message = [
-                "message" => "The item has been deleted successfully!",
+                "message" => "The item has been successfully deleted!",
                 "ok" => true
             ];
             sendJSON($message, 200);
