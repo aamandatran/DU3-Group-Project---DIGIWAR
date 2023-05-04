@@ -55,12 +55,48 @@ function renderWardrobePage() {
                     div.classList.add("feedImages");
                     document.querySelector("div#wardrobeFeed > ul").append(div);
                 }
+
+                for (let item of digiwars_wardrobe.bottoms) {
+                    let div = document.createElement("div");
+                    div.style.backgroundImage = `url(${item.path})`;
+                    div.classList.add("feedImages");
+                    document.querySelector("div#wardrobeFeed > ul").append(div);
+                }
+
+                for (let item of digiwars_wardrobe.shoes) {
+                    let div = document.createElement("div");
+                    div.style.backgroundImage = `url(${item.path})`;
+                    div.classList.add("feedImages");
+                    document.querySelector("div#wardrobeFeed > ul").append(div);
+                }
             }
         }
     });
 
     const digiwars = document.getElementById("digiwars");
     digiwars.addEventListener("click", async function (event) {
+        let request = await fetch("API/digiwars_wardrobe.php");
+        let digiwars_wardrobe = await request.json();
+        for (let item of digiwars_wardrobe.tops) {
+            let div = document.createElement("div");
+            div.style.backgroundImage = `url(${item.path})`;
+            div.classList.add("feedImages");
+            document.querySelector("div#wardrobeFeed > ul").append(div);
+        }
+
+        for (let item of digiwars_wardrobe.bottoms) {
+            let div = document.createElement("div");
+            div.style.backgroundImage = `url(${item.path})`;
+            div.classList.add("feedImages");
+            document.querySelector("div#wardrobeFeed > ul").append(div);
+        }
+
+        for (let item of digiwars_wardrobe.shoes) {
+            let div = document.createElement("div");
+            div.style.backgroundImage = `url(${item.path})`;
+            div.classList.add("feedImages");
+            document.querySelector("div#wardrobeFeed > ul").append(div);
+        }
 
     });
 

@@ -14,7 +14,7 @@ function renderUploadItemPopUp() {
     </div>  
     `;
 
-    document.querySelector("div.cancel").addEventListener("click", function (event) {
+    document.querySelector(".cancel").addEventListener("click", function (event) {
         main.innerHTML = "";
     })
 

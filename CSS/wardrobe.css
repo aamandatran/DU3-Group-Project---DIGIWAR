@@ -43,8 +43,8 @@ div#wardrobeFeed {
 
 div#wardrobeFeed>ul {
     display: grid;
-    grid-template-columns: repeat(4, 200px);
-    gap: 1vh;
+    grid-template-columns: repeat(4, 220px);
+    gap: 2vh;
     grid-auto-rows: 300px;
 }
 
@@ -53,7 +53,6 @@ div#wardrobeFeed>ul {
     background-position: center;
     background-repeat: no-repeat;
     border: 1px solid grey;
-    margin-bottom: 2vh;
 }
 
 button#addClothes {
