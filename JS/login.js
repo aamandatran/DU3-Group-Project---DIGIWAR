@@ -50,6 +50,7 @@ function renderLoginPage() {
             window.localStorage.setItem("isLoggedIn", true);
             window.localStorage.setItem("username", username);
             window.localStorage.setItem("password", password);
+            renderWardrobePage();
             //Nu ska man bli skickad till startsidan alltså ens garderob
         } else {
         //Om förfrågan misslyckades så skickas felmeddelande
