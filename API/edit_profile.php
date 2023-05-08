@@ -29,6 +29,13 @@ $selectedProfilePicture=$data["profilePic"];
 $userName=$data["userName"];
 //Hämtar informationen från requesten. 
 
+if (!isset($selectedProfilePicture)) {
+    //Om man inte har valt en profilbild
+    $error=[
+        "message"=>"You have not chosen a profile picture!"
+    ];
+}
+
 $users=getFileContents($filename);
 //Hämtar all information från json filen. 
 

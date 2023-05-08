@@ -52,5 +52,11 @@
         "username": "12344",
         "password": "12344",
         "profilepicture": "..\/MEDIA\/profilepictures\/memoji.png"
+    },
+    {
+        "id": 9,
+        "username": "Wille123",
+        "password": "test123",
+        "profilepicture": "http:\/\/localhost:9999\/MEDIA\/profilepictures\/97057c70bc6dfcd8706a6dc4b2f811d2.png"
     }
 ]
