@@ -46,22 +46,36 @@ function renderLoginPage() {
 
         const response = await fetch(request);
 
+        let id, profilepicture;
+
         if(response.status === 200) {
-        //Om förfrågan lyckades så loggas man in och local storage item "isLoggedIn" sparas. Denna kan man använda för att
-        //Kontrollera om den är true eller false att användaren är inloggad
             feedback("login succeeded");
             console.log("login succeeded");
+
+            let response = await fetch("API/users.php");
+            let users = await response.json();
+            console.log(users);
+            
+            for(let user of users) {
+                if (user.username === username) {
+                    id = user.id;
+                    profilepicture = user.profilepicture;
+                    break;
+                }
+            }
+
+            window.localStorage.setItem("id", id);
+            window.localStorage.setItem("profilepicture", profilepicture);
             window.localStorage.setItem("isLoggedIn", true);
             window.localStorage.setItem("username", username);
             window.localStorage.setItem("password", password);
             renderWardrobePage();
-            //Nu ska man bli skickad till startsidan alltså ens garderob
+
         } else {
         //Om förfrågan misslyckades så skickas felmeddelande
             let error = await response.json();
             console.log(error.error);
             feedback(error.message);
         }
-
-    })
+    });
 }
