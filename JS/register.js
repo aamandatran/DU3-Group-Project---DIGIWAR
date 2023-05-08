@@ -41,28 +41,31 @@ async function renderRegisterPage() {
     }
 
     main.innerHTML = `
-    <div id = LoginRegisterContainer> 
-    <button id = LoginButton>SIGN IN</button>
-    <button id = RegisterButton>JOIN</button>
-    </div>
+    <div id = parent>
+        <div id = register>
+            <div id = LoginRegisterContainer> 
+                <button id = LoginButton>SIGN IN</button>
+                <button id = RegisterButton>JOIN</button>
+            </div>
 
-    <div id = SelectedProfile>
-    </div>
+            <div id = SelectedProfile>
+            </div>
 
-    <ul class = profileOptions>
-        ${displayProfilePics(profilepictures)}
-    </ul>
+            <ul class = profileOptions>
+                ${displayProfilePics(profilepictures)}
+            </ul>
 
-    <form>
-    <p class=InputHeader>Username</p>
-    <input type=text placeholder=username id=username>
-    <p class=InputHeader>Password</p>
-    <input type=password placeholder=password id=password>
-    <div id=submitButtonContainer>
-    <button id=submitButton type=submit>Join</button>
+            <form>
+                <p class=InputHeader>Username</p>
+                <input type=text placeholder=username id=username>
+                <p class=InputHeader>Password</p>
+                <input type=password placeholder=password id=password>
+                <div id=submitButtonContainer>
+                    <button id=submitButton type=submit>Join</button>
+                </div>
+            </form>
+        </div>
     </div>
-    </form>
-    
     `;
 
     let list = document.querySelector("ul").querySelectorAll("li > img");
