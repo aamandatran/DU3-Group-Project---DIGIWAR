@@ -1,0 +1,9 @@
+#login main {
+    width: 30%;
+    height: auto;
+    background-color: #accdea;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
