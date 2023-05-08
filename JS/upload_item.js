@@ -1,7 +1,9 @@
 "use strict";
 
 function renderUploadItemPopUp() {
-    main.innerHTML = ` 
+    const body = document.querySelector("body");
+
+    body.innerHTML = ` 
     <div class="popUp"> 
         <div class="cancel">X</div>
         <h1>New item</h1>
@@ -15,30 +17,30 @@ function renderUploadItemPopUp() {
     `;
 
     document.querySelector(".cancel").addEventListener("click", function (event) {
-        main.innerHTML = "";
+        body.innerHTML = "";
     })
 
     // Event listener for each button to add item to the correct JSON file
-    let topsButton = main.querySelector("#tops");
+    let topsButton = document.querySelector("#tops");
     topsButton.addEventListener("click", function (event) {
         showUploadPage("tops.json")
 
     });
 
-    let bottomsButton = main.querySelector("#bottoms");
+    let bottomsButton = document.querySelector("#bottoms");
     bottomsButton.addEventListener("click", function (event) {
         showUploadPage("bottoms.json")
 
     });
 
-    let shoesButton = main.querySelector("#shoes");
+    let shoesButton = document.querySelector("#shoes");
     shoesButton.addEventListener("click", function (event) {
         showUploadPage("shoes.json")
 
     });
 
     function showUploadPage(filename) {
-        main.innerHTML = ` 
+        body.innerHTML = ` 
         <div class="popUp">
             <div class="cancel">X</div>
             <h1>New item</h1>
@@ -52,11 +54,11 @@ function renderUploadItemPopUp() {
     `;
 
         document.querySelector("div.cancel").addEventListener("click", function (event) {
-            main.innerHTML = "";
+            body.innerHTML = "";
         })
 
         document.querySelector("button#done").addEventListener("click", function (event) {
-            main.innerHTML = "";
+            body.innerHTML = "";
         })
 
 
