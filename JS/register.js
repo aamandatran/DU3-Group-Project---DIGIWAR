@@ -4,9 +4,18 @@ let main = document.querySelector("main");
 
 async function renderRegisterPage() {
 
+<<<<<<< HEAD
 
 
 
+=======
+    window.localStorage.removeItem("isLoggedIn");
+    window.localStorage.removeItem("username");
+    window.localStorage.removeItem("password");
+    window.localStorage.removeItem("id");
+    window.localStorage.removeItem("profilepicture");
+    
+>>>>>>> main
     //Hämtar profilbilderna
 
     let response = await fetch("api/profilepics.php");

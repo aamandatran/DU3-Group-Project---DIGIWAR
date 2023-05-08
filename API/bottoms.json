@@ -1,14 +1,38 @@
 [
     {
-        "path": "..\/MEDIA\/bottoms1.jpg",
+        "path": "..\/MEDIA\/bottoms1.jpeg",
         "id": [
             0
         ]
     },
     {
-        "path": "..\/MEDIA\/bottoms2.jpg",
+        "path": "..\/MEDIA\/bottoms2.jpeg",
         "id": [
             0
+        ]
+    },
+    {
+        "path": "..\/MEDIA\/app006prodasd-fotor-bg-remover-2023050414736.png",
+        "id": [
+            0
+        ]
+    },
+    {
+        "path": "..\/MEDIA\/sadsasd-fotor-bg-remover-2023050414722.png",
+        "id": [
+            0
+        ]
+    },
+    {
+        "path": "..\/MEDIA\/app006prodasd-fotor-bg-remover-2023050414736.png",
+        "id": [
+            5
+        ]
+    },
+    {
+        "path": "..\/MEDIA\/sadsasd-fotor-bg-remover-2023050414722.png",
+        "id": [
+            5
         ]
     }
 ]

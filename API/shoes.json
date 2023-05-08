@@ -1,14 +1,38 @@
 [
     {
-        "path": "..\/MEDIA\/shoes1.jpg",
+        "path": "..\/MEDIA\/shoes1.webp",
         "id": [
             0
         ]
     },
     {
-        "path": "..\/MEDIA\/shoes2.jpg",
+        "path": "..\/MEDIA\/shoes2.wepb",
         "id": [
             0
+        ]
+    },
+    {
+        "path": "..\/MEDIA\/6bb615fd98314c9f82b5f36deee3bd63-fotor-bg-remover-2023050414654.png",
+        "id": [
+            0
+        ]
+    },
+    {
+        "path": "..\/MEDIA\/arket-man-sneakers-new-balance-997h-trainers-fotor-bg-remover-2023050414627.png",
+        "id": [
+            0
+        ]
+    },
+    {
+        "path": "..\/MEDIA\/arket-man-sneakers-new-balance-997h-trainers-fotor-bg-remover-2023050414627.png",
+        "id": [
+            5
+        ]
+    },
+    {
+        "path": "..\/MEDIA\/6bb615fd98314c9f82b5f36deee3bd63-fotor-bg-remover-2023050414654.png",
+        "id": [
+            5
         ]
     }
 ]
