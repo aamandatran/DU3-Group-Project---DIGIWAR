@@ -1,3 +1,30 @@
+#editProfileWrapper {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#editProfileWrapper>#SelectedProfile>.selectedProfilePic>img {
+    object-fit: contain;
+    width: 50px;
+    height: 50px;
+}
+
+#editProfileWrapper>#SelectedProfile {
+    height: 60px;
+    width: 60px;
+    border: 1px solid gray;
+    border-radius: 50%;
+}
+
+#editProfileWrapper>#SelectedProfile>img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
 #editProfile {
     width: 50vw;
     height: 60vh;
@@ -6,4 +33,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+
+
+#editprofilePicButton {
+    width: 30%;
+    height: 25px;
+}
+
+.profileOptionsContainer {
+    display: flex;
+    height: 50%;
+    border-radius: 50%;
+    list-style: none;
+}
+
+.editProfileOptions {
+    border-radius: 50%;
+    border: 1px solid gray;
+    background-color: steelblue;
+}
+
+.editProfileOptions>img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
 }
