@@ -1,0 +1,47 @@
+#generatorParent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+#generator {
+}
+
+#generatorGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.tops_generate {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.tops_generate div {
+    background-color: rgb(167, 198, 167);
+}
+
+.bottoms_generate {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.bottoms_generate div {
+    background-color: rgb(187, 205, 224);
+}
+
+.shoes_generate {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.shoes_generate div {
+    background-color: rgb(243, 235, 178);
+}
+
+#selectedTop img {
+    object-fit: contain;
+}

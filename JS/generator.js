@@ -3,46 +3,52 @@
 async function renderGeneratorPage () {
 
     main.innerHTML = `
-        <div class = "tops_generate">
-            <div id="arrow">
-                <img>
-            </div>
-            <div></div>
-            <div id="selectedTop"></div>
-            <div></div>
-            <div id="arrow">
-                <img>
-            </div>
-        </div>
+    <div id = generatorParent>
+        <div id = generator>
+            <div id = generatorGrid>
+                <div class = "tops_generate">
+                    <div id="arrow">
+                        <img>
+                    </div>
+                    <div></div>
+                    <div id="selectedTop"></div>
+                    <div></div>
+                    <div id="arrow">
+                        <img>
+                    </div>
+                </div>
 
-        <div class = "bottoms_generate">
-            <div id="arrow">
-                <img>
-            </div>
-            <div></div>
-            <div id="selectedBottom"></div>
-            <div></div>
-            <div id="arrow">
-                <img>
-            </div>
-        </div>
+                <div class = "bottoms_generate">
+                    <div id="arrow">
+                        <img>
+                    </div>
+                    <div></div>
+                    <div id="selectedBottom"></div>
+                    <div></div>
+                    <div id="arrow">
+                        <img>
+                    </div>
+                </div>
 
-        <div class = "shoes_generate">
-            <div id="arrow">
-                <img>
+                <div class = "shoes_generate">
+                    <div id="arrow">
+                        <img>
+                    </div>
+                    <div></div>
+                    <div id="selectedShoe"></div>
+                    <div></div>
+                    <div id="arrow">
+                        <img>
+                    </div>
+                </div>
             </div>
-            <div></div>
-            <div id="selectedShoe"></div>
-            <div></div>
-            <div id="arrow">
-                <img>
-            </div>
-        </div>
 
-        <div class = "generateOrSave">
-        <button>GENERATOR</button>
-        <p id="saveIt">Save it</p>
+            <div class = "generateOrSave">
+            <button>GENERATOR</button>
+            <p id="saveIt">Save it</p>
+            </div>
         </div>
+    </div>
     `;
 
     let username = window.localStorage.getItem("username");
