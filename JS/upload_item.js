@@ -1,7 +1,8 @@
 "use strict";
 
 function renderUploadItemPopUp() {
-    document.querySelector("#wardrobeParent").innerHTML += ` 
+    const wardrobeParent = document.querySelector("#wardrobeParent");
+    wardrobeParent.innerHTML += ` 
         <div id="uploadPopUp"> 
             <div class="cancel">X</div>
             <h1>New item</h1>
@@ -19,26 +20,28 @@ function renderUploadItemPopUp() {
     })
 
     // Event listener for each button to add item to the correct JSON file
-    let topsButton = document.querySelector("button#tops");
+    let topsButton = document.querySelector("#uploadPopUp #tops");
     topsButton.addEventListener("click", function (event) {
         showUploadPage("tops.json")
+        console.log("it works");
 
     });
 
-    let bottomsButton = document.querySelector("button#bottoms");
+    let bottomsButton = document.querySelector("#uploadPopUp #bottoms");
     bottomsButton.addEventListener("click", function (event) {
         showUploadPage("bottoms.json")
 
     });
 
-    let shoesButton = document.querySelector("button#shoes");
+    let shoesButton = document.querySelector("#uploadPopUp #shoes");
     shoesButton.addEventListener("click", function (event) {
         showUploadPage("shoes.json")
 
     });
 
     function showUploadPage(filename) {
-        document.getElementById("uploadPopUp").innerHTML = ` 
+        const uploadPopUp = document.querySelector("#uploadPopUp");
+        uploadPopUp.innerHTML = ` 
             <div class="cancel">X</div>
             <h1>New item</h1>
             <div id="itemImage"></div>
@@ -47,14 +50,18 @@ function renderUploadItemPopUp() {
                     <button type="submit">Upload image</button>
                 </form>
             <button id="done">DONE</button>
-    `;
+        `;
+
+        uploadPopUp.style.top = "5vh";
 
         document.querySelector("div.cancel").addEventListener("click", function (event) {
-            document.getElementById("uploadPopUp").innerHTML = "";
+            uploadPopUp.innerHTML = "";
+            uploadPopUp.style.top = "15vh";
         })
 
         document.querySelector("button#done").addEventListener("click", function (event) {
-            document.getElementById("uploadPopUp").innerHTML = "";
+            uploadPopUp.innerHTML = "";
+            uploadPopUp.style.top = "15vh";
         })
 
 
