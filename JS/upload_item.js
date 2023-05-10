@@ -1,64 +1,60 @@
 "use strict";
 
 function renderUploadItemPopUp() {
-    const body = document.querySelector("body");
-
-    body.innerHTML = ` 
-    <div class="popUp"> 
-        <div class="cancel">X</div>
-        <h1>New item</h1>
-            <fieldset id="categories">
-                <legend>Choose a category</legend>
-                <button id="tops">TOPS</button>
-                <button id="bottoms">BOTTOMS</button>
-                <button id="shoes">SHOES</button>
-            </fieldset>
-    </div>  
+    document.querySelector("#wardrobeParent").innerHTML += ` 
+        <div id="uploadPopUp"> 
+            <div class="cancel">X</div>
+            <h1>New item</h1>
+                <fieldset id="categories">
+                    <legend>Choose a category</legend>
+                    <button id="tops">TOPS</button>
+                    <button id="bottoms">BOTTOMS</button>
+                    <button id="shoes">SHOES</button>
+                </fieldset>
+        </div>  
     `;
 
     document.querySelector(".cancel").addEventListener("click", function (event) {
-        body.innerHTML = "";
+        document.getElementById("uploadPopUp").innerHTML = "";
     })
 
     // Event listener for each button to add item to the correct JSON file
-    let topsButton = document.querySelector("#tops");
+    let topsButton = document.querySelector("button#tops");
     topsButton.addEventListener("click", function (event) {
         showUploadPage("tops.json")
 
     });
 
-    let bottomsButton = document.querySelector("#bottoms");
+    let bottomsButton = document.querySelector("button#bottoms");
     bottomsButton.addEventListener("click", function (event) {
         showUploadPage("bottoms.json")
 
     });
 
-    let shoesButton = document.querySelector("#shoes");
+    let shoesButton = document.querySelector("button#shoes");
     shoesButton.addEventListener("click", function (event) {
         showUploadPage("shoes.json")
 
     });
 
     function showUploadPage(filename) {
-        body.innerHTML = ` 
-        <div class="popUp">
+        document.getElementById("uploadPopUp").innerHTML = ` 
             <div class="cancel">X</div>
             <h1>New item</h1>
             <div id="itemImage"></div>
-            <form id="upload" action="API/your_wardrobe.php" method="POST">
-                <input type="file" name="item">
-                <button type="submit">Upload image</button>
-            </form>
+                <form id="upload" action="API/your_wardrobe.php" method="POST">
+                    <input type="file" name="item">
+                    <button type="submit">Upload image</button>
+                </form>
             <button id="done">DONE</button>
-        </div>
     `;
 
         document.querySelector("div.cancel").addEventListener("click", function (event) {
-            body.innerHTML = "";
+            document.getElementById("uploadPopUp").innerHTML = "";
         })
 
         document.querySelector("button#done").addEventListener("click", function (event) {
-            body.innerHTML = "";
+            document.getElementById("uploadPopUp").innerHTML = "";
         })
 
 

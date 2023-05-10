@@ -6,7 +6,7 @@ function renderWardrobePage() {
             <div id="wardrobePage">
                 <div id="top">
                     <h1>Welcome to your wardrobe!</h1>
-                    <nav>
+                    <nav id="wardrobeNav">
                         <a id="yours" href="#">YOURS</a>
                         <a id="digiwars" href="#">DIGIWAR'S</a>
                         <a id="outfits" href="#">SAVED OUTFITS</a>
