@@ -14,7 +14,7 @@ async function editProfile() {
         let html = "";
         for (let profilepic of profilepictures) {
             html += `
-                    <li class=profileOption>
+                    <li class=editProfileOptions>
                     <img src=${profilepic}>
                     </li>
                     `;
@@ -25,6 +25,7 @@ async function editProfile() {
     let edit_profile_main = document.querySelector("main");
 
     edit_profile_main.innerHTML = `
+    <div id=editProfileWrapper>
     <div id=editProfile>
     <h1 id=editHeader>EDIT PROFILE</h1>
     <h2 id=profileHeader>PROFILE PICTURE</h2>
@@ -32,11 +33,15 @@ async function editProfile() {
     <div id = SelectedProfile>
     </div>
 
-
-    <ul class = profileOptions>
+    
+    <form id=editProfilePicForm>
+    <ul class = profileOptionsContainer>
         ${displayProfilePics(profilepictures)}
     </ul>
-
+    <button id=editprofilePicButton> 
+    Save
+    </button>
+    </form>
 
     <form id=editProfileForm> 
     <p class=InputHeader>Old password</p>
@@ -49,11 +54,11 @@ async function editProfile() {
     </form>
 
     </div>
-
+    </div>
     `
     //Displayar hela edit profile sidan och anropar samtidigt displayProfilePics i html. 
 
-    let profileOptions = document.querySelectorAll(".profileOption");
+    let profileOptions = document.querySelectorAll(".editProfileOptions");
     //Querieseleqtar till alla bilder för att kunna gå igenom dem och lägga till event listner på var och en här nere.
     let selectedProfilePic;
     //Variabeln "selectedProfilePic" skapar jag här för att sedan andvända i event functionen nedan där jag ger variabeln ett värde. 
@@ -69,8 +74,30 @@ async function editProfile() {
 
     }
 
-    let registerForm = document.querySelector("#editProfileForm");
-    registerForm.addEventListener("submit", async function (event) {
+    let editProfilePicForm = document.querySelector("#editProfilePicForm")
+    editProfilePicForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        let userData = {
+            profilePic: selectedProfilePic
+        }
+        try {
+            let response = await fetch("api/edit_profile_pic.php", {
+                method: "PATCH",
+                headers: { "Content-type": "application/json" },
+                body: JSON.stringify(userData)
+            })
+
+            console.log(response);
+            let data = await response.json();
+            console.log(data);
+        } catch (err) {
+            console.log(err.message)
+        }
+    })
+
+    let editProfileForm = document.querySelector("#editProfileForm");
+    editProfileForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
         let oldPassword = document.querySelector("#oldPassword").value;
@@ -83,7 +110,6 @@ async function editProfile() {
             oldPassword: oldPassword,
             newPassword: newPassword,
             userName: "Wille",
-            profilePic: selectedProfilePic
         };
 
 
