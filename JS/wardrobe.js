@@ -1,29 +1,31 @@
 "use strict";
 
 function renderWardrobePage() {
-    document.querySelector("body").innerHTML = `
-        <div id="wrapper">
-            <div id="top">
-                <h1>Welcome to your wardrobe!</h1>
-                <nav>
-                    <a id="yours" href="#">YOURS</a>
-                    <a id="digiwars" href="#">DIGIWAR'S</a>
-                    <a id="outfits" href="#">SAVED OUTFITS</a>
-                </nav>
-            </div>
-            <div id="bottom">
-                <div id="filtering">
-                    <fieldset id="categories">
-                        <legend>Choose a category</legend>
-                        <button id="tops">TOPS</button>
-                        <button id="bottoms">BOTTOMS</button>
-                        <button id="shoes">SHOES</button>
-                    </fieldset>
-                    <button id="addClothes">Add Clothes</button>
+    main.innerHTML = `
+        <div id="wardrobeParent"> 
+            <div id="wardrobePage">
+                <div id="top">
+                    <h1>Welcome to your wardrobe!</h1>
+                    <nav>
+                        <a id="yours" href="#">YOURS</a>
+                        <a id="digiwars" href="#">DIGIWAR'S</a>
+                        <a id="outfits" href="#">SAVED OUTFITS</a>
+                    </nav>
                 </div>
-                <div id="wardrobeFeed">
-                    <p></p>
-                    <ul></ul>
+                <div id="bottom">
+                    <div id="filtering">
+                        <fieldset id="categories">
+                            <legend>Choose a category</legend>
+                            <button id="tops">TOPS</button>
+                            <button id="bottoms">BOTTOMS</button>
+                            <button id="shoes">SHOES</button>
+                        </fieldset>
+                        <button id="addClothes">Add Clothes</button>
+                    </div>
+                    <div id="wardrobeFeed">
+                        <p></p>
+                        <ul></ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,7 +65,7 @@ function renderWardrobePage() {
         let request = await fetch("API/digiwars_wardrobe.php");
         let digiwars_wardrobe = await request.json();
         createItemDiv(digiwars_wardrobe, "all");
-        // filterByItem("digiwars_wardrobe");
+        filterByItem(digiwars_wardrobe);
     });
 
     // const outfits = document.getElementById("outfits");
@@ -74,27 +76,24 @@ function renderWardrobePage() {
     document.getElementById("addClothes").addEventListener("click", renderUploadItemPopUp);
 }
 
-function filterByItem(array) {
+function filterByItem(wardrobe) {
     document.getElementById("tops").addEventListener("click", async function (event) {
-        let request = await fetch(`API/${array}.php`);
-        let wardrobe = await request.json();
         createItemDiv(wardrobe, "tops");
+        console.log(wardrobe);
     });
     document.getElementById("bottoms").addEventListener("click", async function (event) {
-        let request = await fetch(`API/${array}.php`);
-        let wardrobe = await request.json();
         createItemDiv(wardrobe, "bottoms");
+        console.log(wardrobe);
     });
     document.getElementById("shoes").addEventListener("click", async function (event) {
-        let request = await fetch(`API/${array}.php`);
-        let wardrobe = await request.json();
         createItemDiv(wardrobe, "shoes");
+        console.log(wardrobe);
     });
 }
 
 function createItemDiv(array, item) {
     // Empty the feed
-    const wardrobeFeed = document.querySelector("div#wardrobeFeed > ul");
+    const wardrobeFeed = document.querySelector("#wardrobeFeed > ul");
     wardrobeFeed.innerHTML = "";
 
     if (item === "tops") {
