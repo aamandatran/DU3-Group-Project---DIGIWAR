@@ -1,7 +1,7 @@
-#editProfile {
-    width: 50vw;
-    height: 60vh;
-    background-color: beige;
+#register main {
+    width: 30%;
+    height: auto;
+    background-color: #accdea;
     border-radius: 20px;
     display: flex;
     flex-direction: column;

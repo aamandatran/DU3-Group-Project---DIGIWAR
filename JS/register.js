@@ -11,11 +11,13 @@ async function renderRegisterPage() {
     window.localStorage.removeItem("profilepicture");
     
     //Hämtar profilbilderna
+
     let response = await fetch("api/profilepics.php");
+
     let profilepictures = await response.json();
 
     //Skapar profilbilderna
-    function displayProfilePics (array) {
+    function displayProfilePics(array) {
         let html = "";
         for (let profilepic of profilepictures) {
             html += `
@@ -30,7 +32,7 @@ async function renderRegisterPage() {
     console.log(profilepictures);
 
     //Visar den valda profilbilden
-    function Selectedprofilepic (event) {
+    function Selectedprofilepic(event) {
         console.log(event.target.attributes.src.nodeValue);
         let source = event.target.attributes.src.nodeValue;
         document.getElementById("SelectedProfile").innerHTML = `
@@ -39,33 +41,36 @@ async function renderRegisterPage() {
     }
 
     main.innerHTML = `
-    <div id = LoginRegisterContainer> 
-    <button id = LoginButton>SIGN IN</button>
-    <button id = RegisterButton>JOIN</button>
-    </div>
+    <div id = parent>
+        <div id = register>
+            <div id = LoginRegisterContainer> 
+                <button id = LoginButton>SIGN IN</button>
+                <button id = RegisterButton>JOIN</button>
+            </div>
 
-    <div id = SelectedProfile>
-    </div>
+            <div id = SelectedProfile>
+            </div>
 
-    <ul class = profileOptions>
-        ${displayProfilePics(profilepictures)}
-    </ul>
+            <ul class = profileOptions>
+                ${displayProfilePics(profilepictures)}
+            </ul>
 
-    <form>
-    <p class=InputHeader>Username</p>
-    <input type=text placeholder=username id=username>
-    <p class=InputHeader>Password</p>
-    <input type=password placeholder=password id=password>
-    <div id=submitButtonContainer>
-    <button id=submitButton type=submit>Join</button>
+            <form>
+                <p class=InputHeader>Username</p>
+                <input type=text placeholder=username id=username>
+                <p class=InputHeader>Password</p>
+                <input type=password placeholder=password id=password>
+                <div id=submitButtonContainer>
+                    <button id=submitButton type=submit>Join</button>
+                </div>
+            </form>
+        </div>
     </div>
-    </form>
-    
     `;
 
     let list = document.querySelector("ul").querySelectorAll("li > img");
     console.log(list);
-    for(let item of list) {
+    for (let item of list) {
         item.addEventListener("click", Selectedprofilepic);
     }
     //Ger varje profilbild ett event 
@@ -83,41 +88,41 @@ async function renderRegisterPage() {
         let profilepicture = selectedImage ? selectedImage.getAttribute("src") : "";
         //Om en profilbild är vald så kommer sökvägen sparas
         //Om en profilbild inte är vald så kommer en tom sträng att sparas. Eftersom annars hade det sparats "null" och sabbat koden
-    
+
         let userData = {
             username: username,
             password: password,
             profilepicture: profilepicture
         };
 
-            const request = new Request ("api/register.php", {
-                method: "POST",
-                headers: {"Content-type": "application/json; charset=UTF-8"},
-                body: JSON.stringify(userData),
-            });
+        const request = new Request("api/register.php", {
+            method: "POST",
+            headers: { "Content-type": "application/json; charset=UTF-8" },
+            body: JSON.stringify(userData),
+        });
 
-            const response = await fetch(request);
+        const response = await fetch(request);
 
-            if(response.status === 200) {
+        if (response.status === 200) {
             //Om förfrågan lyckades så skapas användaren
-                feedback("Registration Complete. Please proceed to login.");
-                console.log("Registration succeeded");
-            } else {
+            feedback("Registration Complete. Please proceed to login.");
+            console.log("Registration succeeded");
+        } else {
             //Om förfrågan misslyckades så skickas felmeddelande
-                let error = await response.json();
-                console.log(error.message);
-                feedback(error.message);
-            }
+            let error = await response.json();
+            console.log(error.message);
+            feedback(error.message);
+        }
 
-            let data = await response.json();
+        let data = await response.json();
 
-            localStorage.setItem("username", data.username);
-            localStorage.setItem("password", data.password);
-            localStorage.setItem("id", data.id);
-            localStorage.setItem("profilepicture", data.profilepicture);
-            //Här sätter vi all data i local storage så vi kan nå användaren överallt på sidan
+        localStorage.setItem("username", data.username);
+        localStorage.setItem("password", data.password);
+        localStorage.setItem("id", data.id);
+        localStorage.setItem("profilepicture", data.profilepicture);
+        //Här sätter vi all data i local storage så vi kan nå användaren överallt på sidan
 
-        }      
+    }
     )
 
 }
