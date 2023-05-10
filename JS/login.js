@@ -38,9 +38,9 @@ function renderLoginPage() {
             password: password
         };
 
-        const request = new Request ("api/login.php", {
+        const request = new Request("api/login.php", {
             method: "POST",
-            headers: {"Content-type": "application/json; charset=UTF-8"},
+            headers: { "Content-type": "application/json; charset=UTF-8" },
             body: JSON.stringify(userData),
         });
 
@@ -48,15 +48,15 @@ function renderLoginPage() {
 
         let id, profilepicture;
 
-        if(response.status === 200) {
+        if (response.status === 200) {
             feedback("login succeeded");
             console.log("login succeeded");
 
             let response = await fetch("API/users.php");
             let users = await response.json();
             console.log(users);
-            
-            for(let user of users) {
+
+            for (let user of users) {
                 if (user.username === username) {
                     id = user.id;
                     profilepicture = user.profilepicture;
@@ -72,7 +72,7 @@ function renderLoginPage() {
             renderWardrobePage();
 
         } else {
-        //Om förfrågan misslyckades så skickas felmeddelande
+            //Om förfrågan misslyckades så skickas felmeddelande
             let error = await response.json();
             console.log(error.error);
             feedback(error.message);

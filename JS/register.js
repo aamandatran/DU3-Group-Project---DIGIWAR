@@ -41,7 +41,7 @@ async function renderRegisterPage() {
     }
 
     main.innerHTML = `
-    <div id = Registerparent>
+    <div id = registerParent>
         <div id = register>
             <div id = LoginRegisterContainer> 
                 <button id = LoginButton>SIGN IN</button>

@@ -1,4 +1,5 @@
-#parent {
+#registerParent,
+#loginParent {
     display: flex;
     justify-content: center;
     align-items: center;
