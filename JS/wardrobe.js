@@ -79,15 +79,12 @@ function renderWardrobePage() {
 function filterByItem(wardrobe) {
     document.getElementById("tops").addEventListener("click", async function (event) {
         createItemDiv(wardrobe, "tops");
-        console.log(wardrobe);
     });
     document.getElementById("bottoms").addEventListener("click", async function (event) {
         createItemDiv(wardrobe, "bottoms");
-        console.log(wardrobe);
     });
     document.getElementById("shoes").addEventListener("click", async function (event) {
         createItemDiv(wardrobe, "shoes");
-        console.log(wardrobe);
     });
 }
 
@@ -97,52 +94,73 @@ function createItemDiv(array, item) {
     wardrobeFeed.innerHTML = "";
 
     if (item === "tops") {
-        for (let item of array.tops) {
-            let div = document.createElement("div");
-            div.style.backgroundImage = `url(${item.path})`;
-            div.classList.add("feedImages");
-            wardrobeFeed.append(div);
+        if (array.tops.length === 0) {
+            document.querySelector("#wardrobeFeed > p").innerHTML = "There are no tops in your wardrobe...";
+        } else {
+            document.querySelector("#wardrobeFeed > p").innerHTML = "";
+            for (let item of array.tops) {
+                let div = document.createElement("div");
+                div.style.backgroundImage = `url(${item.path})`;
+                div.classList.add("feedImages");
+                wardrobeFeed.append(div);
+            }
         }
     }
 
     if (item === "bottoms") {
-        for (let item of array.bottoms) {
-            let div = document.createElement("div");
-            div.style.backgroundImage = `url(${item.path})`;
-            div.classList.add("feedImages");
-            wardrobeFeed.append(div);
+        if (array.bottoms.length === 0) {
+            document.querySelector("#wardrobeFeed > p").innerHTML = "There are no bottoms in your wardrobe...";
+        } else {
+            document.querySelector("#wardrobeFeed > p").innerHTML = "";
+            for (let item of array.bottoms) {
+                let div = document.createElement("div");
+                div.style.backgroundImage = `url(${item.path})`;
+                div.classList.add("feedImages");
+                wardrobeFeed.append(div);
+            }
         }
     }
 
     if (item === "shoes") {
-        for (let item of array.shoes) {
-            let div = document.createElement("div");
-            div.style.backgroundImage = `url(${item.path})`;
-            div.classList.add("feedImages");
-            wardrobeFeed.append(div);
+        if (array.shoes.length === 0) {
+            document.querySelector("#wardrobeFeed > p").innerHTML = "There are no shoes in your wardrobe...";
+        } else {
+            document.querySelector("#wardrobeFeed > p").innerHTML = "";
+            for (let item of array.shoes) {
+                let div = document.createElement("div");
+                div.style.backgroundImage = `url(${item.path})`;
+                div.classList.add("feedImages");
+                wardrobeFeed.append(div);
+            }
         }
     }
 
     if (item === "all") {
-        for (let item of array.tops) {
-            let div = document.createElement("div");
-            div.style.backgroundImage = `url(${item.path})`;
-            div.classList.add("feedImages");
-            wardrobeFeed.append(div);
-        }
+        if (array.tops.length === 0 && array.bottoms.length === 0 && array.shoes.length === 0) {
+            document.querySelector("#wardrobeFeed > p").innerHTML = "Your wardrobe is empty... Try adding your own clothes or select clothes from DIGIWARS Catalog!";
+        } else {
+            document.querySelector("#wardrobeFeed > p").innerHTML = "";
 
-        for (let item of array.bottoms) {
-            let div = document.createElement("div");
-            div.style.backgroundImage = `url(${item.path})`;
-            div.classList.add("feedImages");
-            wardrobeFeed.append(div);
-        }
+            for (let item of array.tops) {
+                let div = document.createElement("div");
+                div.style.backgroundImage = `url(${item.path})`;
+                div.classList.add("feedImages");
+                wardrobeFeed.append(div);
+            }
 
-        for (let item of array.shoes) {
-            let div = document.createElement("div");
-            div.style.backgroundImage = `url(${item.path})`;
-            div.classList.add("feedImages");
-            wardrobeFeed.append(div);
+            for (let item of array.bottoms) {
+                let div = document.createElement("div");
+                div.style.backgroundImage = `url(${item.path})`;
+                div.classList.add("feedImages");
+                wardrobeFeed.append(div);
+            }
+
+            for (let item of array.shoes) {
+                let div = document.createElement("div");
+                div.style.backgroundImage = `url(${item.path})`;
+                div.classList.add("feedImages");
+                wardrobeFeed.append(div);
+            }
         }
     }
 }
