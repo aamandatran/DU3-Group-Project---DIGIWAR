@@ -29,8 +29,10 @@ function renderWardrobePage() {
         </div>
     `;
 
+    getUserItems()
+
     const yours = document.getElementById("yours");
-    yours.addEventListener("click", async function (event) {
+    async function getUserItems() {
         let usersRequest = await fetch("api/users.php");
         let users = await usersRequest.json();
 
@@ -49,52 +51,58 @@ function renderWardrobePage() {
 
                 let your_wardrobe = await request.json();
                 createItemDiv(your_wardrobe, "all");
+                filterByItem(your_wardrobe);
             }
         };
+    };
 
-        const digiwars = document.getElementById("digiwars");
-        digiwars.addEventListener("click", async function (event) {
-            let request = await fetch("API/digiwars_wardrobe.php");
-            let digiwars_wardrobe = await request.json();
-            createItemDiv(digiwars_wardrobe, "all");
-        });
+    yours.addEventListener("click", getUserItems);
 
-        // const outfits = document.getElementById("outfits");
-        // outfits.addEventListener("click", async function (event) {
+    const digiwars = document.getElementById("digiwars");
+    digiwars.addEventListener("click", async function (event) {
+        let request = await fetch("API/digiwars_wardrobe.php");
+        let digiwars_wardrobe = await request.json();
+        createItemDiv(digiwars_wardrobe, "all");
+        // filterByItem("digiwars_wardrobe");
+    });
 
-        // });
+    // const outfits = document.getElementById("outfits");
+    // outfits.addEventListener("click", async function (event) {
 
-        document.getElementById("addClothes").addEventListener("click", renderUploadItemPopUp);
+    // });
 
-        document.getElementById("tops").addEventListener("click", async function (event) {
-            let request = await fetch("API/digiwars_wardrobe.php");
-            let digiwars_wardrobe = await request.json();
-            createItemDiv(digiwars_wardrobe, "tops");
-        });
-        document.getElementById("bottoms").addEventListener("click", async function (event) {
-            let request = await fetch("API/digiwars_wardrobe.php");
-            let digiwars_wardrobe = await request.json();
-            createItemDiv(digiwars_wardrobe, "bottoms");
-        });
-        document.getElementById("shoes").addEventListener("click", async function (event) {
-            let request = await fetch("API/digiwars_wardrobe.php");
-            let digiwars_wardrobe = await request.json();
-            createItemDiv(digiwars_wardrobe, "shoes");
-        });
+    document.getElementById("addClothes").addEventListener("click", renderUploadItemPopUp);
+}
 
+function filterByItem(array) {
+    document.getElementById("tops").addEventListener("click", async function (event) {
+        let request = await fetch(`API/${array}.php`);
+        let wardrobe = await request.json();
+        createItemDiv(wardrobe, "tops");
+    });
+    document.getElementById("bottoms").addEventListener("click", async function (event) {
+        let request = await fetch(`API/${array}.php`);
+        let wardrobe = await request.json();
+        createItemDiv(wardrobe, "bottoms");
+    });
+    document.getElementById("shoes").addEventListener("click", async function (event) {
+        let request = await fetch(`API/${array}.php`);
+        let wardrobe = await request.json();
+        createItemDiv(wardrobe, "shoes");
     });
 }
 
 function createItemDiv(array, item) {
     // Empty the feed
-    document.querySelector("div#wardrobeFeed > ul").innerHTML = "";
+    const wardrobeFeed = document.querySelector("div#wardrobeFeed > ul");
+    wardrobeFeed.innerHTML = "";
 
     if (item === "tops") {
         for (let item of array.tops) {
             let div = document.createElement("div");
             div.style.backgroundImage = `url(${item.path})`;
             div.classList.add("feedImages");
-            document.querySelector("div#wardrobeFeed > ul").append(div);
+            wardrobeFeed.append(div);
         }
     }
 
@@ -103,7 +111,7 @@ function createItemDiv(array, item) {
             let div = document.createElement("div");
             div.style.backgroundImage = `url(${item.path})`;
             div.classList.add("feedImages");
-            document.querySelector("div#wardrobeFeed > ul").append(div);
+            wardrobeFeed.append(div);
         }
     }
 
@@ -112,7 +120,7 @@ function createItemDiv(array, item) {
             let div = document.createElement("div");
             div.style.backgroundImage = `url(${item.path})`;
             div.classList.add("feedImages");
-            document.querySelector("div#wardrobeFeed > ul").append(div);
+            wardrobeFeed.append(div);
         }
     }
 
@@ -121,22 +129,21 @@ function createItemDiv(array, item) {
             let div = document.createElement("div");
             div.style.backgroundImage = `url(${item.path})`;
             div.classList.add("feedImages");
-            document.querySelector("div#wardrobeFeed > ul").append(div);
+            wardrobeFeed.append(div);
         }
 
         for (let item of array.bottoms) {
             let div = document.createElement("div");
             div.style.backgroundImage = `url(${item.path})`;
             div.classList.add("feedImages");
-            document.querySelector("div#wardrobeFeed > ul").append(div);
+            wardrobeFeed.append(div);
         }
 
         for (let item of array.shoes) {
             let div = document.createElement("div");
             div.style.backgroundImage = `url(${item.path})`;
             div.classList.add("feedImages");
-            document.querySelector("div#wardrobeFeed > ul").append(div);
+            wardrobeFeed.append(div);
         }
     }
-
 }

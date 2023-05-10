@@ -34,17 +34,17 @@ function renderLoginPage() {
             password: password
         };
 
-        const request = new Request ("api/login.php", {
+        const request = new Request("api/login.php", {
             method: "POST",
-            headers: {"Content-type": "application/json; charset=UTF-8"},
+            headers: { "Content-type": "application/json; charset=UTF-8" },
             body: JSON.stringify(userData),
         });
 
         const response = await fetch(request);
 
-        if(response.status === 200) {
-        //Om förfrågan lyckades så loggas man in och local storage item "isLoggedIn" sparas. Denna kan man använda för att
-        //Kontrollera om den är true eller false att användaren är inloggad
+        if (response.status === 200) {
+            //Om förfrågan lyckades så loggas man in och local storage item "isLoggedIn" sparas. Denna kan man använda för att
+            //Kontrollera om den är true eller false att användaren är inloggad
             feedback("login succeeded");
             console.log("login succeeded");
             window.localStorage.setItem("isLoggedIn", true);
@@ -52,7 +52,7 @@ function renderLoginPage() {
             window.localStorage.setItem("password", password);
             //Nu ska man bli skickad till startsidan alltså ens garderob
         } else {
-        //Om förfrågan misslyckades så skickas felmeddelande
+            //Om förfrågan misslyckades så skickas felmeddelande
             let error = await response.json();
             console.log(error.error);
             feedback(error.message);
