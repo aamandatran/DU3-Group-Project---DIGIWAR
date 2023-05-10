@@ -5,39 +5,41 @@ async function renderGeneratorPage () {
     main.innerHTML = `
     <div id = generatorParent>
         <div id = generator>
-            <div class = "tops_generate">
-                <div id="arrow">
-                    <img>
+            <div id = generatorGrid>
+                <div class = "tops_generate">
+                    <div id="arrow">
+                        <img>
+                    </div>
+                    <div></div>
+                    <div id="selectedTop"></div>
+                    <div></div>
+                    <div id="arrow">
+                        <img>
+                    </div>
                 </div>
-                <div></div>
-                <div id="selectedTop"></div>
-                <div></div>
-                <div id="arrow">
-                    <img>
-                </div>
-            </div>
 
-            <div class = "bottoms_generate">
-                <div id="arrow">
-                    <img>
+                <div class = "bottoms_generate">
+                    <div id="arrow">
+                        <img>
+                    </div>
+                    <div></div>
+                    <div id="selectedBottom"></div>
+                    <div></div>
+                    <div id="arrow">
+                        <img>
+                    </div>
                 </div>
-                <div></div>
-                <div id="selectedBottom"></div>
-                <div></div>
-                <div id="arrow">
-                    <img>
-                </div>
-            </div>
 
-            <div class = "shoes_generate">
-                <div id="arrow">
-                    <img>
-                </div>
-                <div></div>
-                <div id="selectedShoe"></div>
-                <div></div>
-                <div id="arrow">
-                    <img>
+                <div class = "shoes_generate">
+                    <div id="arrow">
+                        <img>
+                    </div>
+                    <div></div>
+                    <div id="selectedShoe"></div>
+                    <div></div>
+                    <div id="arrow">
+                        <img>
+                    </div>
                 </div>
             </div>
 
