@@ -2,7 +2,7 @@
 
 function renderLoginPage() {
     main.innerHTML = `
-    <div id = parent>
+    <div id = loginParent>
         <div id = login>
                 <div id=LoginRegisterContainer> 
                     <button id=LoginButton>SIGN IN</button>
