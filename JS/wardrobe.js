@@ -35,27 +35,19 @@ function renderWardrobePage() {
 
     const yours = document.getElementById("yours");
     async function getUserItems() {
-        let usersRequest = await fetch("api/users.php");
-        let users = await usersRequest.json();
+        let id = localStorage.getItem("id");
+        console.log(id);
 
-        const username = localStorage.getItem("username");
-        for (let user of users) {
-            if (user.username === username) {
-                let id = user.id;
-                console.log(id);
+        let request = await fetch("API/your_wardrobe.php", {
+            method: "POST",
+            body: JSON.stringify({
+                "id": id
+            })
+        });
 
-                let request = await fetch("API/your_wardrobe.php", {
-                    method: "POST",
-                    body: JSON.stringify({
-                        "id": id
-                    })
-                });
-
-                let your_wardrobe = await request.json();
-                createItemDiv(your_wardrobe, "all");
-                filterByItem(your_wardrobe);
-            }
-        };
+        let your_wardrobe = await request.json();
+        createItemDivs(your_wardrobe, "all", "yours");
+        filterByItem(your_wardrobe, "yours");
     };
 
     yours.addEventListener("click", getUserItems);
@@ -64,8 +56,8 @@ function renderWardrobePage() {
     digiwars.addEventListener("click", async function (event) {
         let request = await fetch("API/digiwars_wardrobe.php");
         let digiwars_wardrobe = await request.json();
-        createItemDiv(digiwars_wardrobe, "all");
-        filterByItem(digiwars_wardrobe);
+        createItemDivs(digiwars_wardrobe, "all", "digiwars");
+        filterByItem(digiwars_wardrobe, "digiwars");
     });
 
     // const outfits = document.getElementById("outfits");
@@ -76,19 +68,31 @@ function renderWardrobePage() {
     document.getElementById("addClothes").addEventListener("click", renderUploadItemPopUp);
 }
 
-function filterByItem(wardrobe) {
+function filterByItem(wardrobe, whose) {
     document.getElementById("tops").addEventListener("click", async function (event) {
-        createItemDiv(wardrobe, "tops");
+        if (whose === "digiwars") {
+            createItemDivs(wardrobe, "tops", "digiwars");
+        } else {
+            createItemDivs(wardrobe, "tops", "yours");
+        }
     });
     document.getElementById("bottoms").addEventListener("click", async function (event) {
-        createItemDiv(wardrobe, "bottoms");
+        if (whose === "digiwars") {
+            createItemDivs(wardrobe, "bottoms", "digiwars");
+        } else {
+            createItemDivs(wardrobe, "bottoms", "yours");
+        }
     });
     document.getElementById("shoes").addEventListener("click", async function (event) {
-        createItemDiv(wardrobe, "shoes");
+        if (whose === "digiwars") {
+            createItemDivs(wardrobe, "shoes", "digiwars");
+        } else {
+            createItemDivs(wardrobe, "shoes", "yours");
+        }
     });
 }
 
-function createItemDiv(array, item) {
+function createItemDivs(array, item, whose) {
     // Empty the feed
     const wardrobeFeed = document.querySelector("#wardrobeFeed > ul");
     wardrobeFeed.innerHTML = "";
@@ -103,6 +107,21 @@ function createItemDiv(array, item) {
                 div.style.backgroundImage = `url(${item.path})`;
                 div.classList.add("feedImages");
                 wardrobeFeed.append(div);
+                if (whose === "yours") {
+                    div.innerHTML = `
+                        <button class="delete itemButton">
+                            <img src="../MEDIA/trashcan.png">
+                        </button>
+                    `;
+                } else {
+                    div.innerHTML = `
+                        <button class="checkbox itemButton">
+                            <img src="../MEDIA/empty-checkbox.png">
+                        </button>
+                    `;
+                }
+
+                document.querySelector("button.itemButton").addEventListener("click", deleteOrAdd);
             }
         }
     }
@@ -117,9 +136,25 @@ function createItemDiv(array, item) {
                 div.style.backgroundImage = `url(${item.path})`;
                 div.classList.add("feedImages");
                 wardrobeFeed.append(div);
+                if (whose === "yours") {
+                    div.innerHTML = `
+                        <button class="delete itemButton">
+                            <img src="../MEDIA/trashcan.png">
+                        </button>
+                    `;
+                } else {
+                    div.innerHTML = `
+                        <button class="checkbox itemButton">
+                            <img src="../MEDIA/empty-checkbox.png">
+                        </button>
+                    `;
+                }
+
+                document.querySelector("button.itemButton").addEventListener("click", deleteOrAdd);
             }
         }
     }
+
 
     if (item === "shoes") {
         if (array.shoes.length === 0) {
@@ -131,6 +166,21 @@ function createItemDiv(array, item) {
                 div.style.backgroundImage = `url(${item.path})`;
                 div.classList.add("feedImages");
                 wardrobeFeed.append(div);
+                if (whose === "yours") {
+                    div.innerHTML = `
+                        <button class="delete itemButton">
+                            <img src="../MEDIA/trashcan.png">
+                        </button>
+                    `;
+                } else {
+                    div.innerHTML = `
+                        <button class="checkbox itemButton">
+                            <img src="../MEDIA/empty-checkbox.png">
+                        </button>
+                    `;
+                }
+
+                document.querySelector("button.itemButton").addEventListener("click", deleteOrAdd);
             }
         }
     }
@@ -146,6 +196,21 @@ function createItemDiv(array, item) {
                 div.style.backgroundImage = `url(${item.path})`;
                 div.classList.add("feedImages");
                 wardrobeFeed.append(div);
+                if (whose === "yours") {
+                    div.innerHTML = `
+                        <button class="delete itemButton">
+                            <img src="../MEDIA/trashcan.png">
+                        </button>
+                    `;
+                } else {
+                    div.innerHTML = `
+                        <button class="checkbox itemButton">
+                            <img src="../MEDIA/empty-checkbox.png">
+                        </button>
+                    `;
+                }
+
+                document.querySelector("button.itemButton").addEventListener("click", deleteOrAdd);
             }
 
             for (let item of array.bottoms) {
@@ -153,6 +218,21 @@ function createItemDiv(array, item) {
                 div.style.backgroundImage = `url(${item.path})`;
                 div.classList.add("feedImages");
                 wardrobeFeed.append(div);
+                if (whose === "yours") {
+                    div.innerHTML = `
+                        <button class="delete itemButton">
+                            <img src="../MEDIA/trashcan.png">
+                        </button>
+                    `;
+                } else {
+                    div.innerHTML = `
+                        <button class="checkbox itemButton">
+                            <img src="../MEDIA/empty-checkbox.png">
+                        </button>
+                    `;
+                }
+
+                document.querySelector("button.itemButton").addEventListener("click", deleteOrAdd);
             }
 
             for (let item of array.shoes) {
@@ -160,7 +240,26 @@ function createItemDiv(array, item) {
                 div.style.backgroundImage = `url(${item.path})`;
                 div.classList.add("feedImages");
                 wardrobeFeed.append(div);
+                if (whose === "yours") {
+                    div.innerHTML = `
+                        <button class="delete itemButton">
+                            <img src="../MEDIA/trashcan.png">
+                        </button>
+                    `;
+                } else {
+                    div.innerHTML = `
+                        <button class="checkbox itemButton">
+                            <img src="../MEDIA/empty-checkbox.png">
+                        </button>
+                    `;
+                }
+
+                document.querySelector("button.itemButton").addEventListener("click", deleteOrAdd);
             }
         }
     }
+}
+
+function deleteOrAdd(e) {
+    console.log(e);
 }

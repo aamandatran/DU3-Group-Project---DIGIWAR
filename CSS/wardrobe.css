@@ -63,3 +63,22 @@ button#addClothes {
     border-radius: 20px;
     padding: 1.5vh 5vw;
 }
+
+.itemButton {
+    border: none;
+    background-color: transparent;
+    padding: 5px;
+}
+
+.itemButton:hover {
+    cursor: pointer;
+}
+
+.itemButton:active {
+    cursor: pointer;
+    border: 0.5px solid grey;
+}
+
+.itemButton>img {
+    height: 25px;
+}
