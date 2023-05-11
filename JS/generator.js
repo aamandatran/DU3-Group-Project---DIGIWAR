@@ -38,8 +38,11 @@ async function renderGeneratorPage () {
             </div>
 
             <div class = "generateOrSave">
-            <button>GENERATOR</button>
-            <p id="saveIt">Save it</p>
+            <button id = generatorButton>GENERATOR</button>
+            <div id = saveIt>
+                <p>Save it</p>
+                <img src = ../MEDIA/heart.png>
+            </div>
             </div>
         </div>
     </div>

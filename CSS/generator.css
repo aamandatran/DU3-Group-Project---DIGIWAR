@@ -13,63 +13,104 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 150px 150px 150px;
-    gap: 25px;
+    gap: 15px;
 }
 
 .tops_generate {
     display: grid;
     grid-template-columns: auto 100px 100px 100px auto;
-    gap: 25px;
+    gap: 15px;
+    border-bottom: 2px solid black;
+    padding-bottom: 15px;
 }
 
-.tops_generate div {
-    background-color: rgb(167, 198, 167);
+.tops_generate > div {
+    background-color: rgb(229, 250, 229);
 }
 
 .bottoms_generate {
     display: grid;
     grid-template-columns: auto 100px 100px 100px auto;
-    gap: 25px;
+    gap: 15px;
+    border-bottom: 2px solid black;
+    padding-bottom: 15px;
 }
 
-.bottoms_generate div {
-    background-color: rgb(187, 205, 224);
+.bottoms_generate > div {
+    background-color: rgb(222, 234, 247);
 }
 
 .shoes_generate {
     display: grid;
     grid-template-columns: auto 100px 100px 100px auto;
-    gap: 25px;
+    gap: 15px;
+    border-bottom: 2px solid black;
+    padding-bottom: 15px;
 }
 
-.shoes_generate div {
-    background-color: rgb(243, 235, 178);
+.shoes_generate > div {
+    background-color: rgb(245, 241, 216);
 }
 
 #selectedTop > div{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 100px;
-    height: 150px;
+    width: 90%;
+    height: 90%;
 }
+
+#selectedTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(214, 246, 214);
+}
+
 #selectedBottom > div {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 100px;
-    height: 150px;
+    width: 90%;
+    height: 90%;
+}
+
+#selectedBottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(200, 220, 243);
 }
 
 #selectedShoe > div {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 100px;
-    height: 150px;
+    width: 90%;
+    height: 90%;
+}
+
+#selectedShoe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(248, 241, 200);
 }
 
 .arrow {
     height: 20px;
     width: 20px;
 }
+
+
+.generateOrSave {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#generatorButton {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    grid-column: 2;
+  }
