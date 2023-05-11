@@ -291,5 +291,5 @@ function deleteOrAdd(e) {
     //     }).catch(error => {
     //         console.log(error);
     //     });
-}
+    // }
 }
