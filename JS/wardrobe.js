@@ -203,15 +203,17 @@ function createItemDivs(array, item, whose) {
                             <img src="../MEDIA/trashcan.png">
                         </button>
                     `;
+                    document.querySelector("button.itemButton").addEventListener("click", deleteOrAdd);
                 } else {
                     div.innerHTML = `
                         <button class="checkbox itemButton tops.json">
                             <img src="../MEDIA/empty-checkbox.png">
                         </button>
                     `;
+                    document.querySelector("button.itemButton").addEventListener("click", deleteOrAdd);
                 }
 
-                document.querySelector("button.itemButton").addEventListener("click", deleteOrAdd);
+                // document.querySelector("button.itemButton").addEventListener("click", deleteOrAdd);
             }
 
             for (let item of array.bottoms) {
