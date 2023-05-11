@@ -109,13 +109,13 @@ function createItemDivs(array, item, whose) {
                 wardrobeFeed.append(div);
                 if (whose === "yours") {
                     div.innerHTML = `
-                        <button class="delete itemButton">
+                        <button class="delete itemButton tops.json">
                             <img src="../MEDIA/trashcan.png">
                         </button>
                     `;
                 } else {
                     div.innerHTML = `
-                        <button class="checkbox itemButton">
+                        <button class="checkbox itemButton tops.json">
                             <img src="../MEDIA/empty-checkbox.png">
                         </button>
                     `;
@@ -138,13 +138,13 @@ function createItemDivs(array, item, whose) {
                 wardrobeFeed.append(div);
                 if (whose === "yours") {
                     div.innerHTML = `
-                        <button class="delete itemButton">
+                        <button class="delete itemButton bottoms.json">
                             <img src="../MEDIA/trashcan.png">
                         </button>
                     `;
                 } else {
                     div.innerHTML = `
-                        <button class="checkbox itemButton">
+                        <button class="checkbox itemButton bottoms.json">
                             <img src="../MEDIA/empty-checkbox.png">
                         </button>
                     `;
@@ -168,13 +168,13 @@ function createItemDivs(array, item, whose) {
                 wardrobeFeed.append(div);
                 if (whose === "yours") {
                     div.innerHTML = `
-                        <button class="delete itemButton">
+                        <button class="delete itemButton shoes.json">
                             <img src="../MEDIA/trashcan.png">
                         </button>
                     `;
                 } else {
                     div.innerHTML = `
-                        <button class="checkbox itemButton">
+                        <button class="checkbox itemButton shoes.json">
                             <img src="../MEDIA/empty-checkbox.png">
                         </button>
                     `;
@@ -198,13 +198,13 @@ function createItemDivs(array, item, whose) {
                 wardrobeFeed.append(div);
                 if (whose === "yours") {
                     div.innerHTML = `
-                        <button class="delete itemButton">
+                        <button class="delete itemButton tops.json">
                             <img src="../MEDIA/trashcan.png">
                         </button>
                     `;
                 } else {
                     div.innerHTML = `
-                        <button class="checkbox itemButton">
+                        <button class="checkbox itemButton tops.json">
                             <img src="../MEDIA/empty-checkbox.png">
                         </button>
                     `;
@@ -220,13 +220,13 @@ function createItemDivs(array, item, whose) {
                 wardrobeFeed.append(div);
                 if (whose === "yours") {
                     div.innerHTML = `
-                        <button class="delete itemButton">
+                        <button class="delete itemButton bottoms.json">
                             <img src="../MEDIA/trashcan.png">
                         </button>
                     `;
                 } else {
                     div.innerHTML = `
-                        <button class="checkbox itemButton">
+                        <button class="checkbox itemButton bottoms.json">
                             <img src="../MEDIA/empty-checkbox.png">
                         </button>
                     `;
@@ -242,13 +242,13 @@ function createItemDivs(array, item, whose) {
                 wardrobeFeed.append(div);
                 if (whose === "yours") {
                     div.innerHTML = `
-                        <button class="delete itemButton">
+                        <button class="delete itemButton shoes.json">
                             <img src="../MEDIA/trashcan.png">
                         </button>
                     `;
                 } else {
                     div.innerHTML = `
-                        <button class="checkbox itemButton">
+                        <button class="checkbox itemButton shoes.json">
                             <img src="../MEDIA/empty-checkbox.png">
                         </button>
                     `;
@@ -263,33 +263,54 @@ function createItemDivs(array, item, whose) {
 function deleteOrAdd(e) {
     console.log(e);
     const id = localStorage.getItem("id");
-    console.log(e.target.parentNode.parentNode.attributes[0]);
-    console.log(e.target.parentElement.classList[0]);
+    const path = e.target.parentNode.parentNode.attributes[0].nodeValue;
+    const classlist = e.target.parentElement.classList[0];
+    const file = e.target.parentElement.classList[2];
 
-    // if(e.target.parentElement.classList[0] === "checkbox") {
-    // const request = new Request("API/digiwars_wardrobe.php", {
-    //     method: "PATCH",
-    //     body: JSON.stringify({
-    //         path: e.target.parentNode.parentNode.attributes[0],
-    //         id: id,
-    //         file:
-    //     })
-    // });
+    if (classlist === "checkbox") {
+        const request = new Request("API/digiwars_wardrobe.php", {
+            method: "PATCH",
+            body: JSON.stringify({
+                path: path,
+                id: id,
+                file: file
+            })
+        });
 
-    // fetch(request)
-    //     .then(response => response.json())
-    //     .then(data => {
+        fetch(request)
+            .then(response => response.json())
+            .then(data => {
+                if (!data.ok) {
+                    console.log(data.message);
+                } else {
+                    console.log(data.message);
+                }
+            }).catch(error => {
+                console.log(error);
+            });
+    }
 
-    //         // If data is ok, the uploaded file will be displayed on the website
-    //         if (!data.ok) {
-    //             console.log(data.message);
-    //         } else {
-    //             document.querySelector("#itemImage").style.backgroundImage = `url(${data.path})`;
-    //             console.log(data.message);
-    //             console.log(data.path);
-    //         }
-    //     }).catch(error => {
-    //         console.log(error);
-    //     });
-    // }
+    if (classlist === "delete") {
+        const request = new Request("API/your_wardrobe.php", {
+            method: "DELETE",
+            body: JSON.stringify({
+                path: path,
+                id: id,
+                file: file
+            })
+        });
+
+        fetch(request)
+            .then(response => response.json())
+            .then(data => {
+                if (!data.ok) {
+                    console.log(data.message);
+                } else {
+                    console.log(data.message);
+                    renderWardrobePage();
+                }
+            }).catch(error => {
+                console.log(error);
+            });
+    }
 }
