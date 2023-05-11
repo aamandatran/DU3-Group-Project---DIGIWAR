@@ -25,16 +25,8 @@ $data=getFileContents("php://input");
 
 $oldPassword=$data["oldPassword"];
 $newPassword=$data["newPassword"];
-$selectedProfilePicture=$data["profilePic"];
 $userName=$data["userName"];
 //Hämtar informationen från requesten. 
-
-if (!isset($selectedProfilePicture)) {
-    //Om man inte har valt en profilbild
-    $error=[
-        "message"=>"You have not chosen a profile picture!"
-    ];
-}
 
 $users=getFileContents($filename);
 //Hämtar all information från json filen. 
@@ -68,12 +60,10 @@ foreach ($users as $index=> $user) {
         if ($oldPassword==$user["password"]) {
             //Här går vi igenom alla andvändares lösenord och hittar rätt andvändare med hjälp av det gamla lösenordet. 
             $users[$index]["password"]=$newPassword;
-            //När vi hittat rätt andvändare så bytar vi ut det nya mot det gamla. 
-            $users[$index]["profilepicture"]=$selectedProfilePicture;
-            //Vi bytar ut den selecterade profilbilden mot den gamla. 
+            //När vi hittat rätt andvändare så bytar vi ut det nya mot det gamla.  
             $response=[
                 "newPassword"=>$newPassword,
-                "message"=>"Profile updated succesfully!"
+                "message"=>"Password updated succesfully!"
             ];
             saveToFile($filename,$users);
             sendJSON($response);

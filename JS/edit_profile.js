@@ -73,13 +73,16 @@ async function editProfile() {
         })
 
     }
+    let userName = localStorage.getItem("username");
+    //Hämtar username ifrån localstorage.
 
     let editProfilePicForm = document.querySelector("#editProfilePicForm")
     editProfilePicForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
         let userData = {
-            profilePic: selectedProfilePic
+            profilePic: selectedProfilePic,
+            userName: userName
         }
         try {
             let response = await fetch("api/edit_profile_pic.php", {
@@ -102,14 +105,12 @@ async function editProfile() {
 
         let oldPassword = document.querySelector("#oldPassword").value;
         let newPassword = document.querySelector("#newPassword").value;
-        let userName = localStorage.getItem("username");
-        //Hämtar username ifrån localstorage.
 
 
         let userData = {
             oldPassword: oldPassword,
             newPassword: newPassword,
-            userName: "Wille",
+            userName: userName,
         };
 
 
