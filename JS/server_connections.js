@@ -20,3 +20,8 @@ function log_out () {
 
     renderLoginPage();
 }
+
+function stay_loggedin() {
+    window.localStorage.setItem("isLoggedIn", true)
+    renderWardrobePage();
+}
