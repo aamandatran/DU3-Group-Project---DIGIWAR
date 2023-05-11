@@ -25,6 +25,8 @@ function display_header_menu() {
     </div>
     `
 
+    header.classList.add("headerMenu")
+
     let generatorButton = document.querySelector("#outfitGeneratorButton");
     generatorButton.addEventListener("click", function (event) {
         renderGeneratorPage()

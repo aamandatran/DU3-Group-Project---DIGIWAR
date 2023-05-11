@@ -1,4 +1,4 @@
-header {
+.headerMenu {
     margin: 0;
     background-color: beige;
     height: 10vh;
@@ -47,4 +47,9 @@ header {
 
 #menuProfilePic>img {
     width: 100%;
+}
+
+#menuContainer>button {
+    border-right: 1px solid black;
+    padding-right: 25px;
 }
