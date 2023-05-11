@@ -9,7 +9,7 @@ async function renderRegisterPage() {
     window.localStorage.removeItem("password");
     window.localStorage.removeItem("id");
     window.localStorage.removeItem("profilepicture");
-    
+
     //Hämtar profilbilderna
 
     let response = await fetch("api/profilepics.php");

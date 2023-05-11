@@ -1,6 +1,7 @@
 "use strict";
 
 function renderWardrobePage() {
+    display_header_menu()
     main.innerHTML = `
         <div id="wardrobeParent"> 
             <div id="wardrobePage">

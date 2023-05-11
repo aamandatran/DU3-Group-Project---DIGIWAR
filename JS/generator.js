@@ -1,7 +1,7 @@
 "use strict"
 
-async function renderGeneratorPage () {
-
+async function renderGeneratorPage() {
+    display_header_menu()
     main.innerHTML = `
     <div id = generatorParent>
         <div id = generator>
@@ -56,20 +56,20 @@ async function renderGeneratorPage () {
     let request = await fetch("api/users.php");
     let users = await request.json();
     console.log(users);
-    for(let user of users) {
-        if(user.username === username) {
+    for (let user of users) {
+        if (user.username === username) {
             let id = user.id;
             console.log(id);
             let userData = {
                 id: id
             };
-        
-            const post_request = new Request ("api/your_wardrobe.php", {
+
+            const post_request = new Request("api/your_wardrobe.php", {
                 method: "POST",
-                headers: {"Content-type": "application/json; charset=UTF-8"},
+                headers: { "Content-type": "application/json; charset=UTF-8" },
                 body: JSON.stringify(userData),
             });
-        
+
             const response = await fetch(post_request);
             let wardrobe = await response.json();
             console.log(response);
@@ -81,13 +81,13 @@ async function renderGeneratorPage () {
 
             let generateButton = document.querySelector("button");
             generateButton.addEventListener("click", generator);
-        
-            function generator (event) {
+
+            function generator(event) {
 
                 let selectedTop = tops[Math.floor(Math.random() * tops.length)];
                 let selectedBottom = bottoms[Math.floor(Math.random() * bottoms.length)];
                 let selectedShoe = shoes[Math.floor(Math.random() * shoes.length)];
-              
+
                 document.getElementById("selectedTop").innerHTML = `<img src=${selectedTop.path}>`;
                 document.getElementById("selectedBottom").innerHTML = `<img src=${selectedBottom.path}>`;
                 document.getElementById("selectedShoe").innerHTML = `<img src=${selectedShoe.path}>`;
@@ -95,7 +95,7 @@ async function renderGeneratorPage () {
             }
 
             let saveIt = document.querySelector("#saveIt");
-           // saveIt.addEventListener("click", renderNewOutfitPopUp);
+            // saveIt.addEventListener("click", renderNewOutfitPopUp);
         }
     }
 
