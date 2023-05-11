@@ -82,6 +82,7 @@ if($requestMethod == "POST") {
 if($requestMethod == "DELETE") {
     $path = $requestData["path"];
     $JSONfile = $requestData["file"];
+    $id = $requestData["id"];
 
     // Check which JSON file to iterate over and search for the item
     if($JSONfile == "tops.json") {
@@ -98,8 +99,17 @@ if($requestMethod == "DELETE") {
 
     foreach($items as $key => $item) {
         if($path == $item["path"]) {
-            // Removes the item from the array
-            unset($items[$key]);
+            // Check if Id array has more than one id
+            if(count($item["id"]) > 1){
+                foreach($item["id"] as $index => $idLoop) {
+                    if($idLoop == $id) {
+                        unset($item["id"][$index]);
+                    }
+                }
+            } else {
+                // Removes the item from the array
+                unset($items[$key]);
+            }
 
             // Saves the updated array back to the file
             saveToFile($JSONfile, $items);
