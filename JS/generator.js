@@ -7,39 +7,33 @@ async function renderGeneratorPage () {
         <div id = generator>
             <div id = generatorGrid>
                 <div class = "tops_generate">
-                    <div id="arrow">
-                        <img>
+                    <img class = arrow src = ../MEDIA/keyboard-arrow-left.png>
+                    <div></div>
+                    <div id="selectedTop">
+                        <div></div>
                     </div>
                     <div></div>
-                    <div id="selectedTop"></div>
-                    <div></div>
-                    <div id="arrow">
-                        <img>
-                    </div>
+                    <img class = arrow src = ../MEDIA/keyboard-arrow-right.png>
                 </div>
 
                 <div class = "bottoms_generate">
-                    <div id="arrow">
-                        <img>
+                    <img class = arrow src = ../MEDIA/keyboard-arrow-left.png>
+                    <div></div>
+                    <div id="selectedBottom">
+                        <div></div>
                     </div>
                     <div></div>
-                    <div id="selectedBottom"></div>
-                    <div></div>
-                    <div id="arrow">
-                        <img>
-                    </div>
+                    <img class = arrow src = ../MEDIA/keyboard-arrow-right.png>
                 </div>
 
                 <div class = "shoes_generate">
-                    <div id="arrow">
-                        <img>
+                    <img class = arrow src = ../MEDIA/keyboard-arrow-left.png>
+                    <div></div>
+                    <div id="selectedShoe">                        
+                        <div></div>
                     </div>
                     <div></div>
-                    <div id="selectedShoe"></div>
-                    <div></div>
-                    <div id="arrow">
-                        <img>
-                    </div>
+                    <img class = arrow src = ../MEDIA/keyboard-arrow-right.png>
                 </div>
             </div>
 
@@ -88,9 +82,9 @@ async function renderGeneratorPage () {
                 let selectedBottom = bottoms[Math.floor(Math.random() * bottoms.length)];
                 let selectedShoe = shoes[Math.floor(Math.random() * shoes.length)];
               
-                document.getElementById("selectedTop").innerHTML = `<img src=${selectedTop.path}>`;
-                document.getElementById("selectedBottom").innerHTML = `<img src=${selectedBottom.path}>`;
-                document.getElementById("selectedShoe").innerHTML = `<img src=${selectedShoe.path}>`;
+                document.querySelector("#selectedTop > div").style.backgroundImage = `url(${selectedTop.path})`
+                document.querySelector("#selectedBottom > div").style.backgroundImage = `url(${selectedBottom.path})`;
+                document.querySelector("#selectedShoe > div").style.backgroundImage = `url(${selectedShoe.path})`;
 
             }
 
