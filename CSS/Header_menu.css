@@ -1,0 +1,50 @@
+header {
+    margin: 0;
+    background-color: beige;
+    height: 10vh;
+    width: 100%;
+
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#menuContainer {
+    display: flex;
+    gap: 30px;
+}
+
+#userContainer {
+    display: flex;
+}
+
+.menuOptions {
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 15px;
+}
+
+#menuProfilePic {
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid black;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+#menuProfilePic>img {
+    width: 100%;
+}

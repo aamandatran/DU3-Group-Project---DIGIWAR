@@ -3,7 +3,7 @@
 
 
 async function editProfile() {
-
+    display_header_menu()
 
     let response = await fetch("API/profilepics.php");
     let profilepictures = await response.json();
