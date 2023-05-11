@@ -38,16 +38,12 @@ if($requestMethod == "PATCH") {
         $items =& $bottoms;
     } elseif($JSONfile == "shoes.json") {
         $items =& $shoes;
-    } else {
-        // If something went wrong, for example if no file was sent
-        $message = ["message" => "Something went wrong... please try again!"];
-        sendJSON($message, 409);
-    }
+    } 
 
     foreach($items as $key => $item) {
-        if($path == $item["path"]) {
+        if(str_contains($path, $item["path"])) {
             // Adds the new Id to the array
-            $item["id"][] = $id;
+            $item["id"][] = intval($id);
 
             // Updates the item in the array
             $items[$key] = $item;
@@ -63,6 +59,10 @@ if($requestMethod == "PATCH") {
             sendJSON($message, 200);
         }
     }
+
+    // If something went wrong, for example if no file was sent
+    $message = ["message" => "Something went wrong... please try again!"];
+    sendJSON($message, 409);
 }
 
 ?>

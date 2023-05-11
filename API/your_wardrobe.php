@@ -91,20 +91,18 @@ if($requestMethod == "DELETE") {
         $items =& $bottoms;
     } elseif($JSONfile == "shoes.json") {
         $items =& $shoes;
-    } else {
-        // If something went wrong, for example if no file was sent
-        $message = ["message" => "Something went wrong... please try again!"];
-        sendJSON($message, 409);
     }
 
     foreach($items as $key => $item) {
-        if($path == $item["path"]) {
+        if(str_contains($path, $item["path"])) {
             // Check if Id array has more than one id
             if(count($item["id"]) > 1){
-                foreach($item["id"] as $index => $idLoop) {
-                    if($idLoop == $id) {
-                        unset($item["id"][$index]);
-                    }
+                // Gets the index of the Id to remove
+                $index = array_search($id, $item["id"]);
+                if($index !== false) {
+                    // Removes the Id from the array
+                    unset($item["id"][$index]);
+                    $items[$key]["id"] = $item["id"];
                 }
             } else {
                 // Removes the item from the array
@@ -122,6 +120,10 @@ if($requestMethod == "DELETE") {
             sendJSON($message, 200);
         }
     }
+
+    // If something went wrong, for example if no file was sent
+    $message = ["message" => "Something went wrong... please try again!"];
+    sendJSON($message, 409);
 }
 
 ?>
