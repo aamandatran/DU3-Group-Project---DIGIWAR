@@ -262,4 +262,34 @@ function createItemDivs(array, item, whose) {
 
 function deleteOrAdd(e) {
     console.log(e);
+    const id = localStorage.getItem("id");
+    console.log(e.target.parentNode.parentNode.attributes[0]);
+    console.log(e.target.parentElement.classList[0]);
+
+    // if(e.target.parentElement.classList[0] === "checkbox") {
+    // const request = new Request("API/digiwars_wardrobe.php", {
+    //     method: "PATCH",
+    //     body: JSON.stringify({
+    //         path: e.target.parentNode.parentNode.attributes[0],
+    //         id: id,
+    //         file:
+    //     })
+    // });
+
+    // fetch(request)
+    //     .then(response => response.json())
+    //     .then(data => {
+
+    //         // If data is ok, the uploaded file will be displayed on the website
+    //         if (!data.ok) {
+    //             console.log(data.message);
+    //         } else {
+    //             document.querySelector("#itemImage").style.backgroundImage = `url(${data.path})`;
+    //             console.log(data.message);
+    //             console.log(data.path);
+    //         }
+    //     }).catch(error => {
+    //         console.log(error);
+    //     });
+}
 }
