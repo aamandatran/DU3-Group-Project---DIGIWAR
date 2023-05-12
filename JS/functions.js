@@ -1,7 +1,7 @@
 "use strict"
 
 function display_header_menu() {
-    let profilePic = localStorage.getItem("profilepicture");
+    let savedProfilePic = localStorage.getItem("profilepicture");
     let userName = localStorage.getItem("username");
 
     let header = document.querySelector("header");
@@ -19,7 +19,7 @@ function display_header_menu() {
     <div id=userContainer>
     <button class=menuOptions id=editProfileButton>${userName}</button>
     <div id=menuProfilePic>
-    <img src=${profilePic}>
+    <img src=${savedProfilePic}>
     </div>
     </div>
     </div>
@@ -41,6 +41,7 @@ function display_header_menu() {
     editProfileButton.addEventListener("click", function (event) {
         editProfile()
     })
+
 
 
 
