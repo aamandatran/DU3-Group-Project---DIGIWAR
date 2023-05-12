@@ -103,6 +103,8 @@
 }
 
 
+
+
 .generateOrSave {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -113,4 +115,20 @@
     display: flex;
     align-items: center;
     grid-column: 2;
-  }
+    margin: 10px;
+}
+
+#saveIt {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+    padding-left: 15px;
+}
+
+#saveIt p {
+    margin: 0;
+}
+
+#saveIt img {
+    height: 20px;
+}

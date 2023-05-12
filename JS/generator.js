@@ -7,46 +7,49 @@ async function renderGeneratorPage () {
         <div id = generator>
             <div id = generatorGrid>
                 <div class = "tops_generate">
-                    <img class = arrow src = ../MEDIA/keyboard-arrow-left.png>
+                    ${displayArrows("Top", "left")}
                     <div></div>
                     <div id="selectedTop">
                         <div></div>
                     </div>
                     <div></div>
-                    <img class = arrow src = ../MEDIA/keyboard-arrow-right.png>
-                </div>
+                    ${displayArrows("Top", "right")}
+                    </div>
 
                 <div class = "bottoms_generate">
-                    <img class = arrow src = ../MEDIA/keyboard-arrow-left.png>
+                    ${displayArrows("Bottom", "left")}
                     <div></div>
                     <div id="selectedBottom">
                         <div></div>
                     </div>
                     <div></div>
-                    <img class = arrow src = ../MEDIA/keyboard-arrow-right.png>
-                </div>
+                    ${displayArrows("Bottom", "right")}
+                    </div>
 
                 <div class = "shoes_generate">
-                    <img class = arrow src = ../MEDIA/keyboard-arrow-left.png>
-                    <div></div>
+                ${displayArrows("Shoe", "left")}
+                <div></div>
                     <div id="selectedShoe">                        
                         <div></div>
                     </div>
                     <div></div>
-                    <img class = arrow src = ../MEDIA/keyboard-arrow-right.png>
-                </div>
+                    ${displayArrows("Shoe", "right")}
+                    </div>
             </div>
 
             <div class = "generateOrSave">
             <button id = generatorButton>GENERATOR</button>
             <div id = saveIt>
-                <p>Save it</p>
                 <img src = ../MEDIA/heart.png>
+                <p>Save it!</p>
             </div>
             </div>
         </div>
     </div>
     `;
+
+
+    
 
     let username = window.localStorage.getItem("username");
 
@@ -60,7 +63,14 @@ async function renderGeneratorPage () {
             let userData = {
                 id: id
             };
-        
+            function displayArrows (item, direction) {
+        let html = "";
+            html = `
+            <img src=keyboard-arrow-${direction} class = arrow arrow${item}>
+            `;        
+        html.addEventListener("click", generateItem);
+        return html;
+    }
             const post_request = new Request ("api/your_wardrobe.php", {
                 method: "POST",
                 headers: {"Content-type": "application/json; charset=UTF-8"},
@@ -89,6 +99,14 @@ async function renderGeneratorPage () {
                 document.querySelector("#selectedBottom > div").style.backgroundImage = `url(${selectedBottom.path})`;
                 document.querySelector("#selectedShoe > div").style.backgroundImage = `url(${selectedShoe.path})`;
 
+            }
+
+            let arrowButton = document.querySelectorAll(".arrow");
+            arrowButton.addEventListener("click", generateItem);
+
+            function generateItem (event) {
+
+                console.log(event.value);
             }
 
             let saveIt = document.querySelector("#saveIt");
