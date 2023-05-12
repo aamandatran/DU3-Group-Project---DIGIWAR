@@ -177,7 +177,6 @@ function renderWardrobePage() {
 
         function createDivs(item, file) {
             let div = document.createElement("div");
-            console.log(item);
             div.style.backgroundImage = `url(${item.path})`;
             div.classList.add("feedImages");
             wardrobeFeed.append(div);
@@ -228,6 +227,7 @@ function renderWardrobePage() {
                             console.log(data.message);
                         } else {
                             console.log(data.message);
+                            e.target.setAttribute("src", "../MEDIA/checkbox-selected.png");
                         }
                     }).catch(error => {
                         console.log(error);
