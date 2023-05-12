@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     margin: 0;
-    height: 100vh;
+    height: 90vh;
     width: 100vw;
 }
 #generator {
@@ -12,13 +12,13 @@
 #generatorGrid {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 150px 150px 150px;
+    grid-template-rows: 170px 170px 170px;
     gap: 15px;
 }
 
 .tops_generate {
     display: grid;
-    grid-template-columns: auto 100px 100px 100px auto;
+    grid-template-columns: auto 100px 120px 100px auto;
     gap: 15px;
     border-bottom: 2px solid black;
     padding-bottom: 15px;
@@ -30,7 +30,7 @@
 
 .bottoms_generate {
     display: grid;
-    grid-template-columns: auto 100px 100px 100px auto;
+    grid-template-columns: auto 100px 120px 100px auto;
     gap: 15px;
     border-bottom: 2px solid black;
     padding-bottom: 15px;
@@ -42,7 +42,7 @@
 
 .shoes_generate {
     display: grid;
-    grid-template-columns: auto 100px 100px 100px auto;
+    grid-template-columns: auto 100px 120px 100px auto;
     gap: 15px;
     border-bottom: 2px solid black;
     padding-bottom: 15px;
@@ -102,6 +102,11 @@
     width: 20px;
 }
 
+.arrowButton {
+        background: transparent;
+        border: none !important;
+        cursor: pointer;
+}
 
 
 
@@ -116,12 +121,19 @@
     align-items: center;
     grid-column: 2;
     margin: 10px;
+    border-radius: 20px;
+    color: white;
+    border: 2px solid black; 
+    font-weight: bold; 
+    background-color: rgb(195, 192, 192);
+    padding: 10px 20px; 
+    font-size: 14px;
 }
 
 #saveIt {
     display: flex;
     gap: 5px;
-    margin-top: 10px;
+    margin-top: 20px;
     padding-left: 15px;
 }
 
