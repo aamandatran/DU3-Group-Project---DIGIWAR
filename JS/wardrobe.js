@@ -37,6 +37,8 @@ function renderWardrobePage() {
     // Fetch users wardrobe by Id
     const yours = document.getElementById("yours");
     async function getUserItems() {
+        document.querySelector("#filtering button#addClothes").style.display = "";
+
         let id = localStorage.getItem("id");
         console.log(id);
 
@@ -55,9 +57,11 @@ function renderWardrobePage() {
 
     yours.addEventListener("click", getUserItems);
 
-    // GET-request to displays the clothing items for DIGIWAR
+    // GET-request to displays the clothing items from DIGIWAR
     const digiwars = document.getElementById("digiwars");
     digiwars.addEventListener("click", async function (event) {
+        document.querySelector("#filtering button#addClothes").style.display = "none";
+
         let request = await fetch("API/digiwars_wardrobe.php");
         let digiwars_wardrobe = await request.json();
         createItemDivs(digiwars_wardrobe, "all", "digiwars")
