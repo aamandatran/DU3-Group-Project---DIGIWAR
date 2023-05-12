@@ -79,6 +79,21 @@ async function renderGeneratorPage() {
         });
     }
 
+    const generatorParent = document.querySelector("#generatorParent");
+    generatorParent.innerHTML += ` 
+    <div id="popupWindow" class="popup">
+    <div id="popupContent">
+      <!-- Placeholder for selected items -->
+      <div id="popupSelectedItems">
+        <div id="popupSelectedTop"></div>
+        <div id="popupSelectedBottom"></div>
+        <div id="popupSelectedShoe"></div>
+      </div>
+      <button id="closePopupButton">Close</button>
+    </div>
+  </div>
+  `;
+
 
     let username = window.localStorage.getItem("username");
 
@@ -177,14 +192,14 @@ async function renderGeneratorPage() {
             document.querySelector("#selectedTop > div").style.backgroundImage = `url(${selectedTop.path})`;
             document.querySelector("#selectedBottom > div").style.backgroundImage = `url(${selectedBottom.path})`;
             document.querySelector("#selectedShoe > div").style.backgroundImage = `url(${selectedShoe.path})`;
+
+            document.getElementById('popupSelectedTop').style.backgroundImage = `url(${selectedTop.path})`;
+            document.getElementById('popupSelectedBottom').style.backgroundImage = `url(${selectedBottom.path})`;
+            document.getElementById('popupSelectedShoe').style.backgroundImage = `url(${selectedShoe.path})`;
         }
 
             
 
-            let saveIt = document.querySelector("#saveIt");
-            // saveIt.addEventListener("click", renderNewOutfitPopUp);
-        }
-    //}
-
-
-//}
+        let saveIt = document.querySelector("#saveIt");
+        saveIt.addEventListener("click", openPopup);
+}
