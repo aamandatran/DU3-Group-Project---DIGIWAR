@@ -80,6 +80,8 @@ async function editProfile() {
     editProfilePicForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
+        window.localStorage.setItem("profilepicture", selectedProfilePic)
+
         let userData = {
             profilePic: selectedProfilePic,
             userName: userName
@@ -94,6 +96,9 @@ async function editProfile() {
             console.log(response);
             let data = await response.json();
             console.log(data);
+
+            display_header_menu()
+
         } catch (err) {
             console.log(err.message)
         }
