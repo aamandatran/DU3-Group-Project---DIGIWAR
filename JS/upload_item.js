@@ -17,6 +17,7 @@ function renderUploadItemPopUp() {
 
     document.querySelector(".cancel").addEventListener("click", function (event) {
         document.getElementById("uploadPopUp").innerHTML = "";
+        renderWardrobePage()
     })
 
     // Event listener for each button to add item to the correct JSON file
@@ -57,11 +58,13 @@ function renderUploadItemPopUp() {
         document.querySelector("div.cancel").addEventListener("click", function (event) {
             uploadPopUp.innerHTML = "";
             uploadPopUp.style.top = "15vh";
+            renderWardrobePage()
         })
 
         document.querySelector("button#done").addEventListener("click", function (event) {
             uploadPopUp.innerHTML = "";
             uploadPopUp.style.top = "15vh";
+            renderWardrobePage()
         })
 
 

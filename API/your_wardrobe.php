@@ -105,8 +105,9 @@ if($requestMethod == "DELETE") {
                     $items[$key]["id"] = $item["id"];
                 }
             } else {
-                // Removes the item from the array
+                // Removes the item from the array and MEDIA directory
                 unset($items[$key]);
+                unlink("../MEDIA/" . $item["path"]);
             }
 
             // Saves the updated array back to the file
