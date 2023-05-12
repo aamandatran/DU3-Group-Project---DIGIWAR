@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     margin: 0;
-    height: 100vh;
+    height: 90vh;
     width: 100vw;
 }
 #generator {
@@ -12,64 +12,135 @@
 #generatorGrid {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 150px 150px 150px;
-    gap: 25px;
+    grid-template-rows: 170px 170px 170px;
+    gap: 15px;
 }
 
 .tops_generate {
     display: grid;
-    grid-template-columns: auto 100px 100px 100px auto;
-    gap: 25px;
+    grid-template-columns: auto 100px 120px 100px auto;
+    gap: 15px;
+    border-bottom: 2px solid black;
+    padding-bottom: 15px;
 }
 
-.tops_generate div {
-    background-color: rgb(167, 198, 167);
+.tops_generate > div {
+    background-color: rgb(229, 250, 229);
 }
 
 .bottoms_generate {
     display: grid;
-    grid-template-columns: auto 100px 100px 100px auto;
-    gap: 25px;
+    grid-template-columns: auto 100px 120px 100px auto;
+    gap: 15px;
+    border-bottom: 2px solid black;
+    padding-bottom: 15px;
 }
 
-.bottoms_generate div {
-    background-color: rgb(187, 205, 224);
+.bottoms_generate > div {
+    background-color: rgb(222, 234, 247);
 }
 
 .shoes_generate {
     display: grid;
-    grid-template-columns: auto 100px 100px 100px auto;
-    gap: 25px;
+    grid-template-columns: auto 100px 120px 100px auto;
+    gap: 15px;
+    border-bottom: 2px solid black;
+    padding-bottom: 15px;
 }
 
-.shoes_generate div {
-    background-color: rgb(243, 235, 178);
+.shoes_generate > div {
+    background-color: rgb(245, 241, 216);
 }
 
 #selectedTop > div{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 100px;
-    height: 150px;
+    width: 90%;
+    height: 90%;
 }
+
+#selectedTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(214, 246, 214);
+}
+
 #selectedBottom > div {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 100px;
-    height: 150px;
+    width: 90%;
+    height: 90%;
+}
+
+#selectedBottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(200, 220, 243);
 }
 
 #selectedShoe > div {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 100px;
-    height: 150px;
+    width: 90%;
+    height: 90%;
+}
+
+#selectedShoe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(248, 241, 200);
 }
 
 .arrow {
     height: 20px;
     width: 20px;
+}
+
+.arrowButton {
+        background: transparent;
+        border: none !important;
+        cursor: pointer;
+}
+
+
+
+.generateOrSave {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#generatorButton {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    grid-column: 2;
+    margin: 10px;
+    border-radius: 20px;
+    color: white;
+    border: 2px solid black; 
+    font-weight: bold; 
+    background-color: rgb(195, 192, 192);
+    padding: 10px 20px; 
+    font-size: 14px;
+}
+
+#saveIt {
+    display: flex;
+    gap: 5px;
+    margin-top: 20px;
+    padding-left: 15px;
+}
+
+#saveIt p {
+    margin: 0;
+}
+
+#saveIt img {
+    height: 20px;
 }
