@@ -3,6 +3,7 @@
 
 
 async function editProfile() {
+
     display_header_menu()
 
     let response = await fetch("API/profilepics.php");
@@ -52,7 +53,8 @@ async function editProfile() {
     <button id=submitButton type=submit>Save</button>
     </div>
     </form>
-
+    
+    <button id=logOutButton>Log out</button>
     </div>
     </div>
     `
@@ -141,5 +143,22 @@ async function editProfile() {
         }
 
     })
+
+    let logOutButton = document.querySelector("#logOutButton");
+    logOutButton.addEventListener("click", log_out)
+
+    function log_out() {
+        window.localStorage.removeItem("isLoggedIn");
+        window.localStorage.removeItem("username");
+        window.localStorage.removeItem("password");
+        window.localStorage.removeItem("id");
+        window.localStorage.removeItem("profilepicture");
+
+        let header = document.querySelector("header");
+        header.style.display = "none";
+
+        renderLoginPage();
+    }
+
 }
 

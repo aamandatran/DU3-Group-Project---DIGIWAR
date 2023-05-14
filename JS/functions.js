@@ -5,6 +5,7 @@ function display_header_menu() {
     let userName = localStorage.getItem("username");
 
     let header = document.querySelector("header");
+    header.style.display = "flex";
 
     header.innerHTML = `
     <div id=logoContainer>
