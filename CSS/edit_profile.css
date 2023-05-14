@@ -76,3 +76,10 @@
 .selectedProfilePic {
     width: 100%;
 }
+
+#logOutButton {
+    height: 25px;
+    width: 60px;
+
+    margin-left: 80%;
+}

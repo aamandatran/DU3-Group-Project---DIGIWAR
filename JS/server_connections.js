@@ -11,12 +11,14 @@ function feedback(message) {
 
 }
 
-function log_out () {
+function log_out() {
     window.localStorage.removeItem("isLoggedIn");
     window.localStorage.removeItem("username");
     window.localStorage.removeItem("password");
     window.localStorage.removeItem("id");
     window.localStorage.removeItem("profilepicture");
+
+    header.classList.remove("headerMenu")
 
     renderLoginPage();
 }
