@@ -1,0 +1,165 @@
+* {
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#startPage {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    padding: 5px 10px;
+    color: rgb(66, 82, 88);
+    background-color: #ecebeb;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgb(235, 232, 232);
+}
+
+.background {
+    background-image: url("../MEDIA/wallpaper.jpeg");
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+#welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#welcome>div {
+    font-size: 7vh;
+}
+
+#welcome>div>span {
+    font-weight: 600;
+    color: rgb(66, 82, 88);
+}
+
+#welcome>p {
+    font-size: 3vh;
+    color: grey;
+    transition: rotate 2s, font-size 2s, color 2s;
+}
+
+#welcome>p:hover {
+    color: black;
+    font-size: 3.5vh;
+    rotate: 360deg;
+}
+
+section {
+    position: relative;
+    width: 100vw;
+}
+
+.curve {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.curve svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 98px;
+    transform: rotateY(180deg);
+}
+
+.curve .shape-fill {
+    fill: #fff;
+}
+
+#infoSection {
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#infoSection>h1 {
+    font-size: 4vh;
+}
+
+#infoSection>div {
+    display: flex;
+    gap: 7vw;
+}
+
+#infoSection>div>video {
+    width: 30vw;
+}
+
+#infoSection>div>ol {
+    display: flex;
+    flex-direction: column;
+    gap: 15vh;
+    font-size: 2.5vh;
+    font-weight: 600;
+    color: grey;
+}
+
+
+#curve2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+#us {
+    background: radial-gradient(827px at 47.3% 48%, rgb(255, 255, 255) 0%, rgb(176, 199, 209) 90%);
+    width: 100vw;
+    height: 85vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#us>div {
+    display: flex;
+    gap: 10vw;
+}
+
+#us>div>.box {
+    height: 50vh;
+    width: 20vw;
+    background-color: #fff;
+    border-radius: 20px;
+    outline: 2px solid #eee;
+    outline-offset: 5px;
+    margin-bottom: 10vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#us>div>.box>.picture {
+    height: 150px;
+    width: 150px;
+    background-color: rgb(226, 226, 226);
+    border-radius: 50%;
+}
