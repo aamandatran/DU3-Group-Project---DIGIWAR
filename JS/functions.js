@@ -6,24 +6,20 @@ function display_header_menu() {
 
     let header = document.querySelector("header");
     header.style.display = "flex";
+    header.style.padding = "2vh";
 
     header.innerHTML = `
-    <div id=logoContainer>
-    <h1>DIGIWAR</h1>
-    <p>end the war with your wardrobe</p>
-    </div>
-
-    <div id=menuContainer>
-    <button class=menuOptions id=outfitGeneratorButton>Outfit Generator</button>
-    <button class=menuOptions id=wardrobeButton>Wardrobe</button>
-
-    <div id=userContainer>
-    <button class=menuOptions id=editProfileButton>${userName}</button>
-    <div id=menuProfilePic>
-    <img src=${savedProfilePic}>
-    </div>
-    </div>
-    </div>
+        <div id="toStartPage">DIGIWAR</div>
+        <div id=menuContainer>
+            <div class=menuOptions id=outfitGeneratorButton>Outfit Generator</div>
+            <div class=menuOptions id=wardrobeButton>Wardrobe</div>
+            <div class=menuOptions id=editProfileButton>
+                <div>${userName}</div>
+                <div id=menuProfilePic>
+                <img src=${savedProfilePic}>
+            </div>
+            </div>
+        </div>
     `
 
     header.classList.add("headerMenu")
@@ -43,8 +39,6 @@ function display_header_menu() {
         editProfile()
     })
 
-
-
-
+    document.querySelector("#toStartPage").addEventListener("click", renderStartPage);
 }
 

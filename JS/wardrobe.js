@@ -4,29 +4,26 @@ function renderWardrobePage() {
     display_header_menu()
     main.innerHTML = `
         <div id="wardrobeParent"> 
-            <div id="wardrobePage">
-                <div id="top">
-                    <h1>Welcome to your wardrobe!</h1>
-                    <nav id="wardrobeNav">
-                        <a id="yours" href="#">YOURS</a>
-                        <a id="digiwars" href="#">DIGIWAR'S</a>
-                        <a id="outfits" href="#">SAVED OUTFITS</a>
-                    </nav>
+            <div id="wardrobePage">   
+            <nav id="wardrobeNav">
+                <a id="yours" href="#">YOURS</a>
+                <a id="digiwars" href="#">DIGIWAR'S</a>
+                <a id="outfits" href="#">SAVED OUTFITS</a>
+            </nav>
+                
+            <div id="bottom">
+                <div id="filtering">
+                    <fieldset id="categories">
+                        <legend>Choose a category</legend>
+                        <button id="tops">TOPS</button>
+                        <button id="bottoms">BOTTOMS</button>
+                        <button id="shoes">SHOES</button>
+                    </fieldset>
+                    <button id="addClothes">Add Clothes</button>
                 </div>
-                <div id="bottom">
-                    <div id="filtering">
-                        <fieldset id="categories">
-                            <legend>Choose a category</legend>
-                            <button id="tops">TOPS</button>
-                            <button id="bottoms">BOTTOMS</button>
-                            <button id="shoes">SHOES</button>
-                        </fieldset>
-                        <button id="addClothes">Add Clothes</button>
-                    </div>
-                    <div id="wardrobeFeed">
-                        <p></p>
-                        <ul></ul>
-                    </div>
+                <div id="wardrobeFeed">
+                    <p></p>
+                    <ul></ul>
                 </div>
             </div>
         </div>
