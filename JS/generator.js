@@ -232,6 +232,7 @@ async function renderGeneratorPage() {
               selectedTop = tops[0];
             }
             document.querySelector("#selectedTop > div").style.backgroundImage = `url(${selectedTop.path})`;
+            document.getElementById('popupSelectedTop').style.backgroundImage = `url(${selectedTop.path})`;
             console.log("Arrow Top clicked");
           } else if (currentTarget.classList.contains("arrowBottom")) {
             if (bottoms.length > 1) {
@@ -243,6 +244,7 @@ async function renderGeneratorPage() {
               selectedBottom = bottoms[0];
             }
             document.querySelector("#selectedBottom > div").style.backgroundImage = `url(${selectedBottom.path})`;
+            document.getElementById('popupSelectedBottom').style.backgroundImage = `url(${selectedBottom.path})`;
             console.log("Arrow Bottom clicked");
           } else if (currentTarget.classList.contains("arrowShoe")) {
             if (shoes.length > 1) {
@@ -254,6 +256,7 @@ async function renderGeneratorPage() {
               selectedShoe = shoes[0];
             }
             document.querySelector("#selectedShoe > div").style.backgroundImage = `url(${selectedShoe.path})`;
+            document.getElementById('popupSelectedShoe').style.backgroundImage = `url(${selectedShoe.path})`;
             console.log("Arrow Shoe clicked");
           }
         }
@@ -277,8 +280,6 @@ async function renderGeneratorPage() {
             document.getElementById('popupSelectedBottom').style.backgroundImage = `url(${selectedBottom.path})`;
             document.getElementById('popupSelectedShoe').style.backgroundImage = `url(${selectedShoe.path})`;
         }
-
-            
 
         let saveIt = document.querySelector("#saveIt");
         saveIt.addEventListener("click", openPopup);
