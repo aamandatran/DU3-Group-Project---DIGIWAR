@@ -116,7 +116,8 @@
     "18": {
         "path": "..\/MEDIA\/mgnejkfngksjdsdk.png",
         "id": [
-            0
+            0,
+            3
         ]
     },
     "19": {
@@ -127,14 +128,18 @@
     },
     "20": {
         "path": "..\/MEDIA\/oewiuqoireueqoidd.png",
-        "id": [
-            0
-        ]
+        "id": {
+            "0": 0,
+            "3": 3,
+            "4": 3
+        }
     },
     "21": {
         "path": "..\/MEDIA\/pweqpwepqwdpvdfdb.png",
         "id": [
-            0
+            0,
+            3,
+            3
         ]
     },
     "22": {
@@ -146,7 +151,8 @@
     "23": {
         "path": "..\/MEDIA\/teyrtueritweiodhf.png",
         "id": [
-            0
+            0,
+            3
         ]
     },
     "24": {

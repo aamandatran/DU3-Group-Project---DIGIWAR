@@ -97,6 +97,13 @@ async function editProfile() {
 
             display_header_menu()
 
+            if (!response.ok) {
+                feedback(data.message)
+                console.log(data.message);
+            } else {
+                feedback(data.message)
+                console.log(data.message,);
+            }
         } catch (err) {
             console.log(err.message)
         }
@@ -130,9 +137,11 @@ async function editProfile() {
             console.log(data);
 
             if (!response.ok) {
+                feedback(data.message)
                 console.log(data.message);
             } else {
-                console.log(data.message);
+                feedback(data.message)
+                console.log(data.message,);
             }
         } catch (err) {
             console.log(err.message);

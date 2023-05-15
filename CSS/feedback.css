@@ -1,6 +1,30 @@
-.feedback {
-    width: 80%;
-    height: 80%;
+#feedback {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+#feedbackContainer {
+    z-index: 1;
+    width: 350px;
+    height: 20%;
     border: 1px solid black;
+    border-radius: 20px;
     background-color: beige;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.awnser_feedback {
+    opacity: 0.3;
+}
+
+.awnser_feedback #feedbackContainer {
+    opacity: 1 !important;
 }
