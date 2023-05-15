@@ -44,7 +44,7 @@ fieldset {
     width: 20vw;
     height: 40vh;
     gap: 3vh;
-    border-radius: 15px;
+    border-radius: 10px;
     margin-bottom: 7vh;
     background-color: #fff;
 }
@@ -53,7 +53,7 @@ fieldset legend {
     background-color: grey;
     color: white;
     padding: 2vh;
-    border-radius: 15px;
+    border-radius: 10px;
     width: inherit;
     text-align: center;
     font-weight: bold;
@@ -62,7 +62,6 @@ fieldset legend {
 
 fieldset>button {
     padding: 2vh;
-    border-radius: 20px;
 }
 
 #upload {
@@ -70,7 +69,6 @@ fieldset>button {
 }
 
 button#done {
-    border-radius: 20px;
     padding: 1.5vh 5vw;
     margin-top: 2vh;
     margin-bottom: 2vh;
