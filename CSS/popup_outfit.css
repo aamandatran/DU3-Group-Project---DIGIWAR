@@ -17,30 +17,74 @@
     visibility: visible;
     opacity: 1;
     transition-delay: 0s;
+    z-index: 1;
   }
   
   #popupContent {
     background-color: white;
-    padding: 20px;
+    padding-left: 60px;
     height: 600px;
-width: 800px;
+    box-sizing: content-box;
+    padding-right: 60px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    position: relative;
+  }
+
+  #newOutfitTop {
+    display: grid;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+
+  #newOutfitTop > h1 {
+    justify-content: center;
+    display: flex;
+    margin: 0;
+  }
+
+  #newOutfit2 {
+  justify-self: center;
+  }
+
+  #pickBackgroundColor {
+    display: flex;
+    background: linear-gradient(90deg, rgba(60,49,255,1) 0%, rgba(81,53,249,1) 2%, rgba(122,57,242,1) 28%, rgba(255,171,0,1) 100%);
+    border-radius: 50px;
+    height: 40px;
+    width: 200px;
+    color: white;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  #description {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 55px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
   }
   
   #popupSelectedItems {
-    display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 6fr 4fr;
-        grid-gap: 10px;
-        height: 400px;
-        width: 400px;
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 6fr 4fr;
+    grid-gap: 10px;
+    height: 400px;
+    width: 400px;
+    border: 1px black solid;
+    align-items: center;
   }
   
+  
   #popupSelectedItems > div {
-    width: 100%;
-    height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -52,8 +96,31 @@ width: 800px;
   #closePopupButton {
     background-color: #ccc;
     border: none;
-    padding: 10px 20px;
     cursor: pointer;
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+    position: absolute;
+    right: 20px;
+  }
+
+  #savePopupButton {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    color: white;
+    border: 2px solid black;
+    font-weight: bold;
+    background-color: rgb(195, 192, 192);
+    padding: 10px 20px;
+    font-size: 14px;
+    width: 70px;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 15px;
   }
 
 
@@ -87,7 +154,7 @@ width: 800px;
     grid-column: 1;
     grid-row: 2;
     width: 100%;
-    height: 100%;
+    height: 130%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -96,3 +163,85 @@ width: 800px;
     align-items: center;
   }
 
+#styleCategories{
+  display: flex;
+  flex-direction: column;
+  height: 510px;
+  border-radius: 15px;
+  margin-bottom: 0;
+  gap: 26px;
+  width: 200px;
+}
+
+#styleCategories legend {
+  background-color: grey;
+  color: white;
+  padding: 2vh;
+  border-radius: 15px;
+  width: inherit;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 3vh;
+}
+
+fieldset>button {
+  padding: 2vh;
+  border-radius: 20px;
+}
+
+#newOutfitBottom {
+    grid-template-columns: 300px 400px;
+    grid-template-rows: 400px 50px;
+    display: grid;
+}
+
+#streetwearLabel {
+  background-color: pink;
+  border-radius: 20px;
+  padding: 10px;
+}
+#casualLabel {
+  background-color: pink;
+  border-radius: 20px;
+  padding: 10px;
+}
+#sportyLabel {
+  background-color: pink;
+  border-radius: 20px;
+  padding: 10px;
+}
+#formalLabel {
+  background-color: pink;
+  border-radius: 20px;
+  padding: 10px;
+}
+#businessLabel {
+  background-color: pink;
+  border-radius: 20px;
+  padding: 10px;
+}
+#datenightLabel {
+  background-color: pink;
+  border-radius: 20px;
+  padding: 10px;
+}
+#summerLabel {
+  background-color: pink;
+  border-radius: 20px;
+  padding: 10px;
+}
+#winterLabel {
+  background-color: pink;
+  border-radius: 20px;
+  padding: 10px;
+}
+#springLabel {
+  background-color: pink;
+  border-radius: 20px;
+  padding: 10px;
+}
+#autumnLabel {
+  background-color: pink;
+  border-radius: 20px;
+  padding: 10px;
+}

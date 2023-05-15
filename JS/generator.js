@@ -78,21 +78,109 @@ async function renderGeneratorPage() {
     });
   }
 
+
+  function registerEventListeners() {
+    const arrowButtons = document.querySelectorAll(".arrowButton");
+    arrowButtons.forEach((button) => {
+      button.addEventListener("click", generateItem);
+    });
+  }
+
   const generatorParent = document.querySelector("#generatorParent");
   generatorParent.innerHTML += ` 
     <div id="popupWindow" class="popup">
-    <div id="popupContent">
-      <!-- Placeholder for selected items -->
-      <div id="popupSelectedItems">
-        <div id="popupSelectedTop"></div>
-        <div id="popupSelectedBottom"></div>
-        <div id="popupSelectedShoe"></div>
+      <div id="popupContent">
+
+      <div id=newOutfitTop>
+        <h1>New Outfit</h2>
+        <button id="closePopupButton">X</button>
       </div>
-      <button id="closePopupButton">Close</button>
+
+        <div id=newOutfitBottom>
+
+          <div id=newOutfit1>
+
+          <fieldset id="styleCategories">
+            <legend>Choose style</legend>
+
+            <div> 
+              <input type=checkbox id=streetwear name=streetwear>
+              <label for=streetwear id=streetwearLabel>Streetwear</label>
+            </div>
+
+            <div> 
+              <input type=checkbox id=casual name=casual>
+              <label for=casual id=casualLabel>Casual</label>
+            </div>
+
+            <div> 
+              <input type=checkbox id=sporty name=sporty>
+              <label for=sporty id=sportyLabel>Sporty</label>
+            </div>          
+
+            <div> 
+              <input type=checkbox id=formal name=formal>
+              <label for=formal id=formalLabel>Formal</label>
+            </div>            
+            
+            <div> 
+              <input type=checkbox id=business name=business>
+              <label for=business id=businessLabel>Business</label>
+            </div>            
+            
+            <div> 
+              <input type=checkbox id=datenight name=datenight>
+              <label for=datenight id=datenightLabel>Date night</label>
+            </div>            
+            
+            <div> 
+              <input type=checkbox id=summer name=summer>
+              <label for=summer id=summerLabel>Summer</label>
+            </div>            
+            
+            <div> 
+              <input type=checkbox id=winter name=winter>
+              <label for=winter id=winterLabel>Winter</label>
+            </div>
+
+            <div> 
+              <input type=checkbox id=spring name=spring>
+              <label for=spring id=springLabel>Spring</label>
+            </div>
+            <div> 
+              <input type=checkbox id=autumn name=autumn>
+              <label for=autumn id=autumnLabel>Autumn</label>
+            </div>            
+
+          </div>
+
+          <div id=newOutfit2>
+          </fieldset>
+          <!-- Placeholder for selected items -->
+            <div id="popupSelectedItems">
+              <div id="popupSelectedTop"></div>
+              <div id="popupSelectedBottom"></div>
+              <div id="popupSelectedShoe"></div>
+            </div>
+
+            <div id="pickBackgroundColor">Pick a background color</div>
+
+            <input type=text id=description name=description placeholder="Write a description"> 
+          </div>
+  
+
+            <button id="savePopupButton">Save</button>
+          </div>
+      </div>
     </div>
-  </div>
   `;
 
+  let closePopupButton = document.getElementById("closePopupButton");
+  closePopupButton.addEventListener("click", closePopup);
+
+  let backgroundColorButton = document.getElementById("pickBackgroundColor");
+  console.log(backgroundColorButton);
+  backgroundColorButton.addEventListener("click", randomColor);
 
   let username = window.localStorage.getItem("username");
 
@@ -153,6 +241,54 @@ async function renderGeneratorPage() {
         selectedTop = tops[0];
       }
       document.querySelector("#selectedTop > div").style.backgroundImage = `url(${selectedTop.path})`;
+      document.getElementById('popupSelectedTop').style.backgroundImage = `url(${selectedTop.path})`;
+      console.log("Arrow Top clicked");
+    } else if (currentTarget.classList.contains("arrowBottom")) {
+      if (bottoms.length > 1) {
+        do {
+          selectedBottom = bottoms[Math.floor(Math.random() * bottoms.length)];
+        } while (selectedBottom === previousSelectedBottom);
+        previousSelectedBottom = selectedBottom;
+      } else {
+        selectedBottom = bottoms[0];
+      }
+      document.querySelector("#selectedBottom > div").style.backgroundImage = `url(${selectedBottom.path})`;
+      document.getElementById('popupSelectedBottom').style.backgroundImage = `url(${selectedBottom.path})`;
+      console.log("Arrow Bottom clicked");
+    } else if (currentTarget.classList.contains("arrowShoe")) {
+      if (shoes.length > 1) {
+        do {
+          selectedShoe = shoes[Math.floor(Math.random() * shoes.length)];
+        } while (selectedShoe === previousSelectedShoe);
+        previousSelectedShoe = selectedShoe;
+      } else {
+        selectedShoe = shoes[0];
+      }
+      document.querySelector("#selectedShoe > div").style.backgroundImage = `url(${selectedShoe.path})`;
+      document.getElementById('popupSelectedShoe').style.backgroundImage = `url(${selectedShoe.path})`;
+      console.log("Arrow Shoe clicked");
+    }
+  }
+
+  function generateItem(event) {
+    event.stopPropagation();
+
+    console.log("hej");
+    console.log(event.currentTarget);
+
+    const currentTarget = event.currentTarget;
+    let selectedTop, selectedBottom, selectedShoe;
+
+    if (currentTarget.classList.contains("arrowTop")) {
+      if (tops.length > 1) {
+        do {
+          selectedTop = tops[Math.floor(Math.random() * tops.length)];
+        } while (selectedTop === previousSelectedTop);
+        previousSelectedTop = selectedTop;
+      } else {
+        selectedTop = tops[0];
+      }
+      document.querySelector("#selectedTop > div").style.backgroundImage = `url(${selectedTop.path})`;
       console.log("Arrow Top clicked");
     } else if (currentTarget.classList.contains("arrowBottom")) {
       if (bottoms.length > 1) {
@@ -183,23 +319,6 @@ async function renderGeneratorPage() {
 
   let generateButton = document.querySelector("#generatorButton");
   generateButton.addEventListener("click", generator);
-
-  function generator(event) {
-
-    let selectedTop = tops[Math.floor(Math.random() * tops.length)];
-    let selectedBottom = bottoms[Math.floor(Math.random() * bottoms.length)];
-    let selectedShoe = shoes[Math.floor(Math.random() * shoes.length)];
-
-    document.querySelector("#selectedTop > div").style.backgroundImage = `url(${selectedTop.path})`;
-    document.querySelector("#selectedBottom > div").style.backgroundImage = `url(${selectedBottom.path})`;
-    document.querySelector("#selectedShoe > div").style.backgroundImage = `url(${selectedShoe.path})`;
-
-    document.getElementById('popupSelectedTop').style.backgroundImage = `url(${selectedTop.path})`;
-    document.getElementById('popupSelectedBottom').style.backgroundImage = `url(${selectedBottom.path})`;
-    document.getElementById('popupSelectedShoe').style.backgroundImage = `url(${selectedShoe.path})`;
-  }
-
-
 
   let saveIt = document.querySelector("#saveIt");
   saveIt.addEventListener("click", openPopup);
