@@ -9,7 +9,9 @@
     {
         "path": "..\/MEDIA\/ytuerorwrpipqeoriqer.png",
         "id": [
-            0
+            0,
+            5,
+            2
         ]
     },
     {
@@ -22,7 +24,8 @@
         "path": "..\/MEDIA\/jfdhkjsdhfalsjfali.png",
         "id": [
             0,
-            2
+            2,
+            3
         ]
     },
     {
@@ -43,6 +46,12 @@
         "path": "..\/MEDIA\/dkdjdfjdiojdiosdfe.png",
         "id": [
             0
+        ]
+    },
+    {
+        "path": "..\/MEDIA\/dusadouJEHWNUKDJSN.png",
+        "id": [
+            2
         ]
     }
 ]

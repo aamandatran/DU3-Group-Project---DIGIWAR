@@ -9,13 +9,13 @@
         "id": 2,
         "username": "Amanda",
         "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/unnamed.png"
+        "profilepicture": "http:\/\/localhost:7777\/MEDIA\/profilepictures\/unnamed.png"
     },
     {
         "id": 3,
         "username": "Wille",
         "password": "1234",
-        "profilepicture": "http:\/\/localhost:9999\/MEDIA\/profilepictures\/memoji.png"
+        "profilepicture": "http:\/\/localhost:9999\/MEDIA\/profilepictures\/97057c70bc6dfcd8706a6dc4b2f811d2.png"
     },
     {
         "id": 4,

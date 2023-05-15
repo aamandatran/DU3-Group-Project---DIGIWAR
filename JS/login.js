@@ -1,6 +1,13 @@
 "use strict"
 
 function renderLoginPage() {
+    let header = document.querySelector("header");
+    header.innerHTML = `
+        <div id="toStartPage">DIGIWAR</div>
+    `;
+
+    document.querySelector("#toStartPage").addEventListener("click", renderStartPage);
+
     main.innerHTML = `
     <div id = loginParent>
         <div id = login>
@@ -10,19 +17,20 @@ function renderLoginPage() {
                 </div>
 
                 <form>
-                    <p class=InputHeader>Username</p>
                     <input type=text placeholder=Username id=username>
-                    <p class=InputHeader>Password</p>
+                   
                     <input type=password placeholder=Password id=password>
                     <div id=submitButtonContainer>
-                        <button id=submitButton type=submit>Join</button>
+                        <button id=submitButton type=submit>Sign in</button>
                     </div>
                 </form>
-                </div>
         </div>
     </div>
     `;
+
+    document.querySelector("#LoginButton").style.fontWeight = "500";
     let RegisterButton = document.querySelector("#RegisterButton");
+    RegisterButton.style.fontWeight = "200";
     RegisterButton.addEventListener("click", renderRegisterPage);
 
 

@@ -3,6 +3,12 @@
 let main = document.querySelector("main");
 
 async function renderRegisterPage() {
+    let header = document.querySelector("header");
+    header.innerHTML = `
+        <div id="toStartPage">DIGIWAR</div>
+    `;
+
+    document.querySelector("#toStartPage").addEventListener("click", renderStartPage);
 
     window.localStorage.removeItem("isLoggedIn");
     window.localStorage.removeItem("username");
@@ -49,18 +55,16 @@ async function renderRegisterPage() {
                 <button id = RegisterButton>JOIN</button>
             </div>
 
-            <div id = SelectedProfile>
+            <div id="profileSelection"> 
+                <div id = SelectedProfile></div>
+                <ul class = profileOptions>
+                    ${displayProfilePics(profilepictures)}
+                </ul>
             </div>
 
-            <ul class = profileOptions>
-                ${displayProfilePics(profilepictures)}
-            </ul>
-
             <form>
-                <p class=InputHeader>Username</p>
-                <input type=text placeholder=username id=username>
-                <p class=InputHeader>Password</p>
-                <input type=password placeholder=password id=password>
+                <input type=text placeholder=Username id=username>
+                <input type=password placeholder=Password id=password>
                 <div id=submitButtonContainer>
                     <button id=submitButton type=submit>Join</button>
                 </div>
@@ -76,7 +80,9 @@ async function renderRegisterPage() {
     }
     //Ger varje profilbild ett event 
 
+    document.querySelector("#RegisterButton").style.fontWeight = "500";
     let LoginButton = document.querySelector("#LoginButton");
+    LoginButton.style.fontWeight = "200";
     LoginButton.addEventListener("click", renderLoginPage);
 
     let registerForm = document.querySelector("form");
@@ -128,4 +134,4 @@ async function renderRegisterPage() {
 
 }
 
-//renderRegisterPage();
+// //renderRegisterPage();

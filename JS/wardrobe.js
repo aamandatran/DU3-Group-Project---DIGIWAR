@@ -4,29 +4,26 @@ function renderWardrobePage() {
     display_header_menu()
     main.innerHTML = `
         <div id="wardrobeParent"> 
-            <div id="wardrobePage">
-                <div id="top">
-                    <h1>Welcome to your wardrobe!</h1>
-                    <nav id="wardrobeNav">
-                        <a id="yours" href="#">YOURS</a>
-                        <a id="digiwars" href="#">DIGIWAR'S</a>
-                        <a id="outfits" href="#">SAVED OUTFITS</a>
-                    </nav>
+            <div id="wardrobePage">   
+            <nav id="wardrobeNav">
+                <a id="yours" href="#">YOURS</a>
+                <a id="digiwars" href="#">DIGIWAR'S</a>
+                <a id="outfits" href="#">SAVED OUTFITS</a>
+            </nav>
+                
+            <div id="bottom">
+                <div id="filtering">
+                    <fieldset id="categories">
+                        <legend>Choose a category</legend>
+                        <button id="tops">TOPS</button>
+                        <button id="bottoms">BOTTOMS</button>
+                        <button id="shoes">SHOES</button>
+                    </fieldset>
+                    <button id="addClothes">Add Clothes</button>
                 </div>
-                <div id="bottom">
-                    <div id="filtering">
-                        <fieldset id="categories">
-                            <legend>Choose a category</legend>
-                            <button id="tops">TOPS</button>
-                            <button id="bottoms">BOTTOMS</button>
-                            <button id="shoes">SHOES</button>
-                        </fieldset>
-                        <button id="addClothes">Add Clothes</button>
-                    </div>
-                    <div id="wardrobeFeed">
-                        <p></p>
-                        <ul></ul>
-                    </div>
+                <div id="wardrobeFeed">
+                    <p></p>
+                    <ul></ul>
                 </div>
             </div>
         </div>
@@ -34,8 +31,11 @@ function renderWardrobePage() {
 
     getUserItems()
 
+    // Fetch users wardrobe by Id
     const yours = document.getElementById("yours");
     async function getUserItems() {
+        document.querySelector("#filtering button#addClothes").style.display = "";
+
         let id = localStorage.getItem("id");
         console.log(id);
 
@@ -47,14 +47,18 @@ function renderWardrobePage() {
         });
 
         let your_wardrobe = await request.json();
+        // Displays the clothing items and enables filtering for users wardrobe
         createItemDivs(your_wardrobe, "all", "yours")
         filterByItem(your_wardrobe, "yours")
     };
 
     yours.addEventListener("click", getUserItems);
 
+    // GET-request to displays the clothing items from DIGIWAR
     const digiwars = document.getElementById("digiwars");
     digiwars.addEventListener("click", async function (event) {
+        document.querySelector("#filtering button#addClothes").style.display = "none";
+
         let request = await fetch("API/digiwars_wardrobe.php");
         let digiwars_wardrobe = await request.json();
         createItemDivs(digiwars_wardrobe, "all", "digiwars")
@@ -66,13 +70,16 @@ function renderWardrobePage() {
 
     // });
 
+    // Display pop up to add clothes
     document.getElementById("addClothes").addEventListener("click", renderUploadItemPopUp);
 
+    // Filters wardrobe by item
     function filterByItem(wardrobe, whose) {
         document.getElementById("tops").addEventListener("click", async function (event) {
             if (whose === "digiwars") {
                 createItemDivs(wardrobe, "tops", "digiwars");
             } else {
+                // Else === "yours", i.e users wardrobe
                 createItemDivs(wardrobe, "tops", "yours");
             }
         });
@@ -97,12 +104,15 @@ function renderWardrobePage() {
         const wardrobeFeed = document.querySelector("#wardrobeFeed > ul");
         wardrobeFeed.innerHTML = "";
 
+        // This is to know which key in object to loop through
         if (item === "tops") {
             if (array.tops.length === 0) {
+                // Feedback
                 document.querySelector("#wardrobeFeed > p").innerHTML = "There are no tops in your wardrobe...";
             } else {
                 document.querySelector("#wardrobeFeed > p").innerHTML = "";
                 for (let items of array.tops) {
+                    // Sends string "tops.json" to add to divs classlist, will use this to send to API to know which file to search in
                     createDivs(items, "tops.json");
                 }
             }
@@ -130,6 +140,7 @@ function renderWardrobePage() {
             }
         }
 
+        // ""all" is sent to this function when all items should be displayed, i.e no filtering
         if (item === "all") {
             if (array.tops.length === 0 && array.bottoms.length === 0 && array.shoes.length === 0) {
                 document.querySelector("#wardrobeFeed > p").innerHTML = "Your wardrobe is empty... Try adding your own clothes or select clothes from DIGIWARS Catalog!";
@@ -167,10 +178,11 @@ function renderWardrobePage() {
 
         function createDivs(item, file) {
             let div = document.createElement("div");
-            console.log(item);
             div.style.backgroundImage = `url(${item.path})`;
             div.classList.add("feedImages");
             wardrobeFeed.append(div);
+
+            // Checks if the item belongs to users wardrobe or DIGIWARS, different button functions for each wardrobe, delete for users wardrobe and add for DIGIWARS
             if (whose === "yours") {
                 div.innerHTML = `
                     <button class='delete itemButton ${file}'>
@@ -194,7 +206,9 @@ function renderWardrobePage() {
             console.log(e);
             const id = localStorage.getItem("id");
             const path = e.target.parentNode.parentNode.attributes[0].nodeValue;
+            // Classlist will either be checkbox or delete, important when sending a request to API
             const classlist = e.target.parentElement.classList[0];
+            // The filename in classlist which indicates which JSON file to search in
             const file = e.target.parentElement.classList[2];
 
             if (classlist === "checkbox") {
@@ -214,6 +228,7 @@ function renderWardrobePage() {
                             console.log(data.message);
                         } else {
                             console.log(data.message);
+                            e.target.setAttribute("src", "../MEDIA/checkbox-selected.png");
                         }
                     }).catch(error => {
                         console.log(error);
@@ -237,6 +252,7 @@ function renderWardrobePage() {
                             console.log(data.message);
                         } else {
                             console.log(data.message);
+                            // To update the wardrobe feed now that an item was deleted
                             renderWardrobePage();
                         }
                     }).catch(error => {

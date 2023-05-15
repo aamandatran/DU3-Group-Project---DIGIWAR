@@ -1,6 +1,7 @@
 #wardrobeParent {
     position: relative;
     width: 100vw;
+    margin-top: 15vh;
 }
 
 div#wardrobePage {
@@ -8,7 +9,7 @@ div#wardrobePage {
     flex-direction: column;
 }
 
-#wardrobePage>div#top {
+#wardrobePage {
     text-align: center;
 }
 
@@ -64,7 +65,6 @@ div#wardrobeFeed>ul {
 }
 
 button#addClothes {
-    border-radius: 20px;
     padding: 1.5vh 5vw;
 }
 

@@ -12,7 +12,7 @@ async function renderGeneratorPage() {
             `;        
             main.appendChild(arrowButton);
             console.log(arrowButton);
-        arrowButton.addEventListener("click", generateItem);
+        //arrowButton.addEventListener("click", generateItem);
         return arrowButton;
     }
 
@@ -69,8 +69,6 @@ async function renderGeneratorPage() {
         </div>
       </div>
     `;
-
-    registerEventListeners();
   
     function registerEventListeners() {
         const arrowButtons = document.querySelectorAll(".arrowButton");
@@ -258,6 +256,7 @@ async function renderGeneratorPage() {
           }
         }
 
+        registerEventListeners();
 
         let generateButton = document.querySelector("#generatorButton");
         generateButton.addEventListener("click", generator);
