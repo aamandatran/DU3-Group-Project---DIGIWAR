@@ -153,16 +153,13 @@ async function editProfile() {
     logOutButton.addEventListener("click", log_out)
 
     function log_out() {
-        window.localStorage.removeItem("isLoggedIn");
         window.localStorage.removeItem("username");
         window.localStorage.removeItem("password");
         window.localStorage.removeItem("id");
         window.localStorage.removeItem("profilepicture");
+        window.localStorage.removeItem("isLoggedIn");
 
-        let header = document.querySelector("header");
-        header.style.display = "none";
-
-        renderStartPage();
+        renderStartPage()
     }
 
 }
