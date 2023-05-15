@@ -167,6 +167,8 @@ async function renderGeneratorPage() {
     </div>
   `;
 
+  let closePopupButton = document.getElementById("closePopupButton");
+  closePopupButton.addEventListener("click", closePopup);
 
   let backgroundColorButton = document.getElementById("pickBackgroundColor");
   console.log(backgroundColorButton);
