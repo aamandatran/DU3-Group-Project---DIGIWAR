@@ -1,8 +1,28 @@
 #editProfileWrapper {
     height: 100vh;
-    margin: 0;
+    margin: 6vh 0 0 0;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+#editHeader {
+    margin-top: 5vh;
+    margin-bottom: 7vh;
+}
+
+.title {
+    margin-bottom: 0;
+    font-size: 3vh;
+}
+
+#editProfile {
+    width: 50vw;
+    height: 75vh;
+    background: radial-gradient(827px at 47.3% 48%, rgb(228, 245, 255) 0%, rgb(176, 199, 209) 90%);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -10,34 +30,25 @@
     margin-top: 0;
 }
 
-#editProfileWrapper>#SelectedProfile>img {
-    object-fit: contain;
-    width: 50px;
-    height: 50px;
-}
-
-#editProfileWrapper>#SelectedProfile>img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-}
-
-#editProfile {
-    width: 50vw;
-    height: 60vh;
-    background-color: beige;
-    border-radius: 20px;
+#editProfile>div>div {
     display: flex;
-    flex-direction: column;
     align-items: center;
 }
 
-#editProfile>#SelectedProfile {
-    height: 60px;
-    width: 60px;
+#editProfile #SelectedProfile {
+    height: 70px;
+    width: 70px;
+    background-color: #ecebeb;
     border: 1px solid gray;
     border-radius: 50%;
-    object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#editProfile #SelectedProfile>img {
+    height: 50px;
+    width: 50px;
 }
 
 #editProfilePicForm {
@@ -45,23 +56,25 @@
     align-items: center;
 }
 
-
-#editprofilePicButton {
-    width: 30%;
-    height: 25px;
+#editProfilePicForm ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 5px;
 }
 
-.profileOptionsContainer {
+#editProfile ul .profileOptionsContainer {
+    width: 60px;
+    height: 60px;
     display: flex;
-    height: 50%;
-    border-radius: 50%;
-    list-style: none;
+    align-items: center;
+    justify-content: center;
 }
 
 .editProfileOptions {
     border-radius: 50%;
     border: 1px solid gray;
-    background-color: steelblue;
+    background-color: #ecebeb;
 }
 
 .editProfileOptions>img {
@@ -69,17 +82,24 @@
     height: 50px;
 }
 
-.InputHeader {
-    margin: 0;
+#editprofilePicButton {
+    margin-left: 15px;
 }
 
-.selectedProfilePic {
-    width: 100%;
+#editProfileForm {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    width: 72%;
+    align-items: flex-start;
+    margin-top: 3vh;
+}
+
+#editProfileForm>input {
+    width: 95%;
 }
 
 #logOutButton {
-    height: 25px;
-    width: 60px;
-
     margin-left: 80%;
+    margin-top: 30px;
 }
