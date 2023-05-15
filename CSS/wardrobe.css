@@ -1,6 +1,7 @@
 #wardrobeParent {
     position: relative;
     width: 100vw;
+    margin-top: 15vh;
 }
 
 div#wardrobePage {
@@ -8,7 +9,7 @@ div#wardrobePage {
     flex-direction: column;
 }
 
-#wardrobePage>div#top {
+#wardrobePage {
     text-align: center;
 }
 

@@ -1,7 +1,7 @@
 "use strict";
 
-if(window.localStorage.getItem("isLoggedIn")) {
+if (window.localStorage.getItem("isLoggedIn")) {
     renderWardrobePage();
 } else {
-    renderLoginPage();
+    renderStartPage();
 }
