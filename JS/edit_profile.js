@@ -162,7 +162,7 @@ async function editProfile() {
         let header = document.querySelector("header");
         header.style.display = "none";
 
-        renderLoginPage();
+        renderStartPage();
     }
 
 }

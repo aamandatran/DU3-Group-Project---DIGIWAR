@@ -8,8 +8,8 @@
     {
         "id": 2,
         "username": "Amanda",
-        "password": "abc",
-        "profilepicture": "http:\/\/localhost:7777\/MEDIA\/profilepictures\/thumbnail.png"
+        "password": "123",
+        "profilepicture": "http:\/\/localhost:7777\/MEDIA\/profilepictures\/unnamed.png"
     },
     {
         "id": 3,
