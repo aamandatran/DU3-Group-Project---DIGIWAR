@@ -78,22 +78,101 @@ async function renderGeneratorPage() {
           button.addEventListener("click", generateItem);
         });
     }
+    
 
     const generatorParent = document.querySelector("#generatorParent");
     generatorParent.innerHTML += ` 
     <div id="popupWindow" class="popup">
-    <div id="popupContent">
-      <!-- Placeholder for selected items -->
-      <div id="popupSelectedItems">
-        <div id="popupSelectedTop"></div>
-        <div id="popupSelectedBottom"></div>
-        <div id="popupSelectedShoe"></div>
+      <div id="popupContent">
+
+      <div id=newOutfitTop>
+        <h1>New Outfit</h2>
+        <button id="closePopupButton">X</button>
       </div>
-      <button id="closePopupButton">Close</button>
+
+        <div id=newOutfitBottom>
+
+          <div id=newOutfit1>
+
+          <fieldset id="styleCategories">
+            <legend>Choose style</legend>
+
+            <div> 
+              <input type=checkbox id=streetwear name=streetwear>
+              <label for=streetwear id=streetwearLabel>Streetwear</label>
+            </div>
+
+            <div> 
+              <input type=checkbox id=casual name=casual>
+              <label for=casual id=casualLabel>Casual</label>
+            </div>
+
+            <div> 
+              <input type=checkbox id=sporty name=sporty>
+              <label for=sporty id=sportyLabel>Sporty</label>
+            </div>          
+
+            <div> 
+              <input type=checkbox id=formal name=formal>
+              <label for=formal id=formalLabel>Formal</label>
+            </div>            
+            
+            <div> 
+              <input type=checkbox id=business name=business>
+              <label for=business id=businessLabel>Business</label>
+            </div>            
+            
+            <div> 
+              <input type=checkbox id=datenight name=datenight>
+              <label for=datenight id=datenightLabel>Date night</label>
+            </div>            
+            
+            <div> 
+              <input type=checkbox id=summer name=summer>
+              <label for=summer id=summerLabel>Summer</label>
+            </div>            
+            
+            <div> 
+              <input type=checkbox id=winter name=winter>
+              <label for=winter id=winterLabel>Winter</label>
+            </div>
+
+            <div> 
+              <input type=checkbox id=spring name=spring>
+              <label for=spring id=springLabel>Spring</label>
+            </div>
+            <div> 
+              <input type=checkbox id=autumn name=autumn>
+              <label for=autumn id=autumnLabel>Autumn</label>
+            </div>            
+
+          </div>
+
+          <div id=newOutfit2>
+          </fieldset>
+          <!-- Placeholder for selected items -->
+            <div id="popupSelectedItems">
+              <div id="popupSelectedTop"></div>
+              <div id="popupSelectedBottom"></div>
+              <div id="popupSelectedShoe"></div>
+            </div>
+
+            <div id="pickBackgroundColor">Pick a background color</div>
+
+            <input type=text id=description name=description placeholder="Write a description"> 
+          </div>
+  
+
+            <button id="savePopupButton">Save</button>
+          </div>
+      </div>
     </div>
-  </div>
   `;
 
+
+  let backgroundColorButton = document.getElementById("pickBackgroundColor");
+  console.log(backgroundColorButton);
+  backgroundColorButton.addEventListener("click", randomColor); 
 
     let username = window.localStorage.getItem("username");
 
