@@ -7,7 +7,7 @@ function display_header_menu() {
     let header = document.querySelector("header");
 
     if (window.localStorage.getItem("isLoggedIn")) {
-        header.style.padding = "2vh";
+        header.style.padding = "0";
         header.innerHTML = `
         <div id="toStartPage">DIGIWAR</div>
         <div id=menuContainer>

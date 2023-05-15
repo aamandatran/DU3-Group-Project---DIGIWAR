@@ -1,8 +1,8 @@
 "use strict"
 
 async function editProfile() {
-
     display_header_menu()
+    document.querySelector("#menuContainer>#editProfileButton").style.fontWeight = "600";
 
     let response = await fetch("API/profilepics.php");
     let profilepictures = await response.json();

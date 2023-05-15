@@ -99,7 +99,6 @@ section {
     color: grey;
 }
 
-
 #curve2 {
     position: absolute;
     top: 0;
@@ -145,4 +144,8 @@ section {
     width: 150px;
     background-color: rgb(226, 226, 226);
     border-radius: 50%;
+}
+
+#us>div>.box>h3 {
+    font-weight: 500;
 }
