@@ -109,8 +109,6 @@
     cursor: pointer;
 }
 
-
-
 .generateOrSave {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -126,8 +124,8 @@
 
 #saveIt {
     display: flex;
+    align-items: center;
     gap: 5px;
-    margin-top: 20px;
     padding-left: 15px;
 }
 
