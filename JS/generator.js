@@ -320,6 +320,21 @@ async function renderGeneratorPage() {
   let generateButton = document.querySelector("#generatorButton");
   generateButton.addEventListener("click", generator);
 
+  function generator(event) {
+
+    let selectedTop = tops[Math.floor(Math.random() * tops.length)];
+    let selectedBottom = bottoms[Math.floor(Math.random() * bottoms.length)];
+    let selectedShoe = shoes[Math.floor(Math.random() * shoes.length)];
+
+    document.querySelector("#selectedTop > div").style.backgroundImage = `url(${selectedTop.path})`;
+    document.querySelector("#selectedBottom > div").style.backgroundImage = `url(${selectedBottom.path})`;
+    document.querySelector("#selectedShoe > div").style.backgroundImage = `url(${selectedShoe.path})`;
+
+    document.getElementById('popupSelectedTop').style.backgroundImage = `url(${selectedTop.path})`;
+    document.getElementById('popupSelectedBottom').style.backgroundImage = `url(${selectedBottom.path})`;
+    document.getElementById('popupSelectedShoe').style.backgroundImage = `url(${selectedShoe.path})`;
+  }
+
   let saveIt = document.querySelector("#saveIt");
   saveIt.addEventListener("click", openPopup);
 }
