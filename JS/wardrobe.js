@@ -3,7 +3,6 @@
 function renderWardrobePage() {
     display_header_menu()
     document.querySelector("#wardrobeButton").style.fontWeight = "600";
-    getUserItems()
 
     main.innerHTML = `
         <div id="wardrobeParent"> 
@@ -31,9 +30,10 @@ function renderWardrobePage() {
         </div>
     `;
 
-    // Fetch users wardrobe by Id
+    const digiwars = document.getElementById("digiwars");
     const yours = document.getElementById("yours");
-    yours.addEventListener("click", getUserItems);
+
+    // Fetch users wardrobe by Id
     async function getUserItems() {
         // document.querySelector("#filtering button#addClothes").style.display = "";
         yours.style.fontWeight = "600";
@@ -55,8 +55,10 @@ function renderWardrobePage() {
         filterByItem(your_wardrobe, "yours")
     };
 
+    getUserItems()
+    yours.addEventListener("click", getUserItems);
+
     // GET-request to displays the clothing items from DIGIWAR
-    const digiwars = document.getElementById("digiwars");
     digiwars.addEventListener("click", async function (event) {
         // document.querySelector("#filtering button#addClothes").style.display = "none";
         digiwars.style.fontWeight = "600";
