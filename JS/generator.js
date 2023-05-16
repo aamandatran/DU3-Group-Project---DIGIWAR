@@ -2,7 +2,7 @@
 
 async function renderGeneratorPage() {
   display_header_menu()
-  document.querySelector("#menuContainer>#outfitGeneratorButton").style.fontWeight = "600";
+  document.querySelector("#outfitGeneratorButton").style.fontWeight = "600";
 
   function displayArrows(item, direction) {
     const arrowButton = document.createElement("button");

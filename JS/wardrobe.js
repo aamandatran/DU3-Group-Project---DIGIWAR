@@ -2,31 +2,27 @@
 
 function renderWardrobePage() {
     display_header_menu()
-    document.querySelector("#menuContainer>#wardrobeButton").style.fontWeight = "600";
+    document.querySelector("#wardrobeButton").style.fontWeight = "600";
 
     main.innerHTML = `
         <div id="wardrobeParent"> 
             <div id="wardrobePage">   
-            <nav id="wardrobeNav">
-                <a id="yours" href="#">YOURS</a>
-                <a id="digiwars" href="#">DIGIWAR'S</a>
-                <a id="outfits" href="#">SAVED OUTFITS</a>
-            </nav>
-                
-            <div id="bottom">
-                <div id="filtering">
-                    <fieldset id="categories">
-                        <legend>Choose a category</legend>
-                        <button id="tops">TOPS</button>
-                        <button id="bottoms">BOTTOMS</button>
-                        <button id="shoes">SHOES</button>
-                    </fieldset>
-                    <button id="addClothes">Add Clothes</button>
+                <section id="banner"></section>
+                <div>
+                    <nav id="filter">
+                        <a href="#">Filter</a>
+                        <nav id="filtering">
+                            <a href="#" id="allItems">All</a>
+                            <a href="#" id="tops">Tops</a>
+                            <a href="#" id="bottoms">Bottoms</a>
+                            <a href="#" id="shoes">Shoes</a>
+                        </nav>
+                    </nav>
                 </div>
-                <div id="wardrobeFeed">
-                    <p></p>
+                <section id="wardrobeFeed">
                     <ul></ul>
-                </div>
+                    <p></p>
+                </section>
             </div>
         </div>
     `;
@@ -36,7 +32,7 @@ function renderWardrobePage() {
     // Fetch users wardrobe by Id
     const yours = document.getElementById("yours");
     async function getUserItems() {
-        document.querySelector("#filtering button#addClothes").style.display = "";
+        // document.querySelector("#filtering button#addClothes").style.display = "";
 
         let id = localStorage.getItem("id");
         console.log(id);
@@ -59,7 +55,7 @@ function renderWardrobePage() {
     // GET-request to displays the clothing items from DIGIWAR
     const digiwars = document.getElementById("digiwars");
     digiwars.addEventListener("click", async function (event) {
-        document.querySelector("#filtering button#addClothes").style.display = "none";
+        // document.querySelector("#filtering button#addClothes").style.display = "none";
 
         let request = await fetch("API/digiwars_wardrobe.php");
         let digiwars_wardrobe = await request.json();
@@ -67,24 +63,33 @@ function renderWardrobePage() {
         filterByItem(digiwars_wardrobe, "digiwars")
     });
 
-    // const outfits = document.getElementById("outfits");
+    // const outfits = document.getElementById("savedOutfits");
     // outfits.addEventListener("click", async function (event) {
 
     // });
 
     // Display pop up to add clothes
-    document.getElementById("addClothes").addEventListener("click", renderUploadItemPopUp);
+    // document.getElementById("addClothes").addEventListener("click", renderUploadItemPopUp);
 
     // Filters wardrobe by item
     function filterByItem(wardrobe, whose) {
+        document.getElementById("allItems").addEventListener("click", async function (event) {
+            if (whose === "digiwars") {
+                createItemDivs(wardrobe, "all", "digiwars")
+            } else {
+                // Else === "yours", i.e users wardrobe
+                createItemDivs(wardrobe, "all", "yours")
+            }
+        });
+
         document.getElementById("tops").addEventListener("click", async function (event) {
             if (whose === "digiwars") {
                 createItemDivs(wardrobe, "tops", "digiwars");
             } else {
-                // Else === "yours", i.e users wardrobe
                 createItemDivs(wardrobe, "tops", "yours");
             }
         });
+
         document.getElementById("bottoms").addEventListener("click", async function (event) {
             if (whose === "digiwars") {
                 createItemDivs(wardrobe, "bottoms", "digiwars");
@@ -92,6 +97,7 @@ function renderWardrobePage() {
                 createItemDivs(wardrobe, "bottoms", "yours");
             }
         });
+
         document.getElementById("shoes").addEventListener("click", async function (event) {
             if (whose === "digiwars") {
                 createItemDivs(wardrobe, "shoes", "digiwars");

@@ -1,71 +1,78 @@
 #wardrobeParent {
-    position: relative;
-    width: 100vw;
-    margin-top: 15vh;
+    margin: 15vh 0 0 0;
 }
 
-div#wardrobePage {
+/* div#wardrobePage {
     display: flex;
     flex-direction: column;
-}
+} */
 
 #wardrobePage {
     text-align: center;
 }
 
-#wardrobeNav>a:first-child,
-#wardrobeNav>a:nth-child(2) {
-    border-right: 1px solid black;
-    padding-right: 9vh;
+#filter {
+    position: relative;
+    width: 10vw;
+    margin-left: 80px;
 }
 
-#wardrobeNav {
+#filter:hover #filtering {
     display: flex;
-    gap: 10vh;
-    justify-content: center;
-    font-size: 3vh;
+    z-index: 1000;
 }
 
-#wardrobeNav>a {
+#filter>a {
+    width: 10vw;
+    display: block;
+    background-color: rgb(176, 199, 209);
+    border-radius: 5px 5px 0 0;
+}
+
+#wardrobePage>div>nav>a,
+#filtering>a {
     text-decoration: none;
     color: black;
+    padding: 2vh;
 }
 
-#wardrobePage>div#bottom {
+#filtering>a {
+    width: 10vw;
+}
+
+#filtering>a:hover {
+    background-color: #ecebeb;
+}
+
+#filtering {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    border: 1px solid rgb(221, 221, 221);
+    background-color: #fff;
+}
+
+#wardrobeFeed {
     display: flex;
-    gap: 2vh;
-    padding: 3vh;
+    justify-content: center;
 }
 
-div#filtering {
-    margin-left: 3vh;
-}
-
-div#wardrobeFeed {
-    width: 70vw;
-    border-top: 1px solid black;
-}
-
-div#wardrobeFeed>ul {
+#wardrobeFeed>ul {
     display: grid;
-    grid-template-columns: repeat(4, 220px);
-    gap: 2vh;
-    grid-auto-rows: 300px;
+    grid-template-columns: repeat(5, 250px);
+    gap: 1vh;
+    grid-auto-rows: 320px;
+    padding-left: 0px;
 }
 
 .feedImages {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border: 1px solid grey;
     display: flex;
     align-items: end;
     justify-content: end;
-    border-radius: 5px;
-}
-
-button#addClothes {
-    padding: 1.5vh 5vw;
+    background-color: #eeebeb;
 }
 
 .itemButton {
