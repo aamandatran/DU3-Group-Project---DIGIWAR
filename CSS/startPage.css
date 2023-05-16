@@ -158,9 +158,9 @@ section {
     background-image: url("../MEDIA/Kajsa.jpeg");
 }
 
-/* #Wille {
-
-} */
+#Wille {
+    background-image: url("../MEDIA/Wille.jpeg");
+}
 
 #us>div>.box>h3 {
     font-weight: 500;
