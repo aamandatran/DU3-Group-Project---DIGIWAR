@@ -79,13 +79,6 @@ async function renderGeneratorPage() {
   }
 
 
-  function registerEventListeners() {
-    const arrowButtons = document.querySelectorAll(".arrowButton");
-    arrowButtons.forEach((button) => {
-      button.addEventListener("click", generateItem);
-    });
-  }
-
   const generatorParent = document.querySelector("#generatorParent");
   generatorParent.innerHTML += ` 
     <div id="popupWindow" class="popup">
@@ -96,7 +89,7 @@ async function renderGeneratorPage() {
         <button id="closePopupButton">X</button>
       </div>
 
-        <div id=newOutfitBottom>
+        <form id=newOutfitBottom>
 
           <div id=newOutfit1>
 
@@ -169,9 +162,9 @@ async function renderGeneratorPage() {
           </div>
   
 
-            <button id="savePopupButton">Save</button>
+            <button id="savePopupButton" type=submit>Save</button>
           </div>
-      </div>
+      </form>
     </div>
   `;
 
@@ -270,51 +263,6 @@ async function renderGeneratorPage() {
     }
   }
 
-  function generateItem(event) {
-    event.stopPropagation();
-
-    console.log("hej");
-    console.log(event.currentTarget);
-
-    const currentTarget = event.currentTarget;
-    let selectedTop, selectedBottom, selectedShoe;
-
-    if (currentTarget.classList.contains("arrowTop")) {
-      if (tops.length > 1) {
-        do {
-          selectedTop = tops[Math.floor(Math.random() * tops.length)];
-        } while (selectedTop === previousSelectedTop);
-        previousSelectedTop = selectedTop;
-      } else {
-        selectedTop = tops[0];
-      }
-      document.querySelector("#selectedTop > div").style.backgroundImage = `url(${selectedTop.path})`;
-      console.log("Arrow Top clicked");
-    } else if (currentTarget.classList.contains("arrowBottom")) {
-      if (bottoms.length > 1) {
-        do {
-          selectedBottom = bottoms[Math.floor(Math.random() * bottoms.length)];
-        } while (selectedBottom === previousSelectedBottom);
-        previousSelectedBottom = selectedBottom;
-      } else {
-        selectedBottom = bottoms[0];
-      }
-      document.querySelector("#selectedBottom > div").style.backgroundImage = `url(${selectedBottom.path})`;
-      console.log("Arrow Bottom clicked");
-    } else if (currentTarget.classList.contains("arrowShoe")) {
-      if (shoes.length > 1) {
-        do {
-          selectedShoe = shoes[Math.floor(Math.random() * shoes.length)];
-        } while (selectedShoe === previousSelectedShoe);
-        previousSelectedShoe = selectedShoe;
-      } else {
-        selectedShoe = shoes[0];
-      }
-      document.querySelector("#selectedShoe > div").style.backgroundImage = `url(${selectedShoe.path})`;
-      console.log("Arrow Shoe clicked");
-    }
-  }
-
   registerEventListeners();
 
   let generateButton = document.querySelector("#generatorButton");
@@ -337,4 +285,72 @@ async function renderGeneratorPage() {
 
   let saveIt = document.querySelector("#saveIt");
   saveIt.addEventListener("click", openPopup);
+
+  var form = document.getElementById('newOutfitBottom');
+
+  // Attach an event listener to the form submission
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    // Get all the checkboxes within the form
+    var checkboxes = form.querySelectorAll('input[type="checkbox"]');
+
+    let styles = [];
+    // Iterate over the checkboxes to check which ones are checked
+    for (var i = 0; i < checkboxes.length; i++) {
+      var checkbox = checkboxes[i];
+      if (checkbox.checked) {
+        console.log(checkbox.id + ' is checked.');
+
+        styles.push(checkbox.id);
+        // Do something with the checked checkbox (e.g., store the value, display it, etc.)
+      }
+    }
+
+    console.log(styles);
+
+
+    let id = window.localStorage.getItem("id");
+    console.log(id);
+    let description = document.getElementById("description").value;
+    console.log(description);
+
+    let backgroundColor = document.getElementById("popupSelectedItems").style.backgroundColor;
+    console.log(backgroundColor);
+
+    let backgroundImageTop = document.getElementById("popupSelectedTop").style.backgroundImage;
+    console.log(backgroundImageTop);
+
+    let backgroundImageBottom = document.getElementById("popupSelectedBottom").style.backgroundImage;
+    console.log(backgroundImageBottom);
+
+    let backgroundImageShoe = document.getElementById("popupSelectedShoe").style.backgroundImage;
+    console.log(backgroundImageShoe);
+
+    let OutfitData = {
+      styles: styles,
+      userID: id,
+      top: backgroundImageTop,
+      bottom: backgroundImageBottom,
+      shoe: backgroundImageShoe,
+      backgroundColor: backgroundColor,
+      description: description
+    };
+
+    const request = new Request("api/new_outfit.php", {
+      method: "POST",
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+      body: JSON.stringify(OutfitData),
+    });
+
+    const response = await fetch(request);
+    console.log(response);
+
+    if (response.status === 200) {
+      console.log("det gick");
+      closePopup();
+      feedback("Outfit is saved!");
+    }
+
+  });
 }

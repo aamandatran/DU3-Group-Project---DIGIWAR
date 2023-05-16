@@ -21,6 +21,7 @@ if ($contentType!=="application/json") {
     sendJSON($error,400);
 }
 
+
 $data=getFileContents("php://input");
 
 $selectedProfilePicture=$data["profilePic"];
@@ -28,6 +29,12 @@ $userName=$data["userName"];
 
 $users=getFileContents($filename);
 
+if (!isset($selectedProfilePicture)) {
+    $error=[
+        "message"=>"You have not selected a new profile pic"
+    ];
+    sendJSON($error,400);
+}
 
 
 foreach ($users as $index=> $user) {
