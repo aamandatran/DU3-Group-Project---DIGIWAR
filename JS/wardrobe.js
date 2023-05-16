@@ -10,7 +10,7 @@ function renderWardrobePage() {
                 <section id="banner"></section>
                 <div>
                     <nav id="filter">
-                        <a href="#">Filter</a>
+                        <a href="#">FILTER</a>
                         <nav id="filtering">
                             <a href="#" id="allItems">All</a>
                             <a href="#" id="tops">Tops</a>
@@ -40,9 +40,7 @@ function renderWardrobePage() {
 
         //CSS that indicates which wardrobe it is
         yours.style.fontWeight = "600";
-        yours.style.color = "white";
         digiwars.style.fontWeight = "500";
-        digiwars.style.color = "black";
 
         let id = localStorage.getItem("id");
         console.log(id);
@@ -70,9 +68,7 @@ function renderWardrobePage() {
 
         //CSS that indicates which wardrobe it is
         digiwars.style.fontWeight = "600";
-        digiwars.style.color = "white";
         yours.style.fontWeight = "500";
-        yours.style.color = "black";
 
         let request = await fetch("API/digiwars_wardrobe.php");
         let digiwars_wardrobe = await request.json();

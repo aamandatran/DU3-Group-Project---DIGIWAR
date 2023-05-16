@@ -20,7 +20,7 @@
     text-decoration: none;
     color: black;
     padding: 2vh 5vw;
-    background-color: rgb(176, 199, 209);
+    background-color: #d5d5d5;
 }
 
 #wardrobePage>div>a:last-of-type {
@@ -53,6 +53,10 @@
     text-decoration: none;
     color: black;
     padding: 2vh;
+}
+
+#wardrobePage>div>nav>a {
+    color: #fff;
 }
 
 #filtering>a {

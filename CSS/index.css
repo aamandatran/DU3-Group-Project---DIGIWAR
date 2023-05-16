@@ -10,6 +10,7 @@ button {
     color: rgb(66, 82, 88);
     background-color: #ecebeb;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 button:hover {
