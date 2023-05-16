@@ -1,13 +1,5 @@
-#feedback {
-    height: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-}
-
 #feedbackContainer {
+    position: absolute;
     z-index: 1;
     width: 350px;
     height: 20%;
@@ -19,12 +11,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    opacity: 1;
+
 }
 
-.awnser_feedback {
-    opacity: 0.3;
-}
-
-.awnser_feedback #feedbackContainer {
-    opacity: 1 !important;
+.feedback_opacity {
+    opacity: 0.5;
 }

@@ -57,7 +57,7 @@ function renderLoginPage() {
         let id, profilepicture;
 
         if (response.status === 200) {
-            feedback("login succeeded");
+            //feedback("login succeeded");
             console.log("login succeeded");
 
             let response = await fetch("API/users.php");

@@ -15,7 +15,7 @@
         "id": 3,
         "username": "Wille",
         "password": "1234",
-        "profilepicture": "http:\/\/localhost:9999\/MEDIA\/profilepictures\/97057c70bc6dfcd8706a6dc4b2f811d2.png"
+        "profilepicture": "http:\/\/localhost:9999\/MEDIA\/profilepictures\/memoji.png"
     },
     {
         "id": 4,
@@ -64,5 +64,11 @@
         "username": "woooa",
         "password": "www",
         "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png"
+    },
+    {
+        "id": 11,
+        "username": "cdssd",
+        "password": "dsdsc",
+        "profilepicture": "..\/MEDIA\/profilepictures\/97057c70bc6dfcd8706a6dc4b2f811d2.png"
     }
 ]

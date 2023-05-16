@@ -7,23 +7,49 @@ function stay_loggedin() {
 
 function feedback(message) {
     let header = document.querySelector("header")
-    header.classList.add("awnser_feedback")
-    let main = document.querySelector("main>div")
+    header.classList.add("feedback_opacity")
+
+    let wrapper = document.querySelector("#editProfileWrapper")
     let div = document.createElement("div")
-    main.classList.add("awnser_feedback")
-    main.append(div)
-    div.setAttribute("id", "feedback")
+
+    div.setAttribute("id", "feedbackContainer")
     div.innerHTML = `
-        <div id=feedbackContainer>
         <p>${message}</p> <button id="close">CLOSE</button>
-        </div>
     
     `
-    let feedback = document.querySelector("#feedback")
+
+    wrapper.append(div)
+    wrapper.classList.add("feedback_opacity")
+
     let feedbackContainer = document.querySelector("#feedbackContainer");
     feedbackContainer.querySelector("button").addEventListener("click", () => {
-        feedback.remove();
-        main.classList.remove("awnser_feedback")
-        header.classList.remove("awnser_feedback")
+        feedbackContainer.remove();
+        header.classList.remove("feedback_opacity")
+        wrapper.classList.remove("feedback_opacity")
     });
 }
+
+/*
+function feedback(message) {
+    let body = document.querySelector("body")
+
+    let wrapper = document.querySelector("#editProfileWrapper")
+    let div = document.createElement("div")
+
+    div.setAttribute("id", "feedbackContainer")
+    div.innerHTML = `
+        <p>${message}</p> <button id="close">CLOSE</button>
+    
+    `
+
+    body.append(div)
+    wrapper.classList.add("feedback_opacity")
+
+    let feedbackContainer = document.querySelector("#feedbackContainer");
+    feedbackContainer.querySelector("button").addEventListener("click", () => {
+        feedbackContainer.remove();
+        wrapper.classList.remove("feedback_opacity")
+    });
+}
+
+*/
