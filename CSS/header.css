@@ -17,6 +17,7 @@ header>div {
     font-size: 4vh;
     font-weight: 600;
     margin-left: 1.5vw;
+    cursor: pointer;
 }
 
 #menuContainer {
@@ -29,6 +30,7 @@ header>div {
     cursor: pointer;
     background-color: transparent;
     font-size: 15px;
+    position: relative;
 }
 
 #menuProfilePic {
@@ -37,26 +39,52 @@ header>div {
     border: 1px solid black;
     border-radius: 50%;
     background-color: #ecebeb;
-    margin-left: 1vh;
+    margin-right: 3vh;
+    margin-left: 2vh;
 }
 
 #menuProfilePic>img {
     width: 100%;
 }
 
-#menuContainer>div {
+#menuContainer>div>a {
     display: flex;
     align-items: center;
     font-weight: 500;
     height: 10vh;
     padding-left: 3vh;
     padding-right: 3vh;
+    text-decoration: none;
+    color: black;
 }
 
-#menuContainer>div:hover {
+#menuContainer>div>a:hover {
     background-color: #f0f0f0;
 }
 
 #menuContainer>#editProfileButton {
     border-right: none;
+}
+
+.menuOptions>.subMenuOptions {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    border: 1px solid rgb(221, 221, 221);
+    background-color: #fff;
+    width: 100%;
+}
+
+.menuOptions>.subMenuOptions>a {
+    text-decoration: none;
+    color: grey;
+    padding: 2vh 0 2vh 2vh;
+}
+
+.menuOptions>.subMenuOptions>a:hover {
+    background-color: #f0f0f0;
+}
+
+#menuContainer>.menuOptions:hover .subMenuOptions {
+    display: flex;
 }

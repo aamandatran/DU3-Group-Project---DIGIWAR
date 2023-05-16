@@ -10,16 +10,31 @@ function display_header_menu() {
         header.style.padding = "0";
         header.innerHTML = `
         <div id="toStartPage">DIGIWAR</div>
-        <div id=menuContainer>
-            <div class=menuOptions id=outfitGeneratorButton>Outfit Generator</div>
-            <div class=menuOptions id=wardrobeButton>Wardrobe</div>
-            <div class=menuOptions id=editProfileButton>
-                <div>${userName}</div>
-                <div id=menuProfilePic>
-                <img src=${savedProfilePic}>
+        <nav id=menuContainer>
+            <div class=menuOptions>
+                <a href="#" class=menuOption id=outfitGeneratorButton>Outfit Generator</a>
             </div>
+            <div class=menuOptions>
+                <a href="#" class=menuOption id=wardrobeButton>Wardrobe</a>
+                <nav class="subMenuOptions">
+                    <a href="#" id="yours">Yours</a>
+                    <a href="#" id="digiwars">Digiwars</a>
+                    <a href="#" id="savedOutfits">Outfits</a>
+                </nav>
             </div>
-        </div>
+            <div class=menuOptions>
+                <a href="#" class=menuOption id="usernameNav">
+                    <div>${userName}</div>
+                    <div id=menuProfilePic>
+                        <img src=${savedProfilePic}>
+                    </div>
+                </a>
+                <nav class="subMenuOptions">
+                    <a href="#" id=editProfileButton>Edit profile</a>
+                    <a href="#" id="logOutButton">Log out</a>
+                </nav>
+            </div>
+        </nav>
     `
 
         header.classList.add("headerMenu")
@@ -38,6 +53,20 @@ function display_header_menu() {
         editProfileButton.addEventListener("click", function (event) {
             editProfile()
         })
+
+        let logOutButton = document.querySelector("#logOutButton");
+        logOutButton.addEventListener("click", log_out)
+
+        function log_out() {
+            window.localStorage.removeItem("username");
+            window.localStorage.removeItem("password");
+            window.localStorage.removeItem("id");
+            window.localStorage.removeItem("profilepicture");
+            window.localStorage.removeItem("isLoggedIn");
+
+            renderStartPage()
+        }
+
     } else {
         header.style.padding = "3vh";
         header.innerHTML = `
