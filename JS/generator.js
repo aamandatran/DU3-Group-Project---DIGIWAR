@@ -88,7 +88,7 @@ async function renderGeneratorPage() {
         <button id="closePopupButton">X</button>
       </div>
 
-        <div id=newOutfitBottom>
+        <form id=newOutfitBottom>
 
           <div id=newOutfit1>
 
@@ -161,9 +161,9 @@ async function renderGeneratorPage() {
           </div>
   
 
-            <button id="savePopupButton">Save</button>
+            <button id="savePopupButton" type=submit>Save</button>
           </div>
-      </div>
+      </form>
     </div>
   `;
 
@@ -283,4 +283,72 @@ async function renderGeneratorPage() {
 
         let saveIt = document.querySelector("#saveIt");
         saveIt.addEventListener("click", openPopup);
+
+        var form = document.getElementById('newOutfitBottom');
+
+// Attach an event listener to the form submission
+form.addEventListener('submit', async function(event) {
+  event.preventDefault(); // Prevent the form from submitting
+
+  // Get all the checkboxes within the form
+  var checkboxes = form.querySelectorAll('input[type="checkbox"]');
+
+  let styles = [];
+  // Iterate over the checkboxes to check which ones are checked
+  for (var i = 0; i < checkboxes.length; i++) {
+    var checkbox = checkboxes[i];
+    if (checkbox.checked) {
+      console.log(checkbox.id + ' is checked.');
+  
+      styles.push(checkbox.id);
+      // Do something with the checked checkbox (e.g., store the value, display it, etc.)
+    }
+  }
+
+  console.log(styles);
+
+
+  let id = window.localStorage.getItem("id");
+  console.log(id);
+  let description = document.getElementById("description").value;
+  console.log(description);
+
+  let backgroundColor = document.getElementById("popupSelectedItems").style.backgroundColor;
+  console.log(backgroundColor);
+
+  let backgroundImageTop = document.getElementById("popupSelectedTop").style.backgroundImage;
+  console.log(backgroundImageTop);
+
+  let backgroundImageBottom = document.getElementById("popupSelectedBottom").style.backgroundImage;
+  console.log(backgroundImageBottom);
+
+  let backgroundImageShoe = document.getElementById("popupSelectedShoe").style.backgroundImage;
+  console.log(backgroundImageShoe);
+
+  let OutfitData = {
+    styles: styles,
+    userID: id,
+    top: backgroundImageTop,
+    bottom: backgroundImageBottom,
+    shoe: backgroundImageShoe,
+    backgroundColor : backgroundColor,
+    description: description
+  };
+
+  const request = new Request("api/new_outfit.php", {
+    method: "POST",
+    headers: {"Content-type": "application/json; charset=UTF-8"},
+    body: JSON.stringify(OutfitData),
+  });
+
+  const response = await fetch(request);
+  console.log(response);
+
+  if(response.status === 200) {
+    console.log("det gick");
+    closePopup();
+    feedback("Outfit is saved!");
+  }
+
+});
 }
