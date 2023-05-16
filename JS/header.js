@@ -11,6 +11,9 @@ function display_header_menu() {
         header.innerHTML = `
         <div id="toStartPage">DIGIWAR</div>
         <nav id=menuContainer>
+            <form class=menuOptions id=search>
+                <input type=text id=searchUser name=searchUser placeholder="Search User">
+            </form>
             <div class=menuOptions>
                 <a href="#" class=menuOption id=outfitGeneratorButton>Outfit Generator</a>
             </div>
