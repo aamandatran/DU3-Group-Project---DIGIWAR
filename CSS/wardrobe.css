@@ -44,12 +44,8 @@
 
 #filter>a {
     display: block;
-    background-color: rgb(176, 199, 209);
+    background-color: rgb(86, 113, 124);
     border-radius: 5px 0 0 0;
-}
-
-#filter>a:hover {
-    background-color: #ecebeb;
 }
 
 #wardrobePage>div>nav>a,
@@ -115,4 +111,9 @@
 
 .itemButton>img {
     height: 25px;
+}
+
+#addClothes {
+    margin-left: 2vw;
+    padding: 1.5vh;
 }

@@ -21,6 +21,7 @@ function renderWardrobePage() {
                     <a href="#" id="yours">Yours</a>
                     <a href="#" id="digiwars">Digiwars</a>
                     <a href="#" id="savedOutfits">Outfits</a>
+                    <button id="addClothes" style="display: none;">Add clothes</button>
                 </div>
                 <section id="wardrobeFeed">
                     <ul></ul>
@@ -35,9 +36,13 @@ function renderWardrobePage() {
 
     // Fetch users wardrobe by Id
     async function getUserItems() {
-        // document.querySelector("#filtering button#addClothes").style.display = "";
+        document.querySelector("button#addClothes").style.display = "";
+
+        //CSS that indicates which wardrobe it is
         yours.style.fontWeight = "600";
+        yours.style.color = "white";
         digiwars.style.fontWeight = "500";
+        digiwars.style.color = "black";
 
         let id = localStorage.getItem("id");
         console.log(id);
@@ -60,9 +65,14 @@ function renderWardrobePage() {
 
     // GET-request to displays the clothing items from DIGIWAR
     digiwars.addEventListener("click", async function (event) {
-        // document.querySelector("#filtering button#addClothes").style.display = "none";
+        // Hide button in Digiwars wardrobe page
+        document.querySelector("button#addClothes").style.display = "none";
+
+        //CSS that indicates which wardrobe it is
         digiwars.style.fontWeight = "600";
+        digiwars.style.color = "white";
         yours.style.fontWeight = "500";
+        yours.style.color = "black";
 
         let request = await fetch("API/digiwars_wardrobe.php");
         let digiwars_wardrobe = await request.json();
@@ -76,7 +86,7 @@ function renderWardrobePage() {
     // });
 
     // Display pop up to add clothes
-    // document.getElementById("addClothes").addEventListener("click", renderUploadItemPopUp);
+    document.getElementById("addClothes").addEventListener("click", renderUploadItemPopUp);
 
 }
 
