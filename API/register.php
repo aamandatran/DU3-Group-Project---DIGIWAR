@@ -58,12 +58,15 @@ if ($method == "POST") {
     }
     
     $id = $highestID + 1;
+
+    $outfits = [];
     
     $newUser = [
         "id" => $id,
         "username" => $username,
         "password" => $password,
-        "profilepicture" => $profilepicture
+        "profilepicture" => $profilepicture,
+        "outfits" => $outfits
     ];
     
     $users[] = $newUser;

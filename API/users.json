@@ -1,80 +1,21 @@
 [
     {
         "id": 1,
-        "username": "Kajsa",
+        "username": "kajsa",
         "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png"
-    },
-    {
-        "id": 2,
-        "username": "Amanda",
-        "password": "123",
-        "profilepicture": "http:\/\/localhost:7777\/MEDIA\/profilepictures\/unnamed.png"
-    },
-    {
-        "id": 3,
-        "username": "Wille",
-        "password": "1234",
-        "profilepicture": "http:\/\/localhost:9999\/MEDIA\/profilepictures\/97057c70bc6dfcd8706a6dc4b2f811d2.png"
-    },
-    {
-        "id": 4,
-        "username": "add",
-        "password": "add",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 5,
-        "username": "kailee",
-        "password": "asd",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 6,
-        "username": "abcdef",
-        "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
-    },
-    {
-        "id": 7,
-        "username": "karin",
-        "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png"
-    },
-    {
-        "id": 4,
-        "username": "kaj",
-        "password": "saa",
-        "profilepicture": "..\/MEDIA\/profilepictures\/unnamed.png"
-    },
-    {
-        "id": 8,
-        "username": "12344",
-        "password": "12344",
-        "profilepicture": "..\/MEDIA\/profilepictures\/memoji.png"
-    },
-    {
-        "id": 9,
-        "username": "akskdasd",
-        "password": "asd",
-        "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png"
-    },
-    {
-        "id": 10,
-        "username": "woooa",
-        "password": "www",
-        "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png"
-    },
-    {
-        "id": 11,
-        "username": "cdssd",
-        "password": "dsdsc",
-        "profilepicture": "..\/MEDIA\/profilepictures\/97057c70bc6dfcd8706a6dc4b2f811d2.png"
-    },
-    {
-        "id": 12,
-        "username": "cds",
-        "password": "awd",
-        "profilepicture": "..\/MEDIA\/profilepictures\/899d8da8f49455372d05e58bd8e6f932-sticker.png"
+        "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png",
+        "outfits": [
+            {
+                "styles": [
+                    "streetwear",
+                    "casual"
+                ],
+                "top": "url(\"..\/MEDIA\/jcbvkjkjxcklvjxc.png\")",
+                "bottom": "url(\"..\/MEDIA\/sadsasd-fotor-bg-remover-2023050414722.png\")",
+                "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
+                "backgroundColor": "pink",
+                "description": "Going shopping!"
+            }
+        ]
     }
 ]
