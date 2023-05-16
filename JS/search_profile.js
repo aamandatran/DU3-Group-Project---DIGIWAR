@@ -204,10 +204,6 @@ async function renderSearchProfile (user) {
             }
         }
 
-        document.querySelectorAll("button.itemButton").forEach(button => {
-            button.addEventListener("click", deleteOrAdd);
-        });
-
     }
 
 
