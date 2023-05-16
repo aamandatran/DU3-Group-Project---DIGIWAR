@@ -11,6 +11,26 @@
     text-align: center;
 }
 
+#wardrobePage>div {
+    display: flex;
+    align-items: center;
+}
+
+#wardrobePage>div>a {
+    text-decoration: none;
+    color: black;
+    padding: 2vh 5vw;
+    background-color: rgb(176, 199, 209);
+}
+
+#wardrobePage>div>a:last-of-type {
+    border-radius: 0 5px 0 0;
+}
+
+#wardrobePage>div>a:hover {
+    background-color: #ecebeb;
+}
+
 #filter {
     position: relative;
     width: 10vw;
@@ -23,10 +43,13 @@
 }
 
 #filter>a {
-    width: 10vw;
     display: block;
     background-color: rgb(176, 199, 209);
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px 0 0 0;
+}
+
+#filter>a:hover {
+    background-color: #ecebeb;
 }
 
 #wardrobePage>div>nav>a,
@@ -37,7 +60,7 @@
 }
 
 #filtering>a {
-    width: 10vw;
+    width: 8vw;
 }
 
 #filtering>a:hover {
@@ -72,7 +95,7 @@
     display: flex;
     align-items: end;
     justify-content: end;
-    background-color: #eeebeb;
+    background-color: #ecebeb;
 }
 
 .itemButton {

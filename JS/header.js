@@ -16,11 +16,6 @@ function display_header_menu() {
             </div>
             <div class=menuOptions>
                 <a href="#" class=menuOption id=wardrobeButton>Wardrobe</a>
-                <nav class="subMenuOptions">
-                    <a href="#" id="yours">Yours</a>
-                    <a href="#" id="digiwars">Digiwars</a>
-                    <a href="#" id="savedOutfits">Outfits</a>
-                </nav>
             </div>
             <div class=menuOptions>
                 <a href="#" class=menuOption id="usernameNav">
