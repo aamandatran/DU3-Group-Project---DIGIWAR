@@ -35,7 +35,22 @@ function display_header_menu() {
         </nav>
     `
 
-        header.classList.add("headerMenu")
+        header.classList.add("headerMenu");
+
+        // Get the search form and input element
+        const searchForm = document.getElementById('search');
+        const searchInput = document.getElementById('searchUser');
+        
+        // Add event listener to the search form
+        searchForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent the form from submitting
+        
+            console.log("jag");
+            const searchTerm = searchInput.value.trim(); // Get the search term
+        
+            // Perform the search operation with the search term
+            searchUser(searchTerm);
+        });
 
         let generatorButton = document.querySelector("#outfitGeneratorButton");
         generatorButton.addEventListener("click", function (event) {
