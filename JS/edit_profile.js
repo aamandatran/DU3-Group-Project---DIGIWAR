@@ -1,10 +1,8 @@
 "use strict"
 
-
-
 async function editProfile() {
-
     display_header_menu()
+    document.querySelector("#menuContainer>#editProfileButton").style.fontWeight = "600";
 
     let response = await fetch("API/profilepics.php");
     let profilepictures = await response.json();
@@ -26,37 +24,35 @@ async function editProfile() {
     let edit_profile_main = document.querySelector("main");
 
     edit_profile_main.innerHTML = `
-    <div id=editProfileWrapper>
-    <div id=editProfile>
-    <h1 id=editHeader>EDIT PROFILE</h1>
-    <h2 id=profileHeader>PROFILE PICTURE</h2>
+        <div id=editProfileWrapper>
+            <div id=editProfile>
+                <h1 id=editHeader>EDIT PROFILE</h1>
 
-    <div id = SelectedProfile>
-    </div>
+                <div>
+                    <div class="title">PROFILE PICTURE</div>
+                    <div>
+                        <div id="SelectedProfile"></div>
+                        <form id=editProfilePicForm>
+                            <ul class = profileOptionsContainer>
+                                ${displayProfilePics(profilepictures)}
+                            </ul>
+                            <button id=editprofilePicButton>Save</button>
+                        </form>
+                    </div>
+                </div>
 
-    
-    <form id=editProfilePicForm>
-    <ul class = profileOptionsContainer>
-        ${displayProfilePics(profilepictures)}
-    </ul>
-    <button id=editprofilePicButton> 
-    Save
-    </button>
-    </form>
-
-    <form id=editProfileForm> 
-    <p class=InputHeader>Old password</p>
-    <input type=text placeholder=old id=oldPassword>
-    <p class=InputHeader>New password</p>
-    <input type=password placeholder=new id=newPassword>
-    <div id=submitButtonContainer>
-    <button id=submitButton type=submit>Save</button>
-    </div>
-    </form>
-    
-    <button id=logOutButton>Log out</button>
-    </div>
-    </div>
+                <form id=editProfileForm> 
+                    <div class="title">PASSWORD</div>
+                    <input type=text placeholder="Old password" id=oldPassword>
+                    <input type=password placeholder="New password" id=newPassword>
+                    <div id=submitButtonContainer>
+                        <button id=editProfileSubmitButton type=submit>Save</button>
+                    </div>
+                </form>
+                
+                <button id=logOutButton>Log out</button>
+            </div>
+        </div>
     `
     //Displayar hela edit profile sidan och anropar samtidigt displayProfilePics i html. 
 
@@ -157,16 +153,13 @@ async function editProfile() {
     logOutButton.addEventListener("click", log_out)
 
     function log_out() {
-        window.localStorage.removeItem("isLoggedIn");
         window.localStorage.removeItem("username");
         window.localStorage.removeItem("password");
         window.localStorage.removeItem("id");
         window.localStorage.removeItem("profilepicture");
+        window.localStorage.removeItem("isLoggedIn");
 
-        let header = document.querySelector("header");
-        header.style.display = "none";
-
-        renderLoginPage();
+        renderStartPage()
     }
 
 }

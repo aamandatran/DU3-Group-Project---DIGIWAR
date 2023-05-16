@@ -2,28 +2,11 @@
     font-family: sans-serif;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 #startPage {
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-button {
-    padding: 5px 10px;
-    color: rgb(66, 82, 88);
-    background-color: #ecebeb;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: rgb(235, 232, 232);
 }
 
 .background {
@@ -116,7 +99,6 @@ section {
     color: grey;
 }
 
-
 #curve2 {
     position: absolute;
     top: 0;
@@ -158,8 +140,12 @@ section {
 }
 
 #us>div>.box>.picture {
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
     background-color: rgb(226, 226, 226);
     border-radius: 50%;
+}
+
+#us>div>.box>h3 {
+    font-weight: 500;
 }

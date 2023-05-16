@@ -2,12 +2,6 @@
 
 function renderStartPage() {
     display_header_menu()
-    let header = document.querySelector("header");
-    header.innerHTML = `
-        <div id="toStartPage">DIGIWAR</div>
-        <button id="buttonToLoginPage">Login</button>
-    `;
-
     document.querySelector("main").innerHTML = `
         <div id="startPage">
             <section>
@@ -71,10 +65,5 @@ function renderStartPage() {
         </div>
     `;
 
-    // document.querySelector("header").innerHTML += `
-    //     <button id="buttonToLoginPage">LOGIN</button>
-    // `;
-
     document.querySelector("#buttonToSignUp").addEventListener("click", renderRegisterPage);
-    document.querySelector("#buttonToLoginPage").addEventListener("click", renderLoginPage);
 }

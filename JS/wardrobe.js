@@ -2,6 +2,8 @@
 
 function renderWardrobePage() {
     display_header_menu()
+    document.querySelector("#menuContainer>#wardrobeButton").style.fontWeight = "600";
+
     main.innerHTML = `
         <div id="wardrobeParent"> 
             <div id="wardrobePage">   

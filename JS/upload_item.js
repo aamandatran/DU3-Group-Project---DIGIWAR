@@ -53,8 +53,6 @@ function renderUploadItemPopUp() {
             <button id="done">DONE</button>
         `;
 
-        uploadPopUp.style.top = "5vh";
-
         document.querySelector("div.cancel").addEventListener("click", function (event) {
             uploadPopUp.innerHTML = "";
             uploadPopUp.style.top = "15vh";

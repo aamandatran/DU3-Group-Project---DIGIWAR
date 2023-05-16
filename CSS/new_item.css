@@ -1,6 +1,6 @@
 #uploadPopUp {
     width: 40vw;
-    background-color: #f4f0cc;
+    background: radial-gradient(827px at 47.3% 48%, rgb(228, 245, 255) 0%, rgb(176, 199, 209) 90%);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -13,6 +13,11 @@
     right: 30vw;
 }
 
+#uploadPopUp>h1 {
+    margin-top: 0;
+    font-size: 5vh;
+}
+
 div.cancel {
     display: flex;
     justify-content: flex-end;
@@ -23,13 +28,14 @@ div.cancel {
 }
 
 div#itemImage {
-    width: 25vw;
-    height: 55vh;
+    width: 20vw;
+    height: 45vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border: 1px solid grey;
     margin-bottom: 2vh;
+    background-color: #fff;
 }
 
 fieldset {
@@ -38,15 +44,16 @@ fieldset {
     width: 20vw;
     height: 40vh;
     gap: 3vh;
-    border-radius: 15px;
+    border-radius: 10px;
     margin-bottom: 7vh;
+    background-color: #fff;
 }
 
 fieldset legend {
     background-color: grey;
     color: white;
     padding: 2vh;
-    border-radius: 15px;
+    border-radius: 10px;
     width: inherit;
     text-align: center;
     font-weight: bold;
@@ -55,7 +62,6 @@ fieldset legend {
 
 fieldset>button {
     padding: 2vh;
-    border-radius: 20px;
 }
 
 #upload {
@@ -63,7 +69,6 @@ fieldset>button {
 }
 
 button#done {
-    border-radius: 20px;
     padding: 1.5vh 5vw;
     margin-top: 2vh;
     margin-bottom: 2vh;
