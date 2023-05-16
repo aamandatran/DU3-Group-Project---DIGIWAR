@@ -140,10 +140,25 @@ section {
 }
 
 #us>div>.box>.picture {
+    margin-top: 30px;
     height: 200px;
     width: 200px;
     background-color: rgb(226, 226, 226);
     border-radius: 50%;
+}
+
+#Amanda {
+    background-image: url("../MEDIA/Amanda.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#Kajsa {
+    background-image: url("../MEDIA/Kajsa.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #us>div>.box>h3 {

@@ -48,15 +48,15 @@ function renderStartPage() {
 
                     <div>
                         <div class="box">
-                            <div class="picture"></div>
+                            <div class="picture" id="Amanda"></div>
                             <h3>Amanda Tran</h3>
                         </div>
                         <div class="box">
-                            <div class="picture"></div>
+                            <div class="picture" id="Kajsa"></div>
                             <h3>Kajsa Wallander</h3>
                         </div>
                         <div class="box">
-                            <div class="picture"></div>
+                            <div class="picture" id="Wille"></div>
                             <h3>Wille Sjöstedtthiel</h3>
                         </div>
                     </div>
