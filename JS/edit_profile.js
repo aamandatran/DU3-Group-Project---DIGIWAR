@@ -20,7 +20,7 @@ async function editProfile() {
         }
         return html;
     }
-
+    let savedProfilePic = localStorage.getItem("profilepicture");
     let edit_profile_main = document.querySelector("main");
 
     edit_profile_main.innerHTML = `
@@ -31,7 +31,9 @@ async function editProfile() {
                 <div>
                     <div class="title">PROFILE PICTURE</div>
                     <div>
-                        <div id="SelectedProfile"></div>
+                        <div id="SelectedProfile">
+                            <img src=${savedProfilePic} class=selectedProfilePic>
+                        </div>
                         <form id=editProfilePicForm>
                             <ul class = profileOptionsContainer>
                                 ${displayProfilePics(profilepictures)}
@@ -53,6 +55,7 @@ async function editProfile() {
         </div>
     `
     //Displayar hela edit profile sidan och anropar samtidigt displayProfilePics i html. 
+
 
     let profileOptions = document.querySelectorAll(".editProfileOptions");
     //Querieseleqtar till alla bilder för att kunna gå igenom dem och lägga till event listner på var och en här nere.

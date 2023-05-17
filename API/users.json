@@ -17,5 +17,12 @@
                 "description": "Going shopping!"
             }
         ]
+    },
+    {
+        "id": 2,
+        "username": "Wille",
+        "password": "321",
+        "profilepicture": "http:\/\/localhost:9999\/MEDIA\/profilepictures\/memoji.png",
+        "outfits": []
     }
 ]
