@@ -51,16 +51,23 @@ function renderWardrobePage() {
         let id = localStorage.getItem("id");
         console.log("event is on");
         // Call createOutfitDivs(id) and wait for the result
-        const outfitDivs = await createOutfitDivs(id);
+        const outfitDivs = await createOutfitDivs(id, "");
       
         document.getElementById("bottom").innerHTML = `
           <nav id="filter">
             <a href="#">FILTER</a>
             <nav id="filtering">
               <a href="#" id="allItems">All</a>
-              <a href="#" id="tops">Tops</a>
-              <a href="#" id="bottoms">Bottoms</a>
-              <a href="#" id="shoes">Shoes</a>
+              <a href="#" id="streetwear">Streetwear</a>
+              <a href="#" id="casual">Casual</a>
+              <a href="#" id="sporty">Sporty</a>
+              <a href="#" id="formal">Formal</a>
+              <a href="#" id="business">Business</a>
+              <a href="#" id="datenight">Date Night</a>
+              <a href="#" id="summer">Summer</a>
+              <a href="#" id="winter">Winter</a>
+              <a href="#" id="spring">Spring</a>
+              <a href="#" id="autumn">Autumn</a>
             </nav>
             <button id="addClothes" style="display: none;">Add clothes</button>
           </nav>
@@ -69,6 +76,73 @@ function renderWardrobePage() {
             <p></p>
           </section>
         `;
+            document.getElementById("allItems").addEventListener("click", async function (event) {
+                event.preventDefault();
+                console.log(event.target.innerText);
+                let style = "";
+                document.getElementById("outfitsUl").innerHTML= await createOutfitDivs(id, style);  
+            });
+            document.getElementById("streetwear").addEventListener("click", async function (event) {
+                event.preventDefault();
+                console.log(event.target.innerText);
+                let style = event.target.innerText;
+                document.getElementById("outfitsUl").innerHTML= await createOutfitDivs(id, style);  
+            });
+            document.getElementById("casual").addEventListener("click", async function (event) {
+                event.preventDefault();
+                console.log(event.target.innerText);
+                let style = event.target.innerText;
+                document.getElementById("outfitsUl").innerHTML= await createOutfitDivs(id, style);   
+            });
+            document.getElementById("sporty").addEventListener("click", async function (event) {
+                event.preventDefault();
+                console.log(event.target.innerText);
+                let style = event.target.innerText;
+                document.getElementById("outfitsUl").innerHTML= await createOutfitDivs(id, style);
+            });
+            document.getElementById("formal").addEventListener("click", async function (event) {
+                event.preventDefault();
+                console.log(event.target.innerText);
+                let style = event.target.innerText;
+                document.getElementById("outfitsUl").innerHTML= await createOutfitDivs(id, style);
+            });
+            document.getElementById("business").addEventListener("click", async function (event) {
+                event.preventDefault();
+                console.log(event.target.innerText);
+                let style = event.target.innerText;
+                document.getElementById("outfitsUl").innerHTML= await createOutfitDivs(id, style);
+            });
+            document.getElementById("datenight").addEventListener("click", async function (event) {
+                event.preventDefault();
+                console.log(event.target.innerText);
+                let style = event.target.innerText;
+                document.getElementById("outfitsUl").innerHTML= await createOutfitDivs(id, style);
+            });
+            document.getElementById("summer").addEventListener("click", async function (event) {
+                event.preventDefault();
+                console.log(event.target.innerText);
+                let style = event.target.innerText;
+                document.getElementById("outfitsUl").innerHTML= await createOutfitDivs(id, style);
+            });
+            document.getElementById("winter").addEventListener("click", async function (event) {
+                event.preventDefault();
+                console.log(event.target.innerText);
+                let style = event.target.innerText;
+                document.getElementById("outfitsUl").innerHTML= await createOutfitDivs(id, style);
+            });
+            document.getElementById("spring").addEventListener("click", async function (event) {
+                event.preventDefault();
+                console.log(event.target.innerText);
+                let style = event.target.innerText;
+                document.getElementById("outfitsUl").innerHTML= await createOutfitDivs(id, style);
+            });
+            document.getElementById("autumn").addEventListener("click", async function (event) {
+                event.preventDefault();
+                console.log(event.target.innerText);
+                let style = event.target.innerText;
+                document.getElementById("outfitsUl").innerHTML= await createOutfitDivs(id, style);
+            });
+        
       }
 
     
@@ -209,6 +283,7 @@ function filterByItem(wardrobe, whose) {
         }
     });
 }
+
 
 function createItemDivs(array, item, whose) {
     // Empty the feed
