@@ -17,6 +17,13 @@ if($method == "POST") {
     $backgroundColor = $data["backgroundColor"];
     $description = $data["description"];
 
+    if (count($styles) === 0) {
+        $error = [
+            "message" => "You must choose a style!"
+        ];
+        sendJSON($error, 400);
+    }
+
     $users = getFileContents($filename);
 
     foreach ($users as &$user) { // Use the reference &$user to modify the original array

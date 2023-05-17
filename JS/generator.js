@@ -350,6 +350,10 @@ async function renderGeneratorPage() {
       console.log("det gick");
       closePopup();
       feedback("Outfit is saved!");
+    } else {
+      let error = await response.json();
+      console.log(error);
+      feedback(error.message);
     }
 
   });
