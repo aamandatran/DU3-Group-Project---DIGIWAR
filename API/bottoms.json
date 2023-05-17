@@ -9,24 +9,21 @@
     },
     {
         "path": "..\/MEDIA\/hdagkhsoiafoifdfl.png",
-        "id": [
-            0,
-            2,
-            1
-        ]
+        "id": {
+            "0": 0,
+            "2": 1
+        }
     },
     {
         "path": "..\/MEDIA\/jaJPNKSNKJDHDSUID.png",
         "id": [
-            0,
-            2
+            0
         ]
     },
     {
         "path": "..\/MEDIA\/lhklfgkhlkdgflsfkvvv.png",
         "id": [
-            0,
-            2
+            0
         ]
     },
     {

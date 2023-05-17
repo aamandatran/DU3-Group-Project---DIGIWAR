@@ -29,8 +29,7 @@
     "5": {
         "path": "..\/MEDIA\/gjfklhglhgkhdf\u00f6lkgf\u00f6lgfk.png",
         "id": [
-            0,
-            2
+            0
         ]
     },
     "6": {
@@ -43,8 +42,7 @@
     "7": {
         "path": "..\/MEDIA\/hsjdfjahkjashfsakl.png",
         "id": [
-            0,
-            2
+            0
         ]
     },
     "8": {
@@ -57,15 +55,13 @@
     "9": {
         "path": "..\/MEDIA\/wtyeuweuwtuyteue.png",
         "id": [
-            0,
-            2
+            0
         ]
     },
     "10": {
         "path": "..\/MEDIA\/tuytuyeuieryitrytriuyte.png",
         "id": [
-            0,
-            2
+            0
         ]
     },
     "11": {
@@ -91,8 +87,7 @@
     "14": {
         "path": "..\/MEDIA\/fjiojqoaifjiojcvxc.png",
         "id": [
-            0,
-            2
+            0
         ]
     },
     "15": {
@@ -103,12 +98,11 @@
     },
     "16": {
         "path": "..\/MEDIA\/jcbvkjkjxcklvjxc.png",
-        "id": [
-            0,
-            2,
-            5,
-            1
-        ]
+        "id": {
+            "0": 0,
+            "2": 5,
+            "3": 1
+        }
     },
     "17": {
         "path": "..\/MEDIA\/lsahagdywdfuq.png",
@@ -186,12 +180,6 @@
         "path": "..\/MEDIA\/zzxljasojdiojefiojweio.png",
         "id": [
             0
-        ]
-    },
-    "29": {
-        "path": "..\/MEDIA\/fskjdgnvkcjnbckvlnc.png",
-        "id": [
-            2
         ]
     }
 }

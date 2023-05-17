@@ -24,5 +24,12 @@
         "password": "321",
         "profilepicture": "http:\/\/localhost:9999\/MEDIA\/profilepictures\/memoji.png",
         "outfits": []
+    },
+    {
+        "id": 3,
+        "username": "Wille02",
+        "password": "test",
+        "profilepicture": "http:\/\/localhost:9999\/MEDIA\/profilepictures\/97057c70bc6dfcd8706a6dc4b2f811d2.png",
+        "outfits": []
     }
 ]
