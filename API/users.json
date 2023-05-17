@@ -17,5 +17,12 @@
                 "description": "Going shopping!"
             }
         ]
+    },
+    {
+        "id": 2,
+        "username": "tranen",
+        "password": "123",
+        "profilepicture": "..\/MEDIA\/profilepictures\/unnamed.png",
+        "outfits": []
     }
 ]

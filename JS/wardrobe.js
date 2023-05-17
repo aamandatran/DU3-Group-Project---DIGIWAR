@@ -13,18 +13,18 @@ function renderWardrobePage() {
                     </div>
                 </section>
                 <div>
-                    <a href="#" id="yours">Yours</a>
-                    <a href="#" id="digiwars">Digiwars</a>
-                    <a href="#" id="savedOutfits">Outfits</a>
+                    <a href="#" id="yours">Yours</a><a
+                    href="#" id="digiwars">Digiwars</a><a
+                    href="#" id="savedOutfits">Outfits</a>
                 </div>
                 <div id="bottom">
                     <nav id="filter">
                         <a href="#">FILTER</a>
                         <nav id="filtering">
-                            <a href="#" id="allItems">All</a>
-                            <a href="#" id="tops">Tops</a>
-                            <a href="#" id="bottoms">Bottoms</a>
-                            <a href="#" id="shoes">Shoes</a>
+                            <a href="" id="allItems">All</a><a
+                             href="" id="tops">Tops</a>
+                            <a href="" id="bottoms">Bottoms</a>
+                            <a href="" id="shoes">Shoes</a>
                         </nav>
                         <button id="addClothes" style="display: none;">Add clothes</button>
                     </nav>
@@ -98,6 +98,7 @@ function renderWardrobePage() {
 // Filters wardrobe by item
 function filterByItem(wardrobe, whose) {
     document.getElementById("allItems").addEventListener("click", async function (event) {
+        event.preventDefault();
         if (whose === "digiwars") {
             createItemDivs(wardrobe, "all", "digiwars")
         } else {
@@ -107,6 +108,7 @@ function filterByItem(wardrobe, whose) {
     });
 
     document.getElementById("tops").addEventListener("click", async function (event) {
+        event.preventDefault();
         if (whose === "digiwars") {
             createItemDivs(wardrobe, "tops", "digiwars");
         } else {
@@ -115,6 +117,7 @@ function filterByItem(wardrobe, whose) {
     });
 
     document.getElementById("bottoms").addEventListener("click", async function (event) {
+        event.preventDefault();
         if (whose === "digiwars") {
             createItemDivs(wardrobe, "bottoms", "digiwars");
         } else {
@@ -123,6 +126,7 @@ function filterByItem(wardrobe, whose) {
     });
 
     document.getElementById("shoes").addEventListener("click", async function (event) {
+        event.preventDefault();
         if (whose === "digiwars") {
             createItemDivs(wardrobe, "shoes", "digiwars");
         } else {
