@@ -19,12 +19,18 @@ async function createOutfitDivs(id, style) {
       for (let outfit of outfits) {
         if (style === "" || outfit.styles.includes(style)) {
           outfitArray += `
-            <div class="outfit" style=background-color:${outfit.backgroundColor}>
+            <div class="outfitdiv" style=background-color:${outfit.backgroundColor}>
+            <div class=outfit>
               <div class="outfitTop" style=background-image:${outfit.top}></div>
               <div class="outfitBottom" style=background-image:${outfit.bottom}></div>
               <div class="outfitShoe" style=background-image:${outfit.shoe}></div>
             </div>
+              <button class='delete outfitButton'>
+                <img src="../MEDIA/trashcan.png">
+              </button>            
+            </div>
           `;
+
           console.log(outfitArray);
         }
       }
@@ -33,4 +39,11 @@ async function createOutfitDivs(id, style) {
   }
   
   return outfitArray;
+}
+
+function deleteOutfit(event) {
+  console.log(event);
+  const id = localStorage.getItem("id");
+
+  
 }

@@ -4,8 +4,8 @@
         "username": "kajsa",
         "password": "123",
         "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png",
-        "outfits": [
-            {
+        "outfits": {
+            "0": {
                 "styles": [
                     "streetwear",
                     "casual"
@@ -16,7 +16,7 @@
                 "backgroundColor": "pink",
                 "description": "Going shopping!"
             },
-            {
+            "1": {
                 "styles": [
                     "summer"
                 ],
@@ -26,7 +26,7 @@
                 "backgroundColor": "purple",
                 "description": "Beach life "
             },
-            {
+            "2": {
                 "styles": [
                     "casual"
                 ],
@@ -36,7 +36,7 @@
                 "backgroundColor": "black",
                 "description": "School outfit"
             },
-            {
+            "3": {
                 "styles": [
                     "datenight"
                 ],
@@ -46,7 +46,7 @@
                 "backgroundColor": "green",
                 "description": "Date with my boo"
             },
-            {
+            "4": {
                 "styles": [
                     "spring"
                 ],
@@ -56,7 +56,7 @@
                 "backgroundColor": "blue",
                 "description": "Lolololol"
             },
-            {
+            "5": {
                 "styles": [
                     "spring"
                 ],
@@ -65,8 +65,18 @@
                 "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
                 "backgroundColor": "pink",
                 "description": "Yasss"
+            },
+            "7": {
+                "styles": [
+                    "casual"
+                ],
+                "top": "url(\"..\/MEDIA\/idsfisidvifbiisgrnb.png\")",
+                "bottom": "url(\"..\/MEDIA\/eqtwreytreurewirt.png\")",
+                "shoe": "url(\"..\/MEDIA\/ytuerorwrpipqeoriqer.png\")",
+                "backgroundColor": "purple",
+                "description": "hi"
             }
-        ]
+        }
     },
     {
         "id": 2,

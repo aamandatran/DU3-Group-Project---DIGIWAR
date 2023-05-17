@@ -28,6 +28,8 @@ if($method == "POST") {
 
     foreach ($users as &$user) { // Use the reference &$user to modify the original array
         if ($user["id"] == $userID) {
+            $id = count($user["outfits"]) + 1;
+
             $outfit = [
                 "styles" => $styles,
                 "top" => $top,
@@ -37,7 +39,7 @@ if($method == "POST") {
                 "description" => $description
             ];
 
-            $user["outfits"][] = $outfit; // Append the new outfit to the "outfits" array
+            $user["outfits"][$id] = $outfit; // Append the new outfit to the "outfits" array
 
             // Update the user data in the users array
             saveToFile($filename, $users);
