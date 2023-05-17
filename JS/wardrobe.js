@@ -33,6 +33,72 @@ function renderWardrobePage() {
 
     getUserItems()
 
+    document.getElementById("outfits").addEventListener("click", renderOutfits);
+
+    async function renderOutfits() {
+        document.getElementById("bottom").innerHTML = `
+        <div id="filtering">
+            <fieldset id="categories">
+                <legend>Choose a style</legend>
+                <div> 
+                <input type=checkbox id=streetwear name=streetwear>
+                <label for=streetwear id=streetwearLabel>Streetwear</label>
+              </div>
+  
+              <div> 
+                <input type=checkbox id=casual name=casual>
+                <label for=casual id=casualLabel>Casual</label>
+              </div>
+  
+              <div> 
+                <input type=checkbox id=sporty name=sporty>
+                <label for=sporty id=sportyLabel>Sporty</label>
+              </div>          
+  
+              <div> 
+                <input type=checkbox id=formal name=formal>
+                <label for=formal id=formalLabel>Formal</label>
+              </div>            
+              
+              <div> 
+                <input type=checkbox id=business name=business>
+                <label for=business id=businessLabel>Business</label>
+              </div>            
+              
+              <div> 
+                <input type=checkbox id=datenight name=datenight>
+                <label for=datenight id=datenightLabel>Date night</label>
+              </div>            
+              
+              <div> 
+                <input type=checkbox id=summer name=summer>
+                <label for=summer id=summerLabel>Summer</label>
+              </div>            
+              
+              <div> 
+                <input type=checkbox id=winter name=winter>
+                <label for=winter id=winterLabel>Winter</label>
+              </div>
+  
+              <div> 
+                <input type=checkbox id=spring name=spring>
+                <label for=spring id=springLabel>Spring</label>
+              </div>
+              <div> 
+                <input type=checkbox id=autumn name=autumn>
+                <label for=autumn id=autumnLabel>Autumn</label>
+              </div>      
+            </fieldset>
+        </div>
+                <div id="wardrobeFeed">
+                    <p></p>
+                    <ul></ul>
+                </div>
+        `;
+
+        
+    }
+
     // Fetch users wardrobe by Id
     const yours = document.getElementById("yours");
     async function getUserItems() {
