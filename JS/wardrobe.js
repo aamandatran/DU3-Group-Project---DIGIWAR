@@ -13,9 +13,9 @@ function renderWardrobePage() {
                     </div>
                 </section>
                 <div>
-                    <a href="#" id="yours">Yours</a><a
-                    href="#" id="digiwars">Digiwars</a><a
-                    href="#" id="savedOutfits">Outfits</a>
+                    <a href="" id="yours">Yours</a><a
+                    href="" id="digiwars">Digiwars</a><a
+                    href="" id="savedOutfits">Outfits</a>
                 </div>
                 <div id="bottom">
                     <nav id="filter">
@@ -66,10 +66,14 @@ function renderWardrobePage() {
     };
 
     getUserItems()
-    yours.addEventListener("click", getUserItems);
+    yours.addEventListener("click", function (event) {
+        event.preventDefault();
+        getUserItems()
+    });
 
     // GET-request to displays the clothing items from DIGIWAR
     digiwars.addEventListener("click", async function (event) {
+        event.preventDefault();
         // Hide button in Digiwars wardrobe page
         document.querySelector("button#addClothes").style.display = "none";
 

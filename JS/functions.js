@@ -1,3 +1,5 @@
+"use strict";
+
 function displayProfilePics(array) {
     //Denna funktionen är samma som i login/register och displayar alla bilder. 
     let html = "";
