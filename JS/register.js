@@ -23,17 +23,7 @@ async function renderRegisterPage() {
     let profilepictures = await response.json();
 
     //Skapar profilbilderna
-    function displayProfilePics(array) {
-        let html = "";
-        for (let profilepic of profilepictures) {
-            html += `
-            <li class=profileOption>
-            <img src=${profilepic}>
-            </li>
-            `;
-        }
-        return html;
-    }
+    displayProfilePics(profilepictures)
 
     console.log(profilepictures);
 

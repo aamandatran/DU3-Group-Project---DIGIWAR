@@ -8,18 +8,7 @@ async function editProfile() {
     let profilepictures = await response.json();
     //Hämtar profilbilder
 
-    function displayProfilePics(array) {
-        //Denna funktionen är samma som i login/register och displayar alla bilder. 
-        let html = "";
-        for (let profilepic of profilepictures) {
-            html += `
-                    <li class=editProfileOptions>
-                    <img src=${profilepic}>
-                    </li>
-                    `;
-        }
-        return html;
-    }
+    displayProfilePics(profilepictures)
     let savedProfilePic = localStorage.getItem("profilepicture");
     let edit_profile_main = document.querySelector("main");
 
@@ -65,10 +54,11 @@ async function editProfile() {
     for (let option of profileOptions) {
         //här går vi igenom bilderna lägger till event "Click" och den bilden man klickar på ska displayas i "#selectedProfile"
         option.addEventListener("click", function (event) {
-            selectedProfilePic = event.target.src;
+            console.log(event);
+            selectedProfilePic = event.target.attributes[0].value;
             //Variabeln "selectedProfilepic" ger jag ett värde här vilket då blir den bilden man klickar på. Variabeln skickar jag sen med i "userData"
             document.querySelector("#SelectedProfile").innerHTML = `
-            <img src=${event.target.src} class=selectedProfilePic>`
+            <img src=${selectedProfilePic} class=selectedProfilePic>`
         })
 
     }
