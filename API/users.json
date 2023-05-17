@@ -15,6 +15,56 @@
                 "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
                 "backgroundColor": "pink",
                 "description": "Going shopping!"
+            },
+            {
+                "styles": [
+                    "summer"
+                ],
+                "top": "url(\"..\/MEDIA\/fjiojqoaifjiojcvxc.png\")",
+                "bottom": "url(\"..\/MEDIA\/gghrwrhishfidjsvick.png\")",
+                "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
+                "backgroundColor": "purple",
+                "description": "Beach life "
+            },
+            {
+                "styles": [
+                    "casual"
+                ],
+                "top": "url(\"..\/MEDIA\/yeuqywiuchoicjx.png\")",
+                "bottom": "url(\"..\/MEDIA\/eqtwreytreurewirt.png\")",
+                "shoe": "url(\"..\/MEDIA\/ytuerorwrpipqeoriqer.png\")",
+                "backgroundColor": "black",
+                "description": "School outfit"
+            },
+            {
+                "styles": [
+                    "datenight"
+                ],
+                "top": "url(\"..\/MEDIA\/8aa2cc82dbc74c9396744783953b11de-fotor-bg-remover-202305041488.png\")",
+                "bottom": "url(\"..\/MEDIA\/lhklfgkhlkdgflsfkvvv.png\")",
+                "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
+                "backgroundColor": "green",
+                "description": "Date with my boo"
+            },
+            {
+                "styles": [
+                    "spring"
+                ],
+                "top": "url(\"..\/MEDIA\/tvvvgyvydstvysdgusf.png\")",
+                "bottom": "url(\"..\/MEDIA\/sadsasd-fotor-bg-remover-2023050414722.png\")",
+                "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
+                "backgroundColor": "blue",
+                "description": "Lolololol"
+            },
+            {
+                "styles": [
+                    "spring"
+                ],
+                "top": "url(\"..\/MEDIA\/zzxljasojdiojefiojweio.png\")",
+                "bottom": "url(\"..\/MEDIA\/lhklfgkhlkdgflsfkvvv.png\")",
+                "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
+                "backgroundColor": "pink",
+                "description": "Yasss"
             }
         ]
     },

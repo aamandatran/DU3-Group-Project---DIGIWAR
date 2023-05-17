@@ -12,7 +12,8 @@ if($method == "GET") {
         $displayUser = [
             "username" => $user["username"],
             "id" => $user["id"],
-            "profilepicture" => $user["profilepicture"]
+            "profilepicture" => $user["profilepicture"],
+            "outfits" => $user["outfits"]
         ];
         $displayUsers[] = $displayUser;
     }
