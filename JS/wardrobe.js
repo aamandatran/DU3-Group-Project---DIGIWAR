@@ -7,8 +7,17 @@ function renderWardrobePage() {
     main.innerHTML = `
         <div id="wardrobeParent"> 
             <div id="wardrobePage">   
-                <section id="banner"></section>
+                <section>
+                    <div id="banner">
+                        <div>One Step Closer to End the War</div>
+                    </div>
+                </section>
                 <div>
+                    <a href="#" id="yours">Yours</a>
+                    <a href="#" id="digiwars">Digiwars</a>
+                    <a href="#" id="savedOutfits">Outfits</a>
+                </div>
+                <div id="bottom">
                     <nav id="filter">
                         <a href="#">FILTER</a>
                         <nav id="filtering">
@@ -17,22 +26,19 @@ function renderWardrobePage() {
                             <a href="#" id="bottoms">Bottoms</a>
                             <a href="#" id="shoes">Shoes</a>
                         </nav>
+                        <button id="addClothes" style="display: none;">Add clothes</button>
                     </nav>
-                    <a href="#" id="yours">Yours</a>
-                    <a href="#" id="digiwars">Digiwars</a>
-                    <a href="#" id="savedOutfits">Outfits</a>
-                    <button id="addClothes" style="display: none;">Add clothes</button>
+                    <section id="wardrobeFeed">
+                        <ul></ul>
+                        <p></p>
+                    </section>
                 </div>
-                <section id="wardrobeFeed">
-                    <ul></ul>
-                    <p></p>
-                </section>
             </div>
         </div>
     `;
 
-    const digiwars = document.getElementById("digiwars");
-    const yours = document.getElementById("yours");
+    const digiwars = document.querySelector("#wardrobePage>div>a#digiwars");
+    const yours = document.querySelector("#wardrobePage>div>a#yours");
 
     // Fetch users wardrobe by Id
     async function getUserItems() {
@@ -40,6 +46,7 @@ function renderWardrobePage() {
 
         //CSS that indicates which wardrobe it is
         yours.style.fontWeight = "600";
+        yours.style.borderBottom = "2px solid grey;";
         digiwars.style.fontWeight = "500";
 
         let id = localStorage.getItem("id");
@@ -68,7 +75,9 @@ function renderWardrobePage() {
 
         //CSS that indicates which wardrobe it is
         digiwars.style.fontWeight = "600";
+        digiwars.style.borderBottom = "2px solid grey;";
         yours.style.fontWeight = "500";
+
 
         let request = await fetch("API/digiwars_wardrobe.php");
         let digiwars_wardrobe = await request.json();
@@ -201,21 +210,26 @@ function createItemDivs(array, item, whose) {
 
     function createDivs(item, file) {
         let div = document.createElement("div");
-        div.style.backgroundImage = `url(${item.path})`;
-        div.classList.add("feedImages");
+        div.classList.add("imageContainer");
+        let imageDiv = document.createElement("div");
+        imageDiv.classList.add("feedImage");
+        imageDiv.classList.add(item.path);
+        div.append(imageDiv);
+
+        imageDiv.style.backgroundImage = `url(${item.path})`;
         wardrobeFeed.append(div);
 
         // Checks if the item belongs to users wardrobe or DIGIWARS, different button functions for each wardrobe, delete for users wardrobe and add for DIGIWARS
         if (whose === "yours") {
-            div.innerHTML = `
+            imageDiv.innerHTML = `
                 <button class='delete itemButton ${file}'>
                     <img src="../MEDIA/trashcan.png">
                 </button>
             `;
         } else {
-            div.innerHTML = `
+            imageDiv.innerHTML = `
                 <button class='checkbox itemButton ${file}'>
-                    <img src="../MEDIA/empty-checkbox.png">
+                    <img src="../MEDIA/add.png">
                 </button>
             `;
         }
@@ -228,7 +242,7 @@ function createItemDivs(array, item, whose) {
     function deleteOrAdd(e) {
         console.log(e);
         const id = localStorage.getItem("id");
-        const path = e.target.parentNode.parentNode.attributes[0].nodeValue;
+        const path = e.target.parentElement.parentElement.classList[1];
         // Classlist will either be checkbox or delete, important when sending a request to API
         const classlist = e.target.parentElement.classList[0];
         // The filename in classlist which indicates which JSON file to search in
@@ -251,7 +265,7 @@ function createItemDivs(array, item, whose) {
                         console.log(data.message);
                     } else {
                         console.log(data.message);
-                        e.target.setAttribute("src", "../MEDIA/checkbox-selected.png");
+                        e.target.setAttribute("src", "../MEDIA/added.png");
                     }
                 }).catch(error => {
                     console.log(error);
@@ -259,6 +273,8 @@ function createItemDivs(array, item, whose) {
         }
 
         if (classlist === "delete") {
+
+
             const request = new Request("API/your_wardrobe.php", {
                 method: "DELETE",
                 body: JSON.stringify({
@@ -276,7 +292,7 @@ function createItemDivs(array, item, whose) {
                     } else {
                         console.log(data.message);
                         // To update the wardrobe feed now that an item was deleted
-                        renderWardrobePage();
+                        e.target.parentElement.parentElement.parentElement.remove();
                     }
                 }).catch(error => {
                     console.log(error);

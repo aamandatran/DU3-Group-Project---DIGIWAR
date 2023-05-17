@@ -38,7 +38,7 @@ div#itemImage {
     background-color: #fff;
 }
 
-fieldset {
+#uploadPopUp>fieldset {
     display: flex;
     flex-direction: column;
     width: 20vw;
@@ -49,19 +49,24 @@ fieldset {
     background-color: #fff;
 }
 
-fieldset legend {
+#uploadPopUp>fieldset legend {
     background-color: grey;
     color: white;
     padding: 2vh;
-    border-radius: 10px;
+    border-radius: 5px;
     width: inherit;
     text-align: center;
     font-weight: bold;
     margin-bottom: 3vh;
 }
 
-fieldset>button {
+#uploadPopUp>form>input {
+    max-width: 20vw;
+}
+
+#uploadPopUp>fieldset>button {
     padding: 2vh;
+    border-radius: 5px;
 }
 
 #upload {

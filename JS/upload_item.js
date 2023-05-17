@@ -8,9 +8,9 @@ function renderUploadItemPopUp() {
             <h1>New item</h1>
                 <fieldset id="categories">
                     <legend>Choose a category</legend>
-                    <button id="tops">TOPS</button>
-                    <button id="bottoms">BOTTOMS</button>
-                    <button id="shoes">SHOES</button>
+                    <button id="tops">Tops</button>
+                    <button id="bottoms">Bottoms</button>
+                    <button id="shoes">Shoes</button>
                 </fieldset>
         </div>  
     `;
@@ -50,7 +50,7 @@ function renderUploadItemPopUp() {
                     <input type="file" name="item">
                     <button type="submit">Upload image</button>
                 </form>
-            <button id="done">DONE</button>
+            <button id="done">Done</button>
         `;
 
         document.querySelector("div.cancel").addEventListener("click", function (event) {

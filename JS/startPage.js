@@ -52,12 +52,12 @@ function renderStartPage() {
                             <h3>Amanda Tran</h3>
                         </div>
                         <div class="box">
-                            <div class="picture" id="Kajsa"></div>
+                        <div class="picture" id="Kajsa"></div>
                             <h3>Kajsa Wallander</h3>
                         </div>
                         <div class="box">
                             <div class="picture" id="Wille"></div>
-                            <h3>Wille Sjöstedtthiel</h3>
+                            <h3>Wille Sjöstedt</h3>
                         </div>
                     </div>
                 </div>

@@ -11,16 +11,30 @@
     text-align: center;
 }
 
-#wardrobePage>div {
+#wardrobePage>section #banner {
+    background-image: url("../MEDIA/banner2.jpeg");
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 50vh;
+    width: 100vw;
+    margin-bottom: 5vh;
+
     display: flex;
-    align-items: center;
+    justify-content: center;
+}
+
+#wardrobePage>section>#banner>div {
+    margin-top: 7vh;
+    font-size: 5vh;
+    text-shadow: 2px 2px 8px #828282;
 }
 
 #wardrobePage>div>a {
     text-decoration: none;
     color: black;
-    padding: 2vh 5vw;
-    background-color: #d5d5d5;
+    padding: 1.85vh 7.3vw;
+    border-bottom: 0.1em double gray;
 }
 
 #wardrobePage>div>a:last-of-type {
@@ -28,24 +42,24 @@
 }
 
 #wardrobePage>div>a:hover {
-    background-color: #ecebeb;
+    border-bottom: 2px solid grey;
+}
+
+#wardrobePage>#bottom {
+    display: flex;
+    margin-top: 30px;
 }
 
 #filter {
     position: relative;
-    width: 10vw;
-    margin-left: 80px;
-}
-
-#filter:hover #filtering {
-    display: flex;
-    z-index: 1000;
+    width: 15vw;
+    margin-left: 70px;
 }
 
 #filter>a {
     display: block;
     background-color: rgb(86, 113, 124);
-    border-radius: 5px 0 0 0;
+    border-radius: 5px 5px 0 0;
 }
 
 #wardrobePage>div>nav>a,
@@ -59,43 +73,53 @@
     color: #fff;
 }
 
-#filtering>a {
-    width: 8vw;
-}
-
 #filtering>a:hover {
     background-color: #ecebeb;
 }
 
 #filtering {
     position: absolute;
-    display: none;
+    display: flex;
     flex-direction: column;
     border: 1px solid rgb(221, 221, 221);
     background-color: #fff;
+    width: 99%;
 }
 
 #wardrobeFeed {
     display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: max-content;
     justify-content: center;
+    margin-left: 40px;
 }
 
 #wardrobeFeed>ul {
     display: grid;
-    grid-template-columns: repeat(5, 250px);
+    grid-template-columns: repeat(4, 250px);
     gap: 1vh;
     grid-auto-rows: 320px;
     padding-left: 0px;
+    margin-top: 0;
 }
 
-.feedImages {
-    background-size: cover;
+.imageContainer {
+    background: radial-gradient(circle, rgba(168, 168, 168, 1) 0%, rgba(255, 255, 255, 0.9177871832326681) 0%, rgba(214, 214, 214, 0.7889356426164216) 53%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feedImage {
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
     align-items: end;
     justify-content: end;
-    background-color: #ecebeb;
+    width: 100%;
+    height: 100%;
 }
 
 .itemButton {
@@ -114,10 +138,11 @@
 }
 
 .itemButton>img {
-    height: 25px;
+    height: 35px;
 }
 
 #addClothes {
-    margin-left: 2vw;
-    padding: 1.5vh;
+    margin-top: 30vh;
+    margin-left: 125px;
+    padding: 1vh;
 }
