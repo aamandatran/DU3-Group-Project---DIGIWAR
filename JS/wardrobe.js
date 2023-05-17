@@ -44,9 +44,12 @@ function renderWardrobePage() {
     
     outfits.addEventListener("click", renderOutfits);
 
+
     async function renderOutfits(event) {
+        event.preventDefault();
+
         let id = localStorage.getItem("id");
-      
+        console.log("event is on");
         // Call createOutfitDivs(id) and wait for the result
         const outfitDivs = await createOutfitDivs(id);
       
@@ -68,6 +71,7 @@ function renderWardrobePage() {
         `;
       }
 
+    
     // Fetch users wardrobe by Id
     async function getUserItems() {
         document.querySelector("button#addClothes").style.display = "";
@@ -123,6 +127,24 @@ function renderWardrobePage() {
     // GET-request to displays the clothing items from DIGIWAR
     digiwars.addEventListener("click", async function (event) {
         event.preventDefault();
+
+        document.getElementById("bottom").innerHTML = `
+        <nav id="filter">
+                        <a href="#">FILTER</a>
+                        <nav id="filtering">
+                            <a href="#" id="allItems">All</a>
+                            <a href="#" id="tops">Tops</a>
+                            <a href="#" id="bottoms">Bottoms</a>
+                            <a href="#" id="shoes">Shoes</a>
+                        </nav>
+                        <button id="addClothes" style="display: none;">Add clothes</button>
+                    </nav>
+                    <section id="wardrobeFeed">
+                        <ul></ul>
+                        <p></p>
+                    </section>
+        `;
+
         // Hide button in Digiwars wardrobe page
         document.querySelector("button#addClothes").style.display = "none";
 
