@@ -70,9 +70,16 @@
     },
     {
         "id": 2,
+        "username": "tranen",
+        "password": "123",
+        "profilepicture": "..\/MEDIA\/profilepictures\/unnamed.png",
+        "outfits": []
+    },
+    {
+        "id": 3,
         "username": "Wille",
         "password": "321",
-        "profilepicture": "http:\/\/localhost:9999\/MEDIA\/profilepictures\/memoji.png",
+        "profilepicture": "..\/MEDIA\/profilepictures\/memoji.png",
         "outfits": []
     }
 ]
