@@ -48,6 +48,11 @@ function renderWardrobePage() {
     async function renderOutfits(event) {
         event.preventDefault();
 
+        outfits.style.fontWeight = "600";
+        outfits.style.borderBottom = "2px solid grey;";
+        digiwars.style.fontWeight = "500";
+        yours.style.fontWeight = "500";
+
         let id = localStorage.getItem("id");
         console.log("event is on");
         // Call createOutfitDivs(id) and wait for the result
