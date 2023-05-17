@@ -44,67 +44,6 @@ function renderWardrobePage() {
     
     outfits.addEventListener("click", renderOutfits);
 
-    function deleteOrAdd(e) {
-        console.log(e);
-        const id = localStorage.getItem("id");
-        const path = e.target.parentElement.parentElement.classList[1];
-        // Classlist will either be checkbox or delete, important when sending a request to API
-        const classlist = e.target.parentElement.classList[0];
-        // The filename in classlist which indicates which JSON file to search in
-        const file = e.target.parentElement.classList[2];
-
-        if (classlist === "checkbox") {
-            const request = new Request("API/digiwars_wardrobe.php", {
-                method: "PATCH",
-                body: JSON.stringify({
-                    path: path,
-                    id: id,
-                    file: file
-                })
-            });
-
-            fetch(request)
-                .then(response => response.json())
-                .then(data => {
-                    if (!data.ok) {
-                        console.log(data.message);
-                    } else {
-                        console.log(data.message);
-                        e.target.setAttribute("src", "../MEDIA/added.png");
-                    }
-                }).catch(error => {
-                    console.log(error);
-                });
-        }
-
-        if (classlist === "delete") {
-
-
-            const request = new Request("API/your_wardrobe.php", {
-                method: "DELETE",
-                body: JSON.stringify({
-                    path: path,
-                    id: id,
-                    file: file
-                })
-            });
-
-            fetch(request)
-                .then(response => response.json())
-                .then(data => {
-                    if (!data.ok) {
-                        console.log(data.message);
-                    } else {
-                        console.log(data.message);
-                        // To update the wardrobe feed now that an item was deleted
-                        e.target.parentElement.parentElement.parentElement.remove();
-                    }
-                }).catch(error => {
-                    console.log(error);
-                });
-        }
-    }
-
 
     async function renderOutfits(event) {
         event.preventDefault();
@@ -285,9 +224,6 @@ function renderWardrobePage() {
                     document.getElementById("outfitsUl").innerHTML = html;
                 }            
             });
-            document.querySelectorAll("button.outfitButton").forEach(button => {
-                button.addEventListener("click", deleteOutfit);
-              });
         
       }
 
@@ -539,6 +475,64 @@ function createItemDivs(array, item, whose) {
         button.addEventListener("click", deleteOrAdd);
     });
 
+    function deleteOrAdd(e) {
+        console.log(e);
+        const id = localStorage.getItem("id");
+        const path = e.target.parentElement.parentElement.classList[1];
+        // Classlist will either be checkbox or delete, important when sending a request to API
+        const classlist = e.target.parentElement.classList[0];
+        // The filename in classlist which indicates which JSON file to search in
+        const file = e.target.parentElement.classList[2];
 
-    
+        if (classlist === "checkbox") {
+            const request = new Request("API/digiwars_wardrobe.php", {
+                method: "PATCH",
+                body: JSON.stringify({
+                    path: path,
+                    id: id,
+                    file: file
+                })
+            });
+
+            fetch(request)
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.ok) {
+                        console.log(data.message);
+                    } else {
+                        console.log(data.message);
+                        e.target.setAttribute("src", "../MEDIA/added.png");
+                    }
+                }).catch(error => {
+                    console.log(error);
+                });
+        }
+
+        if (classlist === "delete") {
+
+
+            const request = new Request("API/your_wardrobe.php", {
+                method: "DELETE",
+                body: JSON.stringify({
+                    path: path,
+                    id: id,
+                    file: file
+                })
+            });
+
+            fetch(request)
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.ok) {
+                        console.log(data.message);
+                    } else {
+                        console.log(data.message);
+                        // To update the wardrobe feed now that an item was deleted
+                        e.target.parentElement.parentElement.parentElement.remove();
+                    }
+                }).catch(error => {
+                    console.log(error);
+                });
+        }
+    }
 }

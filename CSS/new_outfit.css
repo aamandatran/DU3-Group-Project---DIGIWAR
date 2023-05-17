@@ -35,20 +35,3 @@
     padding-left: 0px;
     margin-top: 0;
 }
-
-.outfitdiv {
-    position: relative;
-}
-
-.outfitButton {
-    border: none;
-    background-color: transparent;
-    padding: 5px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-.outfitButton > img {
-    height: 35px;
-  }
