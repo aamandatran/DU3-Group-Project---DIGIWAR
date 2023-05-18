@@ -12,3 +12,11 @@ function displayProfilePics(array) {
     }
     return html;
 }
+
+function inArray(id, array) {
+    var length = array.length;
+    for (var i = 0; i < length; i++) {
+        if (array[i] == id) return true;
+    }
+    return false;
+}
