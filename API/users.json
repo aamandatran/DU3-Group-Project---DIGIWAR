@@ -65,6 +65,17 @@
                 "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
                 "backgroundColor": "pink",
                 "description": "Yasss"
+            },
+            {
+                "styles": [
+                    "streetwear",
+                    "business"
+                ],
+                "top": "url(\"..\/MEDIA\/jcbvkjkjxcklvjxc.png\")",
+                "bottom": "url(\"..\/MEDIA\/hdagkhsoiafoifdfl.png\")",
+                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
+                "backgroundColor": "",
+                "description": ""
             }
         ]
     },

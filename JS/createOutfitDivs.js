@@ -1,5 +1,4 @@
 async function createOutfitDivs(id, style) {
-
   document.querySelector("#wardrobeFeed > ul").innerHTML = "";
   document.querySelector("#wardrobeFeed > p").innerHTML = "";
 
@@ -17,12 +16,19 @@ async function createOutfitDivs(id, style) {
       let outfits = user.outfits;
       console.log(outfits);
       for (let outfit of outfits) {
+        let stylesHTML = '';
+        for (let outfitStyle of outfit.styles) {
+          stylesHTML += `<div>${outfitStyle}</div>`;
+        }
+        console.log(stylesHTML);
         if (style === "" || outfit.styles.includes(style)) {
           outfitArray += `
             <div class="outfit" style=background-color:${outfit.backgroundColor}>
               <div class="outfitTop" style=background-image:${outfit.top}></div>
               <div class="outfitBottom" style=background-image:${outfit.bottom}></div>
               <div class="outfitShoe" style=background-image:${outfit.shoe}></div>
+              <section class="descriptionHidden">${outfit.description}</section>
+              <section class="stylesHidden">${stylesHTML}</section>
             </div>
           `;
           console.log(outfitArray);
@@ -31,6 +37,6 @@ async function createOutfitDivs(id, style) {
       break;
     }
   }
-  
+
   return outfitArray;
 }

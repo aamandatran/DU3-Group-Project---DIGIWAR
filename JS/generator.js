@@ -300,6 +300,7 @@ async function renderGeneratorPage() {
     for (var i = 0; i < checkboxes.length; i++) {
       var checkbox = checkboxes[i];
       if (checkbox.checked) {
+        console.log(checkbox);
         console.log(checkbox.id + ' is checked.');
 
         styles.push(checkbox.id);
