@@ -5,10 +5,12 @@ require_once("functions.php");
 $filename = "users.json";
 $method = $_SERVER["REQUEST_METHOD"];
 
+$data = getFileContents("php://input");
+$users = getFileContents($filename);
+
 if($method == "POST") {
-
-    $data = getFileContents("php://input");
-
+    
+    
     $userID = $data["userID"];
     $styles = $data["styles"];
     $top = $data["top"];
@@ -25,8 +27,7 @@ if($method == "POST") {
     }
 
     
-    $users = getFileContents($filename);
-    
+
     $highestID=0;
         foreach ($users as $user) {
             foreach ($user["outfits"] as $outfit) {
@@ -59,5 +60,27 @@ if($method == "POST") {
         }
     }
 }
+
+if ($method="DELETE") {
+
+    $userID = $data["userID"];
+    $outfitID=$data["outfitID"];
+
+    foreach ($users as $user) {
+        if ($user["id"]==$userID) {
+            $outfits=$user["outfits"];
+
+            foreach ($outfits as $key=> $outfit) {
+                if ($outfit["outfitID"]== $outfitID) {
+                    unset($outfits[$key]);
+                    break;
+                }
+            }
+
+            saveToFile($filename,$users);
+            break;
+        }
+    }
+}   
 
 ?>
