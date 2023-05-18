@@ -37,10 +37,6 @@
     border-bottom: 0.1em double gray;
 }
 
-#wardrobePage>div>a:last-of-type {
-    border-radius: 0 5px 0 0;
-}
-
 #wardrobePage>div>a:hover {
     border-bottom: 2px solid grey;
 }

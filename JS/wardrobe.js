@@ -21,8 +21,8 @@ function renderWardrobePage() {
                     <nav id="filter">
                         <a href="#">FILTER</a>
                         <nav id="filtering">
-                            <a href="" id="allItems">All</a><a
-                             href="" id="tops">Tops</a>
+                            <a href="" id="allItems">All</a>
+                            <a href="" id="tops">Tops</a>
                             <a href="" id="bottoms">Bottoms</a>
                             <a href="" id="shoes">Shoes</a>
                         </nav>
@@ -41,7 +41,7 @@ function renderWardrobePage() {
     const yours = document.querySelector("#wardrobePage>div>a#yours");
     const outfits = document.querySelector("#wardrobePage>div>a#savedOutfits");
 
-    
+
     outfits.addEventListener("click", renderOutfits);
 
 
@@ -57,7 +57,7 @@ function renderWardrobePage() {
         console.log("event is on");
         // Call createOutfitDivs(id) and wait for the result
         const outfitDivs = await createOutfitDivs(id, "");
-      
+
         document.getElementById("bottom").innerHTML = `
           <nav id="filter">
             <a href="#">FILTER</a>
@@ -81,153 +81,153 @@ function renderWardrobePage() {
             <p></p>
           </section>
         `;
-            document.getElementById("allItems").addEventListener("click", async function (event) {
-                event.preventDefault();
-                console.log(event.target.innerText);
-                let style = "";
-                let html = await createOutfitDivs(id, style);  
-                if(html === "") {
-                    document.getElementById("outfitsUl").innerHTML = `
+        document.getElementById("allItems").addEventListener("click", async function (event) {
+            event.preventDefault();
+            console.log(event.target.innerText);
+            let style = "";
+            let html = await createOutfitDivs(id, style);
+            if (html === "") {
+                document.getElementById("outfitsUl").innerHTML = `
                     <p>Could not find any outfits... go to the generator and save outfits!</p>
                   `;
-                } else {
-                    document.getElementById("outfitsUl").innerHTML = html;
-                }
-            });
-            document.getElementById("streetwear").addEventListener("click", async function (event) {
-                event.preventDefault();
-                console.log(event.target.innerText);
-                let style = event.target.innerText;
-                let html = await createOutfitDivs(id, style);  
-                if(html === "") {
-                    document.getElementById("outfitsUl").innerHTML = `
+            } else {
+                document.getElementById("outfitsUl").innerHTML = html;
+            }
+        });
+        document.getElementById("streetwear").addEventListener("click", async function (event) {
+            event.preventDefault();
+            console.log(event.target.innerText);
+            let style = event.target.innerText;
+            let html = await createOutfitDivs(id, style);
+            if (html === "") {
+                document.getElementById("outfitsUl").innerHTML = `
                     <p>Could not find any ${style} outfits... go to the generator and save outfits!</p>
                   `;
-                } else {
-                    document.getElementById("outfitsUl").innerHTML = html;
-                }
-            });
-            document.getElementById("casual").addEventListener("click", async function (event) {
-                event.preventDefault();
-                console.log(event.target.innerText);
-                let style = event.target.innerText;
-                let html = await createOutfitDivs(id, style);  
-                if(html === "") {
-                    document.getElementById("outfitsUl").innerHTML = `
+            } else {
+                document.getElementById("outfitsUl").innerHTML = html;
+            }
+        });
+        document.getElementById("casual").addEventListener("click", async function (event) {
+            event.preventDefault();
+            console.log(event.target.innerText);
+            let style = event.target.innerText;
+            let html = await createOutfitDivs(id, style);
+            if (html === "") {
+                document.getElementById("outfitsUl").innerHTML = `
                     <p>Could not find any ${style} outfits... go to the generator and save outfits!</p>
                   `;
-                } else {
-                    document.getElementById("outfitsUl").innerHTML = html;
-                }
-            });
-            document.getElementById("sporty").addEventListener("click", async function (event) {
-                event.preventDefault();
-                console.log(event.target.innerText);
-                let style = event.target.innerText;
-                let html = await createOutfitDivs(id, style);  
-                if(html === "") {
-                    document.querySelector("#wardrobeFeed > p").innerText = `
+            } else {
+                document.getElementById("outfitsUl").innerHTML = html;
+            }
+        });
+        document.getElementById("sporty").addEventListener("click", async function (event) {
+            event.preventDefault();
+            console.log(event.target.innerText);
+            let style = event.target.innerText;
+            let html = await createOutfitDivs(id, style);
+            if (html === "") {
+                document.querySelector("#wardrobeFeed > p").innerText = `
                     Could not find any ${style} outfits... go to the generator and save outfits!
                   `;
-                } else {
-                    document.getElementById("outfitsUl").innerHTML = html;
-                }            
-            });
-            document.getElementById("formal").addEventListener("click", async function (event) {
-                event.preventDefault();
-                console.log(event.target.innerText);
-                let style = event.target.innerText;
-                let html = await createOutfitDivs(id, style);  
-                if(html === "") {
-                    document.querySelector("#wardrobeFeed > p").innerText = `
+            } else {
+                document.getElementById("outfitsUl").innerHTML = html;
+            }
+        });
+        document.getElementById("formal").addEventListener("click", async function (event) {
+            event.preventDefault();
+            console.log(event.target.innerText);
+            let style = event.target.innerText;
+            let html = await createOutfitDivs(id, style);
+            if (html === "") {
+                document.querySelector("#wardrobeFeed > p").innerText = `
                     Could not find any ${style} outfits... go to the generator and save outfits!
                   `;
-                } else {
-                    document.getElementById("outfitsUl").innerHTML = html;
-                }            
-            });
-            document.getElementById("business").addEventListener("click", async function (event) {
-                event.preventDefault();
-                console.log(event.target.innerText);
-                let style = event.target.innerText;
-                let html = await createOutfitDivs(id, style);  
-                if(html === "") {
-                    document.querySelector("#wardrobeFeed > p").innerText = `
+            } else {
+                document.getElementById("outfitsUl").innerHTML = html;
+            }
+        });
+        document.getElementById("business").addEventListener("click", async function (event) {
+            event.preventDefault();
+            console.log(event.target.innerText);
+            let style = event.target.innerText;
+            let html = await createOutfitDivs(id, style);
+            if (html === "") {
+                document.querySelector("#wardrobeFeed > p").innerText = `
                     Could not find any ${style} outfits... go to the generator and save outfits!
                   `;
-                } else {
-                    document.getElementById("outfitsUl").innerHTML = html;
-                }            
-            });
-            document.getElementById("datenight").addEventListener("click", async function (event) {
-                event.preventDefault();
-                console.log(event.target.innerText);
-                let style = event.target.innerText;
-                let html = await createOutfitDivs(id, style);  
-                if(html === "") {
-                    document.querySelector("#wardrobeFeed > p").innerText = `
+            } else {
+                document.getElementById("outfitsUl").innerHTML = html;
+            }
+        });
+        document.getElementById("datenight").addEventListener("click", async function (event) {
+            event.preventDefault();
+            console.log(event.target.innerText);
+            let style = event.target.innerText;
+            let html = await createOutfitDivs(id, style);
+            if (html === "") {
+                document.querySelector("#wardrobeFeed > p").innerText = `
                     Could not find any ${style} outfits... go to the generator and save outfits!
                   `;
-                } else {
-                    document.getElementById("outfitsUl").innerHTML = html;
-                }            
-            });
-            document.getElementById("summer").addEventListener("click", async function (event) {
-                event.preventDefault();
-                console.log(event.target.innerText);
-                let style = event.target.innerText;
-                let html = await createOutfitDivs(id, style);  
-                if(html === "") {
-                    document.querySelector("#wardrobeFeed > p").innerText = `
+            } else {
+                document.getElementById("outfitsUl").innerHTML = html;
+            }
+        });
+        document.getElementById("summer").addEventListener("click", async function (event) {
+            event.preventDefault();
+            console.log(event.target.innerText);
+            let style = event.target.innerText;
+            let html = await createOutfitDivs(id, style);
+            if (html === "") {
+                document.querySelector("#wardrobeFeed > p").innerText = `
                     Could not find any ${style} outfits... go to the generator and save outfits!
                   `;
-                } else {
-                    document.getElementById("outfitsUl").innerHTML = html;
-                }            
-            });
-            document.getElementById("winter").addEventListener("click", async function (event) {
-                event.preventDefault();
-                console.log(event.target.innerText);
-                let style = event.target.innerText;
-                let html = await createOutfitDivs(id, style);  
-                if(html === "") {
-                    document.querySelector("#wardrobeFeed > p").innerText = `
+            } else {
+                document.getElementById("outfitsUl").innerHTML = html;
+            }
+        });
+        document.getElementById("winter").addEventListener("click", async function (event) {
+            event.preventDefault();
+            console.log(event.target.innerText);
+            let style = event.target.innerText;
+            let html = await createOutfitDivs(id, style);
+            if (html === "") {
+                document.querySelector("#wardrobeFeed > p").innerText = `
                     Could not find any ${style} outfits... go to the generator and save outfits!
                   `;
-                } else {
-                    document.getElementById("outfitsUl").innerHTML = html;
-                }            
-            });
-            document.getElementById("spring").addEventListener("click", async function (event) {
-                event.preventDefault();
-                console.log(event.target.innerText);
-                let style = event.target.innerText;
-                let html = await createOutfitDivs(id, style);  
-                if(html === "") {
-                    document.querySelector("#wardrobeFeed > p").innerText = `
+            } else {
+                document.getElementById("outfitsUl").innerHTML = html;
+            }
+        });
+        document.getElementById("spring").addEventListener("click", async function (event) {
+            event.preventDefault();
+            console.log(event.target.innerText);
+            let style = event.target.innerText;
+            let html = await createOutfitDivs(id, style);
+            if (html === "") {
+                document.querySelector("#wardrobeFeed > p").innerText = `
                     Could not find any ${style} outfits... go to the generator and save outfits!
                   `;
-                } else {
-                    document.getElementById("outfitsUl").innerHTML = html;
-                }            
-            });
-            document.getElementById("autumn").addEventListener("click", async function (event) {
-                event.preventDefault();
-                console.log(event.target.innerText);
-                let style = event.target.innerText;
-                let html = await createOutfitDivs(id, style);  
-                if(html === "") {
-                    document.querySelector("#wardrobeFeed > p").innerText = `
+            } else {
+                document.getElementById("outfitsUl").innerHTML = html;
+            }
+        });
+        document.getElementById("autumn").addEventListener("click", async function (event) {
+            event.preventDefault();
+            console.log(event.target.innerText);
+            let style = event.target.innerText;
+            let html = await createOutfitDivs(id, style);
+            if (html === "") {
+                document.querySelector("#wardrobeFeed > p").innerText = `
                     Could not find any ${style} outfits... go to the generator and save outfits!
                   `;
-                } else {
-                    document.getElementById("outfitsUl").innerHTML = html;
-                }            
-            });
-        
-      }
+            } else {
+                document.getElementById("outfitsUl").innerHTML = html;
+            }
+        });
 
-    
+    }
+
+
     // Fetch users wardrobe by Id
     async function getUserItems() {
         document.querySelector("button#addClothes").style.display = "";
@@ -258,8 +258,8 @@ function renderWardrobePage() {
 
     yours.addEventListener("click", renderWardrobe);
 
-    async function renderWardrobe (event) {
-     
+    async function renderWardrobe(event) {
+
         document.getElementById("bottom").innerHTML = `
         <nav id="filter">
                         <a href="#">FILTER</a>
@@ -463,11 +463,19 @@ function createItemDivs(array, item, whose) {
                 </button>
             `;
         } else {
-            imageDiv.innerHTML = `
+            if (inArray(localStorage.getItem("id"), item.id)) {
+                imageDiv.innerHTML = `
+                <button class='checkbox itemButton ${file}'>
+                    <img src="../MEDIA/added.png">
+                </button>
+            `;
+            } else {
+                imageDiv.innerHTML = `
                 <button class='checkbox itemButton ${file}'>
                     <img src="../MEDIA/add.png">
                 </button>
             `;
+            }
         }
     }
 

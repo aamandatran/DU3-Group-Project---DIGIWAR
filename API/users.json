@@ -73,7 +73,18 @@
         "username": "tranen",
         "password": "123",
         "profilepicture": "..\/MEDIA\/profilepictures\/unnamed.png",
-        "outfits": []
+        "outfits": [
+            {
+                "styles": [
+                    "casual"
+                ],
+                "top": "url(\"..\/MEDIA\/ewtreqtwreqywtrqw.png\")",
+                "bottom": "url(\"..\/MEDIA\/jaJPNKSNKJDHDSUID.png\")",
+                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
+                "backgroundColor": "white",
+                "description": "comfy but cute"
+            }
+        ]
     },
     {
         "id": 3,
