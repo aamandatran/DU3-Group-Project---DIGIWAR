@@ -80,6 +80,39 @@
         "username": "Wille",
         "password": "321",
         "profilepicture": "..\/MEDIA\/profilepictures\/memoji.png",
-        "outfits": []
+        "outfits": [
+            {
+                "styles": [
+                    "casual"
+                ],
+                "top": "url(\"..\/MEDIA\/oewiuqoireueqoidd.png\")",
+                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
+                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
+                "backgroundColor": "black",
+                "description": ""
+            },
+            {
+                "styles": [
+                    "streetwear"
+                ],
+                "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
+                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
+                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
+                "backgroundColor": "blue",
+                "description": "",
+                "outfitID": 1
+            },
+            {
+                "styles": [
+                    "summer"
+                ],
+                "top": "url(\"..\/MEDIA\/mgnejkfngksjdsdk.png\")",
+                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
+                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
+                "backgroundColor": "green",
+                "description": "",
+                "outfitID": 2
+            }
+        ]
     }
 ]

@@ -24,9 +24,22 @@ if($method == "POST") {
         sendJSON($error, 400);
     }
 
+    
     $users = getFileContents($filename);
+    
+    $highestID=0;
+        foreach ($users as $user) {
+            foreach ($user["outfits"] as $outfit) {
+                if ($outfit["outfitID"]>$highestID) {
+                    $highestID=$outfit["outfitID"];
+                }
+            }
+        }
+        $outfitID=$highestID+1;
 
     foreach ($users as &$user) { // Use the reference &$user to modify the original array
+       
+
         if ($user["id"] == $userID) {
             $outfit = [
                 "styles" => $styles,
@@ -34,7 +47,8 @@ if($method == "POST") {
                 "bottom" => $bottom,
                 "shoe" => $shoe,
                 "backgroundColor" => $backgroundColor,
-                "description" => $description
+                "description" => $description,
+                "outfitID"=> $outfitID
             ];
 
             $user["outfits"][] = $outfit; // Append the new outfit to the "outfits" array
