@@ -510,29 +510,50 @@ function createItemDivs(array, item, whose) {
 
         if (classlist === "delete") {
 
+            feedback("Are you sure?")
+            document.querySelector("#feedbackContainer>div").innerHTML = `
+                <button id="yes">Yes</button>  
+                <button id="no">No</button>  
+            `;
 
-            const request = new Request("API/your_wardrobe.php", {
-                method: "DELETE",
-                body: JSON.stringify({
-                    path: path,
-                    id: id,
-                    file: file
+            document.getElementById("no").addEventListener("click", function (event) {
+                feedbackContainer.remove();
+                main.classList.remove("feedback_opacity")
+                document.querySelectorAll("button").forEach((button) => {
+                    button.disabled = false;
                 })
             });
 
-            fetch(request)
-                .then(response => response.json())
-                .then(data => {
-                    if (!data.ok) {
-                        console.log(data.message);
-                    } else {
-                        console.log(data.message);
-                        // To update the wardrobe feed now that an item was deleted
-                        e.target.parentElement.parentElement.parentElement.remove();
-                    }
-                }).catch(error => {
-                    console.log(error);
+            document.getElementById("yes").addEventListener("click", function (event) {
+                const request = new Request("API/your_wardrobe.php", {
+                    method: "DELETE",
+                    body: JSON.stringify({
+                        path: path,
+                        id: id,
+                        file: file
+                    })
                 });
+
+                fetch(request)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!data.ok) {
+                            console.log(data.message);
+                        } else {
+                            console.log(data.message);
+                            // To update the wardrobe feed now that an item was deleted
+                            e.target.parentElement.parentElement.parentElement.remove();
+
+                            feedbackContainer.remove();
+                            main.classList.remove("feedback_opacity")
+                            document.querySelectorAll("button").forEach((button) => {
+                                button.disabled = false;
+                            })
+                        }
+                    }).catch(error => {
+                        console.log(error);
+                    });
+            });
         }
     }
 }
