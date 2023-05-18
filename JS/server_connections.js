@@ -6,33 +6,32 @@ function stay_loggedin() {
 }
 
 function feedback(message) {
-    let body = document.querySelector("body")
-
-
-
-    let main = document.querySelector("main")
-    let div = document.createElement("div")
+    let body = document.querySelector("body");
+    let main = document.querySelector("main");
+    let div = document.createElement("div");
 
     div.setAttribute("id", "feedbackContainer")
     div.innerHTML = `
-    <p>${message}</p> <button id="close">CLOSE</button>
-    
-    `
-    let buttonTokKeepEnabled = document.getElementById("close")
-    let buttons = document.querySelectorAll("button")
+        <p>${message}</p>
+        <div>
+            <button id="close">CLOSE</button>  
+        </div>
+    `;
+    let buttonTokKeepEnabled = document.getElementById("close");
+    let buttons = document.querySelectorAll("button");
     buttons.forEach((button) => {
         if (button !== buttonTokKeepEnabled) {
             button.disabled = true;
         }
     })
 
-    body.append(div)
-    main.classList.add("feedback_opacity")
+    body.append(div);
+    main.classList.add("feedback_opacity");
 
     let feedbackContainer = document.querySelector("#feedbackContainer");
     feedbackContainer.querySelector("#close").addEventListener("click", () => {
         feedbackContainer.remove();
-        main.classList.remove("feedback_opacity")
+        main.classList.remove("feedback_opacity");
         buttons.forEach((button) => {
             button.disabled = false;
         })
