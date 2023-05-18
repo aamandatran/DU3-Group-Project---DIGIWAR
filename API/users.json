@@ -29,6 +29,13 @@
         "id": 3,
         "username": "Wille",
         "password": "321",
-        "profilepicture": "..\/MEDIA\/profilepictures\/memoji.png",
+        "profilepicture": "..\/MEDIA\/profilepictures\/97057c70bc6dfcd8706a6dc4b2f811d2.png"
+    },
+    {
+        "id": 4,
+        "username": "Wille02",
+        "password": "1234567",
+        "profilepicture": "..\/MEDIA\/profilepictures\/97057c70bc6dfcd8706a6dc4b2f811d2.png",
+        "outfits": []
     }
 ]
