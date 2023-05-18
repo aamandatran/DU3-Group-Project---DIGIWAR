@@ -116,6 +116,7 @@ form input {
     display: flex;
     align-items: center;
     gap: 5px;
+    list-style: none;
 }
 
 #register li>img {
