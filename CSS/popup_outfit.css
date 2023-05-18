@@ -103,6 +103,7 @@
     font-size: 20px;
     position: absolute;
     right: 20px;
+    top: 20px;
   }
 
   #savePopupButton {
@@ -245,4 +246,67 @@ fieldset>button {
   background-color: pink;
   border-radius: 20px;
   padding: 10px;
+}
+
+#popupOutfit {
+  justify-content: space-between;
+  margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 6fr 4fr;
+  grid-gap: 10px;
+  height: 400px;
+  width: 400px;
+  border: 1px black solid;
+  align-items: center;
+}
+
+#popupOutfit > div {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-self: center;
+  background-size: contain;
+  justify-self: center;
+  height: 100%;
+  width: 100%;
+}
+
+.descriptionHidden {
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+.stylesHidden {
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+#outfitH1 {
+  text-align: center;
+  margin-top: 0;
+}
+
+#descriptionOutfit {
+    height: auto;
+    border: 1px solid black;
+    display: flex;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#stylesOutfit {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+
+#stylesOutfit > div {
+  background-color: lightgrey;
+  padding: 15px;
+  border-radius: 50px;
 }

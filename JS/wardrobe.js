@@ -57,6 +57,20 @@ function renderWardrobePage() {
         console.log("event is on");
         // Call createOutfitDivs(id) and wait for the result
         const outfitDivs = await createOutfitDivs(id, "");
+
+
+        const wardrobeParent = document.querySelector("#wardrobeParent");
+        wardrobeParent.innerHTML += ` 
+            <div id="popupWindow" class="popup">
+                <div id="popupContent">
+                    <h1 id=outfitH1>Outfit</h1>
+                    <button id="closePopupButton">X</button>
+                    <div id="popupOutfit"></div>
+                    <div id=descriptionOutfit></div>
+                    <div id=stylesOutfit></div>
+                </div>
+            </div>
+        `;
       
         document.getElementById("bottom").innerHTML = `
           <nav id="filter">
@@ -81,6 +95,43 @@ function renderWardrobePage() {
             <p></p>
           </section>
         `;
+        document.querySelectorAll("ul > .outfit").forEach((outfit) => {
+            outfit.addEventListener("click", OutfitPop);
+          });
+        
+          function OutfitPop(event) {
+
+            console.log("popup");
+            console.log(event.currentTarget.style.backgroundColor);
+            let backgroundColor = event.currentTarget.style.backgroundColor;
+            let top = event.currentTarget.children[0].outerHTML;
+            let bottom = event.currentTarget.children[1].outerHTML;
+            let shoe = event.currentTarget.children[2].outerHTML;
+            let description = event.currentTarget.children[3].innerHTML;
+            console.log(description);
+            let styles = event.currentTarget.children[4].innerHTML;
+            console.log(styles);
+            document.getElementById("popupOutfit").innerHTML = `
+            ${top}
+            ${bottom}
+            ${shoe}
+            `;
+            document.getElementById("popupOutfit").style.backgroundColor = backgroundColor;
+
+            document.getElementById("descriptionOutfit").innerHTML = description;
+            document.getElementById("stylesOutfit").innerHTML = styles;
+
+            /*document.getElementById("popupContent").innerHTML += `
+            <div id=descriptionOutfit>${description}</div>
+            <div id=stylesOutfit>${styles}</div>
+            `; */
+            console.log(top);
+            openPopup();
+            // Add code to display the popup window
+            let closePopupButton = document.getElementById("closePopupButton");
+            closePopupButton.addEventListener("click", closePopup);
+          }
+
             document.getElementById("allItems").addEventListener("click", async function (event) {
                 event.preventDefault();
                 console.log(event.target.innerText);
