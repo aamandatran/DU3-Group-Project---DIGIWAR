@@ -506,9 +506,9 @@ function createItemDivs(array, item, whose) {
                 .then(response => response.json())
                 .then(data => {
                     if (!data.ok) {
-                        console.log(data.message);
+                        feedback(data.message)
                     } else {
-                        console.log(data.message);
+                        feedback(data.message)
                         e.target.setAttribute("src", "../MEDIA/added.png");
                     }
                 }).catch(error => {
@@ -546,9 +546,8 @@ function createItemDivs(array, item, whose) {
                     .then(response => response.json())
                     .then(data => {
                         if (!data.ok) {
-                            console.log(data.message);
+                            feedback(data.message)
                         } else {
-                            console.log(data.message);
                             // To update the wardrobe feed now that an item was deleted
                             e.target.parentElement.parentElement.parentElement.remove();
 
@@ -557,6 +556,8 @@ function createItemDivs(array, item, whose) {
                             document.querySelectorAll("button").forEach((button) => {
                                 button.disabled = false;
                             })
+
+                            feedback(data.message)
                         }
                     }).catch(error => {
                         console.log(error);
