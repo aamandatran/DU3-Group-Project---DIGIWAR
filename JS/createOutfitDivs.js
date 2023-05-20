@@ -23,12 +23,13 @@ async function createOutfitDivs(id, style) {
         console.log(stylesHTML);
         if (style === "" || outfit.styles.includes(style)) {
           outfitArray += `
-            <div class="outfit" style=background-color:${outfit.backgroundColor}>
+            <div class="outfit" id="${outfit.outfitID}" style=background-color:${outfit.backgroundColor}>
               <div class="outfitTop" style=background-image:${outfit.top}></div>
               <div class="outfitBottom" style=background-image:${outfit.bottom}></div>
               <div class="outfitShoe" style=background-image:${outfit.shoe}></div>
               <section class="descriptionHidden">${outfit.description}</section>
               <section class="stylesHidden">${stylesHTML}</section>
+              <button class=outfitDeleteButton><img src="../MEDIA/trashcan.png"></button>
             </div>
           `;
           console.log(outfitArray);
@@ -37,6 +38,39 @@ async function createOutfitDivs(id, style) {
       break;
     }
   }
-
+  setupDeleteButtons()
   return outfitArray;
 }
+
+
+
+async function deleteOutfit(userID, outfitID) {
+  let response = await fetch("api/new_outfit.php", {
+    method: "DELETE",
+    headers: { "Content-type": "application/json", },
+    body: JSON.stringify({
+      userID: userID,
+      outfitID: outfitID,
+    })
+  })
+  if (response.ok) {
+    let outfitElement = document.getElementById(outfitID);
+    outfitElement.remove();
+  }
+
+}
+function setupDeleteButtons() {
+  let deleteButtons = document.querySelectorAll(".outfitDeleteButton");
+  console.log(deleteButtons);
+  deleteButtons.forEach(deleteButton => {
+    deleteButton.addEventListener("click", function (event) {
+      let outfitElement = event.target.closest(".outfit");
+      let outfitID = outfitElement.id;
+      let userID = localStorage.getItem("id");
+      deleteOutfit(userID, outfitID)
+    })
+  });
+}
+
+
+

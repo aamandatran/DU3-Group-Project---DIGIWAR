@@ -11,7 +11,7 @@
     align-items: center;
 }
 
-.outfit > div {
+.outfit>div {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -27,11 +27,30 @@
     grid-row: 1 / span 2;
 }
 
-#wardrobeFeed > #outfitsUl {
+#wardrobeFeed>#outfitsUl {
     display: grid;
     grid-template-columns: repeat(4, 250px);
     gap: 1vh;
     grid-auto-rows: 250px;
     padding-left: 0px;
     margin-top: 0;
+}
+
+.outfitDeleteButton {
+    border: none;
+    background-color: transparent;
+    padding: 5px;
+}
+
+.outfitDeleteButton:hover {
+    cursor: pointer;
+}
+
+.outfitDeleteButton:active {
+    cursor: pointer;
+    border: 0.5px solid grey;
+}
+
+.outfitDeleteButton>img {
+    height: 35px;
 }

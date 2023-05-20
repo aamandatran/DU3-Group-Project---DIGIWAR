@@ -61,7 +61,7 @@ if($method == "POST") {
     }
 }
 
-if ($method="DELETE") {
+if ($method=="DELETE") {
 
     $userID = $data["userID"];
     $outfitID=$data["outfitID"];

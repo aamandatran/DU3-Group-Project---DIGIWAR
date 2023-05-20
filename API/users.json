@@ -136,16 +136,6 @@
         "outfits": [
             {
                 "styles": [
-                    "casual"
-                ],
-                "top": "url(\"..\/MEDIA\/oewiuqoireueqoidd.png\")",
-                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
-                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
-                "backgroundColor": "black",
-                "description": ""
-            },
-            {
-                "styles": [
                     "streetwear"
                 ],
                 "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
@@ -165,6 +155,50 @@
                 "backgroundColor": "green",
                 "description": "",
                 "outfitID": 2
+            },
+            {
+                "styles": [
+                    "casual"
+                ],
+                "top": "url(\"..\/MEDIA\/mgnejkfngksjdsdk.png\")",
+                "bottom": "url(\"..\/MEDIA\/yiewuryiqryqroiu.png\")",
+                "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
+                "backgroundColor": "blue",
+                "description": "",
+                "outfitID": 3
+            },
+            {
+                "styles": [
+                    "summer"
+                ],
+                "top": "url(\"..\/MEDIA\/pweqpwepqwdpvdfdb.png\")",
+                "bottom": "url(\"..\/MEDIA\/yiewuryiqryqroiu.png\")",
+                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
+                "backgroundColor": "green",
+                "description": "",
+                "outfitID": 4
+            },
+            {
+                "styles": [
+                    "casual"
+                ],
+                "top": "url(\"..\/MEDIA\/pweqpwepqwdpvdfdb.png\")",
+                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
+                "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
+                "backgroundColor": "black",
+                "description": "",
+                "outfitID": 5
+            },
+            {
+                "styles": [
+                    "summer"
+                ],
+                "top": "url(\"..\/MEDIA\/oewiuqoireueqoidd.png\")",
+                "bottom": "url(\"..\/MEDIA\/kdfaksdfkaWFQRERQ.png\")",
+                "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
+                "backgroundColor": "",
+                "description": "",
+                "outfitID": 6
             }
         ]
     }
