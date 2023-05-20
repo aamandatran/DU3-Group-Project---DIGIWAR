@@ -76,6 +76,37 @@
                 "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
                 "backgroundColor": "",
                 "description": ""
+            },
+            {
+                "styles": [
+                    "datenight",
+                    "summer"
+                ],
+                "top": "url(\"..\/MEDIA\/app005prod.png\")",
+                "bottom": "url(\"..\/MEDIA\/app005prodd_11zon-fotor-bg-remover-20230518231824.png\")",
+                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp2-fotor-bg-remover-20230518233817.png\")",
+                "backgroundColor": "white",
+                "description": "Date with my boo"
+            },
+            {
+                "styles": [
+                    "formal"
+                ],
+                "top": "url(\"..\/MEDIA\/app005prodr-fotor-bg-remover-20230518232225.png\")",
+                "bottom": "url(\"..\/MEDIA\/hdagkhsoiafoifdfl.png\")",
+                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp2-fotor-bg-remover-20230518233817.png\")",
+                "backgroundColor": "rgb(255, 251, 244)",
+                "description": "Bar with the girls"
+            },
+            {
+                "styles": [
+                    "summer"
+                ],
+                "top": "url(\"..\/MEDIA\/jcbvkjkjxcklvjxc.png\")",
+                "bottom": "url(\"..\/MEDIA\/app005prodd_11zon-fotor-bg-remover-20230518231824.png\")",
+                "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
+                "backgroundColor": "rgb(237, 224, 237)",
+                "description": ""
             }
         ]
     },

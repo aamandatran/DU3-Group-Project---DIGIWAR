@@ -351,6 +351,10 @@ async function renderGeneratorPage() {
       console.log("det gick");
       closePopup();
       feedback("Outfit is saved!");
+      var checkboxes = form.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach(function(checkbox) {
+        checkbox.checked = false;
+      });
     } else {
       let error = await response.json();
       console.log(error);
