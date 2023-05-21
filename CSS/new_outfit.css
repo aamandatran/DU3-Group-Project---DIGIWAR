@@ -40,7 +40,9 @@
     border: none;
     background-color: transparent;
     padding: 5px;
+    margin-left: 170%;
 }
+
 
 .outfitDeleteButton:hover {
     cursor: pointer;
