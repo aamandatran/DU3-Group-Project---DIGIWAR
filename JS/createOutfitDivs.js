@@ -45,6 +45,8 @@ async function createOutfitDivs(id, style) {
 
 
 async function deleteOutfit(userID, outfitID) {
+  console.log(userID);
+  console.log(outfitID);
   let response = await fetch("api/new_outfit.php", {
     method: "DELETE",
     headers: { "Content-type": "application/json", },
@@ -60,16 +62,17 @@ async function deleteOutfit(userID, outfitID) {
 
 }
 function setupDeleteButtons() {
-  let deleteButtons = document.querySelectorAll(".outfitDeleteButton");
-  console.log(deleteButtons);
+  let deleteButtons = document.querySelectorAll("button.outfitDeleteButton")
   deleteButtons.forEach(deleteButton => {
-    deleteButton.addEventListener("click", function (event) {
+    deleteButton.document.addEventListener("click", function (event) {
       let outfitElement = event.target.closest(".outfit");
       let outfitID = outfitElement.id;
       let userID = localStorage.getItem("id");
       deleteOutfit(userID, outfitID)
+
     })
-  });
+
+  })
 }
 
 

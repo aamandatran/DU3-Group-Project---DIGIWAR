@@ -71,7 +71,7 @@ function renderWardrobePage() {
                 </div>
             </div>
         `;
-      
+
         document.getElementById("bottom").innerHTML = `
           <nav id="filter">
             <a href="#">FILTER</a>
@@ -97,9 +97,9 @@ function renderWardrobePage() {
         `;
         document.querySelectorAll("ul > .outfit").forEach((outfit) => {
             outfit.addEventListener("click", OutfitPop);
-          });
-        
-          function OutfitPop(event) {
+        });
+
+        function OutfitPop(event) {
 
             console.log("popup");
             console.log(event.currentTarget.style.backgroundColor);
@@ -130,15 +130,15 @@ function renderWardrobePage() {
             // Add code to display the popup window
             let closePopupButton = document.getElementById("closePopupButton");
             closePopupButton.addEventListener("click", closePopup);
-          }
+        }
 
-            document.getElementById("allItems").addEventListener("click", async function (event) {
-                event.preventDefault();
-                console.log(event.target.innerText);
-                let style = "";
-                let html = await createOutfitDivs(id, style);  
-                if(html === "") {
-                    document.getElementById("outfitsUl").innerHTML = `
+        document.getElementById("allItems").addEventListener("click", async function (event) {
+            event.preventDefault();
+            console.log(event.target.innerText);
+            let style = "";
+            let html = await createOutfitDivs(id, style);
+            if (html === "") {
+                document.getElementById("outfitsUl").innerHTML = `
                     <p>Could not find any outfits... go to the generator and save outfits!</p>
                   `;
             } else {

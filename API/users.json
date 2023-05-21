@@ -163,7 +163,7 @@
         "id": 3,
         "username": "Wille",
         "password": "321",
-        "profilepicture": "..\/MEDIA\/profilepictures\/memoji.png",
+        "profilepicture": "..\/MEDIA\/profilepictures\/97057c70bc6dfcd8706a6dc4b2f811d2.png",
         "outfits": [
             {
                 "styles": [
@@ -230,6 +230,17 @@
                 "backgroundColor": "",
                 "description": "",
                 "outfitID": 6
+            },
+            {
+                "styles": [
+                    "casual"
+                ],
+                "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
+                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
+                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
+                "backgroundColor": "blue",
+                "description": "Cool",
+                "outfitID": 7
             }
         ]
     }
