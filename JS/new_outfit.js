@@ -18,7 +18,7 @@ function randomColor(event) {
   console.log("hejdå");
   let backgroundDiv = document.getElementById("popupSelectedItems");
 
-  let colorsArray = ["pink", "blue", "green", "black", "white", "purple"];
+  let colorsArray = ["#ffe4e9", "#ceeaec", "#cfe1c8", "black", "white", "#dbd0e3", "#fffbdb"];
   let chosenColor = colorsArray[Math.floor(Math.random() * colorsArray.length)]
 
   backgroundDiv.style.backgroundColor = chosenColor;

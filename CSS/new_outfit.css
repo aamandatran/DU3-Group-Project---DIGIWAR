@@ -4,10 +4,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 6fr 4fr;
-    grid-gap: 10px;
     height: 250px;
     width: 250px;
-    border: 1px black solid;
+    border: 1px #ececec solid;
     align-items: center;
 }
 
