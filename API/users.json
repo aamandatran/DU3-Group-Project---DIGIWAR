@@ -4,7 +4,52 @@
         "username": "kajsa",
         "password": "123",
         "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png",
-        "outfits": []
+        "outfits": [
+            {
+                "styles": [
+                    "datenight"
+                ],
+                "top": "url(\"..\/MEDIA\/app005prodr-fotor-bg-remover-20230518232225.png\")",
+                "bottom": "url(\"..\/MEDIA\/hdagkhsoiafoifdfl.png\")",
+                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp2-fotor-bg-remover-20230518233817.png\")",
+                "backgroundColor": "pink",
+                "description": "",
+                "outfitID": 6
+            },
+            {
+                "styles": [
+                    "business"
+                ],
+                "top": "url(\"..\/MEDIA\/app005prodf.png\")",
+                "bottom": "url(\"..\/MEDIA\/app005prodd_11zon-fotor-bg-remover-20230518231824.png\")",
+                "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
+                "backgroundColor": "purple",
+                "description": "",
+                "outfitID": 7
+            },
+            {
+                "styles": [
+                    "summer"
+                ],
+                "top": "url(\"..\/MEDIA\/app005prod.png\")",
+                "bottom": "url(\"..\/MEDIA\/app005prodt-fotor-bg-remover-20230518232818.png\")",
+                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp1-fotor-bg-remover-2023051823383.png\")",
+                "backgroundColor": "blue",
+                "description": "",
+                "outfitID": 8
+            },
+            {
+                "styles": [
+                    "summer"
+                ],
+                "top": "url(\"..\/MEDIA\/yeuqywiuchoicjx.png\")",
+                "bottom": "url(\"..\/MEDIA\/gghrwrhishfidjsvick.png\")",
+                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp4-fotor-bg-remover-20230518233744.png\")",
+                "backgroundColor": "rgb(255, 222, 240)",
+                "description": "",
+                "outfitID": 9
+            }
+        ]
     },
     {
         "id": 2,
