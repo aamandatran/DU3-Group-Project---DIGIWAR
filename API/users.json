@@ -18,14 +18,51 @@
             },
             {
                 "styles": [
+                    "casual"
+                ],
+                "top": "url(\"..\/MEDIA\/tvvvgyvydstvysdgusf.png\")",
+                "bottom": "url(\"..\/MEDIA\/hdagkhsoiafoifdfl.png\")",
+                "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
+                "backgroundColor": "rgb(219, 208, 227)",
+                "description": "For slow days",
+                "outfitID": 18
+            },
+            {
+                "styles": [
+                    "formal",
+                    "datenight",
                     "summer"
                 ],
-                "top": "url(\"..\/MEDIA\/yeuqywiuchoicjx.png\")",
-                "bottom": "url(\"..\/MEDIA\/gghrwrhishfidjsvick.png\")",
+                "top": "url(\"..\/MEDIA\/app005prod.png\")",
+                "bottom": "url(\"..\/MEDIA\/app005prodd_11zon-fotor-bg-remover-20230518231824.png\")",
                 "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp4-fotor-bg-remover-20230518233744.png\")",
-                "backgroundColor": "rgb(255, 222, 240)",
-                "description": "",
-                "outfitID": 9
+                "backgroundColor": "rgb(255, 228, 233)",
+                "description": "Love is in the air",
+                "outfitID": 19
+            },
+            {
+                "styles": [
+                    "streetwear",
+                    "sporty"
+                ],
+                "top": "url(\"..\/MEDIA\/idsfisidvifbiisgrnb.png\")",
+                "bottom": "url(\"..\/MEDIA\/eqtwreytreurewirt.png\")",
+                "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
+                "backgroundColor": "rgb(246, 239, 239)",
+                "description": "For skating days",
+                "outfitID": 20
+            },
+            {
+                "styles": [
+                    "business",
+                    "datenight"
+                ],
+                "top": "url(\"..\/MEDIA\/8aa2cc82dbc74c9396744783953b11de-fotor-bg-remover-202305041488.png\")",
+                "bottom": "url(\"..\/MEDIA\/jaJPNKSNKJDHDSUID.png\")",
+                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp2-fotor-bg-remover-20230518233817.png\")",
+                "backgroundColor": "rgb(255, 228, 233)",
+                "description": "Modest but sexy :P",
+                "outfitID": 21
             }
         ]
     },
