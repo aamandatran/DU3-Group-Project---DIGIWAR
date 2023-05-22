@@ -71,15 +71,60 @@
             },
             {
                 "styles": [
+                    "datenight"
+                ],
+                "top": "url(\"..\/MEDIA\/fjiojqoaifjiojcvxc.png\")",
+                "bottom": "url(\"..\/MEDIA\/eqtwreytreurewirt.png\")",
+                "shoe": "url(\"..\/MEDIA\/ytuerorwrpipqeoriqer.png\")",
+                "backgroundColor": "rgb(207, 225, 200)",
+                "description": "",
+                "outfitID": 8
+            },
+            {
+                "styles": [
+                    "casual"
+                ],
+                "top": "url(\"..\/MEDIA\/nmvcnsmbajsbfkjqfh.png\")",
+                "bottom": "url(\"..\/MEDIA\/jaJPNKSNKJDHDSUID.png\")",
+                "shoe": "url(\"..\/MEDIA\/dusadouJEHWNUKDJSN.png\")",
+                "backgroundColor": "rgb(219, 208, 227)",
+                "description": "",
+                "outfitID": 9
+            },
+            {
+                "styles": [
+                    "business"
+                ],
+                "top": "url(\"..\/MEDIA\/tuytuyeuieryitrytriuyte.png\")",
+                "bottom": "url(\"..\/MEDIA\/hdagkhsoiafoifdfl.png\")",
+                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
+                "backgroundColor": "rgb(255, 228, 233)",
+                "description": "",
+                "outfitID": 10
+            },
+            {
+                "styles": [
+                    "casual",
+                    "spring"
+                ],
+                "top": "url(\"..\/MEDIA\/eewkerlkrlewfleeldk.png\")",
+                "bottom": "url(\"..\/MEDIA\/yiewuryiqryqroiu.png\")",
+                "shoe": "url(\"..\/MEDIA\/dusadouJEHWNUKDJSN.png\")",
+                "backgroundColor": "rgb(255, 251, 219)",
+                "description": "",
+                "outfitID": 11
+            },
+            {
+                "styles": [
                     "casual",
                     "sporty"
                 ],
-                "top": "url(\"..\/MEDIA\/jcbvkjkjxcklvjxc.png\")",
-                "bottom": "url(\"..\/MEDIA\/jaJPNKSNKJDHDSUID.png\")",
-                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
-                "backgroundColor": "pink",
-                "description": "comfortable but cute",
-                "outfitID": 7
+                "top": "url(\"..\/MEDIA\/ccxkjckahkashadfhdi.png\")",
+                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
+                "shoe": "url(\"..\/MEDIA\/dusadouJEHWNUKDJSN.png\")",
+                "backgroundColor": "rgb(206, 234, 236)",
+                "description": "",
+                "outfitID": 12
             }
         ]
     },
