@@ -31,11 +31,11 @@ function header_startPage () {
 }
 
 function openPopup() {
-    const popup = document.getElementById('popupWindow');
-    popup.classList.add('show');
-  }
+    const popup = document.getElementById("popupWindow");
+    popup.classList.add("show");
+}
   
-  function closePopup() {
-    const popup = document.getElementById('popupWindow');
-    popup.classList.remove('show');
-  }
+function closePopup() {
+    const popup = document.getElementById("popupWindow");
+    popup.classList.remove("show");
+}

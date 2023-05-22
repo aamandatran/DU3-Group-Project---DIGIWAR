@@ -1,23 +1,26 @@
 "use strict"
 
+//Render generator page
 async function renderGeneratorPage() {
+
+  //displays the header menu
   display_header_menu()
+  //Outfit Generator page is activated
   document.getElementById("outfitGeneratorButton").classList.add("selected");
 
+  //Creates the arrow buttons dom and appends it
   function displayArrows(item, direction) {
     const arrowButton = document.createElement("button");
     arrowButton.classList.add("arrowButton");
     arrowButton.classList.add(`arrow${item}`);
     arrowButton.innerHTML = `
-            <img src=../MEDIA/keyboard-arrow-${direction}.png class = arrow>
-            `;
+      <img src=../MEDIA/keyboard-arrow-${direction}.png class = arrow>
+      `;
     main.appendChild(arrowButton);
-    console.log(arrowButton);
-    //arrowButton.addEventListener("click", generateItem);
     return arrowButton;
   }
 
-
+  //Creates an arrow button for every item and direction
   const topsLeftArrow = displayArrows("Top", "left");
   const topsRightArrow = displayArrows("Top", "right");
   const bottomsLeftArrow = displayArrows("Bottom", "left");
@@ -25,10 +28,12 @@ async function renderGeneratorPage() {
   const shoesLeftArrow = displayArrows("Shoe", "left");
   const shoesRightArrow = displayArrows("Shoe", "right");
 
+  //Changing mains content to generator
+  
   main.innerHTML = `
-      <div id="generatorParent">
-        <div id="generator">
-          <div id="generatorGrid">
+    <div id="generatorParent">
+      <div id="generator">
+        <div id="generatorGrid">
             <div class="tops_generate">
               ${topsLeftArrow.outerHTML}
               <div></div>
@@ -68,105 +73,100 @@ async function renderGeneratorPage() {
             </div>
           </div>
         </div>
-      </div>
-    `;
 
+        <div id="popupWindow" class="popup">
+          <div id="popupContent">
+  
+            <div id=newOutfitTop>
+              <h1>New Outfit</h2>
+              <button id="closePopupButton">X</button>
+            </div>
+      
+              <form id=newOutfitBottom>
+      
+                <div id=newOutfit1>
+      
+                <fieldset id="styleCategories">
+                  <legend>Choose style</legend>
+      
+                  <div> 
+                    <input type=checkbox id=streetwear name=streetwear>
+                    <label for=streetwear id=streetwearLabel>Streetwear</label>
+                  </div>
+      
+                  <div> 
+                    <input type=checkbox id=casual name=casual>
+                    <label for=casual id=casualLabel>Casual</label>
+                  </div>
+      
+                  <div> 
+                    <input type=checkbox id=sporty name=sporty>
+                    <label for=sporty id=sportyLabel>Sporty</label>
+                  </div>          
+      
+                  <div> 
+                    <input type=checkbox id=formal name=formal>
+                    <label for=formal id=formalLabel>Formal</label>
+                  </div>            
+                  
+                  <div> 
+                    <input type=checkbox id=business name=business>
+                    <label for=business id=businessLabel>Business</label>
+                  </div>            
+                  
+                  <div> 
+                    <input type=checkbox id=datenight name=datenight>
+                    <label for=datenight id=datenightLabel>Date night</label>
+                  </div>            
+                  
+                  <div> 
+                    <input type=checkbox id=summer name=summer>
+                    <label for=summer id=summerLabel>Summer</label>
+                  </div>            
+                  
+                  <div> 
+                    <input type=checkbox id=winter name=winter>
+                    <label for=winter id=winterLabel>Winter</label>
+                  </div>
+      
+                  <div> 
+                    <input type=checkbox id=spring name=spring>
+                    <label for=spring id=springLabel>Spring</label>
+                  </div>
+                  <div> 
+                    <input type=checkbox id=autumn name=autumn>
+                    <label for=autumn id=autumnLabel>Autumn</label>
+                  </div>            
+      
+                </div>
+      
+                <div id=newOutfit2>
+                </fieldset>
+                <!-- Placeholder for selected items -->
+                  <div id="popupSelectedItems">
+                    <div id="popupSelectedTop"></div>
+                    <div id="popupSelectedBottom"></div>
+                    <div id="popupSelectedShoe"></div>
+                  </div>
+      
+                  <div id="pickBackgroundColor">Pick a background color</div>
+      
+                  <input type=text id=description name=description placeholder="Write a description"> 
+                </div>
+      
+                  <button id="savePopupButton" type=submit>Save</button>
+                </div>
+            </form>
+        </div>
+    </div>`;
+
+  //Gives each button an eventlistener 
   function registerEventListeners() {
     const arrowButtons = document.querySelectorAll(".arrowButton");
     arrowButtons.forEach((button) => {
       button.addEventListener("click", generateItem);
     });
   }
-
-
-  const generatorParent = document.querySelector("#generatorParent");
-  generatorParent.innerHTML += ` 
-    <div id="popupWindow" class="popup">
-      <div id="popupContent">
-
-      <div id=newOutfitTop>
-        <h1>New Outfit</h2>
-        <button id="closePopupButton">X</button>
-      </div>
-
-        <form id=newOutfitBottom>
-
-          <div id=newOutfit1>
-
-          <fieldset id="styleCategories">
-            <legend>Choose style</legend>
-
-            <div> 
-              <input type=checkbox id=streetwear name=streetwear>
-              <label for=streetwear id=streetwearLabel>Streetwear</label>
-            </div>
-
-            <div> 
-              <input type=checkbox id=casual name=casual>
-              <label for=casual id=casualLabel>Casual</label>
-            </div>
-
-            <div> 
-              <input type=checkbox id=sporty name=sporty>
-              <label for=sporty id=sportyLabel>Sporty</label>
-            </div>          
-
-            <div> 
-              <input type=checkbox id=formal name=formal>
-              <label for=formal id=formalLabel>Formal</label>
-            </div>            
-            
-            <div> 
-              <input type=checkbox id=business name=business>
-              <label for=business id=businessLabel>Business</label>
-            </div>            
-            
-            <div> 
-              <input type=checkbox id=datenight name=datenight>
-              <label for=datenight id=datenightLabel>Date night</label>
-            </div>            
-            
-            <div> 
-              <input type=checkbox id=summer name=summer>
-              <label for=summer id=summerLabel>Summer</label>
-            </div>            
-            
-            <div> 
-              <input type=checkbox id=winter name=winter>
-              <label for=winter id=winterLabel>Winter</label>
-            </div>
-
-            <div> 
-              <input type=checkbox id=spring name=spring>
-              <label for=spring id=springLabel>Spring</label>
-            </div>
-            <div> 
-              <input type=checkbox id=autumn name=autumn>
-              <label for=autumn id=autumnLabel>Autumn</label>
-            </div>            
-
-          </div>
-
-          <div id=newOutfit2>
-          </fieldset>
-          <!-- Placeholder for selected items -->
-            <div id="popupSelectedItems">
-              <div id="popupSelectedTop"></div>
-              <div id="popupSelectedBottom"></div>
-              <div id="popupSelectedShoe"></div>
-            </div>
-
-            <div id="pickBackgroundColor">Pick a background color</div>
-
-            <input type=text id=description name=description placeholder="Write a description"> 
-          </div>
-  
-
-            <button id="savePopupButton" type=submit>Save</button>
-          </div>
-      </form>
-    </div>
-  `;
 
   let closePopupButton = document.getElementById("closePopupButton");
   closePopupButton.addEventListener("click", closePopup);
