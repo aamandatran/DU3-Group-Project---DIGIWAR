@@ -4,7 +4,7 @@ require_once("functions.php");
 
 $method = $_SERVER["REQUEST_METHOD"];
 
-//Används när man vill nå arrayen med våra utvalda profilbilder
+//GET is used for fetching the users in users.json except for their passwords
 if($method == "GET") {
     $users = getFileContents("users.json");
     $displayUsers = [];
@@ -19,5 +19,4 @@ if($method == "GET") {
     }
     sendJSON($displayUsers);
 }
-
 ?>
