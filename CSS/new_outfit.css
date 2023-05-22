@@ -27,7 +27,7 @@
     grid-row: 1 / span 2;
 }
 
-#wardrobeFeed>#outfitsUl {
+#wardrobeFeed>ul#outfitsUl {
     display: grid;
     grid-template-columns: repeat(4, 250px);
     gap: 1vh;

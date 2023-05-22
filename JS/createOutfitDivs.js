@@ -10,7 +10,6 @@ async function createOutfitDivs(id, style) {
   style = style.toLowerCase();
   console.log(style);
 
-  let outfitArray = '';
   for (let user of users) {
     if (user.id === id) {
       let outfits = user.outfits;
@@ -22,24 +21,36 @@ async function createOutfitDivs(id, style) {
         }
         console.log(stylesHTML);
         if (style === "" || outfit.styles.includes(style)) {
-          outfitArray += `
-            <div class="outfit" id="${outfit.outfitID}" style=background-color:${outfit.backgroundColor}>
+          let li = document.createElement("li");
+
+          li.innerHTML = `
               <div class="outfitTop" style=background-image:${outfit.top}></div>
               <div class="outfitBottom" style=background-image:${outfit.bottom}></div>
               <div class="outfitShoe" style=background-image:${outfit.shoe}></div>
               <section class="descriptionHidden">${outfit.description}</section>
               <section class="stylesHidden">${stylesHTML}</section>
               <button class=outfitDeleteButton><img src="../MEDIA/trashcan.png"></button>
-            </div>
           `;
-          console.log(outfitArray);
+
+          li.classList.add("outfit");
+          li.setAttribute("id", outfit.outfitID);
+          li.style.backgroundColor = outfit.backgroundColor;
+
+          document.querySelector("#wardrobeFeed > ul").append(li);
+          document.querySelector("ul").setAttribute("id", "outfitsUl");
+
+          console.log(document.querySelector("#wardrobeFeed > ul"));
         }
       }
+      // let deleteButtons = document.querySelectorAll("button.outfitDeleteButton");
+      // console.log(deleteButtons);
+      // deleteButtons.forEach(deleteButton => {
+
+      // })
       break;
     }
   }
-  setupDeleteButtons()
-  return outfitArray;
+  return document.querySelector("#wardrobeFeed > ul");
 }
 
 
@@ -57,23 +68,13 @@ async function deleteOutfit(userID, outfitID) {
   })
   if (response.ok) {
     let outfitElement = document.getElementById(outfitID);
+    console.log(outfitElement);
     outfitElement.remove();
   }
 
 }
-function setupDeleteButtons() {
-  let deleteButtons = document.querySelectorAll("button.outfitDeleteButton")
-  deleteButtons.forEach(deleteButton => {
-    deleteButton.document.addEventListener("click", function (event) {
-      let outfitElement = event.target.closest(".outfit");
-      let outfitID = outfitElement.id;
-      let userID = localStorage.getItem("id");
-      deleteOutfit(userID, outfitID)
 
-    })
 
-  })
-}
 
 
 

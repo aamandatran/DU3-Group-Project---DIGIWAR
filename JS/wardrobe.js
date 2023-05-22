@@ -6,6 +6,7 @@ function renderWardrobePage() {
 
     main.innerHTML = `
         <div id="wardrobeParent"> 
+        
             <div id="wardrobePage">   
                 <section>
                     <div id="banner">
@@ -34,6 +35,15 @@ function renderWardrobePage() {
                     </section>
                 </div>
             </div>
+            <div id="popupWindow" class="popup">
+            <div id="popupContent">
+                <h1 id=outfitH1>Outfit</h1>
+                <button id="closePopupButton">X</button>
+                <div id="popupOutfit"></div>
+                <div id=descriptionOutfit></div>
+                <div id=stylesOutfit></div>
+            </div>
+        </div>
         </div>
     `;
 
@@ -58,20 +68,6 @@ function renderWardrobePage() {
         // Call createOutfitDivs(id) and wait for the result
         const outfitDivs = await createOutfitDivs(id, "");
 
-
-        const wardrobeParent = document.querySelector("#wardrobeParent");
-        wardrobeParent.innerHTML += ` 
-            <div id="popupWindow" class="popup">
-                <div id="popupContent">
-                    <h1 id=outfitH1>Outfit</h1>
-                    <button id="closePopupButton">X</button>
-                    <div id="popupOutfit"></div>
-                    <div id=descriptionOutfit></div>
-                    <div id=stylesOutfit></div>
-                </div>
-            </div>
-        `;
-
         document.getElementById("bottom").innerHTML = `
           <nav id="filter">
             <a href="#">FILTER</a>
@@ -91,12 +87,23 @@ function renderWardrobePage() {
             <button id="addClothes" style="display: none;">Add clothes</button>
           </nav>
           <section id="wardrobeFeed">
-            <ul id=outfitsUl>${outfitDivs}</ul>
             <p></p>
           </section>
         `;
-        document.querySelectorAll("ul > .outfit").forEach((outfit) => {
+        document.getElementById("wardrobeFeed").prepend(outfitDivs);
+        document.querySelectorAll("ul > li.outfit").forEach((outfit) => {
             outfit.addEventListener("click", OutfitPop);
+        });
+
+        document.querySelectorAll(".outfitDeleteButton").forEach((button) => {
+            button.addEventListener("click", function (event) {
+                event.stopPropagation();
+                console.log(event.currentTarget);
+                let outfitElement = event.target.closest(".outfit");
+                let outfitID = outfitElement.id;
+                let userID = localStorage.getItem("id");
+                deleteOutfit(userID, outfitID);
+            });
         });
 
         function OutfitPop(event) {
@@ -150,7 +157,7 @@ function renderWardrobePage() {
             console.log(event.target.innerText);
             let style = event.target.innerText;
             let html = await createOutfitDivs(id, style);
-            if (html === "") {
+            if (html.length === 0) {
                 document.getElementById("outfitsUl").innerHTML = `
                     <p>Could not find any ${style} outfits... go to the generator and save outfits!</p>
                   `;
@@ -283,7 +290,6 @@ function renderWardrobePage() {
     async function getUserItems() {
         document.querySelector("button#addClothes").style.display = "";
 
-
         //CSS that indicates which wardrobe it is
         yours.style.fontWeight = "600";
         yours.style.borderBottom = "2px solid grey;";
@@ -310,6 +316,7 @@ function renderWardrobePage() {
     yours.addEventListener("click", renderWardrobe);
 
     async function renderWardrobe(event) {
+        event.preventDefault();
 
         document.getElementById("bottom").innerHTML = `
         <nav id="filter">

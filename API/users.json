@@ -167,34 +167,34 @@
         "outfits": [
             {
                 "styles": [
-                    "streetwear"
+                    "casual"
                 ],
-                "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
+                "top": "url(\"..\/MEDIA\/mgnejkfngksjdsdk.png\")",
                 "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
                 "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
-                "backgroundColor": "blue",
+                "backgroundColor": "",
                 "description": "",
                 "outfitID": 1
             },
             {
                 "styles": [
-                    "summer"
+                    "winter"
                 ],
-                "top": "url(\"..\/MEDIA\/mgnejkfngksjdsdk.png\")",
-                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
+                "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
+                "bottom": "url(\"..\/MEDIA\/yiewuryiqryqroiu.png\")",
                 "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
-                "backgroundColor": "green",
+                "backgroundColor": "blue",
                 "description": "",
                 "outfitID": 2
             },
             {
                 "styles": [
-                    "casual"
+                    "spring"
                 ],
-                "top": "url(\"..\/MEDIA\/mgnejkfngksjdsdk.png\")",
-                "bottom": "url(\"..\/MEDIA\/yiewuryiqryqroiu.png\")",
+                "top": "url(\"..\/MEDIA\/oewiuqoireueqoidd.png\")",
+                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
                 "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
-                "backgroundColor": "blue",
+                "backgroundColor": "black",
                 "description": "",
                 "outfitID": 3
             },
@@ -202,45 +202,23 @@
                 "styles": [
                     "summer"
                 ],
-                "top": "url(\"..\/MEDIA\/pweqpwepqwdpvdfdb.png\")",
-                "bottom": "url(\"..\/MEDIA\/yiewuryiqryqroiu.png\")",
+                "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
+                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
                 "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
-                "backgroundColor": "green",
+                "backgroundColor": "",
                 "description": "",
                 "outfitID": 4
             },
             {
                 "styles": [
-                    "casual"
-                ],
-                "top": "url(\"..\/MEDIA\/pweqpwepqwdpvdfdb.png\")",
-                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
-                "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
-                "backgroundColor": "black",
-                "description": "",
-                "outfitID": 5
-            },
-            {
-                "styles": [
-                    "summer"
-                ],
-                "top": "url(\"..\/MEDIA\/oewiuqoireueqoidd.png\")",
-                "bottom": "url(\"..\/MEDIA\/kdfaksdfkaWFQRERQ.png\")",
-                "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
-                "backgroundColor": "",
-                "description": "",
-                "outfitID": 6
-            },
-            {
-                "styles": [
-                    "casual"
+                    "spring"
                 ],
                 "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
-                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
-                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
-                "backgroundColor": "blue",
-                "description": "Cool",
-                "outfitID": 7
+                "bottom": "url(\"..\/MEDIA\/yiewuryiqryqroiu.png\")",
+                "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
+                "backgroundColor": "",
+                "description": "",
+                "outfitID": 5
             }
         ]
     }

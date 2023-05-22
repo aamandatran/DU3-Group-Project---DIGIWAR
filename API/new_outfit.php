@@ -52,7 +52,7 @@ if($method == "POST") {
                 "outfitID"=> $outfitID
             ];
 
-            $user["outfits"][] = $outfit; // Append the new outfit to the "outfits" array
+            $user["outfits"][]=$outfit; // Append the new outfit to the "outfits" array
 
             // Update the user data in the users array
             saveToFile($filename, $users);
@@ -60,27 +60,29 @@ if($method == "POST") {
         }
     }
 }
-
-if ($method=="DELETE") {
-
+if ($method == "DELETE") {
     $userID = $data["userID"];
-    $outfitID=$data["outfitID"];
+    $outfitID = $data["outfitID"];
+
+    $newUserArray = [];
 
     foreach ($users as $user) {
-        if ($user["id"]==$userID) {
-            $outfits=$user["outfits"];
+        if ($user["id"] == $userID) {
+            $outfits = $user["outfits"];
 
-            foreach ($outfits as $key=> $outfit) {
-                if ($outfit["outfitID"]== $outfitID) {
-                    unset($outfits[$key]);
-                    break;
+            foreach ($outfits as $key => $outfit) {
+                if ($outfit["outfitID"] == $outfitID) {
+                    unset($outfits[$key]); // Remove the specific outfit from the $outfits array
+                    $user["outfits"] = array_values($outfits); // Reassign the updated $outfits array
                 }
             }
-
-            saveToFile($filename,$users);
-            break;
         }
-    }
-}   
 
+        $newUserArray[] = $user;
+    }
+
+    saveToFile($filename, $newUserArray);
+    $message = ["message" => "Outfit deleted successfully"];
+    sendJSON($message, 200);
+}
 ?>

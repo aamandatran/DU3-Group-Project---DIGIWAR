@@ -24,20 +24,3 @@ function randomColor(event) {
   backgroundDiv.style.backgroundColor = chosenColor;
 }
 
-
-function deleteOutfit() {
-  outfits = document.querySelectorAll("#outfitsUl")
-
-  outfits.forEach(outfit => {
-    let button = outfit.createElement("button");
-    button.classList.add("outfitDeleteButton");
-
-    button.innerHTML = `
-    <img src="../MEDIA/trashcan.png">
-    `
-
-    button.addEventListner("click", function (event) {
-
-    })
-  });
-}
