@@ -1,41 +1,17 @@
 "use strict"
 
-let main = document.querySelector("main");
-
+//Render register page
 async function renderRegisterPage() {
-    let header = document.querySelector("header");
-    header.innerHTML = `
-        <div id="toStartPage">DIGIWAR</div>
-    `;
 
-    document.querySelector("#toStartPage").addEventListener("click", renderStartPage);
+    //Clicking header will send you to start page
+    header_startPage();
 
-    window.localStorage.removeItem("isLoggedIn");
-    window.localStorage.removeItem("username");
-    window.localStorage.removeItem("password");
-    window.localStorage.removeItem("id");
-    window.localStorage.removeItem("profilepicture");
-
-    //Hämtar profilbilderna
-
+    //Fetch the profilepictures
     let response = await fetch("api/profilepics.php");
-
     let profilepictures = await response.json();
 
-    //Skapar profilbilderna
-    displayProfilePics(profilepictures)
-
-    console.log(profilepictures);
-
-    //Visar den valda profilbilden
-    function Selectedprofilepic(event) {
-        console.log(event.target.attributes.src.nodeValue);
-        let source = event.target.attributes.src.nodeValue;
-        document.getElementById("SelectedProfile").innerHTML = `
-        <img id="selectedpicture" src=${source}>
-        `;
-    }
-
+    //Changing mains content to register page
+    //Creates the profile pictures and displays them under ul.profileOptions
     main.innerHTML = `
     <div id = registerParent>
         
@@ -63,65 +39,71 @@ async function renderRegisterPage() {
     </div>
     `;
 
-    let list = document.querySelector("ul").querySelectorAll("li > img");
-    console.log(list);
-    for (let item of list) {
-        item.addEventListener("click", Selectedprofilepic);
+    //Gives every profilepicture an eventlistener 
+    let pictures = document.querySelector("ul").querySelectorAll("li > img");
+    for (let picture of pictures) {
+        picture.addEventListener("click", Selectedprofilepic);
     }
-    //Ger varje profilbild ett event 
+    //Display the selected profile picture
+    function Selectedprofilepic(event) {
+        let source = event.target.attributes.src.nodeValue;
+        document.getElementById("SelectedProfile").innerHTML = `
+        <img id="selectedpicture" src=${source}>
+        `;
+    }
 
     document.querySelector("#RegisterButton").style.fontWeight = "500";
+
+    //Clicking login button sends you to login page
     let LoginButton = document.querySelector("#LoginButton");
     LoginButton.style.fontWeight = "200";
     LoginButton.addEventListener("click", renderLoginPage);
 
+    //Clicking submit button will trigger register form
     let registerForm = document.querySelector("form");
     registerForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
+        //Saves the user values
         let username = document.querySelector("#username").value;
         let password = document.querySelector("#password").value;
         let selectedImage = document.querySelector("#SelectedProfile > img");
+        //If a profilepicture is selected the path will be saved 
+        //If a profilepicture is NOT selected an empty string will be saved. Otherwise it would be saved as "null" and interrupt the code
         let profilepicture = selectedImage ? selectedImage.getAttribute("src") : "";
-        //Om en profilbild är vald så kommer sökvägen sparas
-        //Om en profilbild inte är vald så kommer en tom sträng att sparas. Eftersom annars hade det sparats "null" och sabbat koden
 
+        //Saves the user data in an object
         let userData = {
             username: username,
             password: password,
             profilepicture: profilepicture
         };
 
+        //Sends a POST request to validate or confirm registration
         const request = new Request("api/register.php", {
             method: "POST",
             headers: { "Content-type": "application/json; charset=UTF-8" },
-            body: JSON.stringify(userData),
+            body: JSON.stringify(userData)
         });
 
         const response = await fetch(request);
 
+        //If response is ok the user is created and encouraged to proceed to login
         if (response.status === 200) {
-            //Om förfrågan lyckades så skapas användaren
             feedback("Registration Complete. Please proceed to login.");
-            console.log("Registration succeeded");
+
+            //Setting user information to localstorage items
+            let data = await response.json();            
+            localStorage.setItem("username", data.username);
+            localStorage.setItem("password", data.password);
+            localStorage.setItem("id", data.id);
+            localStorage.setItem("profilepicture", data.profilepicture);
+
+        //If response is NOT ok, feedback will provide error message
         } else {
-            //Om förfrågan misslyckades så skickas felmeddelande
             let error = await response.json();
-            console.log(error.message);
             feedback(error.message);
         }
-
-        let data = await response.json();
-
-        localStorage.setItem("username", data.username);
-        localStorage.setItem("password", data.password);
-        localStorage.setItem("id", data.id);
-        localStorage.setItem("profilepicture", data.profilepicture);
-        //Här sätter vi all data i local storage så vi kan nå användaren överallt på sidan
-
-    }
-    )
-
+    });
 }
 
-// //renderRegisterPage();

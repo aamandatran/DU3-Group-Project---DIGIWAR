@@ -8,7 +8,7 @@ $method = $_SERVER["REQUEST_METHOD"];
 //POST is used for logging in
 if($method == "POST") {
 
-    //Fetch the information from the POST request
+    //Fetch the information from the POST request and save values
     $data = getFileContents("php://input");
     $username = $data["username"];
     $password = $data["password"];

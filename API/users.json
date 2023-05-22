@@ -194,5 +194,33 @@
                 "outfitID": 17
             }
         ]
+    },
+    {
+        "id": 4,
+        "username": "wed",
+        "password": "123",
+        "profilepicture": "..\/MEDIA\/profilepictures\/bunny-PhotoRoom.png-PhotoRoom.png",
+        "outfits": []
+    },
+    {
+        "id": 5,
+        "username": "valder",
+        "password": "444",
+        "profilepicture": "..\/MEDIA\/profilepictures\/koala-PhotoRoom.png-PhotoRoom.png",
+        "outfits": []
+    },
+    {
+        "id": 6,
+        "username": "ida3",
+        "password": "321",
+        "profilepicture": "..\/MEDIA\/profilepictures\/dog-PhotoRoom.png-PhotoRoom.png",
+        "outfits": []
+    },
+    {
+        "id": 7,
+        "username": "hare",
+        "password": "333",
+        "profilepicture": "..\/MEDIA\/profilepictures\/bunny-PhotoRoom.png-PhotoRoom.png",
+        "outfits": []
     }
 ]

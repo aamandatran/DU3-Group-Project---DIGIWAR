@@ -1,14 +1,10 @@
 "use strict"
 
-//render login page
+//Render login page
 function renderLoginPage() {
 
     //Clicking header will send you to start page
-    let header = document.querySelector("header");
-    header.innerHTML = `
-        <div id="toStartPage">DIGIWAR</div>
-    `;
-    document.querySelector("#toStartPage").addEventListener("click", renderStartPage);
+    header_startPage();
 
     //Changing mains content to login page
     main.innerHTML = `
@@ -36,7 +32,7 @@ function renderLoginPage() {
     RegisterButton.style.fontWeight = "200";
     RegisterButton.addEventListener("click", renderRegisterPage);
 
-    //Clicking sign in button will trigger login form
+    //Clicking submit button will trigger login form
     let loginForm = document.querySelector("form");
     loginForm.addEventListener("submit", async function (event) {
         event.preventDefault();
