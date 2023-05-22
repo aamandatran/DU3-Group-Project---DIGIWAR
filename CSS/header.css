@@ -45,6 +45,8 @@ header>div {
 
 #menuProfilePic>img {
     width: 100%;
+    position: relative;
+    bottom: 22px;
 }
 
 #menuContainer>div>a {
