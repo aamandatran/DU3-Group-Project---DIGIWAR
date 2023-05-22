@@ -20,3 +20,22 @@ function inArray(id, array) {
     }
     return false;
 }
+
+function header_startPage () {
+    //Clicking header will send you to start page
+    let header = document.querySelector("header");
+    header.innerHTML = `
+        <div id="toStartPage">DIGIWAR</div>
+    `;
+    document.querySelector("#toStartPage").addEventListener("click", renderStartPage);
+}
+
+function openPopup() {
+    const popup = document.getElementById('popupWindow');
+    popup.classList.add('show');
+  }
+  
+  function closePopup() {
+    const popup = document.getElementById('popupWindow');
+    popup.classList.remove('show');
+  }

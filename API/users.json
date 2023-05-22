@@ -63,6 +63,18 @@
                 "backgroundColor": "rgb(255, 228, 233)",
                 "description": "Modest but sexy :P",
                 "outfitID": 21
+            },
+            {
+                "styles": [
+                    "summer",
+                    "spring"
+                ],
+                "top": "url(\"..\/MEDIA\/tvvvgyvydstvysdgusf.png\")",
+                "bottom": "url(\"..\/MEDIA\/app005prodd_11zon-fotor-bg-remover-20230518231824.png\")",
+                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp4-fotor-bg-remover-20230518233744.png\")",
+                "backgroundColor": "rgb(249, 200, 208)",
+                "description": "For those hotter days",
+                "outfitID": 22
             }
         ]
     },

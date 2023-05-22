@@ -172,8 +172,16 @@ async function renderGeneratorPage() {
   closePopupButton.addEventListener("click", closePopup);
 
   let backgroundColorButton = document.getElementById("pickBackgroundColor");
-  console.log(backgroundColorButton);
   backgroundColorButton.addEventListener("click", randomColor);
+  function randomColor(event) {
+    let backgroundDiv = document.getElementById("popupSelectedItems");
+
+    let colorsArray = ["#ffe4e9", "#ceeaec", "#cfe1c8", "black", "#f6efef", "#dbd0e3", "#fffbdb", "#f9c8d0", "#f1e0c9"];
+    let chosenColor = colorsArray[Math.floor(Math.random() * colorsArray.length)]
+
+    backgroundDiv.style.backgroundColor = chosenColor;
+  }
+
 
   let username = window.localStorage.getItem("username");
 

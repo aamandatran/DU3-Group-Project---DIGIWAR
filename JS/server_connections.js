@@ -38,11 +38,3 @@ function feedback(message) {
     });
 }
 
-function header_startPage () {
-    //Clicking header will send you to start page
-    let header = document.querySelector("header");
-    header.innerHTML = `
-        <div id="toStartPage">DIGIWAR</div>
-    `;
-    document.querySelector("#toStartPage").addEventListener("click", renderStartPage);
-}
