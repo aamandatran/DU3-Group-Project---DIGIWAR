@@ -136,14 +136,47 @@
         "outfits": [
             {
                 "styles": [
-                    "autumn"
+                    "winter"
                 ],
-                "top": "url(\"..\/MEDIA\/mgnejkfngksjdsdk.png\")",
+                "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
                 "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
                 "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
-                "backgroundColor": "rgb(255, 222, 240)",
+                "backgroundColor": "black",
                 "description": "",
-                "outfitID": 10
+                "outfitID": 13
+            },
+            {
+                "styles": [
+                    "spring"
+                ],
+                "top": "url(\"..\/MEDIA\/oewiuqoireueqoidd.png\")",
+                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
+                "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
+                "backgroundColor": "rgb(206, 234, 236)",
+                "description": "",
+                "outfitID": 14
+            },
+            {
+                "styles": [
+                    "winter"
+                ],
+                "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
+                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
+                "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
+                "backgroundColor": "rgb(206, 234, 236)",
+                "description": "",
+                "outfitID": 16
+            },
+            {
+                "styles": [
+                    "casual"
+                ],
+                "top": "url(\"..\/MEDIA\/tbtnmnbtkjtkjrds.png\")",
+                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
+                "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
+                "backgroundColor": "rgb(255, 251, 219)",
+                "description": "",
+                "outfitID": 17
             }
         ]
     }

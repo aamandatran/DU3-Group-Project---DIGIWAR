@@ -94,16 +94,35 @@ function renderWardrobePage() {
             outfit.addEventListener("click", OutfitPop);
         });
 
+
         document.querySelectorAll(".outfitDeleteButton").forEach((button) => {
             button.addEventListener("click", function (event) {
                 event.stopPropagation();
-                console.log(event.currentTarget);
-                let outfitElement = event.target.closest(".outfit");
-                let outfitID = outfitElement.id;
-                let userID = localStorage.getItem("id");
-                deleteOutfit(userID, outfitID);
-            });
-        });
+
+                feedback("Are you sure?")
+                document.querySelector("#feedbackContainer>div").innerHTML = `
+                <button id="yes">Yes</button>  
+                <button id="no">No</button>  
+            `;
+                document.getElementById("no").addEventListener("click", function (event) {
+                    feedbackContainer.remove();
+                    document.querySelectorAll("button").forEach((button) => {
+                        button.disabled = false;
+                    })
+                });
+                document.getElementById("yes").addEventListener("click", function (event) {
+                    let outfitElement = button.closest(".outfit");
+                    let outfitID = outfitElement.id;
+                    let userID = localStorage.getItem("id");
+                    document.querySelectorAll("button").forEach((button) => {
+                        button.disabled = false;
+                    })
+                    feedbackContainer.remove();
+                    deleteOutfit(userID, outfitID);
+                })
+
+            })
+        })
 
         function OutfitPop(event) {
 
@@ -139,19 +158,19 @@ function renderWardrobePage() {
         }
 
         let filterArray = ["allItems", "streetwear", "casual", "sporty", "formal", "business", "datenight", "summer", "winter", "spring", "autumn"];
-        for(let filter of filterArray) {
+        for (let filter of filterArray) {
             document.getElementById(filter).addEventListener("click", async function (event) {
                 event.preventDefault();
                 let outfitdivs;
-                if(event.target.innerText === "All") {
+                if (event.target.innerText === "All") {
                     outfitdivs = await createOutfitDivs(id, "");
                     if (outfitdivs.childNodes.length === 0) {
-                    document.querySelector("#wardrobeFeed > p").innerHTML = "Could not find any outfits... go to the generator and save outfits!";
+                        document.querySelector("#wardrobeFeed > p").innerHTML = "Could not find any outfits... go to the generator and save outfits!";
                     }
                 } else {
                     outfitdivs = await createOutfitDivs(id, filter);
-                    if(outfitdivs.childNodes.length === 0) {
-                    document.querySelector("#wardrobeFeed > p").innerHTML = `Could not find any ${filter} outfits... go to the generator and save outfits!`;
+                    if (outfitdivs.childNodes.length === 0) {
+                        document.querySelector("#wardrobeFeed > p").innerHTML = `Could not find any ${filter} outfits... go to the generator and save outfits!`;
                     }
                 }
             })
@@ -171,7 +190,7 @@ function renderWardrobePage() {
                 document.getElementById("outfitsUl").innerHTML = html;
             }
         }); */
-        
+
     }
 
 
