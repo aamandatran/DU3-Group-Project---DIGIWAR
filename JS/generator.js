@@ -2,6 +2,7 @@
 
 async function renderGeneratorPage() {
   display_header_menu()
+  document.getElementById("outfitGeneratorButton").classList.add("selected");
 
   function displayArrows(item, direction) {
     const arrowButton = document.createElement("button");

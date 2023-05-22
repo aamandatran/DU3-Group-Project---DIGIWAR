@@ -50,7 +50,6 @@ header>div {
 #menuContainer>div>a {
     display: flex;
     align-items: center;
-    font-weight: 500;
     height: 10vh;
     padding-left: 3vh;
     padding-right: 3vh;
