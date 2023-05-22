@@ -2,7 +2,6 @@
 
 async function renderGeneratorPage() {
   display_header_menu()
-  document.querySelector("#outfitGeneratorButton").style.fontWeight = "600";
 
   function displayArrows(item, direction) {
     const arrowButton = document.createElement("button");
@@ -352,7 +351,7 @@ async function renderGeneratorPage() {
       closePopup();
       feedback("Outfit is saved!");
       var checkboxes = form.querySelectorAll('input[type="checkbox"]');
-      checkboxes.forEach(function(checkbox) {
+      checkboxes.forEach(function (checkbox) {
         checkbox.checked = false;
       });
     } else {
