@@ -27,8 +27,15 @@ if($method == "POST") {
     for($i = 0; $i < count($users); $i++) {
     //En loop som går genom om användarnamn och lösenord stämmer överens med varje användare
         if($users[$i]["username"] == $username and $users[$i]["password"] == $password){
-            //Om användarnamn och lösenord stämmer överens så skickas användaren tillbaka
-            sendJSON($users[$i]);
+            //Om användarnamn och lösenord stämmer överens så skickas användaren tillbaka förutom lösenord
+            $correctUser = [
+                "id" => $users[$i]["id"],
+                "username" => $users[$i]["username"],
+                "profilepicture" => $users[$i]["profilepicture"],
+                "outfits" => $users[$i]["outfits"]
+            ];
+
+            sendJSON($correctUser);
         } else if($users[$i]["username"] == $username and $users[$i]["password"] != $password) {
             //Om användarnamnet stämmer men lösenordet är inkorrekt
             $error = [
