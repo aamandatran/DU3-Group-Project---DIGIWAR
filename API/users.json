@@ -11,7 +11,32 @@
         "username": "tranen",
         "password": "123",
         "profilepicture": "..\/MEDIA\/profilepictures\/unnamed.png",
-        "outfits": []
+        "outfits": [
+            {
+                "styles": [
+                    "casual",
+                    "summer"
+                ],
+                "top": "url(\"..\/MEDIA\/ccxkjckahkashadfhdi.png\")",
+                "bottom": "url(\"..\/MEDIA\/dsdklmvlkmlkdfmv.png\")",
+                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
+                "backgroundColor": "",
+                "description": "",
+                "outfitID": 6
+            },
+            {
+                "styles": [
+                    "casual",
+                    "sporty"
+                ],
+                "top": "url(\"..\/MEDIA\/jcbvkjkjxcklvjxc.png\")",
+                "bottom": "url(\"..\/MEDIA\/jaJPNKSNKJDHDSUID.png\")",
+                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
+                "backgroundColor": "pink",
+                "description": "comfortable but cute",
+                "outfitID": 7
+            }
+        ]
     },
     {
         "id": 3,

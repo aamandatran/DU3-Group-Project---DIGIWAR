@@ -2,6 +2,7 @@
 
 function renderWardrobePage() {
     display_header_menu()
+    document.getElementById("wardrobeButton").classList.add("selected");
 
     main.innerHTML = `
         <div id="wardrobeParent"> 
@@ -56,6 +57,11 @@ function renderWardrobePage() {
 
     async function renderOutfits(event) {
         event.preventDefault();
+
+        // Indicates which anchor element is selected
+        outfits.classList.add("selected");
+        digiwars.classList.remove("selected");
+        yours.classList.remove("selected");
 
         let id = localStorage.getItem("id");
         console.log("event is on");
@@ -281,7 +287,10 @@ function renderWardrobePage() {
 
     // Fetch users wardrobe by Id
     async function getUserItems() {
-        document.querySelector("button#addClothes").style.display = "";
+        // CSS indicator
+        yours.classList.add("selected");
+        digiwars.classList.remove("selected");
+        outfits.classList.remove("selected");
 
         let id = localStorage.getItem("id");
         console.log(id);
@@ -332,6 +341,11 @@ function renderWardrobePage() {
     // GET-request to displays the clothing items from DIGIWAR
     digiwars.addEventListener("click", async function (event) {
         event.preventDefault();
+
+        // CSS indicator
+        digiwars.classList.add("selected");
+        yours.classList.remove("selected");
+        outfits.classList.remove("selected");
 
         document.getElementById("bottom").innerHTML = `
         <nav id="filter">
