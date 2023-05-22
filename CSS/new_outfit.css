@@ -9,6 +9,7 @@
     width: 250px;
     border: 1px black solid;
     align-items: center;
+    position: relative;
 }
 
 .outfit>div {
@@ -41,6 +42,9 @@
     background-color: transparent;
     padding: 5px;
     margin-left: 170%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 

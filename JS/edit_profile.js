@@ -2,7 +2,7 @@
 
 async function editProfile() {
     display_header_menu()
-    document.querySelector("#usernameNav").style.fontWeight = "600";
+    document.getElementById("usernameNav").classList.add("selected");
 
     let response = await fetch("API/profilepics.php");
     let profilepictures = await response.json();

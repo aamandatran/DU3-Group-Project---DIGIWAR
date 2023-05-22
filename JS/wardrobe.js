@@ -2,7 +2,7 @@
 
 function renderWardrobePage() {
     display_header_menu()
-    document.querySelector("#wardrobeButton").style.fontWeight = "600";
+    document.getElementById("wardrobeButton").classList.add("selected");
 
     main.innerHTML = `
         <div id="wardrobeParent"> 
@@ -58,10 +58,10 @@ function renderWardrobePage() {
     async function renderOutfits(event) {
         event.preventDefault();
 
-        outfits.style.fontWeight = "600";
-        outfits.style.borderBottom = "2px solid grey;";
-        digiwars.style.fontWeight = "500";
-        yours.style.fontWeight = "500";
+        // Indicates which anchor element is selected
+        outfits.classList.add("selected");
+        digiwars.classList.remove("selected");
+        yours.classList.remove("selected");
 
         let id = localStorage.getItem("id");
         console.log("event is on");
@@ -84,7 +84,6 @@ function renderWardrobePage() {
               <a href="#" id="spring">Spring</a>
               <a href="#" id="autumn">Autumn</a>
             </nav>
-            <button id="addClothes" style="display: none;">Add clothes</button>
           </nav>
           <section id="wardrobeFeed">
             <p></p>
@@ -288,12 +287,10 @@ function renderWardrobePage() {
 
     // Fetch users wardrobe by Id
     async function getUserItems() {
-        document.querySelector("button#addClothes").style.display = "";
-
-        //CSS that indicates which wardrobe it is
-        yours.style.fontWeight = "600";
-        yours.style.borderBottom = "2px solid grey;";
-        digiwars.style.fontWeight = "500";
+        // CSS indicator
+        yours.classList.add("selected");
+        digiwars.classList.remove("selected");
+        outfits.classList.remove("selected");
 
         let id = localStorage.getItem("id");
         console.log(id);
@@ -327,7 +324,7 @@ function renderWardrobePage() {
                             <a href="#" id="bottoms">Bottoms</a>
                             <a href="#" id="shoes">Shoes</a>
                         </nav>
-                        <button id="addClothes" style="display: none;">Add clothes</button>
+                        <button id="addClothes">Add clothes</button>
                     </nav>
                     <section id="wardrobeFeed">
                         <ul></ul>
@@ -335,12 +332,20 @@ function renderWardrobePage() {
                     </section>
         `;
 
+        // Display pop up to add clothes
+        document.getElementById("addClothes").addEventListener("click", renderUploadItemPopUp);
+
         getUserItems();
     }
 
     // GET-request to displays the clothing items from DIGIWAR
     digiwars.addEventListener("click", async function (event) {
         event.preventDefault();
+
+        // CSS indicator
+        digiwars.classList.add("selected");
+        yours.classList.remove("selected");
+        outfits.classList.remove("selected");
 
         document.getElementById("bottom").innerHTML = `
         <nav id="filter">
@@ -351,7 +356,6 @@ function renderWardrobePage() {
                             <a href="#" id="bottoms">Bottoms</a>
                             <a href="#" id="shoes">Shoes</a>
                         </nav>
-                        <button id="addClothes" style="display: none;">Add clothes</button>
                     </nav>
                     <section id="wardrobeFeed">
                         <ul></ul>
@@ -359,29 +363,11 @@ function renderWardrobePage() {
                     </section>
         `;
 
-        // Hide button in Digiwars wardrobe page
-        document.querySelector("button#addClothes").style.display = "none";
-
-        //CSS that indicates which wardrobe it is
-        digiwars.style.fontWeight = "600";
-        digiwars.style.borderBottom = "2px solid grey;";
-        yours.style.fontWeight = "500";
-
-
         let request = await fetch("API/digiwars_wardrobe.php");
         let digiwars_wardrobe = await request.json();
         createItemDivs(digiwars_wardrobe, "all", "digiwars")
         filterByItem(digiwars_wardrobe, "digiwars")
     });
-
-    // const outfits = document.getElementById("savedOutfits");
-    // outfits.addEventListener("click", async function (event) {
-
-    // });
-
-    // Display pop up to add clothes
-    document.getElementById("addClothes").addEventListener("click", renderUploadItemPopUp);
-
 }
 
 // Filters wardrobe by item
