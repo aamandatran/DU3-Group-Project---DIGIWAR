@@ -2,7 +2,6 @@
 
 function renderWardrobePage() {
     display_header_menu()
-    document.querySelector("#wardrobeButton").style.fontWeight = "600";
 
     main.innerHTML = `
         <div id="wardrobeParent"> 
@@ -58,11 +57,6 @@ function renderWardrobePage() {
     async function renderOutfits(event) {
         event.preventDefault();
 
-        outfits.style.fontWeight = "600";
-        outfits.style.borderBottom = "2px solid grey;";
-        digiwars.style.fontWeight = "500";
-        yours.style.fontWeight = "500";
-
         let id = localStorage.getItem("id");
         console.log("event is on");
         // Call createOutfitDivs(id) and wait for the result
@@ -84,7 +78,6 @@ function renderWardrobePage() {
               <a href="#" id="spring">Spring</a>
               <a href="#" id="autumn">Autumn</a>
             </nav>
-            <button id="addClothes" style="display: none;">Add clothes</button>
           </nav>
           <section id="wardrobeFeed">
             <p></p>
@@ -290,11 +283,6 @@ function renderWardrobePage() {
     async function getUserItems() {
         document.querySelector("button#addClothes").style.display = "";
 
-        //CSS that indicates which wardrobe it is
-        yours.style.fontWeight = "600";
-        yours.style.borderBottom = "2px solid grey;";
-        digiwars.style.fontWeight = "500";
-
         let id = localStorage.getItem("id");
         console.log(id);
 
@@ -327,13 +315,16 @@ function renderWardrobePage() {
                             <a href="#" id="bottoms">Bottoms</a>
                             <a href="#" id="shoes">Shoes</a>
                         </nav>
-                        <button id="addClothes" style="display: none;">Add clothes</button>
+                        <button id="addClothes">Add clothes</button>
                     </nav>
                     <section id="wardrobeFeed">
                         <ul></ul>
                         <p></p>
                     </section>
         `;
+
+        // Display pop up to add clothes
+        document.getElementById("addClothes").addEventListener("click", renderUploadItemPopUp);
 
         getUserItems();
     }
@@ -351,7 +342,6 @@ function renderWardrobePage() {
                             <a href="#" id="bottoms">Bottoms</a>
                             <a href="#" id="shoes">Shoes</a>
                         </nav>
-                        <button id="addClothes" style="display: none;">Add clothes</button>
                     </nav>
                     <section id="wardrobeFeed">
                         <ul></ul>
@@ -359,29 +349,11 @@ function renderWardrobePage() {
                     </section>
         `;
 
-        // Hide button in Digiwars wardrobe page
-        document.querySelector("button#addClothes").style.display = "none";
-
-        //CSS that indicates which wardrobe it is
-        digiwars.style.fontWeight = "600";
-        digiwars.style.borderBottom = "2px solid grey;";
-        yours.style.fontWeight = "500";
-
-
         let request = await fetch("API/digiwars_wardrobe.php");
         let digiwars_wardrobe = await request.json();
         createItemDivs(digiwars_wardrobe, "all", "digiwars")
         filterByItem(digiwars_wardrobe, "digiwars")
     });
-
-    // const outfits = document.getElementById("savedOutfits");
-    // outfits.addEventListener("click", async function (event) {
-
-    // });
-
-    // Display pop up to add clothes
-    document.getElementById("addClothes").addEventListener("click", renderUploadItemPopUp);
-
 }
 
 // Filters wardrobe by item
