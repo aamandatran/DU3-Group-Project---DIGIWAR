@@ -98,7 +98,8 @@
         "path": "..\/MEDIA\/idsfisidvifbiisgrnb.png",
         "id": [
             0,
-            1
+            1,
+            4
         ]
     },
     "16": {
@@ -136,7 +137,8 @@
         "id": {
             "0": 0,
             "3": 3,
-            "4": 3
+            "4": 3,
+            "5": 4
         }
     },
     "21": {
@@ -150,14 +152,17 @@
     "22": {
         "path": "..\/MEDIA\/tbtnmnbtkjtkjrds.png",
         "id": [
-            0
+            0,
+            3,
+            4
         ]
     },
     "23": {
         "path": "..\/MEDIA\/teyrtueritweiodhf.png",
         "id": [
             0,
-            3
+            3,
+            4
         ]
     },
     "24": {
@@ -170,7 +175,8 @@
     "25": {
         "path": "..\/MEDIA\/uvuuhvuibchxiuxbvb.png",
         "id": [
-            0
+            0,
+            4
         ]
     },
     "26": {

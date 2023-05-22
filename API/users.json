@@ -91,58 +91,14 @@
         "outfits": [
             {
                 "styles": [
-                    "casual"
+                    "autumn"
                 ],
                 "top": "url(\"..\/MEDIA\/mgnejkfngksjdsdk.png\")",
                 "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
-                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
-                "backgroundColor": "",
+                "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
+                "backgroundColor": "rgb(255, 222, 240)",
                 "description": "",
-                "outfitID": 1
-            },
-            {
-                "styles": [
-                    "winter"
-                ],
-                "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
-                "bottom": "url(\"..\/MEDIA\/yiewuryiqryqroiu.png\")",
-                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
-                "backgroundColor": "blue",
-                "description": "",
-                "outfitID": 2
-            },
-            {
-                "styles": [
-                    "spring"
-                ],
-                "top": "url(\"..\/MEDIA\/oewiuqoireueqoidd.png\")",
-                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
-                "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
-                "backgroundColor": "black",
-                "description": "",
-                "outfitID": 3
-            },
-            {
-                "styles": [
-                    "summer"
-                ],
-                "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
-                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
-                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
-                "backgroundColor": "",
-                "description": "",
-                "outfitID": 4
-            },
-            {
-                "styles": [
-                    "spring"
-                ],
-                "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
-                "bottom": "url(\"..\/MEDIA\/yiewuryiqryqroiu.png\")",
-                "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
-                "backgroundColor": "",
-                "description": "",
-                "outfitID": 5
+                "outfitID": 10
             }
         ]
     }
