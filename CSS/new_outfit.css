@@ -6,7 +6,6 @@
     grid-template-rows: 6fr 4fr;
     height: 250px;
     width: 250px;
-    border: var(--borderStandard);
     align-items: center;
     position: relative;
 }
@@ -28,12 +27,7 @@
 }
 
 #wardrobeFeed>ul#outfitsUl {
-    display: grid;
-    grid-template-columns: repeat(4, 250px);
-    gap: var(--gap);
     grid-auto-rows: 250px;
-    padding-left: 0px;
-    margin-top: 0;
 }
 
 .outfitDeleteButton {

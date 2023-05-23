@@ -165,52 +165,6 @@
         "outfits": [
             {
                 "styles": [
-                    "datenight"
-                ],
-                "top": "url(\"..\/MEDIA\/fjiojqoaifjiojcvxc.png\")",
-                "bottom": "url(\"..\/MEDIA\/eqtwreytreurewirt.png\")",
-                "shoe": "url(\"..\/MEDIA\/ytuerorwrpipqeoriqer.png\")",
-                "backgroundColor": "rgb(207, 225, 200)",
-                "description": "",
-                "outfitID": 8
-            },
-            {
-                "styles": [
-                    "casual",
-                    "spring"
-                ],
-                "top": "url(\"..\/MEDIA\/eewkerlkrlewfleeldk.png\")",
-                "bottom": "url(\"..\/MEDIA\/yiewuryiqryqroiu.png\")",
-                "shoe": "url(\"..\/MEDIA\/dusadouJEHWNUKDJSN.png\")",
-                "backgroundColor": "rgb(255, 251, 219)",
-                "description": "",
-                "outfitID": 11
-            },
-            {
-                "styles": [
-                    "casual",
-                    "sporty"
-                ],
-                "top": "url(\"..\/MEDIA\/ccxkjckahkashadfhdi.png\")",
-                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
-                "shoe": "url(\"..\/MEDIA\/dusadouJEHWNUKDJSN.png\")",
-                "backgroundColor": "rgb(206, 234, 236)",
-                "description": "",
-                "outfitID": 12
-            },
-            {
-                "styles": [
-                    "datenight"
-                ],
-                "top": "url(\"..\/MEDIA\/fjiojqoaifjiojcvxc.png\")",
-                "bottom": "url(\"..\/MEDIA\/yiewuryiqryqroiu.png\")",
-                "shoe": "url(\"..\/MEDIA\/6bb615fd98314c9f82b5f36deee3bd63-fotor-bg-remover-2023050414654.png\")",
-                "backgroundColor": "rgb(247, 222, 187)",
-                "description": "",
-                "outfitID": 31
-            },
-            {
-                "styles": [
                     "business",
                     "datenight"
                 ],
@@ -220,6 +174,53 @@
                 "backgroundColor": "rgb(219, 208, 227)",
                 "description": "black and basic",
                 "outfitID": 32
+            },
+            {
+                "styles": [
+                    "casual",
+                    "sporty"
+                ],
+                "top": "url(\"..\/MEDIA\/ccxkjckahkashadfhdi.png\")",
+                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
+                "shoe": "url(\"..\/MEDIA\/dusadouJEHWNUKDJSN.png\")",
+                "backgroundColor": "rgb(207, 225, 200)",
+                "description": "for school",
+                "outfitID": 33
+            },
+            {
+                "styles": [
+                    "casual"
+                ],
+                "top": "url(\"..\/MEDIA\/hsjdfjahkjashfsakl.png\")",
+                "bottom": "url(\"..\/MEDIA\/hdagkhsoiafoifdfl.png\")",
+                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
+                "backgroundColor": "rgb(206, 234, 236)",
+                "description": "comfy but put together",
+                "outfitID": 34
+            },
+            {
+                "styles": [
+                    "casual",
+                    "spring",
+                    "autumn"
+                ],
+                "top": "url(\"..\/MEDIA\/ewtreqtwreqywtrqw.png\")",
+                "bottom": "url(\"..\/MEDIA\/sljdklasjfkladfjkdal.png\")",
+                "shoe": "url(\"..\/MEDIA\/ytuerorwrpipqeoriqer.png\")",
+                "backgroundColor": "rgb(247, 222, 187)",
+                "description": "lazy and cold school day",
+                "outfitID": 35
+            },
+            {
+                "styles": [
+                    "spring"
+                ],
+                "top": "url(\"..\/MEDIA\/rerepipirtopertjgklfg.png\")",
+                "bottom": "url(\"..\/MEDIA\/yiewuryiqryqroiu.png\")",
+                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
+                "backgroundColor": "rgb(255, 228, 233)",
+                "description": "all white outfit",
+                "outfitID": 36
             }
         ]
     },

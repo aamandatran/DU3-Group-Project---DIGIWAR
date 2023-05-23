@@ -51,7 +51,7 @@ if(isset($_FILES["item"])) {
             $message = [
                 "message" => "No category was selected... please select a category."
             ];
-            sendJSON($message, 409);
+            sendJSON($message, 400);
         }
     } else {
         // If we received no upload, an error message is sent back
@@ -65,7 +65,8 @@ if(isset($_FILES["item"])) {
 // Sends back every item to display on website
 if($requestMethod == "POST") {
     if(!isset($requestData["id"])) {
-        $message = ["message" => "Id of user was not sent..."];
+        $message = ["message" => "The id of user was not sent..."];
+        sendJSON($message, 400);
     }
 
     // Function filetItemsById is located in functions.php
