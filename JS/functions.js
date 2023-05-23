@@ -1,7 +1,7 @@
 "use strict";
 
+//This function will display the array of profile pictures
 function displayProfilePics(array) {
-    //Denna funktionen är samma som i login/register och displayar alla bilder. 
     let html = "";
     for (let profilepic of array) {
         html += `
@@ -30,11 +30,13 @@ function header_startPage () {
     document.querySelector("#toStartPage").addEventListener("click", renderStartPage);
 }
 
+//This function add the class show to the pop up window allowing it to display
 function openPopup() {
     const popup = document.getElementById("popupWindow");
     popup.classList.add("show");
 }
   
+//This function removes the class show to the pop up window and disable it to display
 function closePopup() {
     const popup = document.getElementById("popupWindow");
     popup.classList.remove("show");
