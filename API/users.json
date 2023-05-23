@@ -291,5 +291,26 @@
         "password": "333",
         "profilepicture": "..\/MEDIA\/profilepictures\/bunny-PhotoRoom.png-PhotoRoom.png",
         "outfits": []
+    },
+    {
+        "id": 8,
+        "username": "Ullabritt",
+        "password": "111",
+        "profilepicture": "..\/MEDIA\/profilepictures\/dog-PhotoRoom.png-PhotoRoom.png",
+        "outfits": []
+    },
+    {
+        "id": 9,
+        "username": "JanOla",
+        "password": "123",
+        "profilepicture": "..\/MEDIA\/profilepictures\/bunny-PhotoRoom.png-PhotoRoom.png",
+        "outfits": []
+    },
+    {
+        "id": 10,
+        "username": "Annabelle",
+        "password": "123",
+        "profilepicture": "..\/MEDIA\/profilepictures\/panda-PhotoRoom.png-PhotoRoom.png",
+        "outfits": []
     }
 ]
