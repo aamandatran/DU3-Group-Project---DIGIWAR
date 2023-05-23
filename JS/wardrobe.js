@@ -90,72 +90,81 @@ function renderWardrobePage() {
           </section>
         `;
         document.getElementById("wardrobeFeed").prepend(outfitDivs);
-        document.querySelectorAll("ul > li.outfit").forEach((outfit) => {
-            outfit.addEventListener("click", OutfitPop);
-        });
-
-
-        document.querySelectorAll(".outfitDeleteButton").forEach((button) => {
-            button.addEventListener("click", function (event) {
-                event.stopPropagation();
-
-                feedback("Are you sure?")
-                document.querySelector("#feedbackContainer>div").innerHTML = `
-                <button id="yes">Yes</button>  
-                <button id="no">No</button>  
-            `;
-                document.getElementById("no").addEventListener("click", function (event) {
-                    feedbackContainer.remove();
-                    document.querySelectorAll("button").forEach((button) => {
-                        button.disabled = false;
-                    })
-                });
-                document.getElementById("yes").addEventListener("click", function (event) {
-                    let outfitElement = button.closest(".outfit");
-                    let outfitID = outfitElement.id;
-                    let userID = localStorage.getItem("id");
-                    document.querySelectorAll("button").forEach((button) => {
-                        button.disabled = false;
-                    })
-                    feedbackContainer.remove();
-                    deleteOutfit(userID, outfitID);
-                })
-
-            })
-        })
-
-        function OutfitPop(event) {
-
-            console.log("popup");
-            console.log(event.currentTarget.style.backgroundColor);
-            let backgroundColor = event.currentTarget.style.backgroundColor;
-            let top = event.currentTarget.children[0].outerHTML;
-            let bottom = event.currentTarget.children[1].outerHTML;
-            let shoe = event.currentTarget.children[2].outerHTML;
-            let description = event.currentTarget.children[3].innerHTML;
-            console.log(description);
-            let styles = event.currentTarget.children[4].innerHTML;
-            console.log(styles);
-            document.getElementById("popupOutfit").innerHTML = `
-            ${top}
-            ${bottom}
-            ${shoe}
-            `;
-            document.getElementById("popupOutfit").style.backgroundColor = backgroundColor;
-
-            document.getElementById("descriptionOutfit").innerHTML = description;
-            document.getElementById("stylesOutfit").innerHTML = styles;
-
-            /*document.getElementById("popupContent").innerHTML += `
-            <div id=descriptionOutfit>${description}</div>
-            <div id=stylesOutfit>${styles}</div>
-            `; */
-            console.log(top);
-            openPopup();
-            // Add code to display the popup window
-            let closePopupButton = document.getElementById("closePopupButton");
-            closePopupButton.addEventListener("click", closePopup);
+        outfitPopUp();
+        deleteOutfits();
+        
+        if (outfitDivs.childNodes.length === 0) {
+            document.querySelector("#wardrobeFeed > p").innerHTML = "Could not find any outfits... go to the generator and save outfits!";
         }
+
+        function outfitPopUp() {
+
+            document.querySelectorAll("ul > li.outfit").forEach((outfit) => {
+                outfit.addEventListener("click", function (event) {
+                    console.log("popup");
+                    console.log(event.currentTarget.style.backgroundColor);
+                    let backgroundColor = event.currentTarget.style.backgroundColor;
+                    let top = event.currentTarget.children[0].outerHTML;
+                    let bottom = event.currentTarget.children[1].outerHTML;
+                    let shoe = event.currentTarget.children[2].outerHTML;
+                    let description = event.currentTarget.children[3].innerHTML;
+                    console.log(description);
+                    let styles = event.currentTarget.children[4].innerHTML;
+                    console.log(styles);
+                    document.getElementById("popupOutfit").innerHTML = `
+                    ${top}
+                    ${bottom}
+                    ${shoe}
+                    `;
+                    document.getElementById("popupOutfit").style.backgroundColor = backgroundColor;
+
+                    document.getElementById("descriptionOutfit").innerHTML = description;
+                    document.getElementById("stylesOutfit").innerHTML = styles;
+
+                    /*document.getElementById("popupContent").innerHTML += `
+                    <div id=descriptionOutfit>${description}</div>
+                    <div id=stylesOutfit>${styles}</div>
+                    `; */
+                    console.log(top);
+                    openPopup();
+                    // Add code to display the popup window
+                    let closePopupButton = document.getElementById("closePopupButton");
+                    closePopupButton.addEventListener("click", closePopup);
+                        })
+                    });
+        }
+
+        function deleteOutfits() {
+            document.querySelectorAll(".outfitDeleteButton").forEach((button) => {
+                button.addEventListener("click", function (event) {
+                    event.stopPropagation();
+    
+                    feedback("Are you sure?")
+                    document.querySelector("#feedbackContainer>div").innerHTML = `
+                    <button id="yes">Yes</button>  
+                    <button id="no">No</button>  
+                `;
+                    document.getElementById("no").addEventListener("click", function (event) {
+                        feedbackContainer.remove();
+                        document.querySelectorAll("button").forEach((button) => {
+                            button.disabled = false;
+                        })
+                    });
+                    document.getElementById("yes").addEventListener("click", function (event) {
+                        let outfitElement = button.closest(".outfit");
+                        let outfitID = outfitElement.id;
+                        let userID = localStorage.getItem("id");
+                        document.querySelectorAll("button").forEach((button) => {
+                            button.disabled = false;
+                        })
+                        feedbackContainer.remove();
+                        deleteOutfit(userID, outfitID);
+                    })
+    
+                })
+            })
+        }        
+    
 
         let filterArray = ["allItems", "streetwear", "casual", "sporty", "formal", "business", "datenight", "summer", "winter", "spring", "autumn"];
         for (let filter of filterArray) {
@@ -164,11 +173,15 @@ function renderWardrobePage() {
                 let outfitdivs;
                 if (event.target.innerText === "All") {
                     outfitdivs = await createOutfitDivs(id, "");
+                    outfitPopUp();
+                    deleteOutfits();
                     if (outfitdivs.childNodes.length === 0) {
                         document.querySelector("#wardrobeFeed > p").innerHTML = "Could not find any outfits... go to the generator and save outfits!";
                     }
                 } else {
                     outfitdivs = await createOutfitDivs(id, filter);
+                    outfitPopUp();
+                    deleteOutfits();
                     if (outfitdivs.childNodes.length === 0) {
                         document.querySelector("#wardrobeFeed > p").innerHTML = `Could not find any ${filter} outfits... go to the generator and save outfits!`;
                     }
