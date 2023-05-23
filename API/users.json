@@ -165,18 +165,6 @@
         "outfits": [
             {
                 "styles": [
-                    "casual",
-                    "summer"
-                ],
-                "top": "url(\"..\/MEDIA\/ccxkjckahkashadfhdi.png\")",
-                "bottom": "url(\"..\/MEDIA\/dsdklmvlkmlkdfmv.png\")",
-                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
-                "backgroundColor": "",
-                "description": "",
-                "outfitID": 6
-            },
-            {
-                "styles": [
                     "datenight"
                 ],
                 "top": "url(\"..\/MEDIA\/fjiojqoaifjiojcvxc.png\")",
@@ -220,6 +208,17 @@
                 "backgroundColor": "rgb(206, 234, 236)",
                 "description": "",
                 "outfitID": 12
+            },
+            {
+                "styles": [
+                    "datenight"
+                ],
+                "top": "url(\"..\/MEDIA\/fjiojqoaifjiojcvxc.png\")",
+                "bottom": "url(\"..\/MEDIA\/yiewuryiqryqroiu.png\")",
+                "shoe": "url(\"..\/MEDIA\/6bb615fd98314c9f82b5f36deee3bd63-fotor-bg-remover-2023050414654.png\")",
+                "backgroundColor": "rgb(247, 222, 187)",
+                "description": "",
+                "outfitID": 31
             }
         ]
     },
@@ -290,6 +289,27 @@
         "username": "hare",
         "password": "333",
         "profilepicture": "..\/MEDIA\/profilepictures\/bunny-PhotoRoom.png-PhotoRoom.png",
+        "outfits": []
+    },
+    {
+        "id": 8,
+        "username": "Ullabritt",
+        "password": "111",
+        "profilepicture": "..\/MEDIA\/profilepictures\/dog-PhotoRoom.png-PhotoRoom.png",
+        "outfits": []
+    },
+    {
+        "id": 9,
+        "username": "JanOla",
+        "password": "123",
+        "profilepicture": "..\/MEDIA\/profilepictures\/bunny-PhotoRoom.png-PhotoRoom.png",
+        "outfits": []
+    },
+    {
+        "id": 10,
+        "username": "Annabelle",
+        "password": "123",
+        "profilepicture": "..\/MEDIA\/profilepictures\/panda-PhotoRoom.png-PhotoRoom.png",
         "outfits": []
     }
 ]

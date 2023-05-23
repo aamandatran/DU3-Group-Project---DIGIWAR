@@ -95,7 +95,6 @@ async function renderRegisterPage() {
             //Setting user information to localstorage items
             let data = await response.json();            
             localStorage.setItem("username", data.username);
-            localStorage.setItem("password", data.password);
             localStorage.setItem("id", data.id);
             localStorage.setItem("profilepicture", data.profilepicture);
 

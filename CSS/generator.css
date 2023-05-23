@@ -62,7 +62,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(207, 225, 200);
+    background-color: var(var(--greenStandard));
 }
 
 #selectedBottom>div {
@@ -77,7 +77,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(206, 234, 236);
+    background-color: var(--blueStandard);
 }
 
 #selectedShoe>div {
@@ -92,7 +92,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(255, 251, 219);
+    background-color: var(--yellowStandard);
 }
 
 .arrow {

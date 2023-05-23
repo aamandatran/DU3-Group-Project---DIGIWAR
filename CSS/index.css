@@ -31,7 +31,12 @@ button {
 }
 
 button:hover {
-    background-color: var(--darkGreyStandard);
+    background-color: rgba(211, 211, 211, 0.4);
+}
+
+button:active {
+    cursor: pointer;
+    border: 0.5px solid grey;
 }
 
 .selected {

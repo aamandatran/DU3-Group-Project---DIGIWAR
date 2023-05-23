@@ -76,10 +76,24 @@ if ($method == "POST") {
         "profilepicture" => $profilepicture,
         "outfits" => $outfits
     ];
+
+    $response = [
+        "id" => $id,
+        "username" => $username,
+        "profilepicture" => $profilepicture,
+        "outfits" => $outfits
+    ];
     
     //Adding the new user to the user array, updating and saving users.json, sending the new user object
     $users[] = $newUser;
     saveToFile("users.json", $users);
-    sendJSON($newUser, 200);        
+    sendJSON($response, 200);        
+
+//If another request other than POST is sent it will send back an error
+} else {
+    $error = [
+        "message" => "Only POST works."
+    ];
+    sendJSON($error, 405);
 }
 ?>

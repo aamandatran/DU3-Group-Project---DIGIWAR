@@ -62,6 +62,6 @@ if($method == "POST") {
     $error = [
         "message" => "Only POST works."
     ];
-    sendJSON($error, 400);
+    sendJSON($error, 405);
 }
 ?>
