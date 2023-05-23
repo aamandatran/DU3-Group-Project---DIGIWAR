@@ -7,14 +7,11 @@
     width: 100vw;
 }
 
-/* #generator {
-} */
-
 #generatorGrid {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 170px 170px 170px;
-    gap: 15px;
+    gap: 10px;
 }
 
 .tops_generate {
