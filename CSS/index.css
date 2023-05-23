@@ -18,6 +18,7 @@ body {
     --borderStandard: 1px solid var(--darkGreyStandard);
     --blueGradientBackground: radial-gradient(827px at 47.3% 48%, rgb(228, 245, 255) 0%, rgb(176, 199, 209) 90%);
     --borderRadius: 20px;
+    --borderRadius2: 10px;
     --padding: 2vh;
     --gap: 1vh;
 }

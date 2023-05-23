@@ -134,7 +134,7 @@ async function renderOutfits(event) {
                 if (outfitdivs.childNodes.length === 0) {
                     document.querySelector("#wardrobeFeed > p").innerHTML = "Could not find any outfits... go to the generator and save outfits!";
                 }
-            //If the filter is any other filter than all
+                //If the filter is any other filter than all
             } else {
                 //Displats outfits that matches the filter
                 outfitdivs = await createOutfitDivs(id, filter);

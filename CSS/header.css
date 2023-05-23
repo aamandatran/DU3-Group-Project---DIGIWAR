@@ -38,8 +38,7 @@ header>div {
     height: 40px;
     border: var(--borderStandard);
     border-radius: 50%;
-    background-color: #ecebeb;
-    margin-right: 3vh;
+    background-color: var(--greyStandard);
     margin-left: 2vh;
 }
 

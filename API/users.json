@@ -176,17 +176,6 @@
             },
             {
                 "styles": [
-                    "business"
-                ],
-                "top": "url(\"..\/MEDIA\/tuytuyeuieryitrytriuyte.png\")",
-                "bottom": "url(\"..\/MEDIA\/hdagkhsoiafoifdfl.png\")",
-                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
-                "backgroundColor": "rgb(255, 228, 233)",
-                "description": "",
-                "outfitID": 10
-            },
-            {
-                "styles": [
                     "casual",
                     "spring"
                 ],
@@ -219,6 +208,18 @@
                 "backgroundColor": "rgb(247, 222, 187)",
                 "description": "",
                 "outfitID": 31
+            },
+            {
+                "styles": [
+                    "business",
+                    "datenight"
+                ],
+                "top": "url(\"..\/MEDIA\/tuytuyeuieryitrytriuyte.png\")",
+                "bottom": "url(\"..\/MEDIA\/jaJPNKSNKJDHDSUID.png\")",
+                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp2-fotor-bg-remover-20230518233817.png\")",
+                "backgroundColor": "rgb(219, 208, 227)",
+                "description": "black and basic",
+                "outfitID": 32
             }
         ]
     },
