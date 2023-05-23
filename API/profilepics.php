@@ -4,10 +4,9 @@ require_once("functions.php");
 
 $method = $_SERVER["REQUEST_METHOD"];
 
-//Används när man vill nå arrayen med våra utvalda profilbilder
+//Sending the json file with profilepictures
 if($method == "GET") {
     $profilePics = getFileContents("profilepictures.json");
     sendJSON($profilePics);
 }
-
 ?>

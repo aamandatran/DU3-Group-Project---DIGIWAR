@@ -3,7 +3,7 @@
         "id": 1,
         "username": "kajsa",
         "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/320616743402211.png",
+        "profilepicture": "..\/MEDIA\/profilepictures\/lion-PhotoRoom.png-PhotoRoom.png",
         "outfits": [
             {
                 "styles": [
@@ -18,36 +18,63 @@
             },
             {
                 "styles": [
-                    "business"
+                    "casual"
                 ],
-                "top": "url(\"..\/MEDIA\/app005prodf.png\")",
-                "bottom": "url(\"..\/MEDIA\/app005prodd_11zon-fotor-bg-remover-20230518231824.png\")",
+                "top": "url(\"..\/MEDIA\/tvvvgyvydstvysdgusf.png\")",
+                "bottom": "url(\"..\/MEDIA\/hdagkhsoiafoifdfl.png\")",
                 "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
-                "backgroundColor": "purple",
-                "description": "",
-                "outfitID": 7
+                "backgroundColor": "rgb(219, 208, 227)",
+                "description": "For slow days",
+                "outfitID": 18
             },
             {
                 "styles": [
+                    "formal",
+                    "datenight",
                     "summer"
                 ],
                 "top": "url(\"..\/MEDIA\/app005prod.png\")",
-                "bottom": "url(\"..\/MEDIA\/app005prodt-fotor-bg-remover-20230518232818.png\")",
-                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp1-fotor-bg-remover-2023051823383.png\")",
-                "backgroundColor": "blue",
-                "description": "",
-                "outfitID": 8
+                "bottom": "url(\"..\/MEDIA\/app005prodd_11zon-fotor-bg-remover-20230518231824.png\")",
+                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp4-fotor-bg-remover-20230518233744.png\")",
+                "backgroundColor": "rgb(255, 228, 233)",
+                "description": "Love is in the air",
+                "outfitID": 19
             },
             {
                 "styles": [
-                    "summer"
+                    "streetwear",
+                    "sporty"
                 ],
-                "top": "url(\"..\/MEDIA\/yeuqywiuchoicjx.png\")",
-                "bottom": "url(\"..\/MEDIA\/gghrwrhishfidjsvick.png\")",
+                "top": "url(\"..\/MEDIA\/idsfisidvifbiisgrnb.png\")",
+                "bottom": "url(\"..\/MEDIA\/eqtwreytreurewirt.png\")",
+                "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
+                "backgroundColor": "rgb(246, 239, 239)",
+                "description": "For skating days",
+                "outfitID": 20
+            },
+            {
+                "styles": [
+                    "business",
+                    "datenight"
+                ],
+                "top": "url(\"..\/MEDIA\/8aa2cc82dbc74c9396744783953b11de-fotor-bg-remover-202305041488.png\")",
+                "bottom": "url(\"..\/MEDIA\/jaJPNKSNKJDHDSUID.png\")",
+                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp2-fotor-bg-remover-20230518233817.png\")",
+                "backgroundColor": "rgb(255, 228, 233)",
+                "description": "Modest but sexy :P",
+                "outfitID": 21
+            },
+            {
+                "styles": [
+                    "summer",
+                    "spring"
+                ],
+                "top": "url(\"..\/MEDIA\/tvvvgyvydstvysdgusf.png\")",
+                "bottom": "url(\"..\/MEDIA\/app005prodd_11zon-fotor-bg-remover-20230518231824.png\")",
                 "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp4-fotor-bg-remover-20230518233744.png\")",
-                "backgroundColor": "rgb(255, 222, 240)",
-                "description": "",
-                "outfitID": 9
+                "backgroundColor": "rgb(249, 200, 208)",
+                "description": "For those hotter days",
+                "outfitID": 22
             }
         ]
     },
@@ -125,25 +152,14 @@
         "outfits": [
             {
                 "styles": [
-                    "casual"
-                ],
-                "top": "url(\"..\/MEDIA\/mgnejkfngksjdsdk.png\")",
-                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
-                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
-                "backgroundColor": "",
-                "description": "",
-                "outfitID": 1
-            },
-            {
-                "styles": [
                     "winter"
                 ],
                 "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
-                "bottom": "url(\"..\/MEDIA\/yiewuryiqryqroiu.png\")",
-                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
-                "backgroundColor": "blue",
+                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
+                "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
+                "backgroundColor": "black",
                 "description": "",
-                "outfitID": 2
+                "outfitID": 13
             },
             {
                 "styles": [
@@ -152,32 +168,60 @@
                 "top": "url(\"..\/MEDIA\/oewiuqoireueqoidd.png\")",
                 "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
                 "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
-                "backgroundColor": "black",
+                "backgroundColor": "rgb(206, 234, 236)",
                 "description": "",
-                "outfitID": 3
+                "outfitID": 14
             },
             {
                 "styles": [
-                    "summer"
+                    "winter"
                 ],
                 "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
                 "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
-                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
-                "backgroundColor": "",
+                "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
+                "backgroundColor": "rgb(206, 234, 236)",
                 "description": "",
-                "outfitID": 4
+                "outfitID": 16
             },
             {
                 "styles": [
-                    "spring"
+                    "casual"
                 ],
-                "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
-                "bottom": "url(\"..\/MEDIA\/yiewuryiqryqroiu.png\")",
-                "shoe": "url(\"..\/MEDIA\/pitopierpuwoeruqiueio.png\")",
-                "backgroundColor": "",
+                "top": "url(\"..\/MEDIA\/tbtnmnbtkjtkjrds.png\")",
+                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
+                "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
+                "backgroundColor": "rgb(255, 251, 219)",
                 "description": "",
-                "outfitID": 5
+                "outfitID": 17
             }
         ]
+    },
+    {
+        "id": 4,
+        "username": "wed",
+        "password": "123",
+        "profilepicture": "..\/MEDIA\/profilepictures\/bunny-PhotoRoom.png-PhotoRoom.png",
+        "outfits": []
+    },
+    {
+        "id": 5,
+        "username": "valder",
+        "password": "444",
+        "profilepicture": "..\/MEDIA\/profilepictures\/koala-PhotoRoom.png-PhotoRoom.png",
+        "outfits": []
+    },
+    {
+        "id": 6,
+        "username": "ida3",
+        "password": "321",
+        "profilepicture": "..\/MEDIA\/profilepictures\/dog-PhotoRoom.png-PhotoRoom.png",
+        "outfits": []
+    },
+    {
+        "id": 7,
+        "username": "hare",
+        "password": "333",
+        "profilepicture": "..\/MEDIA\/profilepictures\/bunny-PhotoRoom.png-PhotoRoom.png",
+        "outfits": []
     }
 ]

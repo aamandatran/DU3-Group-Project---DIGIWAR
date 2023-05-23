@@ -62,7 +62,6 @@ foreach ($users as $index=> $user) {
             $users[$index]["password"]=$newPassword;
             //När vi hittat rätt andvändare så bytar vi ut det nya mot det gamla.  
             $response=[
-                "newPassword"=>$newPassword,
                 "message"=>"Password updated succesfully!"
             ];
             saveToFile($filename,$users);
