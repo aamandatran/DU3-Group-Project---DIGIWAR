@@ -55,6 +55,7 @@ function renderLoginPage() {
 
         const response = await fetch(request);
  
+        // Declare the variables outside the loop
         let id, profilepicture;
 
         //if response is ok
