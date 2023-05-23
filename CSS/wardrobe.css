@@ -30,26 +30,30 @@
     text-shadow: 2px 2px 8px #828282;
 }
 
-#wardrobePage>div>a {
-    text-decoration: none;
-    color: black;
+#wardrobePage>div:first-of-type {
+    display: flex;
+    margin-left: 300px;
+}
+
+#wardrobePage>div>div {
     padding: 1.85vh 7.3vw;
     border-bottom: 0.1em double gray;
 }
 
-#wardrobePage>div>a:hover {
+#wardrobePage>div>div:hover {
     border-bottom: 2px solid grey;
 }
 
 #wardrobePage>#bottom {
-    display: flex;
     margin-top: 30px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
 }
 
 #filter {
     position: relative;
-    width: 15vw;
-    margin-left: 70px;
+    width: 200px;
+    margin-left: 60px;
 }
 
 #filter>a {
@@ -62,7 +66,7 @@
 #filtering>a {
     text-decoration: none;
     color: black;
-    padding: 2vh;
+    padding: 2vh 0;
 }
 
 #wardrobePage>div>nav>a {
@@ -88,8 +92,6 @@
     flex-direction: column;
     width: max-content;
     justify-content: center;
-    margin-left: 40px;
-    margin-bottom: 20vh;
 }
 
 #wardrobeFeed>ul {
@@ -102,6 +104,7 @@
 }
 
 .imageContainer {
+    list-style: none;
     background: radial-gradient(circle, rgba(168, 168, 168, 1) 0%, rgba(255, 255, 255, 0.9177871832326681) 0%, rgba(214, 214, 214, 0.7889356426164216) 53%);
     display: flex;
     align-items: center;

@@ -161,7 +161,7 @@
         "id": 2,
         "username": "tranen",
         "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/unnamed.png",
+        "profilepicture": "..\/MEDIA\/profilepictures\/panda-PhotoRoom.png-PhotoRoom.png",
         "outfits": [
             {
                 "styles": [
@@ -185,17 +185,6 @@
                 "backgroundColor": "rgb(207, 225, 200)",
                 "description": "",
                 "outfitID": 8
-            },
-            {
-                "styles": [
-                    "casual"
-                ],
-                "top": "url(\"..\/MEDIA\/nmvcnsmbajsbfkjqfh.png\")",
-                "bottom": "url(\"..\/MEDIA\/jaJPNKSNKJDHDSUID.png\")",
-                "shoe": "url(\"..\/MEDIA\/dusadouJEHWNUKDJSN.png\")",
-                "backgroundColor": "rgb(219, 208, 227)",
-                "description": "",
-                "outfitID": 9
             },
             {
                 "styles": [
@@ -240,17 +229,6 @@
         "password": "321",
         "profilepicture": "..\/MEDIA\/profilepictures\/lion-PhotoRoom.png-PhotoRoom.png",
         "outfits": [
-            {
-                "styles": [
-                    "winter"
-                ],
-                "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
-                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
-                "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
-                "backgroundColor": "black",
-                "description": "",
-                "outfitID": 13
-            },
             {
                 "styles": [
                     "spring"

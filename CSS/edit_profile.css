@@ -62,18 +62,11 @@
     gap: 5px;
 }
 
-#editProfile ul .profileOptionsContainer {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .editProfileOptions {
     border-radius: 50%;
     border: 1px solid gray;
     background-color: #ecebeb;
+    display: flex;
 }
 
 .editProfileOptions>img {
