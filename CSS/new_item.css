@@ -64,8 +64,14 @@ div#itemImage {
 }
 
 #uploadPopUp>fieldset>button {
-    padding: var(--padding);
+    background-color: transparent;
+    border: none;
+    font-size: 3vh;
     border-radius: 5px;
+}
+
+#uploadPopUp>fieldset>button:hover {
+    background-color: var(--greyStandard);
 }
 
 #upload {

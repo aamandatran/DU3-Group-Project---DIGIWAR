@@ -84,7 +84,6 @@
   border-radius: var(--borderRadius2);
 }
 
-
 #popupSelectedItems>div {
   background-size: cover;
   background-position: center;
@@ -183,6 +182,10 @@
 
 #styleCategories>div {
   margin-left: 10px;
+}
+
+#styleCategories>div>input {
+  cursor: pointer;
 }
 
 fieldset>button {

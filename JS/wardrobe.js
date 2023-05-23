@@ -9,7 +9,7 @@ function renderWardrobePage() {
             <div id="wardrobePage">   
                 <section>
                     <div id="banner">
-                        <div>One Step Closer to End the War</div>
+                        <div>ONE STEP CLOSER TO END THE WAR</div>
                     </div>
                 </section>
                 <div>

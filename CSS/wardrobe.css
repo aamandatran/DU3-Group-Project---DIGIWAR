@@ -7,7 +7,7 @@
 }
 
 #wardrobePage>section #banner {
-    background-image: url("../MEDIA/banner2.jpeg");
+    background-image: url("../MEDIA/banner.jpeg");
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
@@ -16,11 +16,11 @@
     margin-bottom: 5vh;
 
     display: flex;
-    justify-content: center;
+    align-items: center;
 }
 
 #wardrobePage>section>#banner>div {
-    margin-top: 7vh;
+    margin-left: 10vw;
     font-size: 5vh;
     text-shadow: 2px 2px 8px #828282;
 }
