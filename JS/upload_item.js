@@ -2,9 +2,12 @@
 
 function renderUploadItemPopUp() {
     const wardrobeParent = document.querySelector("#wardrobeParent");
-    wardrobeParent.innerHTML += ` 
+    const popUp = document.createElement("div");
+    popUp.classList.add("popup");
+    popUp.classList.add("show");
+    popUp.innerHTML = ` 
         <div id="uploadPopUp"> 
-            <div class="cancel">X</div>
+            <button id="closePopupButton">X</button>
             <h1>New item</h1>
                 <fieldset id="categories">
                     <legend>Choose a category</legend>
@@ -12,11 +15,13 @@ function renderUploadItemPopUp() {
                     <button id="bottoms">Bottoms</button>
                     <button id="shoes">Shoes</button>
                 </fieldset>
-        </div>  
+        </div> 
     `;
 
-    document.querySelector(".cancel").addEventListener("click", function (event) {
-        document.getElementById("uploadPopUp").innerHTML = "";
+    wardrobeParent.append(popUp);
+
+    document.querySelector("#uploadPopUp>button#closePopupButton").addEventListener("click", function (event) {
+        popUp.classList.remove("show");
         renderWardrobePage()
     })
 
@@ -25,7 +30,6 @@ function renderUploadItemPopUp() {
     topsButton.addEventListener("click", function (event) {
         showUploadPage("tops.json")
         console.log("it works");
-
     });
 
     let bottomsButton = document.querySelector("#uploadPopUp #bottoms");
@@ -43,7 +47,7 @@ function renderUploadItemPopUp() {
     function showUploadPage(filename) {
         const uploadPopUp = document.querySelector("#uploadPopUp");
         uploadPopUp.innerHTML = ` 
-            <div class="cancel">X</div>
+            <button id="closePopupButton">X</button>
             <h1>New item</h1>
             <div id="itemImage"></div>
                 <form id="upload" action="API/your_wardrobe.php" method="POST">
@@ -53,14 +57,14 @@ function renderUploadItemPopUp() {
             <button id="done">Done</button>
         `;
 
-        document.querySelector("div.cancel").addEventListener("click", function (event) {
-            uploadPopUp.innerHTML = "";
+        document.querySelector("#uploadPopUp> button#closePopupButton").addEventListener("click", function (event) {
+            popUp.classList.remove("show");
             uploadPopUp.style.top = "15vh";
             renderWardrobePage()
         })
 
         document.querySelector("button#done").addEventListener("click", function (event) {
-            uploadPopUp.innerHTML = "";
+            popUp.classList.remove("show");
             uploadPopUp.style.top = "15vh";
             renderWardrobePage()
         })
