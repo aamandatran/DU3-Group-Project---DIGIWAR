@@ -1,20 +1,22 @@
 "use strict";
 
 async function renderOutfits(event) {
-    const digiwars = document.querySelector("#wardrobePage>div>div#digiwars");
-    const yours = document.querySelector("#wardrobePage>div>div#yours");
-    const outfits = document.querySelector("#wardrobePage>div>div#savedOutfits");
+    const digiwars = document.querySelector("#wardrobePage > div > div#digiwars");
+    const yours = document.querySelector("#wardrobePage > div > div#yours");
+    const outfits = document.querySelector("#wardrobePage > div > div#savedOutfits");
 
     // Indicates which anchor element is selected
     outfits.classList.add("selected");
     digiwars.classList.remove("selected");
     yours.classList.remove("selected");
 
+    //Get users id
     let id = localStorage.getItem("id");
-    console.log("event is on");
-    // Call createOutfitDivs(id) and wait for the result
+
+    //Call createOutfitDivs(id) that creates the outfit divs
     const outfitDivs = await createOutfitDivs(id, "");
 
+    //Changing the bottom part to match outfit page
     document.getElementById("bottom").innerHTML = `
         <nav id="filter">
             <a href="#">FILTER</a>
@@ -32,52 +34,55 @@ async function renderOutfits(event) {
                 <a href="#" id="autumn">Autumn</a>
             </nav>
         </nav>
-        <section id="wardrobeFeed">
+        <section id = "wardrobeFeed">
             <p></p>
         </section>
     `;
+    //Prepends the outfit divs to the #wardroeFeed section
     document.getElementById("wardrobeFeed").prepend(outfitDivs);
+    //Activates the pop up window and delete functions
     outfitPopUp();
     deleteOutfits();
 
+    //If there is no outfit divs, feedback will be displayed
     if (outfitDivs.childNodes.length === 0) {
         document.querySelector("#wardrobeFeed > p").innerHTML = "Could not find any outfits... go to the generator and save outfits!";
     }
 
+    //This function allows the outfit to open a pop up window providing more information about the outfit
     function outfitPopUp() {
 
+        //Gives each outfit li an eventlistener
         document.querySelectorAll("ul > li.outfit").forEach((outfit) => {
+            //This function will activate the pop up function
             outfit.addEventListener("click", function (event) {
-                console.log("popup");
-                console.log(event.currentTarget.style.backgroundColor);
+
+                //Saves the outfit information values
                 let backgroundColor = event.currentTarget.style.backgroundColor;
                 let top = event.currentTarget.children[0].outerHTML;
                 let bottom = event.currentTarget.children[1].outerHTML;
                 let shoe = event.currentTarget.children[2].outerHTML;
                 let description = event.currentTarget.children[3].innerHTML;
-                console.log(description);
                 let styles = event.currentTarget.children[4].innerHTML;
-                console.log(styles);
+
+                //Sets the selected items 
                 document.getElementById("popupOutfit").innerHTML = `
                 ${top}
                 ${bottom}
                 ${shoe}
                 `;
+                //Sets the selected information
                 document.getElementById("popupOutfit").style.backgroundColor = backgroundColor;
-
                 document.getElementById("descriptionOutfit").innerHTML = description;
                 document.getElementById("stylesOutfit").innerHTML = styles;
 
-                /*document.getElementById("popupContent").innerHTML += `
-                <div id=descriptionOutfit>${description}</div>
-                <div id=stylesOutfit>${styles}</div>
-                `; */
-                console.log(top);
+                //Shows the pop up window
                 openPopup();
-                // Add code to display the popup window
+
+                //Adds eventlistener to be able to close the pop up window
                 let closePopupButton = document.getElementById("closePopupButton");
                 closePopupButton.addEventListener("click", closePopup);
-            })
+            });
         });
     }
 
@@ -112,43 +117,35 @@ async function renderOutfits(event) {
         })
     }
 
-
+    //Allows filtering for outfits
     let filterArray = ["allItems", "streetwear", "casual", "sporty", "formal", "business", "datenight", "summer", "winter", "spring", "autumn"];
+    //Gives each filter an eventlistener to filter the outfits and display the matching outfits 
     for (let filter of filterArray) {
         document.getElementById(filter).addEventListener("click", async function (event) {
             event.preventDefault();
             let outfitdivs;
+            //If the filter is all, all outfits will render
             if (event.target.innerText === "All") {
                 outfitdivs = await createOutfitDivs(id, "");
+                //Activates pop up and delete functions
                 outfitPopUp();
                 deleteOutfits();
+                //if there is no outfits the feedback will be displayed
                 if (outfitdivs.childNodes.length === 0) {
                     document.querySelector("#wardrobeFeed > p").innerHTML = "Could not find any outfits... go to the generator and save outfits!";
                 }
+            //If the filter is any other filter than all
             } else {
+                //Displats outfits that matches the filter
                 outfitdivs = await createOutfitDivs(id, filter);
+                //Activates pop up and delete functions
                 outfitPopUp();
                 deleteOutfits();
+                //If there is no outfits the feedback will be displayed
                 if (outfitdivs.childNodes.length === 0) {
                     document.querySelector("#wardrobeFeed > p").innerHTML = `Could not find any ${filter} outfits... go to the generator and save outfits!`;
                 }
             }
-        })
-
+        });
     }
-
-    /*document.getElementById("allItems").addEventListener("click", async function (event) {
-        event.preventDefault();
-        console.log(event.target.innerText);
-        let style = "";
-        let html = await createOutfitDivs(id, style);
-        if (html === "") {
-            document.getElementById("outfitsUl").innerHTML = `
-                <p>Could not find any outfits... go to the generator and save outfits!</p>
-              `;
-        } else {
-            document.getElementById("outfitsUl").innerHTML = html;
-        }
-    }); */
-
 }
