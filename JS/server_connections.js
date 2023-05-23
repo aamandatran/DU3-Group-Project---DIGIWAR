@@ -5,11 +5,12 @@ function stay_loggedin() {
     renderWardrobePage();
 }
 
+//Feedback function when called takes a message that is displayed in the feedbackContainer
 function feedback(message) {
     let body = document.querySelector("body");
-    let main = document.querySelector("main");
     let div = document.createElement("div");
 
+    //We set an id to the div and creates the feedback content with innerHTML
     div.setAttribute("id", "feedbackContainer")
     div.innerHTML = `
         <p>${message}</p>
@@ -17,22 +18,25 @@ function feedback(message) {
             <button id="close">CLOSE</button>  
         </div>
     `;
-    let buttonTokKeepEnabled = document.getElementById("close");
+    let closingButton = document.getElementById("close");
+    //We select all the buttons to be able to disable them while the feedback is show
     let buttons = document.querySelectorAll("button");
     buttons.forEach((button) => {
-        if (button !== buttonTokKeepEnabled) {
+        //Before we set the buttons to disabled we have to make sure that the closing button is not being disabled 
+        if (button !== closingButton) {
             button.disabled = true;
         }
     })
-
+    //Appends the div to the body
     body.append(div);
-    main.classList.add("feedback_opacity");
 
-    let feedbackContainer = document.querySelector("#feedbackContainer");
+    let feedbackContainer = document.getElementById("feedbackContainer");
+    //Adds an eventListner to the closing button
     feedbackContainer.querySelector("#close").addEventListener("click", () => {
+        //When clicked the feedback container is removed. 
         feedbackContainer.remove();
-        main.classList.remove("feedback_opacity");
         buttons.forEach((button) => {
+            //We then enables the buttons again when the feedback disapears. 
             button.disabled = false;
         })
     });

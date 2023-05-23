@@ -42,36 +42,10 @@ async function createOutfitDivs(id, style) {
           console.log(document.querySelector("#wardrobeFeed > ul"));
         }
       }
-      // let deleteButtons = document.querySelectorAll("button.outfitDeleteButton");
-      // console.log(deleteButtons);
-      // deleteButtons.forEach(deleteButton => {
-
-      // })
       break;
     }
   }
   return document.querySelector("#wardrobeFeed > ul");
-}
-
-
-
-async function deleteOutfit(userID, outfitID) {
-  console.log(userID);
-  console.log(outfitID);
-  let response = await fetch("api/new_outfit.php", {
-    method: "DELETE",
-    headers: { "Content-type": "application/json", },
-    body: JSON.stringify({
-      userID: userID,
-      outfitID: outfitID,
-    })
-  })
-  if (response.ok) {
-    let outfitElement = document.getElementById(outfitID);
-    console.log(outfitElement);
-    outfitElement.remove();
-  }
-
 }
 
 

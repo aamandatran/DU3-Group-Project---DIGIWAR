@@ -92,7 +92,7 @@ function renderWardrobePage() {
         document.getElementById("wardrobeFeed").prepend(outfitDivs);
         outfitPopUp();
         deleteOutfits();
-        
+
         if (outfitDivs.childNodes.length === 0) {
             document.querySelector("#wardrobeFeed > p").innerHTML = "Could not find any outfits... go to the generator and save outfits!";
         }
@@ -130,41 +130,63 @@ function renderWardrobePage() {
                     // Add code to display the popup window
                     let closePopupButton = document.getElementById("closePopupButton");
                     closePopupButton.addEventListener("click", closePopup);
-                        })
-                    });
+                })
+            });
         }
 
         function deleteOutfits() {
+            //Selects all delete buttons and adds event listners on each of them 
             document.querySelectorAll(".outfitDeleteButton").forEach((button) => {
                 button.addEventListener("click", function (event) {
                     event.stopPropagation();
-    
+
+                    //The feedback function is called when the trashcan is clicked with the message "are you sure?""
                     feedback("Are you sure?")
+                    //The feedback container contains two buttons "yes" and "no"
                     document.querySelector("#feedbackContainer>div").innerHTML = `
                     <button id="yes">Yes</button>  
                     <button id="no">No</button>  
                 `;
+                    //We add an event listner to the button no and If no is clicked then the feedback container is removed and the buttons gets enabled. 
                     document.getElementById("no").addEventListener("click", function (event) {
                         feedbackContainer.remove();
                         document.querySelectorAll("button").forEach((button) => {
                             button.disabled = false;
                         })
                     });
-                    document.getElementById("yes").addEventListener("click", function (event) {
+                    //We add an event listner to the yes button aswell. 
+                    document.getElementById("yes").addEventListener("click", async function (event) {
+                        //We find the closest ".outfit" class element
                         let outfitElement = button.closest(".outfit");
+                        //The outfit element contains the outfitID which is stored in an id. We then put the outfitID in the variable outfitID
                         let outfitID = outfitElement.id;
                         let userID = localStorage.getItem("id");
                         document.querySelectorAll("button").forEach((button) => {
+                            //We enable all the buttons again. 
                             button.disabled = false;
                         })
-                        feedbackContainer.remove();
-                        deleteOutfit(userID, outfitID);
+
+                        //Sends a DELETE request to the new_outfit.php with the userID and outfitID as the body. 
+                        let response = await fetch("api/new_outfit.php", {
+                            method: "DELETE",
+                            headers: { "Content-type": "application/json", },
+                            body: JSON.stringify({
+                                userID: userID,
+                                outfitID: outfitID,
+                            })
+                        })
+                        if (response.ok) {
+                            //If the response is ok then we remove the outfit element and the feedback container 
+                            let outfitElement = document.getElementById(outfitID);
+                            outfitElement.remove();
+                            feedbackContainer.remove();
+                        }
                     })
-    
+
                 })
             })
-        }        
-    
+        }
+
 
         let filterArray = ["allItems", "streetwear", "casual", "sporty", "formal", "business", "datenight", "summer", "winter", "spring", "autumn"];
         for (let filter of filterArray) {
