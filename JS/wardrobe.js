@@ -225,11 +225,11 @@ function createItemDivs(array, item, whose) {
             }
         }
     }
-}
 
-document.querySelectorAll("button.itemButton").forEach(button => {
-    button.addEventListener("click", deleteOrAdd);
-});
+    document.querySelectorAll("button.itemButton").forEach(button => {
+        button.addEventListener("click", deleteOrAdd);
+    });
+}
 
 function deleteOrAdd(e) {
     console.log(e);

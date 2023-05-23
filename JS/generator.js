@@ -29,7 +29,7 @@ async function renderGeneratorPage() {
   const shoesRightArrow = displayArrows("Shoe", "right");
 
   //Changing mains content to generator
-  
+
   main.innerHTML = `
     <div id="generatorParent">
       <div id="generator">
@@ -176,7 +176,7 @@ async function renderGeneratorPage() {
   function randomColor(event) {
     let backgroundDiv = document.getElementById("popupSelectedItems");
 
-    let colorsArray = ["#ffe4e9", "#ceeaec", "#cfe1c8", "black", "#f6efef", "#dbd0e3", "#fffbdb", "#f9c8d0", "#f1e0c9"];
+    let colorsArray = ["#ffe4e9", "#ceeaec", "#cfe1c8", "black", "#f7f0ea", "#dbd0e3", "#fffbdb", "#f9c8d0", "#f7debb"];
     let chosenColor = colorsArray[Math.floor(Math.random() * colorsArray.length)]
 
     backgroundDiv.style.backgroundColor = chosenColor;

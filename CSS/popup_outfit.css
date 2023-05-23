@@ -1,171 +1,172 @@
 .popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s linear 0.25s, opacity 0.25s;
-  }
-  
-  .popup.show {
-    visibility: visible;
-    opacity: 1;
-    transition-delay: 0s;
-    z-index: 1;
-  }
-  
-  #popupContent {
-    background-color: white;
-    padding-left: 60px;
-    height: 600px;
-    box-sizing: content-box;
-    padding-right: 60px;
-    padding-top: 20px;
-    padding-bottom: 40px;
-    position: relative;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.25s, opacity 0.25s;
+}
 
-  #newOutfitTop {
-    display: grid;
-    justify-content: center;
-    padding-bottom: 20px;
-  }
+.popup.show {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+  z-index: 1;
+}
 
-  #newOutfitTop > h1 {
-    justify-content: center;
-    display: flex;
-    margin: 0;
-  }
+#popupContent {
+  background-color: white;
+  padding-left: 60px;
+  height: 600px;
+  box-sizing: content-box;
+  padding-right: 60px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  position: relative;
+}
 
-  #newOutfit2 {
+#newOutfitTop {
+  display: grid;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+#newOutfitTop>h1 {
+  justify-content: center;
+  display: flex;
+  margin: 0;
+}
+
+#newOutfit2 {
   justify-self: center;
-  }
+}
 
-  #pickBackgroundColor {
-    display: flex;
-    background: linear-gradient(90deg, rgba(60,49,255,1) 0%, rgba(81,53,249,1) 2%, rgba(122,57,242,1) 28%, rgba(255,171,0,1) 100%);
-    border-radius: 50px;
-    height: 40px;
-    width: 200px;
-    color: white;
-    font-weight: bold;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
-  }
+#pickBackgroundColor {
+  display: flex;
+  background: linear-gradient(90deg, rgba(60, 49, 255, 1) 0%, rgba(81, 53, 249, 1) 2%, rgba(122, 57, 242, 1) 28%, rgba(255, 171, 0, 1) 100%);
+  border-radius: 50px;
+  height: 40px;
+  width: 200px;
+  color: white;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
 
-  #description {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 55px;
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid black;
-  }
-  
-  #popupSelectedItems {
-    justify-content: space-between;
-    margin-bottom: 15px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 6fr 4fr;
-    grid-gap: 10px;
-    height: 400px;
-    width: 400px;
-    border: 1px black solid;
-    align-items: center;
-  }
-  
-  
-  #popupSelectedItems > div {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    align-self: center;
-    background-size: contain;
-    justify-self: center;
-  }
-  
-  #closePopupButton {
-    background-color: #ccc;
-    border: none;
-    cursor: pointer;
-    height: 30px;
-    width: 30px;
-    font-size: 20px;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-  }
+#description {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 55px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
 
-  #savePopupButton {
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    border-radius: 20px;
-    color: white;
-    border: 2px solid black;
-    font-weight: bold;
-    background-color: rgb(195, 192, 192);
-    padding: 10px 20px;
-    font-size: 14px;
-    width: 70px;
-    height: 30px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 15px;
-  }
+#popupSelectedItems {
+  justify-content: space-between;
+  margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 6fr 4fr;
+  grid-gap: 10px;
+  height: 400px;
+  width: 400px;
+  border: 1px black solid;
+  align-items: center;
+}
 
 
-  #popupSelectedTop {
-    grid-column: 1;
-    grid-row: 1;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+#popupSelectedItems>div {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-self: center;
+  background-size: contain;
+  justify-self: center;
+}
 
-  #popupSelectedBottom {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+#closePopupButton {
+  background-color: #ccc;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
 
-  #popupSelectedShoe {
-    grid-column: 1;
-    grid-row: 2;
-    width: 100%;
-    height: 130%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+#savePopupButton {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  color: white;
+  border: 2px solid black;
+  font-weight: bold;
+  background-color: rgb(195, 192, 192);
+  padding: 10px 20px;
+  font-size: 14px;
+  width: 70px;
+  height: 30px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 15px;
+}
 
-#styleCategories{
+
+#popupSelectedTop {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#popupSelectedBottom {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#popupSelectedShoe {
+  grid-column: 1;
+  grid-row: 2;
+  width: 100%;
+  height: 130%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#styleCategories {
   display: flex;
   flex-direction: column;
   height: 510px;
@@ -192,9 +193,9 @@ fieldset>button {
 }
 
 #newOutfitBottom {
-    grid-template-columns: 300px 400px;
-    grid-template-rows: 400px 50px;
-    display: grid;
+  grid-template-columns: 300px 400px;
+  grid-template-rows: 400px 50px;
+  display: grid;
 }
 
 #streetwearLabel {
@@ -202,46 +203,55 @@ fieldset>button {
   border-radius: 20px;
   padding: 10px;
 }
+
 #casualLabel {
   background-color: pink;
   border-radius: 20px;
   padding: 10px;
 }
+
 #sportyLabel {
   background-color: pink;
   border-radius: 20px;
   padding: 10px;
 }
+
 #formalLabel {
   background-color: pink;
   border-radius: 20px;
   padding: 10px;
 }
+
 #businessLabel {
   background-color: pink;
   border-radius: 20px;
   padding: 10px;
 }
+
 #datenightLabel {
   background-color: pink;
   border-radius: 20px;
   padding: 10px;
 }
+
 #summerLabel {
   background-color: pink;
   border-radius: 20px;
   padding: 10px;
 }
+
 #winterLabel {
   background-color: pink;
   border-radius: 20px;
   padding: 10px;
 }
+
 #springLabel {
   background-color: pink;
   border-radius: 20px;
   padding: 10px;
 }
+
 #autumnLabel {
   background-color: pink;
   border-radius: 20px;
@@ -261,7 +271,7 @@ fieldset>button {
   align-items: center;
 }
 
-#popupOutfit > div {
+#popupOutfit>div {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -277,6 +287,7 @@ fieldset>button {
   height: 0;
   width: 0;
 }
+
 .stylesHidden {
   opacity: 0;
   height: 0;
@@ -289,13 +300,13 @@ fieldset>button {
 }
 
 #descriptionOutfit {
-    height: auto;
-    border: 1px solid black;
-    display: flex;
-    align-content: center;
-    align-self: center;
-    align-items: center;
-    padding: 20px;
+  height: auto;
+  border: 1px solid black;
+  display: flex;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  padding: 20px;
 }
 
 #stylesOutfit {
@@ -305,7 +316,7 @@ fieldset>button {
 }
 
 
-#stylesOutfit > div {
+#stylesOutfit>div {
   background-color: lightgrey;
   padding: 15px;
   border-radius: 50px;

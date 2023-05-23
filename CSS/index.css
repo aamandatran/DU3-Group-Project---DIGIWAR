@@ -1,20 +1,37 @@
+/* CSS VARIABLES */
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
 
+    --blueStandard: #ceeaec;
+    --darkBlueStandard: rgb(86, 113, 124);
+    --greenStandard: #cfe1c8;
+    --pinkStandard: #ffe4e9;
+    --darkPinkStandard: #f9c8d0;
+    --yellowStandard: #fffbdb;
+    --purpleStandard: #dbd0e3;
+    --orangeStandard: #f7debb;
+    --beigeStandard: #f7f0ea;
+    --greyStandard: #ecebeb;
+    --darkGreyStandard: rgb(211, 211, 211);
+    --borderStandard: 1px solid var(--darkGreyStandard);
+    --blueGradientBackground: radial-gradient(827px at 47.3% 48%, rgb(228, 245, 255) 0%, rgb(176, 199, 209) 90%);
+    --borderRadius: 20px;
+    --padding: 2vh;
+    --gap: 1vh;
+}
 
 button {
     padding: 5px 10px;
-    color: rgb(66, 82, 88);
-    background-color: #ecebeb;
+    color: var(--darkBlueStandard);
+    background-color: var(--greyStandard);
     border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: rgb(211, 211, 211);
+    background-color: var(--darkGreyStandard);
 }
 
 .selected {
