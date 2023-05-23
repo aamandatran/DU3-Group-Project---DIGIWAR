@@ -152,17 +152,6 @@
         "outfits": [
             {
                 "styles": [
-                    "winter"
-                ],
-                "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
-                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
-                "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
-                "backgroundColor": "black",
-                "description": "",
-                "outfitID": 13
-            },
-            {
-                "styles": [
                     "spring"
                 ],
                 "top": "url(\"..\/MEDIA\/oewiuqoireueqoidd.png\")",
