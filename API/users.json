@@ -115,6 +115,17 @@
                 "backgroundColor": "rgb(247, 222, 187)",
                 "description": "for lazy days",
                 "outfitID": 39
+            },
+            {
+                "styles": [
+                    "casual"
+                ],
+                "top": "url(\"..\/MEDIA\/hsjdfjahkjashfsakl.png\")",
+                "bottom": "url(\"..\/MEDIA\/eqtwreytreurewirt.png\")",
+                "shoe": "url(\"..\/MEDIA\/dusadouJEHWNUKDJSN.png\")",
+                "backgroundColor": "rgb(206, 234, 236)",
+                "description": "",
+                "outfitID": 40
             }
         ]
     },
