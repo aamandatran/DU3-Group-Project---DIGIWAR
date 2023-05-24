@@ -3,19 +3,8 @@
         "id": 1,
         "username": "kajsa",
         "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/lion-PhotoRoom.png-PhotoRoom.png",
+        "profilepicture": "..\/MEDIA\/profilepictures\/cat-PhotoRoom.png-PhotoRoom.png",
         "outfits": [
-            {
-                "styles": [
-                    "summer"
-                ],
-                "top": "url(\"..\/MEDIA\/yeuqywiuchoicjx.png\")",
-                "bottom": "url(\"..\/MEDIA\/gghrwrhishfidjsvick.png\")",
-                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp4-fotor-bg-remover-20230518233744.png\")",
-                "backgroundColor": "rgb(255, 228, 233)",
-                "description": "Love is in the air",
-                "outfitID": 19
-            },
             {
                 "styles": [
                     "streetwear",
@@ -156,6 +145,17 @@
                 "backgroundColor": "rgb(255, 228, 233)",
                 "description": "",
                 "outfitID": 38
+            },
+            {
+                "styles": [
+                    "summer"
+                ],
+                "top": "url(\"..\/MEDIA\/8aa2cc82dbc74c9396744783953b11de-fotor-bg-remover-202305041488.png\")",
+                "bottom": "url(\"..\/MEDIA\/gghrwrhishfidjsvick.png\")",
+                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp2-fotor-bg-remover-20230518233817.png\")",
+                "backgroundColor": "rgb(249, 200, 208)",
+                "description": "",
+                "outfitID": 39
             }
         ]
     },

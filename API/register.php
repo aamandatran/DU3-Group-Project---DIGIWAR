@@ -33,7 +33,7 @@ if ($method == "POST") {
     //If username or password is less than 3 characters, bad request will be sent
     if(strlen($username) < 3 or strlen($password) < 3) {
         $error = [
-            "message" => "Username or Password needs to be at least 3 characters"
+            "message" => "Username or Password needs to be at least 3 characters long"
         ];
         sendJSON($error, 400);
     }
@@ -41,7 +41,7 @@ if ($method == "POST") {
     //If profilepicture is false, bad request will be sent
     if(!$profilepicture) {
         $error = [
-            "message" => "Profile picture not selected"
+            "message" => "A profile picture is not selected"
         ];
         sendJSON($error, 400);
     } 
@@ -50,7 +50,7 @@ if ($method == "POST") {
     foreach ($users as $user) {
         if ($user["username"] == $username) {
             $error = [
-                "message" => "Conflict (the username is already taken)"
+                "message" => "The username is already taken"
             ];
             sendJSON($error, 409);
         }
