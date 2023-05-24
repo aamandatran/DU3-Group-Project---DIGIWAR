@@ -141,7 +141,6 @@ async function renderOutfits(event) {
     }
 
     //Allows filtering for outfits
-    let filterArray = ["allItems", "streetwear", "casual", "sporty", "formal", "business", "datenight", "summer", "winter", "spring", "autumn"];
     //Gives each filter an eventlistener to filter the outfits and display the matching outfits 
     for (let filter of filterArray) {
         document.getElementById(filter).addEventListener("click", async function (event) {

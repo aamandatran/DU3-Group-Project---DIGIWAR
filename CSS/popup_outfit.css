@@ -121,7 +121,7 @@
   margin: 15px;
 }
 
-#popupSelectedTop {
+#popupSelectedtop {
   grid-column: 1;
   grid-row: 1;
   width: 100%;
@@ -134,7 +134,7 @@
   align-items: center;
 }
 
-#popupSelectedBottom {
+#popupSelectedbottom {
   grid-column: 2;
   grid-row: 1 / span 2;
   width: 100%;
@@ -147,7 +147,7 @@
   align-items: center;
 }
 
-#popupSelectedShoe {
+#popupSelectedshoe {
   grid-column: 1;
   grid-row: 2;
   width: 100%;
@@ -165,7 +165,7 @@
   flex-direction: column;
   height: 510px;
   border-radius: var(--borderRadius2);
-  gap: 26px;
+  gap: 21px;
   width: 200px;
 }
 
