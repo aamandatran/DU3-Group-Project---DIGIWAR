@@ -62,7 +62,7 @@ function renderWardrobePage() {
             </section>
         `;
 
-        // Display pop up to add clothes
+        // Call function that creates the popup
         document.getElementById("addClothes").addEventListener("click", renderUploadItemPopUp);
 
         let id = localStorage.getItem("id");

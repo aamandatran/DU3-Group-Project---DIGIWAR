@@ -176,19 +176,6 @@
             },
             {
                 "styles": [
-                    "casual",
-                    "spring",
-                    "autumn"
-                ],
-                "top": "url(\"..\/MEDIA\/ewtreqtwreqywtrqw.png\")",
-                "bottom": "url(\"..\/MEDIA\/sljdklasjfkladfjkdal.png\")",
-                "shoe": "url(\"..\/MEDIA\/ytuerorwrpipqeoriqer.png\")",
-                "backgroundColor": "rgb(247, 222, 187)",
-                "description": "lazy and cold school day",
-                "outfitID": 35
-            },
-            {
-                "styles": [
                     "spring"
                 ],
                 "top": "url(\"..\/MEDIA\/rerepipirtopertjgklfg.png\")",
