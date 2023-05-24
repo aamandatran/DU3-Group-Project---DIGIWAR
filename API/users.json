@@ -252,25 +252,14 @@
             },
             {
                 "styles": [
-                    "winter"
+                    "streetwear"
                 ],
-                "top": "url(\"..\/MEDIA\/teyrtueritweiodhf.png\")",
+                "top": "url(\"..\/MEDIA\/pweqpwepqwdpvdfdb.png\")",
                 "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
-                "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
-                "backgroundColor": "rgb(206, 234, 236)",
+                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
+                "backgroundColor": "rgb(255, 228, 233)",
                 "description": "",
-                "outfitID": 16
-            },
-            {
-                "styles": [
-                    "casual"
-                ],
-                "top": "url(\"..\/MEDIA\/tbtnmnbtkjtkjrds.png\")",
-                "bottom": "url(\"..\/MEDIA\/ioriouioturouqeoiue.png\")",
-                "shoe": "url(\"..\/MEDIA\/nfnrtbdxnbdfvxndnbxv.png\")",
-                "backgroundColor": "rgb(255, 251, 219)",
-                "description": "",
-                "outfitID": 17
+                "outfitID": 37
             }
         ]
     }

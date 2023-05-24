@@ -16,7 +16,7 @@ async function editProfile() {
     //Displays the whole edit profile page and calls the function displayProfilePics in the innerHTML. 
     edit_profile_main.innerHTML = `
     <div id=editProfileWrapper>
-    <div id=editProfile>
+        <div id=editProfile>
     <h1 id=editHeader>EDIT PROFILE</h1>
     
     <div>
@@ -47,38 +47,37 @@ async function editProfile() {
     `
 
 
+    //Selects all pictures to be able to go though them and add event listners in each one.
     let profileOptions = document.querySelectorAll(".editProfileOptions");
-    //Querieseleqtar till alla bilder för att kunna gå igenom dem och lägga till event listner på var och en här nere.
+    //The variable "selectedProfilePic" is created here to then use in the event function down below where i give the variable a value. 
     let selectedProfilePic;
-    //Variabeln "selectedProfilePic" skapar jag här för att sedan andvända i event functionen nedan där jag ger variabeln ett värde. 
 
+    //Here i go trough all the pictures and add an event listner to each picture and the picture that is clicked is displayed in "#selectedProfile"
     for (let option of profileOptions) {
-        //här går vi igenom bilderna lägger till event "Click" och den bilden man klickar på ska displayas i "#selectedProfile"
         option.addEventListener("click", function (event) {
+            // Im adding a value to the variable "selectedProfilePic" which is the picture that is clicked. This variable is later used in the "userData"
             selectedProfilePic = event.target.attributes[0].value;
-            //Variabeln "selectedProfilepic" ger jag ett värde här vilket då blir den bilden man klickar på. Variabeln skickar jag sen med i "userData"
+            //I add the selectedProfilePic to the innerHTML.
             document.querySelector("#SelectedProfile").innerHTML = `
             <img src=${selectedProfilePic} class=selectedProfilePic>`
         })
 
-    }
+    }// Fetching the username from the localstorage to then send it to both editProfilePic.php and editProfile.php
     let userName = localStorage.getItem("username");
-    //Hämtar username ifrån localstorage för att kunna skicka med till både editProfilePic och editProfile
 
     let editProfilePicForm = document.querySelector("#editProfilePicForm")
     editProfilePicForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
+        //Here i update the localStorage with the new profile picture so that it can be used in the header.
         window.localStorage.setItem("profilepicture", selectedProfilePic)
-        //Här uppdaterar jag localStorage med den nya profilbilden så att den ska kunna andvänas i headern. 
-
+        //This is what im sending with the body to editProfilePic.php.
         let userData = {
-            //Detta blir vad jag skickar med i bodyn till editProfilePic
             profilePic: selectedProfilePic,
             userName: userName
         }
         try {
-            //skickar en patch request till databasen. 
+            //Sending a patch request to the database.
             let response = await fetch("api/edit_profile_pic.php", {
                 method: "PATCH",
                 headers: { "Content-type": "application/json" },
@@ -88,9 +87,8 @@ async function editProfile() {
             let data = await response.json();
 
             display_header_menu()
-
+            //Calls the feedback function with the message we got from the server.
             feedback(data.message);
-            //Anropar feedback funktionen med meddelandet vi fick från servern. 
         } catch (err) {
             feedback(err.message)
         }
@@ -100,9 +98,9 @@ async function editProfile() {
     editProfileForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
+        //Collecting both the new password and the old one from the inputs to put in the userData
         let oldPassword = document.querySelector("#oldPassword").value;
         let newPassword = document.querySelector("#newPassword").value;
-        //Hämtar både gamla och nya lösenordet för att kunna lägga in i userData
 
 
         let userData = {
@@ -113,7 +111,7 @@ async function editProfile() {
 
 
         try {
-            //Skickar patch request med "userData" objectet som body"
+            //Sends patch request with the "userData" object as body.
             let response = await fetch("api/edit_profile.php", {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },

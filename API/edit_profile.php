@@ -6,53 +6,53 @@ $filename="users.json";
 $method=$_SERVER["REQUEST_METHOD"];
 $contentType=$_SERVER["CONTENT_TYPE"];
 
+//We check if the right method is used.  
 if ($method!=="PATCH") {
-    //Kollar så att det är rätt metod som andvänds. 
     $error=[
         "message"=>"Only PATCH works."
     ];
     sendJSON($error,405);
 }
+//We check if the right content typ is used. 
 if ($contentType!=="application/json") {
-    //Kollar så att det är rätt content type
     $error=[
         "message"=>"only JSON works."
     ];
     sendJSON($error,400);
 }
 
+//We then gather the old and new password and the username from the //input. 
 $data=getFileContents("php://input");
 
 $oldPassword=$data["oldPassword"];
 $newPassword=$data["newPassword"];
 $userName=$data["userName"];
-//Hämtar informationen från requesten. 
 
+//We then gather all information from the users json.  
 $users=getFileContents($filename);
-//Hämtar all information från json filen. 
 
 
+//If the new password and old password is empty then we send back a error message "empty values"
 if ($newPassword=="" or $oldPassword=="") {
-    //Kollar så att fälten är ifyllda
     $error=[
         "message"=>"Empty values"
     ];
     sendJSON($error,400);
+    //We check so that the new password is atleast 3 characters
 }elseif (strlen($newPassword)<3) {
-    //Kollar så att man inte skrivit i ett för kort lösenord. 
     $error=[
         "message"=>"New password needs to be atleast 3 characters"
     ];
     sendJSON($error,400);
-}else{
-        if ($oldPassword==$newPassword) {
-            //Kollar så att det nya lösenordet inte är samma som det gamla.
-           $error=[
-            "message"=>"Your new password can NOT be the same as your old password"
-           ];
-           sendJSON($error,400);
-        }
 }
+    //We then check if the new password isnt the same as the old one. 
+ if ($oldPassword==$newPassword) {
+    $error=[
+        "message"=>"Your new password can NOT be the same as your old password"
+        ];
+        sendJSON($error,400);
+    }
+
 
 
 foreach ($users as $index=> $user) {
