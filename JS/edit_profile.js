@@ -109,7 +109,6 @@ async function editProfile() {
             userName: userName,
         };
 
-
         try {
             //Sends patch request with the "userData" object as body.
             let response = await fetch("api/edit_profile.php", {
