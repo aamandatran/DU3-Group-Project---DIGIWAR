@@ -22,6 +22,9 @@ async function renderOutfits(event) {
             <a href="#">FILTER</a>
             <nav id="filtering">
             ${filterArray.map(filter => {
+                if(filter === "datenight") {
+                    filter = "Date night";
+                }
                 let filterA = document.createElement("a");
                 let capitalizedString = filter.charAt(0).toUpperCase() + filter.slice(1);
                 filterA.setAttribute("id", filter);
@@ -130,6 +133,7 @@ async function renderOutfits(event) {
                         let outfitElement = document.getElementById(outfitID);
                         outfitElement.remove();
                         feedbackContainer.remove();
+                        feedback("Outfit has been succesfully deleted!");
                     }
                 })
 

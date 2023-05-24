@@ -19,18 +19,6 @@
             },
             {
                 "styles": [
-                    "business",
-                    "datenight"
-                ],
-                "top": "url(\"..\/MEDIA\/8aa2cc82dbc74c9396744783953b11de-fotor-bg-remover-202305041488.png\")",
-                "bottom": "url(\"..\/MEDIA\/jaJPNKSNKJDHDSUID.png\")",
-                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp2-fotor-bg-remover-20230518233817.png\")",
-                "backgroundColor": "rgb(255, 228, 233)",
-                "description": "Modest but sexy :P",
-                "outfitID": 21
-            },
-            {
-                "styles": [
                     "summer",
                     "spring"
                 ],
@@ -89,17 +77,6 @@
             },
             {
                 "styles": [
-                    "autumn"
-                ],
-                "top": "url(\"..\/MEDIA\/yeuqywiuchoicjx.png\")",
-                "bottom": "url(\"..\/MEDIA\/fweqwdqfsacsdcds.png\")",
-                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp2-fotor-bg-remover-20230518233817.png\")",
-                "backgroundColor": "rgb(255, 228, 233)",
-                "description": "ja",
-                "outfitID": 27
-            },
-            {
-                "styles": [
                     "datenight"
                 ],
                 "top": "url(\"..\/MEDIA\/8aa2cc82dbc74c9396744783953b11de-fotor-bg-remover-202305041488.png\")",
@@ -108,43 +85,6 @@
                 "backgroundColor": "rgb(249, 200, 208)",
                 "description": "Hotttt",
                 "outfitID": 28
-            },
-            {
-                "styles": [
-                    "autumn"
-                ],
-                "top": "url(\"..\/MEDIA\/app005prodr-fotor-bg-remover-20230518232225.png\")",
-                "bottom": "url(\"..\/MEDIA\/hdagkhsoiafoifdfl.png\")",
-                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp2-fotor-bg-remover-20230518233817.png\")",
-                "backgroundColor": "rgb(207, 225, 200)",
-                "description": "asd",
-                "outfitID": 29
-            },
-            {
-                "styles": [
-                    "formal",
-                    "datenight",
-                    "summer"
-                ],
-                "top": "url(\"..\/MEDIA\/app005prod.png\")",
-                "bottom": "url(\"..\/MEDIA\/app005prodd_11zon-fotor-bg-remover-20230518231824.png\")",
-                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp4-fotor-bg-remover-20230518233744.png\")",
-                "backgroundColor": "rgb(255, 228, 233)",
-                "description": "",
-                "outfitID": 37
-            },
-            {
-                "styles": [
-                    "formal",
-                    "datenight",
-                    "summer"
-                ],
-                "top": "url(\"..\/MEDIA\/app005prod.png\")",
-                "bottom": "url(\"..\/MEDIA\/app005prodd_11zon-fotor-bg-remover-20230518231824.png\")",
-                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp4-fotor-bg-remover-20230518233744.png\")",
-                "backgroundColor": "rgb(255, 228, 233)",
-                "description": "",
-                "outfitID": 38
             },
             {
                 "styles": [

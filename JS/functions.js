@@ -1,6 +1,6 @@
 "use strict";
 
-let filterArray = ["all", "streetwear", "casual", "sporty", "formal", "business", "datenight", "summer", "winter", "spring", "autumn"];
+let filterArray = ["all", "streetwear", "casual", "sporty", "formal", "business", "party", "summer", "winter", "spring", "autumn"];
 
 //This function will display the array of profile pictures
 function displayProfilePics(array) {
