@@ -75,6 +75,9 @@ async function renderGeneratorPage() {
       
                 ${filterArray.map(filter => {
                   //Creates the filter divs and appends them
+                  if(filter === "all") {
+                    return "";
+                  }
                   let filterDiv = document.createElement("div");
                   let capitalizedString = filter.charAt(0).toUpperCase() + filter.slice(1);
                   filterDiv.innerHTML = `
