@@ -17,10 +17,10 @@ async function editProfile() {
     edit_profile_main.innerHTML = `
     <div id=editProfileWrapper>
         <div id=editProfile>
-    <h1 id=editHeader>EDIT PROFILE</h1>
+            <h1 id=editHeader>EDIT PROFILE</h1>
     
-    <div>
-    <div class="title">PROFILE PICTURE</div>
+            <div>
+                <div class="title">PROFILE PICTURE</div>
                     <div>
                         <div id="SelectedProfile">
                             <img src=${savedProfilePic} class=selectedProfilePic>
@@ -32,18 +32,18 @@ async function editProfile() {
                             <button id=editprofilePicButton>Save</button>
                         </form>
                     </div>
-                </div>
-
-                <form id=editProfileForm> 
-                    <div class="title">PASSWORD</div>
-                    <input type=text placeholder="Old password" id=oldPassword>
-                    <input type=password placeholder="New password" id=newPassword>
-                    <div id=submitButtonContainer>
-                        <button id=editProfileSubmitButton type=submit>Save</button>
-                    </div>
-                </form>
             </div>
+
+            <form id=editProfileForm> 
+                <div class="title">PASSWORD</div>
+                <input type=text placeholder="Old password" id=oldPassword>
+                <input type=password placeholder="New password" id=newPassword>
+                <div id=submitButtonContainer>
+                    <button id=editProfileSubmitButton type=submit>Save</button>
+                </div>
+            </form>
         </div>
+    </div>
     `
 
 
@@ -52,9 +52,13 @@ async function editProfile() {
     //The variable "selectedProfilePic" is created here to then use in the event function down below where i give the variable a value. 
     let selectedProfilePic;
 
+    let editProfilePicButton = document.getElementById("editprofilePicButton");
+    editProfilePicButton.disabled = true;
+
     //Here i go trough all the pictures and add an event listner to each picture and the picture that is clicked is displayed in "#selectedProfile"
     for (let option of profileOptions) {
         option.addEventListener("click", function (event) {
+            editProfilePicButton.disabled = false;
             // Im adding a value to the variable "selectedProfilePic" which is the picture that is clicked. This variable is later used in the "userData"
             selectedProfilePic = event.target.attributes[0].value;
             //I add the selectedProfilePic to the innerHTML.
@@ -108,6 +112,7 @@ async function editProfile() {
             newPassword: newPassword,
             userName: userName,
         };
+
 
         try {
             //Sends patch request with the "userData" object as body.

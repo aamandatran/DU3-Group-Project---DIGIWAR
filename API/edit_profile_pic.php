@@ -25,7 +25,13 @@ if ($contentType !== "application/json") {
 $data = getFileContents("php://input");
  
 //Putting the new profile picture and the users username in variables.
-$selectedProfilePicture = $data["profilePic"];
+$selectedProfilePicture = isset($data["profilePic"]) ? $data["profilePic"] : null;
+if ($selectedProfilePicture==null) {
+    $error = [
+        "message" => "You have not selected a new profile Pic"
+    ];
+    sendJSON($error,400);
+}
 $userName = $data["userName"]; 
 //Collecting all information from the json file and putting it in $users
 $users = getFileContents($filename);
