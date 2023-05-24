@@ -2,17 +2,12 @@
     margin: 15vh 0 0 0;
 }
 
-/* div#wardrobePage {
-    display: flex;
-    flex-direction: column;
-} */
-
 #wardrobePage {
     text-align: center;
 }
 
 #wardrobePage>section #banner {
-    background-image: url("../MEDIA/banner2.jpeg");
+    background-image: url("../MEDIA/banner.jpeg");
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
@@ -21,40 +16,44 @@
     margin-bottom: 5vh;
 
     display: flex;
-    justify-content: center;
+    align-items: center;
 }
 
 #wardrobePage>section>#banner>div {
-    margin-top: 7vh;
+    margin-left: 10vw;
     font-size: 5vh;
     text-shadow: 2px 2px 8px #828282;
 }
 
-#wardrobePage>div>a {
-    text-decoration: none;
-    color: black;
+#wardrobePage>div:first-of-type {
+    display: flex;
+    margin-left: 300px;
+}
+
+#wardrobePage>div>div {
     padding: 1.85vh 7.3vw;
     border-bottom: 0.1em double gray;
 }
 
-#wardrobePage>div>a:hover {
+#wardrobePage>div>div:hover {
     border-bottom: 2px solid grey;
 }
 
 #wardrobePage>#bottom {
-    display: flex;
     margin-top: 30px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
 }
 
 #filter {
     position: relative;
-    width: 15vw;
-    margin-left: 70px;
+    width: 200px;
+    margin-left: 60px;
 }
 
 #filter>a {
     display: block;
-    background-color: rgb(86, 113, 124);
+    background-color: var(--darkBlueStandard);
     border-radius: 5px 5px 0 0;
 }
 
@@ -62,7 +61,7 @@
 #filtering>a {
     text-decoration: none;
     color: black;
-    padding: 2vh;
+    padding: var(--padding) 0;
 }
 
 #wardrobePage>div>nav>a {
@@ -70,14 +69,14 @@
 }
 
 #filtering>a:hover {
-    background-color: #ecebeb;
+    background-color: var(--greyStandard);
 }
 
 #filtering {
     position: absolute;
     display: flex;
     flex-direction: column;
-    border: 1px solid rgb(221, 221, 221);
+    border: var(--borderStandard);
     background-color: #fff;
     width: 99%;
 }
@@ -88,20 +87,19 @@
     flex-direction: column;
     width: max-content;
     justify-content: center;
-    margin-left: 40px;
-    margin-bottom: 20vh;
 }
 
 #wardrobeFeed>ul {
     display: grid;
     grid-template-columns: repeat(4, 250px);
-    gap: 1vh;
+    gap: var(--gap);
     grid-auto-rows: 320px;
-    padding-left: 0px;
+    padding-left: 0;
     margin-top: 0;
 }
 
 .imageContainer {
+    list-style: none;
     background: radial-gradient(circle, rgba(168, 168, 168, 1) 0%, rgba(255, 255, 255, 0.9177871832326681) 0%, rgba(214, 214, 214, 0.7889356426164216) 53%);
     display: flex;
     align-items: center;
@@ -140,6 +138,6 @@
 
 #addClothes {
     margin-top: 30vh;
-    margin-left: 125px;
+    margin-left: 110px;
     padding: 1vh;
 }

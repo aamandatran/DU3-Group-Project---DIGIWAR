@@ -1,5 +1,6 @@
 "use strict"
 
+//This function allows the user to stay logged in when refreshing the site, sending them to their wardrobe
 function stay_loggedin() {
     window.localStorage.setItem("isLoggedIn", true)
     renderWardrobePage();

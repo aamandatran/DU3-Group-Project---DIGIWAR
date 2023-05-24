@@ -36,10 +36,9 @@ header>div {
 #menuProfilePic {
     width: 40px;
     height: 40px;
-    border: 1px solid black;
+    border: var(--borderStandard);
     border-radius: 50%;
-    background-color: #ecebeb;
-    margin-right: 3vh;
+    background-color: var(--greyStandard);
     margin-left: 2vh;
 }
 
@@ -60,7 +59,7 @@ header>div {
 }
 
 #menuContainer>div>a:hover {
-    background-color: #f0f0f0;
+    background-color: var(--greyStandard);
 }
 
 #menuContainer>#editProfileButton {
@@ -71,7 +70,7 @@ header>div {
     position: absolute;
     display: none;
     flex-direction: column;
-    border: 1px solid rgb(221, 221, 221);
+    border: var(--borderStandard);
     background-color: #fff;
     width: 100%;
 }
@@ -83,7 +82,7 @@ header>div {
 }
 
 .menuOptions>.subMenuOptions>a:hover {
-    background-color: #f0f0f0;
+    background-color: var(--greyStandard);
 }
 
 #menuContainer>.menuOptions:hover .subMenuOptions {

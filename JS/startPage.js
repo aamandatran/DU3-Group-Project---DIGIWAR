@@ -45,7 +45,6 @@ function renderStartPage() {
                 </div>
                 <div id="us">
                     <h1>WHO ARE WE?</h1>
-
                     <div>
                         <div class="box">
                             <div class="picture" id="Amanda"></div>

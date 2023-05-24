@@ -22,8 +22,7 @@
     "3": {
         "path": "..\/MEDIA\/eewkerlkrlewfleeldk.png",
         "id": [
-            0,
-            2
+            0
         ]
     },
     "5": {
@@ -83,7 +82,8 @@
         "path": "..\/MEDIA\/ewtreqtwreqywtrqw.png",
         "id": {
             "0": 0,
-            "2": 2
+            "2": 2,
+            "3": 2
         }
     },
     "14": {

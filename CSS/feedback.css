@@ -5,8 +5,8 @@
     height: 20vh;
     padding: 0 3vh;
     border: 1px solid black;
-    border-radius: 20px;
-    background: radial-gradient(827px at 47.3% 48%, rgb(228, 245, 255) 0%, rgb(176, 199, 209) 90%);
+    border-radius: var(--borderRadius);
+    background: var(--blueGradientBackground);
 
     display: flex;
     justify-content: center;
@@ -21,7 +21,3 @@
 #feedbackContainer>p {
     text-align: center;
 }
-
-/* .feedback_opacity {
-    opacity: 0.5;
-} */

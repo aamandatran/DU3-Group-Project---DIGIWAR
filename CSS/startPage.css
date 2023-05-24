@@ -29,7 +29,7 @@
 
 #welcome>div>span {
     font-weight: 600;
-    color: rgb(66, 82, 88);
+    color: var(--darkBlueStandard);
 }
 
 #welcome>p {
@@ -109,7 +109,7 @@ section {
 }
 
 #us {
-    background: radial-gradient(827px at 47.3% 48%, rgb(255, 255, 255) 0%, rgb(176, 199, 209) 90%);
+    background: var(--blueGradientBackground);
     width: 100vw;
     height: 85vh;
 
@@ -128,7 +128,7 @@ section {
     height: 50vh;
     width: 20vw;
     background-color: #fff;
-    border-radius: 20px;
+    border-radius: var(--borderRadius);
     outline: 2px solid #eee;
     outline-offset: 5px;
     margin-bottom: 10vh;
@@ -143,7 +143,6 @@ section {
     margin-top: 30px;
     height: 200px;
     width: 200px;
-    background-color: rgb(226, 226, 226);
     border-radius: 50%;
     background-position: center;
     background-repeat: no-repeat;

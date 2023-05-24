@@ -7,14 +7,11 @@
     width: 100vw;
 }
 
-/* #generator {
-} */
-
 #generatorGrid {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 170px 170px 170px;
-    gap: 15px;
+    gap: 10px;
 }
 
 .tops_generate {
@@ -65,7 +62,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(207, 225, 200);
+    background-color: var(var(--greenStandard));
 }
 
 #selectedBottom>div {
@@ -80,7 +77,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(206, 234, 236);
+    background-color: var(--blueStandard);
 }
 
 #selectedShoe>div {
@@ -95,7 +92,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(255, 251, 219);
+    background-color: var(--yellowStandard);
 }
 
 .arrow {
@@ -127,6 +124,7 @@
     align-items: center;
     gap: 5px;
     padding-left: 15px;
+    cursor: pointer;
 }
 
 #saveIt p {

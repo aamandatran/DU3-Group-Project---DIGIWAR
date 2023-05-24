@@ -2,9 +2,12 @@
 
 function renderUploadItemPopUp() {
     const wardrobeParent = document.querySelector("#wardrobeParent");
-    wardrobeParent.innerHTML += ` 
+    const popUp = document.createElement("div");
+    popUp.classList.add("popup");
+    popUp.classList.add("show");
+    popUp.innerHTML = ` 
         <div id="uploadPopUp"> 
-            <div class="cancel">X</div>
+            <button id="closePopupButton">X</button>
             <h1>New item</h1>
                 <fieldset id="categories">
                     <legend>Choose a category</legend>
@@ -12,11 +15,13 @@ function renderUploadItemPopUp() {
                     <button id="bottoms">Bottoms</button>
                     <button id="shoes">Shoes</button>
                 </fieldset>
-        </div>  
+        </div> 
     `;
 
-    document.querySelector(".cancel").addEventListener("click", function (event) {
-        document.getElementById("uploadPopUp").innerHTML = "";
+    wardrobeParent.append(popUp);
+
+    document.querySelector("#uploadPopUp>button#closePopupButton").addEventListener("click", function (event) {
+        popUp.classList.remove("show");
         renderWardrobePage()
     })
 
@@ -24,26 +29,23 @@ function renderUploadItemPopUp() {
     let topsButton = document.querySelector("#uploadPopUp #tops");
     topsButton.addEventListener("click", function (event) {
         showUploadPage("tops.json")
-        console.log("it works");
-
     });
 
     let bottomsButton = document.querySelector("#uploadPopUp #bottoms");
     bottomsButton.addEventListener("click", function (event) {
         showUploadPage("bottoms.json")
-
     });
 
     let shoesButton = document.querySelector("#uploadPopUp #shoes");
     shoesButton.addEventListener("click", function (event) {
         showUploadPage("shoes.json")
-
     });
+
 
     function showUploadPage(filename) {
         const uploadPopUp = document.querySelector("#uploadPopUp");
         uploadPopUp.innerHTML = ` 
-            <div class="cancel">X</div>
+            <button id="closePopupButton">X</button>
             <h1>New item</h1>
             <div id="itemImage"></div>
                 <form id="upload" action="API/your_wardrobe.php" method="POST">
@@ -53,19 +55,15 @@ function renderUploadItemPopUp() {
             <button id="done">Done</button>
         `;
 
-        document.querySelector("div.cancel").addEventListener("click", function (event) {
-            uploadPopUp.innerHTML = "";
-            uploadPopUp.style.top = "15vh";
+        document.querySelector("#uploadPopUp> button#closePopupButton").addEventListener("click", function (event) {
+            popUp.classList.remove("show");
             renderWardrobePage()
         })
 
         document.querySelector("button#done").addEventListener("click", function (event) {
-            uploadPopUp.innerHTML = "";
-            uploadPopUp.style.top = "15vh";
+            popUp.classList.remove("show");
             renderWardrobePage()
         })
-
-
 
         const form = document.getElementById("upload");
         form.addEventListener("submit", async function (event) {
@@ -79,14 +77,8 @@ function renderUploadItemPopUp() {
             let usersRequest = await fetch("api/users.php");
             let users = await usersRequest.json();
 
-            const username = localStorage.getItem("username");
-            for (let user of users) {
-                if (user.username === username) {
-                    let id = user.id;
-                    console.log(id);
-                    formData.append("id", id);
-                }
-            }
+            const id = localStorage.getItem("id");
+            formData.append("id", id);
 
             const request = new Request("API/your_wardrobe.php", {
                 method: "POST",
@@ -96,14 +88,12 @@ function renderUploadItemPopUp() {
             fetch(request)
                 .then(response => response.json())
                 .then(data => {
-
                     // If data is ok, the uploaded file will be displayed on the website
                     if (!data.ok) {
                         console.log(data.message);
                     } else {
                         document.querySelector("#itemImage").style.backgroundImage = `url(${data.path})`;
-                        console.log(data.message);
-                        console.log(data.path);
+                        feedback(data.message)
                     }
                 }).catch(error => {
                     console.log(error);

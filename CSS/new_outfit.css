@@ -6,7 +6,6 @@
     grid-template-rows: 6fr 4fr;
     height: 250px;
     width: 250px;
-    border: 1px #ececec solid;
     align-items: center;
     position: relative;
 }
@@ -28,12 +27,7 @@
 }
 
 #wardrobeFeed>ul#outfitsUl {
-    display: grid;
-    grid-template-columns: repeat(4, 250px);
-    gap: 1vh;
     grid-auto-rows: 250px;
-    padding-left: 0px;
-    margin-top: 0;
 }
 
 .outfitDeleteButton {
@@ -46,17 +40,6 @@
     bottom: 0;
 }
 
-
-.outfitDeleteButton:hover {
-    cursor: pointer;
-}
-
-.outfitDeleteButton:active {
-    cursor: pointer;
-    border: 0.5px solid grey;
-}
-
 .outfitDeleteButton>img {
     height: 35px;
 }
-

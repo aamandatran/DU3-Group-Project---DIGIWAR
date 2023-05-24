@@ -1,28 +1,36 @@
+"use strict"
+
+//This function creates the outfit divs according to which user it is and what filter style
 async function createOutfitDivs(id, style) {
+  //Empty the wardrobefeed
   document.querySelector("#wardrobeFeed > ul").innerHTML = "";
   document.querySelector("#wardrobeFeed > p").innerHTML = "";
 
+  //Fetch array of user
   let response = await fetch("api/users.php");
   let users = await response.json();
 
-  console.log(style);
   id = parseInt(id);
   style = style.toLowerCase();
-  console.log(style);
 
+  //Loop users to find matching user id
   for (let user of users) {
     if (user.id === id) {
+      //Save the users outfit array under variable outfits
       let outfits = user.outfits;
-      console.log(outfits);
+      //Loop users outfits
       for (let outfit of outfits) {
+        //Create divs containing the outfits styles
         let stylesHTML = '';
         for (let outfitStyle of outfit.styles) {
           stylesHTML += `<div>${outfitStyle}</div>`;
         }
-        console.log(stylesHTML);
+        //If no style is sent then all outfits no matter style will be created
+        //If the outfits chosen styles includes style then all outfits with that style will be created
         if (style === "" || outfit.styles.includes(style)) {
-          let li = document.createElement("li");
 
+          //Creating the outfit li and appending it
+          let li = document.createElement("li");
           li.innerHTML = `
               <div class="outfitTop" style=background-image:${outfit.top}></div>
               <div class="outfitBottom" style=background-image:${outfit.bottom}></div>
@@ -31,20 +39,18 @@ async function createOutfitDivs(id, style) {
               <section class="stylesHidden">${stylesHTML}</section>
               <button class=outfitDeleteButton><img src="../MEDIA/trashcan.png"></button>
           `;
-
           li.classList.add("outfit");
           li.setAttribute("id", outfit.outfitID);
           li.style.backgroundColor = outfit.backgroundColor;
 
           document.querySelector("#wardrobeFeed > ul").append(li);
           document.querySelector("ul").setAttribute("id", "outfitsUl");
-
-          console.log(document.querySelector("#wardrobeFeed > ul"));
         }
       }
       break;
     }
   }
+  //This function returns a ul filled or not with outfits
   return document.querySelector("#wardrobeFeed > ul");
 }
 
