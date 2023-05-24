@@ -25,7 +25,7 @@ if ($method == "POST") {
     //If username or password is an empty string, bad request will be sent
     if($username == "" or $password == "") {
         $error = [
-            "message" => "Empty values"
+            "message" => "Username or password can not have empty values"
         ];
         sendJSON($error, 400);
     } 
@@ -41,7 +41,7 @@ if ($method == "POST") {
     //If profilepicture is false, bad request will be sent
     if(!$profilepicture) {
         $error = [
-            "message" => "A profile picture is not selected"
+            "message" => "You have not selected a profile picture"
         ];
         sendJSON($error, 400);
     } 

@@ -43,17 +43,17 @@ if(isset($_FILES["item"])) {
             $tops[] = $newItem;
             saveToFile("tops.json", $tops);
             $message["file"] = "tops.json";
-            sendJSON($message, 200);
+            sendJSON($message, 201);
         } elseif($_POST["file"] == "bottoms.json") {
             $bottoms[] = $newItem;
             saveToFile("bottoms.json", $bottoms);
             $message["file"] = "bottoms.json";
-            sendJSON($message, 200);
+            sendJSON($message, 201);
         } elseif($_POST["file"] == "shoes.json") {
             $shoes[] = $newItem;
             saveToFile("shoes.json", $shoes);
             $message["file"] = "shoes.json";
-            sendJSON($message, 200);
+            sendJSON($message, 201);
         } else{
             $message = [
                 "message" => "No category was selected... please select a category."
@@ -65,14 +65,14 @@ if(isset($_FILES["item"])) {
         $message = [
             "message" => "Something went wrong with uploading the item... please try again!"
         ];
-        sendJSON($message, 409);
+        sendJSON($message, 418);
     } 
 }
 
 // Sends back every item to display on website
 if($requestMethod == "POST") {
     if(!isset($requestData["id"])) {
-        $message = ["message" => "The id of user was not sent..."];
+        $message = ["message" => "User id was not sent..."];
         sendJSON($message, 400);
     }
 
@@ -91,6 +91,12 @@ if($requestMethod == "DELETE") {
     $path = $requestData["path"];
     $JSONfile = $requestData["file"];
     $id = $requestData["id"];
+
+    // Checks if all data was sent, if not status 400 will be sent
+    if(!isset($path, $JSONfile, $id)) {
+        $message = ["message" => "Some data seems to be missing... please check if all data was sent"];
+        sendJSON($message, 400);
+    }
 
     // Check which JSON file to iterate over and search for the item
     if($JSONfile == "tops.json") {

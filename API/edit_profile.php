@@ -9,16 +9,16 @@ $contentType = $_SERVER["CONTENT_TYPE"];
 //We check if the right method is used.  
 if ($method != "PATCH") {
     $error = [
-        "message" => "Only PATCH works."
+        "message" => "Only PATCH-method is allowed"
     ];
-    sendJSON($error,405);
+    sendJSON($error, 405);
 }
 //We check if the right content typ is used. 
 if ($contentType !== "application/json") {
     $error = [
-        "message" => "only JSON works."
+        "message" => "Content type needs to be JSON"
     ];
-    sendJSON($error,400);
+    sendJSON($error, 400);
 }
 
 //We then gather the old and new password and the username from the //input. 
@@ -35,22 +35,22 @@ $users=getFileContents($filename);
 //If the new password and old password is empty then we send back a error message "empty values"
 if ($newPassword == "" or $oldPassword == "") {
     $error = [
-        "message" => "Empty values"
+        "message" => "Password can not have empty values"
     ];
-    sendJSON($error,400);
+    sendJSON($error, 400);
     //We check so that the new password is atleast 3 characters
 }elseif (strlen($newPassword) < 3) {
     $error = [
-        "message" => "New password needs to be atleast 3 characters"
+        "message" => "New password needs to be at least 3 characters"
     ];
-    sendJSON($error,400);
+    sendJSON($error, 400);
 }
     //We then check if the new password isnt the same as the old one. 
  if ($oldPassword == $newPassword) {
     $error = [
-        "message" => "Your new password can NOT be the same as your old password"
+        "message" => "Your new password can NOT be the same as your old password!"
         ];
-        sendJSON($error,400);
+        sendJSON($error, 400);
     }
 
 
@@ -64,20 +64,16 @@ foreach ($users as $index => $user) {
             $response = [
                 "message" => "Password updated succesfully!"
             ];
-            saveToFile($filename,$users);
-            sendJSON($response);
+            saveToFile($filename, $users);
+            sendJSON($response, 200);
             break;
 
     } else {
         $error = [
             "message" => "Old password is incorrect!"
         ];
-        sendJSON($error,401);
+        sendJSON($error, 400);
         }
     }
 }
-
-
-
-
 ?>
