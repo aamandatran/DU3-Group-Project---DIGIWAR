@@ -92,7 +92,7 @@ if ($method == "POST") {
 //If another request other than POST is sent it will send back an error
 } else {
     $error = [
-        "message" => "Only POST works."
+        "message" => "Only POST-method is allowed!"
     ];
     sendJSON($error, 405);
 }

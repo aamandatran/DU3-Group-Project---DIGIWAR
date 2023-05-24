@@ -2,75 +2,75 @@
 ini_set('display_errors', 1);
 require_once("functions.php");
 
-$filename="users.json";
-$method=$_SERVER["REQUEST_METHOD"];
-$contentType=$_SERVER["CONTENT_TYPE"];
+$filenam = "users.json";
+$method = $_SERVER["REQUEST_METHOD"];
+$contentType = $_SERVER["CONTENT_TYPE"];
 
-if ($method!=="PATCH") {
+if ($method !== "PATCH") {
     //Kollar så att det är rätt metod som andvänds. 
-    $error=[
-        "message"=>"Only PATCH works."
+    $error = [
+        "message" => "Only PATCH-method is allowed."
     ];
     sendJSON($error,405);
 }
-if ($contentType!=="application/json") {
+if ($contentType !== "application/json") {
     //Kollar så att det är rätt content type
-    $error=[
-        "message"=>"only JSON works."
+    $error = [
+        "message" => "Must be JSON type"
     ];
     sendJSON($error,400);
 }
 
-$data=getFileContents("php://input");
+$data = getFileContents("php://input");
 
-$oldPassword=$data["oldPassword"];
-$newPassword=$data["newPassword"];
-$userName=$data["userName"];
+$oldPassword = $data["oldPassword"];
+$newPassword = $data["newPassword"];
+$userName = $data["userName"];
 //Hämtar informationen från requesten. 
 
-$users=getFileContents($filename);
+$users = getFileContents($filename);
 //Hämtar all information från json filen. 
 
 
-if ($newPassword=="" or $oldPassword=="") {
+if ($newPassword == "" or $oldPassword == "") {
     //Kollar så att fälten är ifyllda
-    $error=[
-        "message"=>"Empty values"
+    $error = [
+        "message" => "Empty values"
     ];
     sendJSON($error,400);
-}elseif (strlen($newPassword)<3) {
+} elseif (strlen($newPassword) < 3) {
     //Kollar så att man inte skrivit i ett för kort lösenord. 
-    $error=[
-        "message"=>"New password needs to be atleast 3 characters"
+    $error = [
+        "message" => "New password needs to be atleast 3 characters"
     ];
     sendJSON($error,400);
-}else{
-        if ($oldPassword==$newPassword) {
+} else {
+        if ($oldPassword == $newPassword) {
             //Kollar så att det nya lösenordet inte är samma som det gamla.
-           $error=[
-            "message"=>"Your new password can NOT be the same as your old password"
+           $error = [
+            "message" => "Your new password can NOT be the same as your old password"
            ];
            sendJSON($error,400);
         }
 }
 
 
-foreach ($users as $index=> $user) {
-    if ($userName==$user["username"]) {
-        if ($oldPassword==$user["password"]) {
+foreach ($users as $index => $user) {
+    if ($userName == $user["username"]) {
+        if ($oldPassword == $user["password"]) {
             //Här går vi igenom alla andvändares lösenord och hittar rätt andvändare med hjälp av det gamla lösenordet. 
-            $users[$index]["password"]=$newPassword;
+            $users[$index]["password"] = $newPassword;
             //När vi hittat rätt andvändare så bytar vi ut det nya mot det gamla.  
-            $response=[
-                "message"=>"Password updated succesfully!"
+            $response = [
+                "message" => "Password updated succesfully!"
             ];
             saveToFile($filename,$users);
             sendJSON($response);
             break;
 
-    }else{
-        $error=[
-            "message"=>"Incorrect old password!"
+    } else {
+        $error = [
+            "message" => "Old password is incorrect!"
         ];
         sendJSON($error,401);
         }

@@ -18,6 +18,7 @@ async function createOutfitDivs(id, style) {
     if (user.id === id) {
       //Save the users outfit array under variable outfits
       let outfits = user.outfits;
+
       //Loop users outfits
       for (let outfit of outfits) {
         //Create divs containing the outfits styles
@@ -25,6 +26,7 @@ async function createOutfitDivs(id, style) {
         for (let outfitStyle of outfit.styles) {
           stylesHTML += `<div>${outfitStyle}</div>`;
         }
+
         //If no style is sent then all outfits no matter style will be created
         //If the outfits chosen styles includes style then all outfits with that style will be created
         if (style === "" || outfit.styles.includes(style)) {
@@ -49,13 +51,12 @@ async function createOutfitDivs(id, style) {
       }
     }
   }
-  //This function returns a ul filled or not with outfits
+
+  //This function returns an ul filled or not with outfits
   return document.querySelector("#wardrobeFeed > ul");
 }
 
 async function deleteOutfit(userID, outfitID) {
-  console.log(userID);
-  console.log(outfitID);
   let response = await fetch("api/new_outfit.php", {
     method: "DELETE",
     headers: { "Content-type": "application/json", },
@@ -64,15 +65,9 @@ async function deleteOutfit(userID, outfitID) {
       outfitID: outfitID,
     })
   })
+
   if (response.ok) {
     let outfitElement = document.getElementById(outfitID);
-    console.log(outfitElement);
     outfitElement.remove();
   }
-
 }
-
-
-
-
-

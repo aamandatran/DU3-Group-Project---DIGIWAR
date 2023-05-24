@@ -71,12 +71,11 @@ function renderUploadItemPopUp() {
             event.preventDefault();
 
             const formData = new FormData(form);
+
             // Filename that was sent when this function was called
             formData.append("file", filename);
-            // Get Id of user
-            let usersRequest = await fetch("api/users.php");
-            let users = await usersRequest.json();
 
+            // Get Id of user
             const id = localStorage.getItem("id");
             formData.append("id", id);
 
@@ -90,7 +89,7 @@ function renderUploadItemPopUp() {
                 .then(data => {
                     // If data is ok, the uploaded file will be displayed on the website
                     if (!data.ok) {
-                        console.log(data.message);
+                        feedback(data.message)
                     } else {
                         document.querySelector("#itemImage").style.backgroundImage = `url(${data.path})`;
                         feedback(data.message)

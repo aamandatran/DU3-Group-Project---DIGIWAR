@@ -19,7 +19,7 @@ if($method == "POST") {
     //If strings are empty bad request feedback will be sent back
     if($username == "" or $password == "") {
         $error = [
-            "message" => "Empty values, please write a username and password"
+            "message" => "Empty values, please write a username and password."
         ];
         sendJSON($error, 400);
     }
@@ -52,7 +52,7 @@ if($method == "POST") {
     if(!$userfound) {
         //NOT FOUND will be sent back
         $error = [
-            "message" => "Not found"
+            "message" => "User not found"
         ];
         sendJSON($error, 404);
     }
@@ -60,7 +60,7 @@ if($method == "POST") {
 //If another request other than POST is sent it will send back an error
 } else {
     $error = [
-        "message" => "Only POST works."
+        "message" => "Only POST-method is allowed"
     ];
     sendJSON($error, 405);
 }

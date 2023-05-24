@@ -10,24 +10,18 @@ function displayProfilePics(array) {
                 </li>
                 `;
     }
+
     return html;
 }
 
+// This function loops through an array and returns true if the id used to call this function is in the array
 function inArray(id, array) {
     var length = array.length;
     for (var i = 0; i < length; i++) {
         if (array[i] == id) return true;
     }
-    return false;
-}
 
-function header_startPage () {
-    //Clicking header will send you to start page
-    let header = document.querySelector("header");
-    header.innerHTML = `
-        <div id="toStartPage">DIGIWAR</div>
-    `;
-    document.querySelector("#toStartPage").addEventListener("click", renderStartPage);
+    return false;
 }
 
 //This function add the class show to the pop up window allowing it to display
@@ -35,7 +29,7 @@ function openPopup() {
     const popup = document.getElementById("popupWindow");
     popup.classList.add("show");
 }
-  
+
 //This function removes the class show to the pop up window and disable it to display
 function closePopup() {
     const popup = document.getElementById("popupWindow");

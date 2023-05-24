@@ -28,6 +28,7 @@ async function renderGeneratorPage() {
   const shoesLeftArrow = displayArrows("Shoe", "left");
   const shoesRightArrow = displayArrows("Shoe", "right");
 
+
   //Changing mains content to generator page
   main.innerHTML = `
     <div id="generatorParent">

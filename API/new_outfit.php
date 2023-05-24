@@ -39,7 +39,8 @@ if($method == "POST") {
     }
     $outfitID = $highestID + 1;
 
-    foreach ($users as &$user) { // Use the reference &$user to modify the original array
+    // Use the reference &$user to modify the original array
+    foreach ($users as &$user) { 
         if ($user["id"] == $userID) {
             $outfit = [
                 "styles" => $styles,
@@ -51,11 +52,13 @@ if($method == "POST") {
                 "outfitID"=> $outfitID
             ];
 
-            $user["outfits"][] = $outfit; // Append the new outfit to the "outfits" array
+            // Append the new outfit to the "outfits" array
+            $user["outfits"][] = $outfit;
 
             // Update the user data in the users array
             saveToFile($filename, $users);
-            break; // Exit the loop since the user is found and updated
+            // Exit the loop since the user is found and updated
+            break; 
         }
     }
 }
@@ -72,8 +75,10 @@ if ($method == "DELETE") {
 
             foreach ($outfits as $key => $outfit) {
                 if ($outfit["outfitID"] == $outfitID) {
-                    unset($outfits[$key]); // Remove the specific outfit from the $outfits array
-                    $user["outfits"] = array_values($outfits); // Reassign the updated $outfits array
+                    // Remove the specific outfit from the $outfits array
+                    unset($outfits[$key]); 
+                    // Reassign the updated $outfits array
+                    $user["outfits"] = array_values($outfits); 
                 }
             }
         }

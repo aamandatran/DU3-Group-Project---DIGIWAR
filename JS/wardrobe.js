@@ -66,7 +66,6 @@ function renderWardrobePage() {
         document.getElementById("addClothes").addEventListener("click", renderUploadItemPopUp);
 
         let id = localStorage.getItem("id");
-        console.log(id);
 
         let request = await fetch("API/your_wardrobe.php", {
             method: "POST",
@@ -232,7 +231,6 @@ function createItemDivs(array, item, whose) {
 }
 
 function deleteOrAdd(e) {
-    console.log(e);
     const id = localStorage.getItem("id");
     const path = e.target.parentElement.parentElement.classList[1];
     // Classlist will either be checkbox or delete, important when sending a request to API
@@ -280,6 +278,7 @@ function deleteOrAdd(e) {
             })
         });
 
+        // If yes then item should be deleted
         document.getElementById("yes").addEventListener("click", function (event) {
             const request = new Request("API/your_wardrobe.php", {
                 method: "DELETE",
