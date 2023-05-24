@@ -39,7 +39,7 @@ foreach ($users as $index => $user) {
             $response = [
                 //The respons that is sent back contains the new profile pic and a message. 
                 "newProfilePic" => $selectedProfilePicture,
-                "message" => "Profile picture updated succesfully!"
+                "message" => "Profile picture updated successfully!"
             ];
             //Saving the updated array in users.json
             saveToFile($filename,$users);

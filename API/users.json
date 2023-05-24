@@ -210,6 +210,17 @@
                 "backgroundColor": "rgb(255, 228, 233)",
                 "description": "all white outfit",
                 "outfitID": 36
+            },
+            {
+                "styles": [
+                    "casual"
+                ],
+                "top": "url(\"..\/MEDIA\/ewtreqtwreqywtrqw.png\")",
+                "bottom": "url(\"..\/MEDIA\/hdagkhsoiafoifdfl.png\")",
+                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
+                "backgroundColor": "rgb(247, 222, 187)",
+                "description": "for lazy days",
+                "outfitID": 39
             }
         ]
     },
