@@ -31,6 +31,12 @@ if($requestMethod == "PATCH") {
     $JSONfile = $requestData["file"];
     $id = $requestData["id"];
 
+    // Checks if all data was sent, if not status 400 will be sent
+    if(!isset($path, $JSONfile, $id)) {
+        $message = ["message" => "Some data seems to be missing... please check if all data was sent"];
+        sendJSON($message, 400);
+    }
+
     // Check which JSON file to iterate over and search for the item
     if($JSONfile == "tops.json") {
         $items =& $tops;
@@ -62,7 +68,7 @@ if($requestMethod == "PATCH") {
 
     // If something went wrong, for example if no file was sent
     $message = ["message" => "Something went wrong... please try again!"];
-    sendJSON($message, 409);
+    sendJSON($message, 418);
 }
 
 ?>

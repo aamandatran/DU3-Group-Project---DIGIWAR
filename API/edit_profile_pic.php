@@ -9,16 +9,17 @@ $contentType = $_SERVER["CONTENT_TYPE"];
 //Checking if the right mehod is used.
 if ($method !== "PATCH") {
     $error=[
-        "message" => "Only PATCH works."
+        "message" => "Only PATCH-method is allowed"
     ];
-    sendJSON($error,405);
+    sendJSON($error, 405);
 }
+
 //Checking so that the right content type is used. 
 if ($contentType !== "application/json") {
     $error = [
-        "message" => "only JSON works."
+        "message" => "Content type needs to be JSON"
     ];
-    sendJSON($error,415);
+    sendJSON($error, 415);
 }
 
 
@@ -30,7 +31,7 @@ $selectedProfilePicture = isset($data["profilePic"]) ? $data["profilePic"] : nul
 //We dont expect this to happen but if the selectedProfilePic is null then the user gets an error message 
 if ($selectedProfilePicture==null) {
     $error = [
-        "message" => "You have not selected a new profile Pic"
+        "message" => "You have not selected a new profile pic"
     ];
     sendJSON($error,400);
 }
@@ -47,7 +48,7 @@ foreach ($users as $index => $user) {
             $response = [
                 //The respons that is sent back contains the new profile pic and a message. 
                 "newProfilePic" => $selectedProfilePicture,
-                "message" => "Profile picture updated successfully!"
+                "message" => "Profile picture has been updated successfully!"
             ];
             //Saving the updated array in users.json
             saveToFile($filename,$users);
