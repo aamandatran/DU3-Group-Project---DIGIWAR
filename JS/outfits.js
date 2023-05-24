@@ -21,17 +21,17 @@ async function renderOutfits(event) {
         <nav id="filter">
             <a href="#">FILTER</a>
             <nav id="filtering">
-                <a href="#" id="all">All</a>
-                <a href="#" id="streetwear">Streetwear</a>
-                <a href="#" id="casual">Casual</a>
-                <a href="#" id="sporty">Sporty</a>
-                <a href="#" id="formal">Formal</a>
-                <a href="#" id="business">Business</a>
-                <a href="#" id="datenight">Date Night</a>
-                <a href="#" id="summer">Summer</a>
-                <a href="#" id="winter">Winter</a>
-                <a href="#" id="spring">Spring</a>
-                <a href="#" id="autumn">Autumn</a>
+            ${filterArray.map(filter => {
+                if(filter === "datenight") {
+                    filter = "Date night";
+                }
+                let filterA = document.createElement("a");
+                let capitalizedString = filter.charAt(0).toUpperCase() + filter.slice(1);
+                filterA.setAttribute("id", filter);
+                filterA.innerText = capitalizedString;
+                document.getElementById("filter").append(filterA);
+                return filterA.outerHTML;
+            }).join("")}        
             </nav>
         </nav>
         <section id = "wardrobeFeed">
@@ -133,6 +133,7 @@ async function renderOutfits(event) {
                         let outfitElement = document.getElementById(outfitID);
                         outfitElement.remove();
                         feedbackContainer.remove();
+                        feedback("Outfit has been succesfully deleted!");
                     }
                 })
 

@@ -3,19 +3,8 @@
         "id": 1,
         "username": "kajsa",
         "password": "123",
-        "profilepicture": "..\/MEDIA\/profilepictures\/lion-PhotoRoom.png-PhotoRoom.png",
+        "profilepicture": "..\/MEDIA\/profilepictures\/cat-PhotoRoom.png-PhotoRoom.png",
         "outfits": [
-            {
-                "styles": [
-                    "summer"
-                ],
-                "top": "url(\"..\/MEDIA\/yeuqywiuchoicjx.png\")",
-                "bottom": "url(\"..\/MEDIA\/gghrwrhishfidjsvick.png\")",
-                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp4-fotor-bg-remover-20230518233744.png\")",
-                "backgroundColor": "rgb(255, 228, 233)",
-                "description": "Love is in the air",
-                "outfitID": 19
-            },
             {
                 "styles": [
                     "streetwear",
@@ -27,64 +16,6 @@
                 "backgroundColor": "rgb(246, 239, 239)",
                 "description": "For skating days",
                 "outfitID": 20
-            },
-            {
-                "styles": [
-                    "business",
-                    "datenight"
-                ],
-                "top": "url(\"..\/MEDIA\/8aa2cc82dbc74c9396744783953b11de-fotor-bg-remover-202305041488.png\")",
-                "bottom": "url(\"..\/MEDIA\/jaJPNKSNKJDHDSUID.png\")",
-                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp2-fotor-bg-remover-20230518233817.png\")",
-                "backgroundColor": "rgb(255, 228, 233)",
-                "description": "Modest but sexy :P",
-                "outfitID": 21
-            },
-            {
-                "styles": [
-                    "summer",
-                    "spring"
-                ],
-                "top": "url(\"..\/MEDIA\/tvvvgyvydstvysdgusf.png\")",
-                "bottom": "url(\"..\/MEDIA\/app005prodd_11zon-fotor-bg-remover-20230518231824.png\")",
-                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp4-fotor-bg-remover-20230518233744.png\")",
-                "backgroundColor": "rgb(249, 200, 208)",
-                "description": "For those hotter days",
-                "outfitID": 22
-            },
-            {
-                "styles": [
-                    "summer",
-                    "spring"
-                ],
-                "top": "url(\"..\/MEDIA\/app005prod.png\")",
-                "bottom": "url(\"..\/MEDIA\/gghrwrhishfidjsvick.png\")",
-                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp4-fotor-bg-remover-20230518233744.png\")",
-                "backgroundColor": "rgb(249, 200, 208)",
-                "description": "Going shopping!",
-                "outfitID": 23
-            },
-            {
-                "styles": [
-                    "summer"
-                ],
-                "top": "url(\"..\/MEDIA\/tvvvgyvydstvysdgusf.png\")",
-                "bottom": "url(\"..\/MEDIA\/app005prodd_11zon-fotor-bg-remover-20230518231824.png\")",
-                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
-                "backgroundColor": "rgb(255, 228, 233)",
-                "description": "Finally summer!!!",
-                "outfitID": 24
-            },
-            {
-                "styles": [
-                    "business"
-                ],
-                "top": "url(\"..\/MEDIA\/app005prodf.png\")",
-                "bottom": "url(\"..\/MEDIA\/app005prodd_11zon-fotor-bg-remover-20230518231824.png\")",
-                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp1-fotor-bg-remover-2023051823383.png\")",
-                "backgroundColor": "rgb(255, 251, 219)",
-                "description": "",
-                "outfitID": 25
             },
             {
                 "styles": [
@@ -100,17 +31,6 @@
             },
             {
                 "styles": [
-                    "autumn"
-                ],
-                "top": "url(\"..\/MEDIA\/yeuqywiuchoicjx.png\")",
-                "bottom": "url(\"..\/MEDIA\/fweqwdqfsacsdcds.png\")",
-                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp2-fotor-bg-remover-20230518233817.png\")",
-                "backgroundColor": "rgb(255, 228, 233)",
-                "description": "ja",
-                "outfitID": 27
-            },
-            {
-                "styles": [
                     "datenight"
                 ],
                 "top": "url(\"..\/MEDIA\/8aa2cc82dbc74c9396744783953b11de-fotor-bg-remover-202305041488.png\")",
@@ -122,40 +42,14 @@
             },
             {
                 "styles": [
-                    "autumn"
+                    "summer"
                 ],
-                "top": "url(\"..\/MEDIA\/app005prodr-fotor-bg-remover-20230518232225.png\")",
-                "bottom": "url(\"..\/MEDIA\/hdagkhsoiafoifdfl.png\")",
+                "top": "url(\"..\/MEDIA\/8aa2cc82dbc74c9396744783953b11de-fotor-bg-remover-202305041488.png\")",
+                "bottom": "url(\"..\/MEDIA\/gghrwrhishfidjsvick.png\")",
                 "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp2-fotor-bg-remover-20230518233817.png\")",
-                "backgroundColor": "rgb(207, 225, 200)",
-                "description": "asd",
-                "outfitID": 29
-            },
-            {
-                "styles": [
-                    "formal",
-                    "datenight",
-                    "summer"
-                ],
-                "top": "url(\"..\/MEDIA\/app005prod.png\")",
-                "bottom": "url(\"..\/MEDIA\/app005prodd_11zon-fotor-bg-remover-20230518231824.png\")",
-                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp4-fotor-bg-remover-20230518233744.png\")",
-                "backgroundColor": "rgb(255, 228, 233)",
+                "backgroundColor": "rgb(249, 200, 208)",
                 "description": "",
-                "outfitID": 37
-            },
-            {
-                "styles": [
-                    "formal",
-                    "datenight",
-                    "summer"
-                ],
-                "top": "url(\"..\/MEDIA\/app005prod.png\")",
-                "bottom": "url(\"..\/MEDIA\/app005prodd_11zon-fotor-bg-remover-20230518231824.png\")",
-                "shoe": "url(\"..\/MEDIA\/Sk\u00e4rmklipp4-fotor-bg-remover-20230518233744.png\")",
-                "backgroundColor": "rgb(255, 228, 233)",
-                "description": "",
-                "outfitID": 38
+                "outfitID": 39
             }
         ]
     },
@@ -210,6 +104,17 @@
                 "backgroundColor": "rgb(255, 228, 233)",
                 "description": "all white outfit",
                 "outfitID": 36
+            },
+            {
+                "styles": [
+                    "casual"
+                ],
+                "top": "url(\"..\/MEDIA\/ewtreqtwreqywtrqw.png\")",
+                "bottom": "url(\"..\/MEDIA\/hdagkhsoiafoifdfl.png\")",
+                "shoe": "url(\"..\/MEDIA\/jfdhkjsdhfalsjfali.png\")",
+                "backgroundColor": "rgb(247, 222, 187)",
+                "description": "for lazy days",
+                "outfitID": 39
             }
         ]
     },
