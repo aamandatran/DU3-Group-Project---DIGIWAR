@@ -55,6 +55,9 @@ if($method == "POST") {
             // Append the new outfit to the "outfits" array
             $user["outfits"][] = $outfit;
 
+            $message = ["message" => "Outfit has been created"];
+            sendJSON($message, 201);
+
             // Update the user data in the users array
             saveToFile($filename, $users);
             // Exit the loop since the user is found and updated

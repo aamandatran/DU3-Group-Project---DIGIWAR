@@ -15,7 +15,15 @@ $requestData = getFileContents("php://input");
 // If we received an upload
 if(isset($_FILES["item"])) {
     $source = $_FILES["item"]["tmp_name"];
-    $destination = "../MEDIA/" . $_FILES["item"]["name"];
+    $originalFilename = $_FILES["item"]["name"];
+
+    // Generate a unique filename to avoid filenames with the same name
+    $uniqueFilename = sha1($originalFilename . time());
+
+    // Replaces space with underscore
+    $cleanFilename = str_replace(' ', '_', $uniqueFilename);
+
+    $destination = "../MEDIA/" . $cleanFilename;
 
     if (move_uploaded_file($source, $destination)) {
         $newItem = [
