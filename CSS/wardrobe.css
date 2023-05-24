@@ -33,6 +33,7 @@
 #wardrobePage>div>div {
     padding: 1.85vh 7.3vw;
     border-bottom: 0.1em double gray;
+    cursor: pointer;
 }
 
 #wardrobePage>div>div:hover {
