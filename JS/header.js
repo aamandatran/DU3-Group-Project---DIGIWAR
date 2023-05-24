@@ -6,8 +6,10 @@ function display_header_menu() {
 
     let header = document.querySelector("header");
 
+    // Header varies between is logged in and not logged in
     if (window.localStorage.getItem("isLoggedIn")) {
         header.style.padding = "0";
+
         header.innerHTML = `
         <div id="toStartPage">DIGIWAR</div>
         <nav id=menuContainer>
@@ -34,21 +36,21 @@ function display_header_menu() {
 
         header.classList.add("headerMenu")
 
+        // Render different pages
         let generatorButton = document.querySelector("#outfitGeneratorButton");
         generatorButton.addEventListener("click", function (event) {
             renderGeneratorPage()
         })
-
         let wardrobeButton = document.querySelector("#wardrobeButton");
         wardrobeButton.addEventListener("click", function (event) {
             renderWardrobePage()
         })
-
         let editProfileButton = document.querySelector("#editProfileButton")
         editProfileButton.addEventListener("click", function (event) {
             editProfile()
         })
 
+        // Log out
         let logOutButton = document.querySelector("#logOutButton");
         logOutButton.addEventListener("click", log_out)
 

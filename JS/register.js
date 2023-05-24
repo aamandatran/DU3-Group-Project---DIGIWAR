@@ -2,9 +2,7 @@
 
 //Render register page
 async function renderRegisterPage() {
-
-    //Clicking header will send you to start page
-    header_startPage();
+    display_header_menu()
 
     //Fetch the profilepictures
     let response = await fetch("api/profilepics.php");
@@ -14,7 +12,6 @@ async function renderRegisterPage() {
     //Creates the profile pictures and displays them under ul.profileOptions
     main.innerHTML = `
     <div id = registerParent>
-        
         <div id = register>
             <div id = LoginRegisterContainer> 
                 <button id = LoginButton>SIGN IN</button>
@@ -44,6 +41,7 @@ async function renderRegisterPage() {
     for (let picture of pictures) {
         picture.addEventListener("click", Selectedprofilepic);
     }
+
     //Display the selected profile picture
     function Selectedprofilepic(event) {
         let source = event.target.attributes.src.nodeValue;
@@ -52,11 +50,11 @@ async function renderRegisterPage() {
         `;
     }
 
-    document.querySelector("#RegisterButton").style.fontWeight = "500";
+    document.querySelector("#RegisterButton").classList.add("selected");
 
     //Clicking login button sends you to login page
     let LoginButton = document.querySelector("#LoginButton");
-    LoginButton.style.fontWeight = "200";
+    LoginButton.classList.remove("selected");
     LoginButton.addEventListener("click", renderLoginPage);
 
     //Clicking submit button will trigger register form
@@ -93,12 +91,12 @@ async function renderRegisterPage() {
             feedback("Registration Complete. Please proceed to login.");
 
             //Setting user information to localstorage items
-            let data = await response.json();            
+            let data = await response.json();
             localStorage.setItem("username", data.username);
             localStorage.setItem("id", data.id);
             localStorage.setItem("profilepicture", data.profilepicture);
 
-        //If response is NOT ok, feedback will provide error message
+            //If response is NOT ok, feedback will provide error message
         } else {
             let error = await response.json();
             feedback(error.message);

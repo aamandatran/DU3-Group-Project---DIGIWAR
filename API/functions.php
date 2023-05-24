@@ -6,6 +6,7 @@ function sendJSON($data, $statusCode = 200) {
     echo $json;
     exit();
 }
+
 function saveToFile($file, $array) {
     $json = json_encode($array, JSON_PRETTY_PRINT);
     file_put_contents($file, $json);
@@ -26,5 +27,4 @@ function filterItemsById($category, $id) {
 
     return $items;
 }
-
 ?>

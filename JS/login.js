@@ -2,9 +2,7 @@
 
 //Render login page
 function renderLoginPage() {
-
-    //Clicking header will send you to start page
-    header_startPage();
+    display_header_menu()
 
     //Changing mains content to login page
     main.innerHTML = `
@@ -25,11 +23,11 @@ function renderLoginPage() {
     </div>
     `;
 
-    document.querySelector("#LoginButton").style.fontWeight = "500";
+    document.querySelector("#LoginButton").classList.add("selected");
 
     //Clicking register button sends you to register page
     let RegisterButton = document.querySelector("#RegisterButton");
-    RegisterButton.style.fontWeight = "200";
+    RegisterButton.classList.remove("selected");
     RegisterButton.addEventListener("click", renderRegisterPage);
 
     //Clicking submit button will trigger login form
@@ -54,7 +52,7 @@ function renderLoginPage() {
         });
 
         const response = await fetch(request);
- 
+
         // Declare the variables outside the loop
         let id, profilepicture;
 
@@ -82,7 +80,7 @@ function renderLoginPage() {
             window.localStorage.setItem("password", password);
             renderWardrobePage();
 
-        //if reesponse is not ok
+            //if reesponse is not ok
         } else {
             //show feedback with error message
             let error = await response.json();

@@ -18,6 +18,7 @@ async function createOutfitDivs(id, style) {
     if (user.id === id) {
       //Save the users outfit array under variable outfits
       let outfits = user.outfits;
+
       //Loop users outfits
       for (let outfit of outfits) {
         //Create divs containing the outfits styles
@@ -25,6 +26,7 @@ async function createOutfitDivs(id, style) {
         for (let outfitStyle of outfit.styles) {
           stylesHTML += `<div>${outfitStyle}</div>`;
         }
+
         //If no style is sent then all outfits no matter style will be created
         //If the outfits chosen styles includes style then all outfits with that style will be created
         if (style === "" || outfit.styles.includes(style)) {
@@ -50,11 +52,7 @@ async function createOutfitDivs(id, style) {
       break;
     }
   }
-  //This function returns a ul filled or not with outfits
+
+  //This function returns an ul filled or not with outfits
   return document.querySelector("#wardrobeFeed > ul");
 }
-
-
-
-
-

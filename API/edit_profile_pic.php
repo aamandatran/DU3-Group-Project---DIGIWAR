@@ -2,44 +2,44 @@
 ini_set('display_errors', 1);
 require_once("functions.php");
 
-$filename="users.json";
-$method=$_SERVER["REQUEST_METHOD"];
-$contentType=$_SERVER["CONTENT_TYPE"];
+$filename = "users.json";
+$method = $_SERVER["REQUEST_METHOD"];
+$contentType = $_SERVER["CONTENT_TYPE"];
 
 //Checking if the right mehod is used.
-if ($method!=="PATCH") {
+if ($method !== "PATCH") {
     $error=[
-        "message"=>"Only PATCH works."
+        "message" => "Only PATCH works."
     ];
     sendJSON($error,405);
 }
 //Checking so that the right content type is used. 
-if ($contentType!=="application/json") {
-    $error=[
-        "message"=>"only JSON works."
+if ($contentType !== "application/json") {
+    $error = [
+        "message" => "only JSON works."
     ];
     sendJSON($error,400);
 }
 
 
-$data=getFileContents("php://input");
+$data = getFileContents("php://input");
  
 //Putting the new profile picture and the users username in variables.
-$selectedProfilePicture=$data["profilePic"];
-$userName=$data["userName"]; 
+$selectedProfilePicture = $data["profilePic"];
+$userName = $data["userName"]; 
 //Collecting all information from the json file and putting it in $users
-$users=getFileContents($filename);
+$users = getFileContents($filename);
 
 
 foreach ($users as $index => $user) {
     //Finding the right user in the array
-    if ($userName==$user["username"]) {
+    if ($userName == $user["username"]) {
         //When the right user is found we switch the new profile pic for the old one. 
-        $users[$index]["profilepicture"]=$selectedProfilePicture;
-            $response=[
+        $users[$index]["profilepicture"] = $selectedProfilePicture;
+            $response = [
                 //The respons that is sent back contains the new profile pic and a message. 
-                "newProfilePic"=>$selectedProfilePicture,
-                "message"=>"Profile picture updated succesfully!"
+                "newProfilePic" => $selectedProfilePicture,
+                "message" => "Profile picture updated succesfully!"
             ];
             //Saving the updated array in users.json
             saveToFile($filename,$users);
