@@ -14,7 +14,7 @@
     gap: 10px;
 }
 
-.tops_generate {
+.top_generate {
     display: grid;
     grid-template-columns: auto 100px 120px 100px auto;
     gap: 15px;
@@ -22,11 +22,11 @@
     padding-bottom: 15px;
 }
 
-.tops_generate>div {
+.top_generate>div {
     background-color: rgb(218, 235, 212);
 }
 
-.bottoms_generate {
+.bottom_generate {
     display: grid;
     grid-template-columns: auto 100px 120px 100px auto;
     gap: 15px;
@@ -34,11 +34,11 @@
     padding-bottom: 15px;
 }
 
-.bottoms_generate>div {
+.bottom_generate>div {
     background-color: rgb(224, 242, 244);
 }
 
-.shoes_generate {
+.shoe_generate {
     display: grid;
     grid-template-columns: auto 100px 120px 100px auto;
     gap: 15px;
@@ -46,11 +46,11 @@
     padding-bottom: 15px;
 }
 
-.shoes_generate>div {
+.shoe_generate>div {
     background-color: rgb(251, 248, 230);
 }
 
-#selectedTop>div {
+#selectedtop>div {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -58,14 +58,14 @@
     height: 90%;
 }
 
-#selectedTop {
+#selectedtop {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(var(--greenStandard));
 }
 
-#selectedBottom>div {
+#selectedbottom>div {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -73,14 +73,14 @@
     height: 90%;
 }
 
-#selectedBottom {
+#selectedbottom {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--blueStandard);
 }
 
-#selectedShoe>div {
+#selectedshoe>div {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -88,7 +88,7 @@
     height: 90%;
 }
 
-#selectedShoe {
+#selecteshoe {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -17,60 +17,43 @@ async function renderGeneratorPage() {
       <img src=../MEDIA/keyboard-arrow-${direction}.png class = arrow>
       `;
     main.appendChild(arrowButton);
-    return arrowButton;
+    return arrowButton.outerHTML;
   }
 
-  //Creates an arrow button for every item and direction
-  const topsLeftArrow = displayArrows("Top", "left");
-  const topsRightArrow = displayArrows("Top", "right");
-  const bottomsLeftArrow = displayArrows("Bottom", "left");
-  const bottomsRightArrow = displayArrows("Bottom", "right");
-  const shoesLeftArrow = displayArrows("Shoe", "left");
-  const shoesRightArrow = displayArrows("Shoe", "right");
+  function createSelectedItemDiv(item, arrowleft, arrowright) {
+    let new_div = document.createElement("div");
+    new_div.classList.add(`${item}_generate`);
+    
+    new_div.innerHTML = `
+      ${arrowleft}
+      <div></div>
+      <div id="selected${item}">
+        <div></div>
+      </div>
+      <div></div>
+      ${arrowright}
+    `;
+    main.append(new_div);
+    return new_div;
+  }
 
   //Changing mains content to generator page
   main.innerHTML = `
     <div id="generatorParent">
       <div id="generator">
         <div id="generatorGrid">
-            <div class="tops_generate">
-              ${topsLeftArrow.outerHTML}
-              <div></div>
-              <div id="selectedTop">
-                <div></div>
-              </div>
-              <div></div>
-              ${topsRightArrow.outerHTML}
-            </div>
+          ${createSelectedItemDiv("top", displayArrows("Top", "left"), displayArrows("Top", "right")).outerHTML}
+          ${createSelectedItemDiv("bottom", displayArrows("Bottom", "left"), displayArrows("Bottom", "right")).outerHTML}
+          ${createSelectedItemDiv("shoe", displayArrows("Shoe", "left"), displayArrows("Shoe", "right")).outerHTML}
+        </div>  
   
-            <div class="bottoms_generate">
-              ${bottomsLeftArrow.outerHTML}
-              <div></div>
-              <div id="selectedBottom">
-                <div></div>
-              </div>
-              <div></div>
-              ${bottomsRightArrow.outerHTML}
-            </div>
-  
-            <div class="shoes_generate">
-              ${shoesLeftArrow.outerHTML}
-              <div></div>
-              <div id="selectedShoe">
-                <div></div>
-              </div>
-              <div></div>
-              ${shoesRightArrow.outerHTML}
-            </div>
+        <div class="generateOrSave">
+          <button id="generatorButton">GENERATOR</button>
+          <div id="saveIt">
+            <img src="../MEDIA/heart.png">
+            <p>Save it!</p>
           </div>
-  
-          <div class="generateOrSave">
-            <button id="generatorButton">GENERATOR</button>
-            <div id="saveIt">
-              <img src="../MEDIA/heart.png">
-              <p>Save it!</p>
-            </div>
-          </div>
+        </div>
       </div>
 
       <div id="popupWindow" class="popup">
@@ -87,63 +70,25 @@ async function renderGeneratorPage() {
               <fieldset id="styleCategories">
                 <legend>Choose style</legend>
       
-                <div> 
-                  <input type=checkbox id=streetwear name=streetwear>
-                  <label for=streetwear id=streetwearLabel>Streetwear</label>
-                </div>
-      
-                <div> 
-                  <input type=checkbox id=casual name=casual>
-                  <label for=casual id=casualLabel>Casual</label>
-                </div>
-      
-                <div> 
-                  <input type=checkbox id=sporty name=sporty>
-                  <label for=sporty id=sportyLabel>Sporty</label>
-                </div>          
-      
-                <div> 
-                  <input type=checkbox id=formal name=formal>
-                  <label for=formal id=formalLabel>Formal</label>
-                </div>            
-                  
-                <div> 
-                  <input type=checkbox id=business name=business>
-                  <label for=business id=businessLabel>Business</label>
-                </div>            
-                  
-                <div> 
-                  <input type=checkbox id=datenight name=datenight>
-                  <label for=datenight id=datenightLabel>Date night</label>
-                </div>            
-                  
-                <div> 
-                  <input type=checkbox id=summer name=summer>
-                  <label for=summer id=summerLabel>Summer</label>
-                </div>            
-                  
-                <div> 
-                  <input type=checkbox id=winter name=winter>
-                  <label for=winter id=winterLabel>Winter</label>
-                </div>
-      
-                <div> 
-                  <input type=checkbox id=spring name=spring>
-                  <label for=spring id=springLabel>Spring</label>
-                </div>
+                ${filterArray.map(filter => {
+                  let filterDiv = document.createElement("div");
+                  let capitalizedString = filter.charAt(0).toUpperCase() + filter.slice(1);
+                  filterDiv.innerHTML = `
+                    <input type=checkbox id=${filter} name=${filter}>
+                    <label for=${filter} id=${filter}Label>${capitalizedString}</label>
+                  `;
+                  main.append(filterDiv);
+                  return filterDiv.outerHTML;
+                }).join("")}
 
-                <div> 
-                  <input type=checkbox id=autumn name=autumn>
-                  <label for=autumn id=autumnLabel>Autumn</label>
-                </div>            
               </fieldset>
             </div>
       
             <div id=newOutfit2>
               <div id="popupSelectedItems">
-                <div id="popupSelectedTop"></div>
-                <div id="popupSelectedBottom"></div>
-                <div id="popupSelectedShoe"></div>
+                <div id="popupSelectedtop"></div>
+                <div id="popupSelectedbottom"></div>
+                <div id="popupSelectedshoe"></div>
               </div>
       
               <div id="pickBackgroundColor">Pick a background color</div>
@@ -205,7 +150,6 @@ async function renderGeneratorPage() {
   let bottoms = wardrobe.bottoms;
   let shoes = wardrobe.shoes;
 
-
   let previousSelectedTop;
   let previousSelectedBottom;
   let previousSelectedShoe;
@@ -218,13 +162,13 @@ async function renderGeneratorPage() {
 
     // Check which arrow button was clicked and call the generate function for that item type
     if (currentTarget.classList.contains("arrowTop")) {
-      generate(event, tops, previousSelectedTop, "selectedTop", "popupSelectedTop", "Top");
+      generate(event, tops, previousSelectedTop, "selectedtop", "popupSelectedtop", "Top");
     } else if (currentTarget.classList.contains("arrowBottom")) {
-      generate(event, bottoms, previousSelectedBottom, "selectedBottom", "popupSelectedBottom", "Bottom");
+      generate(event, bottoms, previousSelectedBottom, "selectedbottom", "popupSelectedbottom", "Bottom");
     } else {
-      generate(event, shoes, previousSelectedShoe, "selectedShoe", "popupSelectedShoe", "Shoe");
+      generate(event, shoes, previousSelectedShoe, "selectedshoe", "popupSelectedshoe", "Shoe");
+    
     }
-
     function generate(event, itemArray, previousSelectedItem, selectedElementId, popupElementId, itemType) {
 
       const currentTarget = event.currentTarget;
@@ -268,14 +212,14 @@ async function renderGeneratorPage() {
     let selectedShoe = shoes[Math.floor(Math.random() * shoes.length)];
 
     //Changes and displays the items
-    document.querySelector("#selectedTop > div").style.backgroundImage = `url(${selectedTop.path})`;
-    document.querySelector("#selectedBottom > div").style.backgroundImage = `url(${selectedBottom.path})`;
-    document.querySelector("#selectedShoe > div").style.backgroundImage = `url(${selectedShoe.path})`;
+    document.querySelector("#selectedtop > div").style.backgroundImage = `url(${selectedTop.path})`;
+    document.querySelector("#selectedbottom > div").style.backgroundImage = `url(${selectedBottom.path})`;
+    document.querySelector("#selectedshoe > div").style.backgroundImage = `url(${selectedShoe.path})`;
 
     //Changes and displays the selected items to the pop up window
-    document.getElementById('popupSelectedTop').style.backgroundImage = `url(${selectedTop.path})`;
-    document.getElementById('popupSelectedBottom').style.backgroundImage = `url(${selectedBottom.path})`;
-    document.getElementById('popupSelectedShoe').style.backgroundImage = `url(${selectedShoe.path})`;
+    document.getElementById('popupSelectedtop').style.backgroundImage = `url(${selectedTop.path})`;
+    document.getElementById('popupSelectedbottom').style.backgroundImage = `url(${selectedBottom.path})`;
+    document.getElementById('popupSelectedshoe').style.backgroundImage = `url(${selectedShoe.path})`;
   }
 
   //Clicking save it will call the openPopup function
@@ -306,9 +250,9 @@ async function renderGeneratorPage() {
     let id = window.localStorage.getItem("id");
     let description = document.getElementById("description").value;
     let backgroundColor = document.getElementById("popupSelectedItems").style.backgroundColor;
-    let backgroundImageTop = document.getElementById("popupSelectedTop").style.backgroundImage;
-    let backgroundImageBottom = document.getElementById("popupSelectedBottom").style.backgroundImage;
-    let backgroundImageShoe = document.getElementById("popupSelectedShoe").style.backgroundImage;
+    let backgroundImageTop = document.getElementById("popupSelectedtop").style.backgroundImage;
+    let backgroundImageBottom = document.getElementById("popupSelectedbottom").style.backgroundImage;
+    let backgroundImageShoe = document.getElementById("popupSelectedshoe").style.backgroundImage;
 
     //Save the information in object OutfitData
     let OutfitData = {
