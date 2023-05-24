@@ -21,7 +21,7 @@ async function renderOutfits(event) {
         <nav id="filter">
             <a href="#">FILTER</a>
             <nav id="filtering">
-                <a href="#" id="allItems">All</a>
+                <a href="#" id="all">All</a>
                 <a href="#" id="streetwear">Streetwear</a>
                 <a href="#" id="casual">Casual</a>
                 <a href="#" id="sporty">Sporty</a>

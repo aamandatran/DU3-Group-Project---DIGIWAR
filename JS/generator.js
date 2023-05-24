@@ -20,6 +20,7 @@ async function renderGeneratorPage() {
     return arrowButton.outerHTML;
   }
 
+  //Creates the selected item divs and appends it
   function createSelectedItemDiv(item, arrowleft, arrowright) {
     let new_div = document.createElement("div");
     new_div.classList.add(`${item}_generate`);
@@ -39,6 +40,7 @@ async function renderGeneratorPage() {
 
 
   //Changing mains content to generator page
+  //Creates the top, bottom and shoe divs
   main.innerHTML = `
     <div id="generatorParent">
       <div id="generator">
@@ -72,6 +74,10 @@ async function renderGeneratorPage() {
                 <legend>Choose style</legend>
       
                 ${filterArray.map(filter => {
+                  //Creates the filter divs and appends them
+                  if(filter === "all") {
+                    return "";
+                  }
                   let filterDiv = document.createElement("div");
                   let capitalizedString = filter.charAt(0).toUpperCase() + filter.slice(1);
                   filterDiv.innerHTML = `

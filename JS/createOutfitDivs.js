@@ -24,7 +24,11 @@ async function createOutfitDivs(id, style) {
         //Create divs containing the outfits styles
         let stylesHTML = '';
         for (let outfitStyle of outfit.styles) {
-          stylesHTML += `<div>${outfitStyle}</div>`;
+          if(outfitStyle === "datenight") {
+            outfitStyle = "Date night";
+          }
+          let capitalizedString = outfitStyle.charAt(0).toUpperCase() + outfitStyle.slice(1);
+          stylesHTML += `<div>${capitalizedString}</div>`;
         }
 
         //If no style is sent then all outfits no matter style will be created
