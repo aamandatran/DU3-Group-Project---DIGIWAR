@@ -18,14 +18,16 @@ if ($contentType !== "application/json") {
     $error = [
         "message" => "only JSON works."
     ];
-    sendJSON($error,400);
+    sendJSON($error,415);
 }
 
 
 $data = getFileContents("php://input");
  
 //Putting the new profile picture and the users username in variables.
+//Checking if the profile pic isset. 
 $selectedProfilePicture = isset($data["profilePic"]) ? $data["profilePic"] : null;
+//We dont expect this to happen but if the selectedProfilePic is null then the user gets an error message 
 if ($selectedProfilePicture==null) {
     $error = [
         "message" => "You have not selected a new profile Pic"
