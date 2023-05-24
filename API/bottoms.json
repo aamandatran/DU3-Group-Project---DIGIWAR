@@ -130,12 +130,18 @@
         "path": "..\/MEDIA\/bottom3.png",
         "id": [
             0,
-            1,
             1
         ]
     },
     {
         "path": "..\/MEDIA\/bottom4.png",
+        "id": [
+            0,
+            1
+        ]
+    },
+    {
+        "path": "..\/MEDIA\/bottom7.png",
         "id": [
             0,
             1
