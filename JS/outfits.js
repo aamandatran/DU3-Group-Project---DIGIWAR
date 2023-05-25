@@ -22,16 +22,16 @@ async function renderOutfits(event) {
             <a href="#">FILTER</a>
             <nav id="filtering">
             ${filterArray.map(filter => {
-                if(filter === "datenight") {
-                    filter = "Date night";
-                }
-                let filterA = document.createElement("a");
-                let capitalizedString = filter.charAt(0).toUpperCase() + filter.slice(1);
-                filterA.setAttribute("id", filter);
-                filterA.innerText = capitalizedString;
-                document.getElementById("filter").append(filterA);
-                return filterA.outerHTML;
-            }).join("")}        
+        if (filter === "datenight") {
+            filter = "Date night";
+        }
+        let filterA = document.createElement("a");
+        let capitalizedString = filter.charAt(0).toUpperCase() + filter.slice(1);
+        filterA.setAttribute("id", filter);
+        filterA.innerText = capitalizedString;
+        document.getElementById("filter").append(filterA);
+        return filterA.outerHTML;
+    }).join("")}        
             </nav>
         </nav>
         <section id = "wardrobeFeed">
@@ -120,7 +120,7 @@ async function renderOutfits(event) {
                     })
 
                     //Sends a DELETE request to the new_outfit.php with the userID and outfitID as the body. 
-                    let response = await fetch("api/new_outfit.php", {
+                    let response = await fetch("API/new_outfit.php", {
                         method: "DELETE",
                         headers: { "Content-type": "application/json", },
                         body: JSON.stringify({
