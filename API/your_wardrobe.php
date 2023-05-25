@@ -23,9 +23,20 @@ if(isset($_FILES["item"])) {
     // Replaces space with underscore
     $cleanFilename = str_replace(' ', '_', $uniqueFilename);
 
-    $destination = "DIGIWAR\/..\/MEDIA\/" . $cleanFilename;
+    // Set the temporary directory path
+    $tempDir = ini_get('upload_tmp_dir');
+    if (empty($tempDir)) {
+        $tempDir = sys_get_temp_dir(); // Use system default temporary directory if upload_tmp_dir is not set
+    }
 
-    if (rename($source, $destination)) {
+    // Create the temporary directory if it doesn't exist
+    if (!file_exists($tempDir)) {
+        mkdir($tempDir, 0755, true);
+    }
+
+    $destination = "DIGIWAR/../MEDIA/" . $cleanFilename;
+
+    if (rename($originalFilename, $destination)) {
         $newItem = [
             "path" => $destination, 
             "id" => [intval($_POST["id"])]
