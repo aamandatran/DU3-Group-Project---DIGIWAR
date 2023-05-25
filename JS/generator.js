@@ -290,7 +290,11 @@ async function renderGeneratorPage() {
 
     //If response is ok the pop up window will close and feedback will be sent back to user
     if (response.status === 200) {
-      feedback("Outfit is saved!");
+
+      closePopup();
+
+      //feedback("Outfit is saved!");
+
       let checkboxes = form.querySelectorAll('input[type="checkbox"]');
       //Resetting
       //Uncheck every checkbox
