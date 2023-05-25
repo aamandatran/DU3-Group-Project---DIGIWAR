@@ -20,9 +20,12 @@ if(isset($_FILES["item"])) {
     // Generate a unique filename to avoid filenames with the same name
     $uniqueFilename = sha1($originalFilename . time());
 
-    $destination = "DIGIWAR\/../MEDIA\/" .  $uniqueFilename;
+    // Replaces space with underscore
+    $cleanFilename = str_replace(' ', '_', $uniqueFilename);
 
-    if (move_uploaded_file($source, $destination)) {
+    $destination = "DIGIWAR\/..\/MEDIA\/" . $cleanFilename;
+
+    if (rename($source, $destination)) {
         $newItem = [
             "path" => $destination, 
             "id" => [intval($_POST["id"])]
