@@ -102,7 +102,7 @@ if($requestMethod == "DELETE") {
     }
 
     foreach($items as $key => $item) {
-        if(str_contains($path, $item["path"])) {
+        if(strstr($path, $item["path"])) {
             // Check if Id array has more than one id
             if(count($item["id"]) > 1){
                 // Gets the index of the Id to remove

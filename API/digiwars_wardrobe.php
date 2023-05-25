@@ -47,7 +47,7 @@ if($requestMethod == "PATCH") {
     } 
 
     foreach($items as $key => $item) {
-        if(str_contains($path, $item["path"])) {
+        if(strstr($path, $item["path"])) {
             // Adds the new Id to the array
             $item["id"][] = intval($id);
 
