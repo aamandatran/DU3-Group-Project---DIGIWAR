@@ -49,7 +49,7 @@ function renderUploadItemPopUp() {
             <h1>New item</h1>
             <div id="itemImage"></div>
                 <form id="upload" action="API/your_wardrobe.php" method="POST">
-                    <input type="file" name="item">
+                    <input type="file" name="item" enctype="multipart/form-data">
                     <button type="submit">Upload image</button>
                 </form>
             <button id="done">Done</button>
