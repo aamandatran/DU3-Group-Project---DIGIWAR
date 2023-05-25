@@ -206,20 +206,20 @@ function createItemDivs(array, item, whose) {
         if (whose === "yours") {
             imageDiv.innerHTML = `
                     <button class='delete itemButton ${file}'>
-                        <img src="../MEDIA/trashcan.png">
+                        <img src="DIGIWAR\/..\/MEDIA\/trashcan.png">
                     </button>
                 `;
         } else {
             if (inArray(localStorage.getItem("id"), item.id)) {
                 imageDiv.innerHTML = `
                     <button class='checkbox itemButton ${file}'>
-                        <img src="../MEDIA/added.png">
+                        <img src="DIGIWAR\/..\/MEDIA\/added.png">
                     </button>
                 `;
             } else {
                 imageDiv.innerHTML = `
                     <button class='checkbox itemButton ${file}'>
-                        <img src="../MEDIA/add.png">
+                        <img src="DIGIWAR\/..\/MEDIA\/add.png">
                     </button>
                 `;
             }
@@ -256,7 +256,7 @@ function deleteOrAdd(e) {
                     feedback(data.message)
                 } else {
                     feedback(data.message)
-                    e.target.setAttribute("src", "../MEDIA/added.png");
+                    e.target.setAttribute("src", "DIGIWAR\/..\/MEDIA\/added.png");
                 }
             }).catch(error => {
                 console.log(error);
