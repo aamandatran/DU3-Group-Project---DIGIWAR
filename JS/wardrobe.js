@@ -141,14 +141,15 @@ function filterByItem(wardrobe, whose) {
 function createItemDivs(array, item, whose) {
     // Empty the feed
     const wardrobeFeed = document.querySelector("#wardrobeFeed > ul");
+    const wardrobeP = document.querySelector("#wardrobeFeed > p");
     wardrobeFeed.innerHTML = "";
 
     function createDivsWithFeedback(items, fileType) {
         if (items.length === 0) {
             // Feedback
-            wardrobeFeed.innerHTML = `There are no ${item} in your wardrobe...`;
+            wardrobeP.innerHTML = `There are no ${item} in your wardrobe...`;
         } else {
-            wardrobeFeed.innerHTML = "";
+            wardrobeP.innerHTML = "";
             for (let item of items) {
                 // Sends string with filename to add to divs classlist, will use this to send to API to know which file to search in
                 createDivs(item, fileType);
@@ -173,10 +174,10 @@ function createItemDivs(array, item, whose) {
                 array.bottoms.length === 0 &&
                 array.shoes.length === 0
             ) {
-                wardrobeFeed.innerHTML =
+                wardrobeP.innerHTML =
                     "Your wardrobe is empty... Try adding your own clothes or select clothes from DIGIWARS Catalog!";
             } else {
-                wardrobeFeed.innerHTML = "";
+                wardrobeP.innerHTML = "";
                 for (let top of array.tops) {
                     createDivs(top, "tops.json");
                 }
