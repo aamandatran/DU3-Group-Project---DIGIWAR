@@ -7,7 +7,7 @@ async function createOutfitDivs(id, style) {
   document.querySelector("#wardrobeFeed > p").innerHTML = "";
 
   //Fetch array of user
-  let response = await fetch("api/users.php");
+  let response = await fetch("API/users.php");
   let users = await response.json();
 
   id = parseInt(id);
