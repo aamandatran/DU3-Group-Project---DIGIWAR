@@ -291,9 +291,6 @@ async function renderGeneratorPage() {
     //If response is ok the pop up window will close and feedback will be sent back to user
     if (response.status === 200) {
 
-      closePopup();
-
-      console.log("ja");
       let checkboxes = form.querySelectorAll('input[type="checkbox"]');
       //Resetting
       //Uncheck every checkbox
@@ -308,7 +305,6 @@ async function renderGeneratorPage() {
     } else {
       let error = await response.json();
       feedback(error.message);
-      console.log("nej");
     }
   });
 }
