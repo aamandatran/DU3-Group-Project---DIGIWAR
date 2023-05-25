@@ -45,7 +45,7 @@ function renderLoginPage() {
         };
 
         //Sends a POST request to validate or confirm credentials
-        const request = new Request("api/login.php", {
+        const request = new Request("API/login.php", {
             method: "POST",
             headers: { "Content-type": "application/json; charset=UTF-8" },
             body: JSON.stringify(userData)
