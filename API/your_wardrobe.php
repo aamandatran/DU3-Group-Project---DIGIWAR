@@ -23,7 +23,7 @@ if(isset($_FILES["item"])) {
     // Replaces space with underscore
     $cleanFilename = str_replace(' ', '_', $uniqueFilename);
 
-    $destination = "DIGIWAR\/..\/MEDIA\/" . $cleanFilename;
+    $destination = "../MEDIA/" . $cleanFilename;
 
     if (move_uploaded_file($source, $destination)) {
         $newItem = [
@@ -42,17 +42,14 @@ if(isset($_FILES["item"])) {
         if($_POST["file"] == "tops.json") {
             $tops[] = $newItem;
             saveToFile("tops.json", $tops);
-            $message["file"] = "tops.json";
             sendJSON($message, 201);
         } elseif($_POST["file"] == "bottoms.json") {
             $bottoms[] = $newItem;
             saveToFile("bottoms.json", $bottoms);
-            $message["file"] = "bottoms.json";
             sendJSON($message, 201);
         } elseif($_POST["file"] == "shoes.json") {
             $shoes[] = $newItem;
             saveToFile("shoes.json", $shoes);
-            $message["file"] = "shoes.json";
             sendJSON($message, 201);
         } else{
             $message = [
@@ -91,6 +88,12 @@ if($requestMethod == "DELETE") {
     $path = $requestData["path"];
     $JSONfile = $requestData["file"];
     $id = $requestData["id"];
+
+    // Checks if all data was sent, if not status 400 will be sent
+    if(!isset($path, $JSONfile, $id)) {
+        $message = ["message" => "Some data seems to be missing... please check if all data was sent"];
+        sendJSON($message, 400);
+    }
 
     // Check which JSON file to iterate over and search for the item
     if($JSONfile == "tops.json") {
@@ -132,7 +135,7 @@ if($requestMethod == "DELETE") {
 
     // If something went wrong, for example if no file was sent
     $message = ["message" => "Something went wrong... please try again!"];
-    sendJSON($message, 409);
+    sendJSON($message, 418);
 }
 
 ?>

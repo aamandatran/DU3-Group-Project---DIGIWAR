@@ -10,8 +10,7 @@ $shoes = getFileContents("shoes.json");
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
 // Get data from the request body
-$requestJSON = file_get_contents("php://input");
-$requestData = json_decode($requestJSON, true);
+$requestData = getFileContents("php://input");
 
 // Sends back every item to display on website
 if($requestMethod == "GET") {

@@ -79,6 +79,8 @@ function renderUploadItemPopUp() {
             const id = localStorage.getItem("id");
             formData.append("id", id);
 
+            console.log(formData);
+
             const request = new Request("API/your_wardrobe.php", {
                 method: "POST",
                 body: formData
