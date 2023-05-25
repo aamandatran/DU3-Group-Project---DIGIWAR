@@ -23,7 +23,7 @@ if(isset($_FILES["item"])) {
     // Replaces space with underscore
     $cleanFilename = str_replace(' ', '_', $uniqueFilename);
 
-    $destination = "../MEDIA/" . $cleanFilename;
+    $destination = __DIR__ . "DIGIWAR\/..\/MEDIA\/" . $cleanFilename;
 
     if (move_uploaded_file($source, $destination)) {
         $newItem = [
