@@ -14,7 +14,7 @@ async function renderGeneratorPage() {
     arrowButton.classList.add("arrowButton");
     arrowButton.classList.add(`arrow${item}`);
     arrowButton.innerHTML = `
-      <img src=../MEDIA/keyboard-arrow-${direction}.png class = arrow>
+      <img src=DIGIWAR\/..\/MEDIA\/keyboard-arrow-${direction}.png class = arrow>
       `;
     main.appendChild(arrowButton);
     return arrowButton.outerHTML;
@@ -24,7 +24,7 @@ async function renderGeneratorPage() {
   function createSelectedItemDiv(item, arrowleft, arrowright) {
     let new_div = document.createElement("div");
     new_div.classList.add(`${item}_generate`);
-    
+
     new_div.innerHTML = `
       ${arrowleft}
       <div></div>
@@ -53,7 +53,7 @@ async function renderGeneratorPage() {
         <div class="generateOrSave">
           <button id="generatorButton">GENERATOR</button>
           <div id="saveIt">
-            <img src="../MEDIA/heart.png">
+            <img src="DIGIWAR\/..\/MEDIA\/heart.png">
             <p>Save it!</p>
           </div>
         </div>
@@ -74,19 +74,19 @@ async function renderGeneratorPage() {
                 <legend>Choose style</legend>
       
                 ${filterArray.map(filter => {
-                  //Creates the filter divs and appends them
-                  if(filter === "all") {
-                    return "";
-                  }
-                  let filterDiv = document.createElement("div");
-                  let capitalizedString = filter.charAt(0).toUpperCase() + filter.slice(1);
-                  filterDiv.innerHTML = `
+    //Creates the filter divs and appends them
+    if (filter === "all") {
+      return "";
+    }
+    let filterDiv = document.createElement("div");
+    let capitalizedString = filter.charAt(0).toUpperCase() + filter.slice(1);
+    filterDiv.innerHTML = `
                     <input type=checkbox id=${filter} name=${filter}>
                     <label for=${filter} id=${filter}Label>${capitalizedString}</label>
                   `;
-                  main.append(filterDiv);
-                  return filterDiv.outerHTML;
-                }).join("")}
+    main.append(filterDiv);
+    return filterDiv.outerHTML;
+  }).join("")}
 
               </fieldset>
             </div>
@@ -143,7 +143,7 @@ async function renderGeneratorPage() {
   };
 
   //Sending a POST request to gain access over users wardrobe
-  const post_request = new Request("api/your_wardrobe.php", {
+  const post_request = new Request("API/your_wardrobe.php", {
     method: "POST",
     headers: { "Content-type": "application/json; charset=UTF-8" },
     body: JSON.stringify(userData),
@@ -174,7 +174,7 @@ async function renderGeneratorPage() {
       generate(event, bottoms, previousSelectedBottom, "selectedbottom", "popupSelectedbottom", "Bottom");
     } else {
       generate(event, shoes, previousSelectedShoe, "selectedshoe", "popupSelectedshoe", "Shoe");
-    
+
     }
     function generate(event, itemArray, previousSelectedItem, selectedElementId, popupElementId, itemType) {
 
@@ -273,7 +273,7 @@ async function renderGeneratorPage() {
     };
 
     //Send a POST request to save the outfit in the users outfit array in users.json
-    const request = new Request("api/new_outfit.php", {
+    const request = new Request("API/new_outfit.php", {
       method: "POST",
       headers: { "Content-type": "application/json; charset=UTF-8" },
       body: JSON.stringify(OutfitData),
