@@ -36,7 +36,6 @@ function feedback(message) {
     feedbackContainer.querySelector("#close").addEventListener("click", () => {
         //When clicked the feedback container is removed. 
         feedbackContainer.remove();
-        closePopup();
         buttons.forEach((button) => {
             //We then enables the buttons again when the feedback disapears. 
             button.disabled = false;

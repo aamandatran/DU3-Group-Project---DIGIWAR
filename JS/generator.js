@@ -154,6 +154,7 @@ async function renderGeneratorPage() {
 
   //Saving the values in item variables
   let tops = wardrobe.tops;
+  console.log(tops);
   let bottoms = wardrobe.bottoms;
   let shoes = wardrobe.shoes;
 
@@ -214,9 +215,15 @@ async function renderGeneratorPage() {
   function generator(event) {
 
     //Selects random items from the item types wardrobe arrays and saves the value
+    if(tops.length === 0 || bottoms.length === 0 || shoes.length === 0) {
+      feedback("You don't have any clothes! Try adding some in the wardrobe first!");
+    } else {
+
     let selectedTop = tops[Math.floor(Math.random() * tops.length)];
     let selectedBottom = bottoms[Math.floor(Math.random() * bottoms.length)];
     let selectedShoe = shoes[Math.floor(Math.random() * shoes.length)];
+
+    console.log(selectedTop.path);
 
     //Changes and displays the items
     document.querySelector("#selectedtop > div").style.backgroundImage = `url(${selectedTop.path})`;
@@ -300,4 +307,5 @@ async function renderGeneratorPage() {
       feedback(error.message);
     }
   });
+}
 }
