@@ -3,9 +3,9 @@ ini_set("display_errors", 1);
 require_once("functions.php");
 
 // Reads the content in the JSON-files and decodes from JSON to PHP
-$tops = getFileContents("tops.json");
-$bottoms = getFileContents("bottoms.json");
-$shoes = getFileContents("shoes.json");
+$tops = getFileContents(__dir__."tops.json");
+$bottoms = getFileContents(__dir__."bottoms.json");
+$shoes = getFileContents(__dir__."shoes.json");
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
@@ -91,12 +91,6 @@ if($requestMethod == "DELETE") {
     $path = $requestData["path"];
     $JSONfile = $requestData["file"];
     $id = $requestData["id"];
-
-    // Checks if all data was sent, if not status 400 will be sent
-    if(!isset($path, $JSONfile, $id)) {
-        $message = ["message" => "Some data seems to be missing... please check if all data was sent"];
-        sendJSON($message, 400);
-    }
 
     // Check which JSON file to iterate over and search for the item
     if($JSONfile == "tops.json") {

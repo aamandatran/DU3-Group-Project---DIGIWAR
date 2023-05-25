@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 require_once("functions.php");
 
-$filename = "users.json";
+$filename = __dir__."users.json";
 $method = $_SERVER["REQUEST_METHOD"];
 
 //POST is used for logging in
