@@ -293,8 +293,7 @@ async function renderGeneratorPage() {
 
       closePopup();
 
-      //feedback("Outfit is saved!");
-
+      console.log("ja");
       let checkboxes = form.querySelectorAll('input[type="checkbox"]');
       //Resetting
       //Uncheck every checkbox
@@ -309,6 +308,7 @@ async function renderGeneratorPage() {
     } else {
       let error = await response.json();
       feedback(error.message);
+      console.log("nej");
     }
   });
 }
