@@ -23,6 +23,9 @@ if(isset($_FILES["item"])) {
     // Replaces space with underscore
     $cleanFilename = str_replace(' ', '_', $uniqueFilename);
 
+    // Hopefully gives server permission to write in the directory
+    chmod("DIGIWAR\/..\/MEDIA\/", 755);
+
     $destination = __DIR__ . "DIGIWAR\/..\/MEDIA\/" . $cleanFilename;
 
     if (move_uploaded_file($source, $destination)) {
