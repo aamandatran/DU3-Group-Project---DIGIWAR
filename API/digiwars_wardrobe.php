@@ -3,9 +3,9 @@ ini_set("display_errors", 1);
 require_once("functions.php");
 
 // Reads the content in the JSON-files and decodes from JSON to PHP
-$tops = getFileContents(__dir__."tops.json");
-$bottoms = getFileContents(__dir__."bottoms.json");
-$shoes = getFileContents(__dir__."shoes.json");
+$tops = getFileContents("tops.json");
+$bottoms = getFileContents("bottoms.json");
+$shoes = getFileContents("shoes.json");
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 

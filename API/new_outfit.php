@@ -2,7 +2,7 @@
 ini_set("display_errors", 1);
 require_once("functions.php");
 
-$filename = __dir__."users.json";
+$filename = "users.json";
 $method = $_SERVER["REQUEST_METHOD"];
 
 //Fetching the information from the POST or DELETE request
