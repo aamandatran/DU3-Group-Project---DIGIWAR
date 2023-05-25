@@ -24,9 +24,9 @@ if(isset($_FILES["item"])) {
     $cleanFilename = str_replace(' ', '_', $uniqueFilename);
 
     // Hopefully gives server permission to write in the directory
-    chmod("DIGIWAR\/..\/MEDIA\/", 755);
+    // chmod("DIGIWAR\/..\/MEDIA\/", 755);
 
-    $destination = __DIR__ . "DIGIWAR\/..\/MEDIA\/" . $cleanFilename;
+    $destination = __DIR__ . "/MEDIA/" . $cleanFilename;
 
     if (move_uploaded_file($source, $destination)) {
         $newItem = [
