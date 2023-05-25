@@ -24,7 +24,7 @@ async function createOutfitDivs(id, style) {
         //Create divs containing the outfits styles
         let stylesHTML = '';
         for (let outfitStyle of outfit.styles) {
-          if(outfitStyle === "datenight") {
+          if (outfitStyle === "datenight") {
             outfitStyle = "Date night";
           }
           let capitalizedString = outfitStyle.charAt(0).toUpperCase() + outfitStyle.slice(1);
@@ -43,7 +43,7 @@ async function createOutfitDivs(id, style) {
               <div class="outfitShoe" style=background-image:${outfit.shoe}></div>
               <section class="descriptionHidden">${outfit.description}</section>
               <section class="stylesHidden">${stylesHTML}</section>
-              <button class=outfitDeleteButton><img src="../MEDIA/trashcan.png"></button>
+              <button class=outfitDeleteButton><img src="DIGIWAR\/..\/MEDIA\/trashcan.png"></button>
           `;
           li.classList.add("outfit");
           li.setAttribute("id", outfit.outfitID);
