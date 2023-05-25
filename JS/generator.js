@@ -154,6 +154,7 @@ async function renderGeneratorPage() {
 
   //Saving the values in item variables
   let tops = wardrobe.tops;
+  console.log(tops);
   let bottoms = wardrobe.bottoms;
   let shoes = wardrobe.shoes;
 
@@ -217,6 +218,8 @@ async function renderGeneratorPage() {
     let selectedTop = tops[Math.floor(Math.random() * tops.length)];
     let selectedBottom = bottoms[Math.floor(Math.random() * bottoms.length)];
     let selectedShoe = shoes[Math.floor(Math.random() * shoes.length)];
+
+    console.log(selectedTop.path);
 
     //Changes and displays the items
     document.querySelector("#selectedtop > div").style.backgroundImage = `url(${selectedTop.path})`;
