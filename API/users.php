@@ -6,7 +6,7 @@ $method = $_SERVER["REQUEST_METHOD"];
 
 //GET is used for fetching the users in users.json except for their passwords
 if($method == "GET") {
-    $users = getFileContents("users.json");
+    $users = getFileContents(__dir__."users.json");
     $displayUsers = [];
     foreach($users as $user) {
         $displayUser = [
