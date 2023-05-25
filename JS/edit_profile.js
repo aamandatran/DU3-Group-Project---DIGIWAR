@@ -53,11 +53,13 @@ async function editProfile() {
     let selectedProfilePic;
 
     let editProfilePicButton = document.getElementById("editprofilePicButton");
+    //We disable the editProfilePicButton before a profilePic is selected otherwise the selectedProfilePic variable will be empty.  
     editProfilePicButton.disabled = true;
 
     //Here i go trough all the pictures and add an event listner to each picture and the picture that is clicked is displayed in "#selectedProfile"
     for (let option of profileOptions) {
         option.addEventListener("click", function (event) {
+            //We enable the profile pic button when a profile pic is selected. 
             editProfilePicButton.disabled = false;
             // Im adding a value to the variable "selectedProfilePic" which is the picture that is clicked. This variable is later used in the "userData"
             selectedProfilePic = event.target.attributes[0].value;
@@ -82,7 +84,7 @@ async function editProfile() {
         }
         try {
             //Sending a patch request to the database.
-            let response = await fetch("api/edit_profile_pic.php", {
+            let response = await fetch("API/edit_profile_pic.php", {
                 method: "PATCH",
                 headers: { "Content-type": "application/json" },
                 body: JSON.stringify(userData)
@@ -116,7 +118,7 @@ async function editProfile() {
 
         try {
             //Sends patch request with the "userData" object as body.
-            let response = await fetch("api/edit_profile.php", {
+            let response = await fetch("API/edit_profile.php", {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(userData)
