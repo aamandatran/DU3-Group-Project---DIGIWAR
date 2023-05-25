@@ -25,7 +25,7 @@ function renderStartPage() {
                 <h1>GET STARTED</h1>
                 <div>
                     <video autoplay loop muted plays-inline>
-                        <source src="../MEDIA/Outfit-generator.mp4">
+                        <source src="MEDIA/Outfit-generator.mp4">
                     </video>
                     <ol>
                         <li>Sign up <button id="buttonToSignUp">HERE</button></li>

@@ -5,7 +5,7 @@ async function renderRegisterPage() {
     display_header_menu()
 
     //Fetch the profilepictures
-    let response = await fetch("../API/profilepics.php");
+    let response = await fetch("API/profilepics.php");
     let profilepictures = await response.json();
 
     //Changing mains content to register page
