@@ -78,7 +78,7 @@ async function renderRegisterPage() {
         };
 
         //Sends a POST request to validate or confirm registration
-        const request = new Request("api/register.php", {
+        const request = new Request("API/register.php", {
             method: "POST",
             headers: { "Content-type": "application/json; charset=UTF-8" },
             body: JSON.stringify(userData)
