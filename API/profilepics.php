@@ -6,7 +6,7 @@ $method = $_SERVER["REQUEST_METHOD"];
 
 //Sending the json file with profilepictures
 if($method == "GET") {
-    $profilePics = getFileContents(__dir__."profilepictures.json");
+    $profilePics = getFileContents("profilepictures.json");
     sendJSON($profilePics);
 }
 ?>
