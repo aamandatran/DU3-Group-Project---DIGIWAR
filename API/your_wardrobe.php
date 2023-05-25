@@ -27,17 +27,18 @@ if(isset($_FILES["item"])) {
     // chmod("DIGIWAR\/..\/MEDIA\/", 755);
 
     $destination = __DIR__ . "/../MEDIA/" . $cleanFilename;
+    $path = "DIGIWAR\/..\/MEDIA\/". $cleanFilename;
 
     if (move_uploaded_file($source, $destination)) {
         $newItem = [
-            "path" => $destination, 
+            "path" => $path, 
             "id" => [intval($_POST["id"])]
         ];
 
         // Message to server if item was added successfully
         $message = [
             "message" => "The item has been added successfully!",
-            "path" => $destination,
+            "path" => $path,
             "ok" => true
         ];
 
