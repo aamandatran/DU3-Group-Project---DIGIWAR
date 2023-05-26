@@ -17,24 +17,25 @@ if(isset($_FILES["item"])) {
     $source = $_FILES["item"]["tmp_name"];
     $originalFilename = $_FILES["item"]["name"];
 
-    // Generate a unique filename to avoid filenames with the same name
-    $uniqueFilename = sha1($originalFilename . time());
-
     // Replaces space with underscore
-    $cleanFilename = str_replace(' ', '_', $uniqueFilename);
+    $cleanFilename = str_replace(' ', '_', $originalFilename);
 
-    $destination = "DIGIWAR\/..\/MEDIA\/" . $cleanFilename;
+    // Generate a unique filename to avoid filenames with the same name
+    $uniqueFilename = sha1($cleanFilename . time());
+    
+    $destination = __DIR__ . "/../MEDIA/" . $cleanFilename;
+    $path = "DIGIWAR\/..\/MEDIA\/". $cleanFilename;
 
     if (move_uploaded_file($source, $destination)) {
         $newItem = [
-            "path" => $destination, 
+            "path" => $path, 
             "id" => [intval($_POST["id"])]
         ];
 
         // Message to server if item was added successfully
         $message = [
             "message" => "The item has been added successfully!",
-            "path" => $destination,
+            "path" => $path,
             "ok" => true
         ];
 
@@ -42,17 +43,14 @@ if(isset($_FILES["item"])) {
         if($_POST["file"] == "tops.json") {
             $tops[] = $newItem;
             saveToFile("tops.json", $tops);
-            $message["file"] = "tops.json";
             sendJSON($message, 201);
         } elseif($_POST["file"] == "bottoms.json") {
             $bottoms[] = $newItem;
             saveToFile("bottoms.json", $bottoms);
-            $message["file"] = "bottoms.json";
             sendJSON($message, 201);
         } elseif($_POST["file"] == "shoes.json") {
             $shoes[] = $newItem;
             saveToFile("shoes.json", $shoes);
-            $message["file"] = "shoes.json";
             sendJSON($message, 201);
         } else{
             $message = [
@@ -91,6 +89,14 @@ if($requestMethod == "DELETE") {
     $path = $requestData["path"];
     $JSONfile = $requestData["file"];
     $id = $requestData["id"];
+
+    // Checks if all data was sent, if not status 400 will be sent
+    if(!isset($path, $JSONfile, $id)) {
+        $message = ["message" => "Some data seems to be missing... please check if all data was sent"];
+        sendJSON($message, 400);
+    }
+
+    $items;
 
     // Check which JSON file to iterate over and search for the item
     if($JSONfile == "tops.json") {
@@ -132,7 +138,7 @@ if($requestMethod == "DELETE") {
 
     // If something went wrong, for example if no file was sent
     $message = ["message" => "Something went wrong... please try again!"];
-    sendJSON($message, 409);
+    sendJSON($message, 418);
 }
 
 ?>

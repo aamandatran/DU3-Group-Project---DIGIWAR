@@ -76,8 +76,8 @@ function renderWardrobePage() {
 
         let your_wardrobe = await request.json();
         // Displays the clothing items and enables filtering for users wardrobe
-        createItemDivs(your_wardrobe, "all", "yours")
-        filterByItem(your_wardrobe, "yours")
+        createItemDivs(your_wardrobe, "all", "yours");
+        filterByItem(your_wardrobe, "yours");
     };
 
     // When refreshing the website it should always display users wardrobe
@@ -265,7 +265,7 @@ function deleteOrAdd(e) {
 
     if (classlist === "delete") {
 
-        feedback("Are you sure?")
+        feedback("Are you sure?");
         document.querySelector("#feedbackContainer>div").innerHTML = `
                 <button id="yes">Yes</button>  
                 <button id="no">No</button>  
@@ -273,7 +273,7 @@ function deleteOrAdd(e) {
 
         document.getElementById("no").addEventListener("click", function (event) {
             feedbackContainer.remove();
-            main.classList.remove("feedback_opacity")
+            main.classList.remove("feedback_opacity");
             document.querySelectorAll("button").forEach((button) => {
                 button.disabled = false;
             })
@@ -303,9 +303,9 @@ function deleteOrAdd(e) {
                         main.classList.remove("feedback_opacity")
                         document.querySelectorAll("button").forEach((button) => {
                             button.disabled = false;
-                        })
+                        });
 
-                        feedback(data.message)
+                        feedback(data.message);
                     }
                 }).catch(error => {
                     console.log(error);

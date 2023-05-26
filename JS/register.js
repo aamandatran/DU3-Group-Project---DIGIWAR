@@ -2,7 +2,7 @@
 
 //Render register page
 async function renderRegisterPage() {
-    display_header_menu()
+    display_header_menu();
 
     //Fetch the profilepictures
     let response = await fetch("API/profilepics.php");

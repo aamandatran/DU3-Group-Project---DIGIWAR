@@ -2,7 +2,7 @@
 
 //Render login page
 function renderLoginPage() {
-    display_header_menu()
+    display_header_menu();
 
     //Changing mains content to login page
     main.innerHTML = `

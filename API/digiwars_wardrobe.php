@@ -10,8 +10,7 @@ $shoes = getFileContents("shoes.json");
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
 // Get data from the request body
-$requestJSON = file_get_contents("php://input");
-$requestData = json_decode($requestJSON, true);
+$requestData = getFileContents("php://input");
 
 // Sends back every item to display on website
 if($requestMethod == "GET") {
@@ -22,7 +21,7 @@ if($requestMethod == "GET") {
         "shoes" => filterItemsById($shoes, 0)
     ];
 
-    sendJSON($wardrobe, 200);
+    sendJSON($wardrobe);
 }
 
 // Add a user Id to the array containing every Id who has access to the item from DIGIWARS wardrobe
@@ -36,6 +35,8 @@ if($requestMethod == "PATCH") {
         $message = ["message" => "Some data seems to be missing... please check if all data was sent"];
         sendJSON($message, 400);
     }
+
+    $items;
 
     // Check which JSON file to iterate over and search for the item
     if($JSONfile == "tops.json") {
@@ -62,7 +63,7 @@ if($requestMethod == "PATCH") {
                 "message" => "The item has been successfully added to your wardrobe!",
                 "ok" => true
             ];
-            sendJSON($message, 200);
+            sendJSON($message);
         }
     }
 

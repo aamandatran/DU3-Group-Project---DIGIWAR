@@ -29,7 +29,7 @@ $newPassword = $data["newPassword"];
 $userName = $data["userName"];
 
 //We then gather all information from the users json.  
-$users=getFileContents($filename);
+$users = getFileContents($filename);
 
 
 //If the new password and old password is empty then we send back a error message "empty values"
@@ -52,8 +52,6 @@ if ($newPassword == "" or $oldPassword == "") {
         ];
         sendJSON($error, 400);
     }
-
-
 
 foreach ($users as $index => $user) {
     if ($userName == $user["username"]) {

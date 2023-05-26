@@ -24,9 +24,6 @@ async function createOutfitDivs(id, style) {
         //Create divs containing the outfits styles
         let stylesHTML = '';
         for (let outfitStyle of outfit.styles) {
-          if (outfitStyle === "datenight") {
-            outfitStyle = "Date night";
-          }
           let capitalizedString = outfitStyle.charAt(0).toUpperCase() + outfitStyle.slice(1);
           stylesHTML += `<div>${capitalizedString}</div>`;
         }

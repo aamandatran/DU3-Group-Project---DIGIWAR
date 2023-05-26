@@ -9,12 +9,12 @@ function renderUploadItemPopUp() {
         <div id="uploadPopUp"> 
             <button id="closePopupButton">X</button>
             <h1>New item</h1>
-                <fieldset id="categories">
-                    <legend>Choose a category</legend>
-                    <button id="tops">Tops</button>
-                    <button id="bottoms">Bottoms</button>
-                    <button id="shoes">Shoes</button>
-                </fieldset>
+            <fieldset id="categories">
+                <legend>Choose a category</legend>
+                <button id="tops">Tops</button>
+                <button id="bottoms">Bottoms</button>
+                <button id="shoes">Shoes</button>
+            </fieldset>
         </div> 
     `;
 
@@ -26,17 +26,17 @@ function renderUploadItemPopUp() {
     })
 
     // Event listener for each button to add item to the correct JSON file
-    let topsButton = document.querySelector("#uploadPopUp #tops");
+    let topsButton = document.querySelector("#uploadPopUp > fieldset > button#tops");
     topsButton.addEventListener("click", function (event) {
         showUploadPage("tops.json")
     });
 
-    let bottomsButton = document.querySelector("#uploadPopUp #bottoms");
+    let bottomsButton = document.querySelector("#uploadPopUp > fieldset > button#bottoms");
     bottomsButton.addEventListener("click", function (event) {
         showUploadPage("bottoms.json")
     });
 
-    let shoesButton = document.querySelector("#uploadPopUp #shoes");
+    let shoesButton = document.querySelector("#uploadPopUp > fieldset > button#shoes");
     shoesButton.addEventListener("click", function (event) {
         showUploadPage("shoes.json")
     });
@@ -78,6 +78,8 @@ function renderUploadItemPopUp() {
             // Get Id of user
             const id = localStorage.getItem("id");
             formData.append("id", id);
+
+            console.log(formData);
 
             const request = new Request("API/your_wardrobe.php", {
                 method: "POST",
