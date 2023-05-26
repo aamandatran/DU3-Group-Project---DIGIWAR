@@ -57,9 +57,6 @@ if($method == "POST") {
 
             // Update the user data in the users array
             saveToFile($filename, $users);
-
-            $message = ["message" => "Outfit has been created"];
-            sendJSON($message, 201);
             
             // Exit the loop since the user is found and updated
             break; 

@@ -215,7 +215,7 @@ async function renderGeneratorPage() {
 
     //Selects random items from the item types wardrobe arrays and saves the value
     if (tops.length === 0 || bottoms.length === 0 || shoes.length === 0) {
-      feedback("You don't have any clothes! Try adding some in the wardrobe first!");
+      feedback("You are missing some clothing... Try adding at least one item of every category");
     } else {
 
       let selectedTop = tops[Math.floor(Math.random() * tops.length)];
@@ -288,6 +288,8 @@ async function renderGeneratorPage() {
       //If response is ok the pop up window will close and feedback will be sent back to user
       if (response.status === 200) {
 
+        closePopup();
+        
         let checkboxes = form.querySelectorAll('input[type="checkbox"]');
         //Resetting
         //Uncheck every checkbox
