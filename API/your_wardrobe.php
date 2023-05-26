@@ -29,7 +29,7 @@ if(isset($_FILES["item"])) {
     if (move_uploaded_file($source, $destination)) {
         $newItem = [
             "path" => $path, 
-            "id" => [intval($requestData["id"])]
+            "id" => [intval($_POST["id"])]
         ];
 
         // Message to server if item was added successfully
@@ -40,15 +40,15 @@ if(isset($_FILES["item"])) {
         ];
 
         // Checks which JSON file to save newItem to
-        if($requestData["file"] == "tops.json") {
+        if($_POST["file"] == "tops.json") {
             $tops[] = $newItem;
             saveToFile("tops.json", $tops);
             sendJSON($message, 201);
-        } elseif($requestData["file"] == "bottoms.json") {
+        } elseif($_POST["file"] == "bottoms.json") {
             $bottoms[] = $newItem;
             saveToFile("bottoms.json", $bottoms);
             sendJSON($message, 201);
-        } elseif($requestData["file"] == "shoes.json") {
+        } elseif($_POST["file"] == "shoes.json") {
             $shoes[] = $newItem;
             saveToFile("shoes.json", $shoes);
             sendJSON($message, 201);
