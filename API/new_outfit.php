@@ -57,7 +57,7 @@ if($method == "POST") {
 
             // Update the user data in the users array
             saveToFile($filename, $users);
-            
+
             // Exit the loop since the user is found and updated
             break; 
         }
