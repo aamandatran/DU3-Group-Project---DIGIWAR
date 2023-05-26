@@ -81,9 +81,9 @@ async function renderGeneratorPage() {
     let filterDiv = document.createElement("div");
     let capitalizedString = filter.charAt(0).toUpperCase() + filter.slice(1);
     filterDiv.innerHTML = `
-                    <input type=checkbox id=${filter} name=${filter}>
-                    <label for=${filter} id=${filter}Label>${capitalizedString}</label>
-                  `;
+                                <input type=checkbox id=${filter} name=${filter}>
+                                <label for=${filter} id=${filter}Label>${capitalizedString}</label>
+                              `;
     main.append(filterDiv);
     return filterDiv.outerHTML;
   }).join("")}
@@ -154,7 +154,6 @@ async function renderGeneratorPage() {
 
   //Saving the values in item variables
   let tops = wardrobe.tops;
-  console.log(tops);
   let bottoms = wardrobe.bottoms;
   let shoes = wardrobe.shoes;
 
@@ -215,97 +214,95 @@ async function renderGeneratorPage() {
   function generator(event) {
 
     //Selects random items from the item types wardrobe arrays and saves the value
-    if(tops.length === 0 || bottoms.length === 0 || shoes.length === 0) {
+    if (tops.length === 0 || bottoms.length === 0 || shoes.length === 0) {
       feedback("You don't have any clothes! Try adding some in the wardrobe first!");
     } else {
 
-    let selectedTop = tops[Math.floor(Math.random() * tops.length)];
-    let selectedBottom = bottoms[Math.floor(Math.random() * bottoms.length)];
-    let selectedShoe = shoes[Math.floor(Math.random() * shoes.length)];
+      let selectedTop = tops[Math.floor(Math.random() * tops.length)];
+      let selectedBottom = bottoms[Math.floor(Math.random() * bottoms.length)];
+      let selectedShoe = shoes[Math.floor(Math.random() * shoes.length)];
 
-    console.log(selectedTop.path);
+      //Changes and displays the items
+      document.querySelector("#selectedtop > div").style.backgroundImage = `url(${selectedTop.path})`;
+      document.querySelector("#selectedbottom > div").style.backgroundImage = `url(${selectedBottom.path})`;
+      document.querySelector("#selectedshoe > div").style.backgroundImage = `url(${selectedShoe.path})`;
 
-    //Changes and displays the items
-    document.querySelector("#selectedtop > div").style.backgroundImage = `url(${selectedTop.path})`;
-    document.querySelector("#selectedbottom > div").style.backgroundImage = `url(${selectedBottom.path})`;
-    document.querySelector("#selectedshoe > div").style.backgroundImage = `url(${selectedShoe.path})`;
-
-    //Changes and displays the selected items to the pop up window
-    document.getElementById('popupSelectedtop').style.backgroundImage = `url(${selectedTop.path})`;
-    document.getElementById('popupSelectedbottom').style.backgroundImage = `url(${selectedBottom.path})`;
-    document.getElementById('popupSelectedshoe').style.backgroundImage = `url(${selectedShoe.path})`;
-  }
-
-  //Clicking save it will call the openPopup function
-  let saveIt = document.querySelector("#saveIt");
-  //openPopup will open the generate outfit pop up window
-  saveIt.addEventListener("click", openPopup);
-
-  let form = document.getElementById('newOutfitBottom');
-  // Attach an event listener to the form submission
-  form.addEventListener('submit', async function (event) {
-    // Prevent the form from submitting
-    event.preventDefault();
-
-    // Get all the checkboxes within the form
-    let checkboxes = form.querySelectorAll('input[type="checkbox"]');
-
-    let styles = [];
-    //Loop over the checkboxes to check which ones are checked
-    for (let i = 0; i < checkboxes.length; i++) {
-      let checkbox = checkboxes[i];
-      if (checkbox.checked) {
-        //Save the checked checkboxes in the style array
-        styles.push(checkbox.id);
-      }
+      //Changes and displays the selected items to the pop up window
+      document.getElementById('popupSelectedtop').style.backgroundImage = `url(${selectedTop.path})`;
+      document.getElementById('popupSelectedbottom').style.backgroundImage = `url(${selectedBottom.path})`;
+      document.getElementById('popupSelectedshoe').style.backgroundImage = `url(${selectedShoe.path})`;
     }
 
-    //Save all information the user has selected in the outfit generator pop up window
-    let id = window.localStorage.getItem("id");
-    let description = document.getElementById("description").value;
-    let backgroundColor = document.getElementById("popupSelectedItems").style.backgroundColor;
-    let backgroundImageTop = document.getElementById("popupSelectedtop").style.backgroundImage;
-    let backgroundImageBottom = document.getElementById("popupSelectedbottom").style.backgroundImage;
-    let backgroundImageShoe = document.getElementById("popupSelectedshoe").style.backgroundImage;
+    //Clicking save it will call the openPopup function
+    let saveIt = document.querySelector("#saveIt");
+    //openPopup will open the generate outfit pop up window
+    saveIt.addEventListener("click", openPopup);
 
-    //Save the information in object OutfitData
-    let OutfitData = {
-      styles: styles,
-      userID: id,
-      top: backgroundImageTop,
-      bottom: backgroundImageBottom,
-      shoe: backgroundImageShoe,
-      backgroundColor: backgroundColor,
-      description: description
-    };
+    let form = document.getElementById('newOutfitBottom');
+    // Attach an event listener to the form submission
+    form.addEventListener('submit', async function (event) {
+      // Prevent the form from submitting
+      event.preventDefault();
 
-    //Send a POST request to save the outfit in the users outfit array in users.json
-    const request = new Request("API/new_outfit.php", {
-      method: "POST",
-      headers: { "Content-type": "application/json; charset=UTF-8" },
-      body: JSON.stringify(OutfitData),
-    });
-
-    const response = await fetch(request);
-
-    //If response is ok the pop up window will close and feedback will be sent back to user
-    if (response.status === 200) {
-
+      // Get all the checkboxes within the form
       let checkboxes = form.querySelectorAll('input[type="checkbox"]');
-      //Resetting
-      //Uncheck every checkbox
-      checkboxes.forEach(function (checkbox) {
-        checkbox.checked = false;
+
+      let styles = [];
+      //Loop over the checkboxes to check which ones are checked
+      for (let i = 0; i < checkboxes.length; i++) {
+        let checkbox = checkboxes[i];
+        if (checkbox.checked) {
+          //Save the checked checkboxes in the style array
+          styles.push(checkbox.id);
+        }
+      }
+
+      //Save all information the user has selected in the outfit generator pop up window
+      let id = window.localStorage.getItem("id");
+      let description = document.getElementById("description").value;
+      let backgroundColor = document.getElementById("popupSelectedItems").style.backgroundColor;
+      let backgroundImageTop = document.getElementById("popupSelectedtop").style.backgroundImage;
+      let backgroundImageBottom = document.getElementById("popupSelectedbottom").style.backgroundImage;
+      let backgroundImageShoe = document.getElementById("popupSelectedshoe").style.backgroundImage;
+
+      //Save the information in object OutfitData
+      let OutfitData = {
+        styles: styles,
+        userID: id,
+        top: backgroundImageTop,
+        bottom: backgroundImageBottom,
+        shoe: backgroundImageShoe,
+        backgroundColor: backgroundColor,
+        description: description
+      };
+
+      //Send a POST request to save the outfit in the users outfit array in users.json
+      const request = new Request("API/new_outfit.php", {
+        method: "POST",
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+        body: JSON.stringify(OutfitData),
       });
-      //Reset the background color
-      document.getElementById("popupSelectedItems").style.backgroundColor = "";
-      //Reset the description value
-      document.getElementById("description").value = "";
-      //If response is NOT ok an error message will be sent back in feedback
-    } else {
-      let error = await response.json();
-      feedback(error.message);
-    }
-  });
-}
+
+      const response = await fetch(request);
+
+      //If response is ok the pop up window will close and feedback will be sent back to user
+      if (response.status === 200) {
+
+        let checkboxes = form.querySelectorAll('input[type="checkbox"]');
+        //Resetting
+        //Uncheck every checkbox
+        checkboxes.forEach(function (checkbox) {
+          checkbox.checked = false;
+        });
+        //Reset the background color
+        document.getElementById("popupSelectedItems").style.backgroundColor = "";
+        //Reset the description value
+        document.getElementById("description").value = "";
+        //If response is NOT ok an error message will be sent back in feedback
+      } else {
+        let error = await response.json();
+        feedback(error.message);
+      }
+    });
+  }
 }

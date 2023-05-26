@@ -32,27 +32,27 @@ function display_header_menu() {
                 </nav>
             </div>
         </nav>
-    `
+    `;
 
-        header.classList.add("headerMenu")
+        header.classList.add("headerMenu");
 
         // Render different pages
         let generatorButton = document.querySelector("#outfitGeneratorButton");
         generatorButton.addEventListener("click", function (event) {
-            renderGeneratorPage()
+            renderGeneratorPage();
         })
         let wardrobeButton = document.querySelector("#wardrobeButton");
         wardrobeButton.addEventListener("click", function (event) {
-            renderWardrobePage()
+            renderWardrobePage();
         })
         let editProfileButton = document.querySelector("#editProfileButton")
         editProfileButton.addEventListener("click", function (event) {
-            editProfile()
+            editProfile();
         })
 
         // Log out
         let logOutButton = document.querySelector("#logOutButton");
-        logOutButton.addEventListener("click", log_out)
+        logOutButton.addEventListener("click", log_out);
 
         function log_out() {
             window.localStorage.removeItem("username");
@@ -61,7 +61,7 @@ function display_header_menu() {
             window.localStorage.removeItem("profilepicture");
             window.localStorage.removeItem("isLoggedIn");
 
-            renderStartPage()
+            renderStartPage();
         }
 
     } else {

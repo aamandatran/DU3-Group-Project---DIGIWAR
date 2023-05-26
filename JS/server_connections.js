@@ -9,8 +9,6 @@ function stay_loggedin() {
 //Feedback function when called takes a message that is displayed in the feedbackContainer
 function feedback(message) {
 
-    closePopup();
-    
     let body = document.querySelector("body");
     let div = document.createElement("div");
 

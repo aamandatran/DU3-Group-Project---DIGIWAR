@@ -22,14 +22,13 @@ if ($contentType !== "application/json") {
     sendJSON($error, 415);
 }
 
-
 $data = getFileContents("php://input");
  
 //Putting the new profile picture and the users username in variables.
 //Checking if the profile pic isset. 
 $selectedProfilePicture = isset($data["profilePic"]) ? $data["profilePic"] : null;
 //We dont expect this to happen but if the selectedProfilePic is null then the user gets an error message 
-if ($selectedProfilePicture==null) {
+if ($selectedProfilePicture == null) {
     $error = [
         "message" => "You have not selected a new profile pic"
     ];
@@ -38,7 +37,6 @@ if ($selectedProfilePicture==null) {
 $userName = $data["userName"]; 
 //Collecting all information from the json file and putting it in $users
 $users = getFileContents($filename);
-
 
 foreach ($users as $index => $user) {
     //Finding the right user in the array
@@ -51,12 +49,10 @@ foreach ($users as $index => $user) {
                 "message" => "Profile picture has been updated successfully!"
             ];
             //Saving the updated array in users.json
-            saveToFile($filename,$users);
+            saveToFile($filename, $users);
             //Sending the respons with sendJSON function.
             sendJSON($response);
             break;
     }
 }
-
-
 ?>

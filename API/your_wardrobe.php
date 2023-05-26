@@ -17,22 +17,19 @@ if(isset($_FILES["item"])) {
     $source = $_FILES["item"]["tmp_name"];
     $originalFilename = $_FILES["item"]["name"];
 
-    // Generate a unique filename to avoid filenames with the same name
-    $uniqueFilename = sha1($originalFilename . time());
-
     // Replaces space with underscore
-    $cleanFilename = str_replace(' ', '_', $uniqueFilename);
+    $cleanFilename = str_replace(' ', '_', $originalFilename);
 
-    // Hopefully gives server permission to write in the directory
-    // chmod("DIGIWAR\/..\/MEDIA\/", 755);
-
+    // Generate a unique filename to avoid filenames with the same name
+    $uniqueFilename = sha1($cleanFilename . time());
+    
     $destination = __DIR__ . "/../MEDIA/" . $cleanFilename;
     $path = "DIGIWAR\/..\/MEDIA\/". $cleanFilename;
 
     if (move_uploaded_file($source, $destination)) {
         $newItem = [
             "path" => $path, 
-            "id" => [intval($_POST["id"])]
+            "id" => [intval($requestData["id"])]
         ];
 
         // Message to server if item was added successfully
@@ -43,15 +40,15 @@ if(isset($_FILES["item"])) {
         ];
 
         // Checks which JSON file to save newItem to
-        if($_POST["file"] == "tops.json") {
+        if($requestData["file"] == "tops.json") {
             $tops[] = $newItem;
             saveToFile("tops.json", $tops);
             sendJSON($message, 201);
-        } elseif($_POST["file"] == "bottoms.json") {
+        } elseif($requestData["file"] == "bottoms.json") {
             $bottoms[] = $newItem;
             saveToFile("bottoms.json", $bottoms);
             sendJSON($message, 201);
-        } elseif($_POST["file"] == "shoes.json") {
+        } elseif($requestData["file"] == "shoes.json") {
             $shoes[] = $newItem;
             saveToFile("shoes.json", $shoes);
             sendJSON($message, 201);
@@ -98,6 +95,8 @@ if($requestMethod == "DELETE") {
         $message = ["message" => "Some data seems to be missing... please check if all data was sent"];
         sendJSON($message, 400);
     }
+
+    $items;
 
     // Check which JSON file to iterate over and search for the item
     if($JSONfile == "tops.json") {

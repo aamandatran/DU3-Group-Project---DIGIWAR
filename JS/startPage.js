@@ -1,7 +1,7 @@
 "use strict";
 
 function renderStartPage() {
-    display_header_menu()
+    display_header_menu();
 
     // Curves made from shapedivider.app
     document.querySelector("main").innerHTML = `
@@ -53,7 +53,7 @@ function renderStartPage() {
                             <h3>Amanda Tran</h3>
                         </div>
                         <div class="box">
-                        <div class="picture" id="Kajsa"></div>
+                            <div class="picture" id="Kajsa"></div>
                             <h3>Kajsa Wallander</h3>
                         </div>
                         <div class="box">
