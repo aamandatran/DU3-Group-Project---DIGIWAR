@@ -22,7 +22,7 @@ if($method == "POST") {
     $description = $data["description"];
 
     //If the selected outfit styles is 0 an error with bad request will be sent
-    if (count($styles) === 0) {
+    if (count($styles) == 0) {
         $error = [
             "message" => "You must choose a style!"
         ];
@@ -30,14 +30,16 @@ if($method == "POST") {
     }
 
     $highestID = 0;
+    $outfitID = 0;
     foreach ($users as $user) {
         foreach ($user["outfits"] as $outfit) {
             if ($outfit["outfitID"] > $highestID) {
                 $highestID = $outfit["outfitID"];
+                $outfitID = $highestID + 1;
             }
         }
     }
-    $outfitID = $highestID + 1;
+    
 
     // Use the reference &$user to modify the original array
     foreach ($users as &$user) { 
@@ -63,6 +65,7 @@ if($method == "POST") {
         }
     }
 }
+
 
 if ($method == "DELETE") {
     $userID = $data["userID"];

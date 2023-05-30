@@ -299,9 +299,9 @@ async function renderGeneratorPage() {
         checkbox.checked = false;
       });
         //Reset the background color
-        document.getElementById("popupSelectedItems").style.backgroundColor = "";
+        //document.getElementById("popupSelectedItems").style.backgroundColor = "";
         //Reset the description value
-        document.getElementById("description").value = "";
+        //document.getElementById("description").value = "";
         //If response is NOT ok an error message will be sent back in feedback
       } else {
         let error = await response.json();
