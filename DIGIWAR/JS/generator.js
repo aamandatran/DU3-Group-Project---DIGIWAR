@@ -232,79 +232,82 @@ async function renderGeneratorPage() {
       document.getElementById('popupSelectedbottom').style.backgroundImage = `url(${selectedBottom.path})`;
       document.getElementById('popupSelectedshoe').style.backgroundImage = `url(${selectedShoe.path})`;
     }
+  }
 
     //Clicking save it will call the openPopup function
     let saveIt = document.querySelector("#saveIt");
     //openPopup will open the generate outfit pop up window
-    saveIt.addEventListener("click", openPopup);
+    saveIt.addEventListener("click", function (event) {
 
-    let form = document.getElementById('newOutfitBottom');
-    // Attach an event listener to the form submission
-    form.addEventListener('submit', async function (event) {
-      // Prevent the form from submitting
-      event.preventDefault();
+      openPopup();
 
-      // Get all the checkboxes within the form
-      let checkboxes = form.querySelectorAll('input[type="checkbox"]');
+      let form = document.getElementById('newOutfitBottom');
+      // Attach an event listener to the form submission
+      form.addEventListener('submit', async function (event) {
+        // Prevent the form from submitting
+        event.preventDefault();
 
-      let styles = [];
-      //Loop over the checkboxes to check which ones are checked
-      for (let i = 0; i < checkboxes.length; i++) {
-        let checkbox = checkboxes[i];
-        if (checkbox.checked) {
-          //Save the checked checkboxes in the style array
-          styles.push(checkbox.id);
-        }
-      }
-
-      //Save all information the user has selected in the outfit generator pop up window
-      let id = window.localStorage.getItem("id");
-      let description = document.getElementById("description").value;
-      let backgroundColor = document.getElementById("popupSelectedItems").style.backgroundColor;
-      let backgroundImageTop = document.getElementById("popupSelectedtop").style.backgroundImage;
-      let backgroundImageBottom = document.getElementById("popupSelectedbottom").style.backgroundImage;
-      let backgroundImageShoe = document.getElementById("popupSelectedshoe").style.backgroundImage;
-
-      //Save the information in object OutfitData
-      let OutfitData = {
-        styles: styles,
-        userID: id,
-        top: backgroundImageTop,
-        bottom: backgroundImageBottom,
-        shoe: backgroundImageShoe,
-        backgroundColor: backgroundColor,
-        description: description
-      };
-
-      //Send a POST request to save the outfit in the users outfit array in users.json
-      const request = new Request("API/new_outfit.php", {
-        method: "POST",
-        headers: { "Content-type": "application/json; charset=UTF-8" },
-        body: JSON.stringify(OutfitData),
-      });
-
-      const response = await fetch(request);
-
-      //If response is ok the pop up window will close and feedback will be sent back to user
-      if (response.status === 200) {
-
-        closePopup();
-        
+        // Get all the checkboxes within the form
         let checkboxes = form.querySelectorAll('input[type="checkbox"]');
-        //Resetting
-        //Uncheck every checkbox
-        checkboxes.forEach(function (checkbox) {
-          checkbox.checked = false;
+
+        let styles = [];
+        //Loop over the checkboxes to check which ones are checked
+        for (let i = 0; i < checkboxes.length; i++) {
+          let checkbox = checkboxes[i];
+          if (checkbox.checked) {
+            //Save the checked checkboxes in the style array
+            styles.push(checkbox.id);
+          }
+        }
+
+        //Save all information the user has selected in the outfit generator pop up window
+        let id = window.localStorage.getItem("id");
+        let description = document.getElementById("description").value;
+        let backgroundColor = document.getElementById("popupSelectedItems").style.backgroundColor;
+        let backgroundImageTop = document.getElementById("popupSelectedtop").style.backgroundImage;
+        let backgroundImageBottom = document.getElementById("popupSelectedbottom").style.backgroundImage;
+        let backgroundImageShoe = document.getElementById("popupSelectedshoe").style.backgroundImage;
+
+        //Save the information in object OutfitData
+        let OutfitData = {
+          styles: styles,
+          userID: id,
+          top: backgroundImageTop,
+          bottom: backgroundImageBottom,
+          shoe: backgroundImageShoe,
+          backgroundColor: backgroundColor,
+          description: description
+        };
+
+        //Send a POST request to save the outfit in the users outfit array in users.json
+        const request = new Request("API/new_outfit.php", {
+          method: "POST",
+          headers: { "Content-type": "application/json; charset=UTF-8" },
+          body: JSON.stringify(OutfitData),
         });
-        //Reset the background color
-        //document.getElementById("popupSelectedItems").style.backgroundColor = "";
-        //Reset the description value
-        //document.getElementById("description").value = "";
-        //If response is NOT ok an error message will be sent back in feedback
-      } else {
-        let error = await response.json();
-        feedback(error.message);
-      }
+
+        const response = await fetch(request);
+
+        //If response is ok the pop up window will close and feedback will be sent back to user
+        if (response.status === 200) {
+
+          closePopup();
+          
+          let checkboxes = form.querySelectorAll('input[type="checkbox"]');
+          //Resetting
+          //Uncheck every checkbox
+          checkboxes.forEach(function (checkbox) {
+            checkbox.checked = false;
+          });
+          //Reset the background color
+          //document.getElementById("popupSelectedItems").style.backgroundColor = "";
+          //Reset the description value
+          //document.getElementById("description").value = "";
+          //If response is NOT ok an error message will be sent back in feedback
+        } else {
+          let error = await response.json();
+          feedback(error.message);
+        }
+      });
     });
-  }
 }
