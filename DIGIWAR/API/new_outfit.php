@@ -30,13 +30,12 @@ if($method == "POST") {
     }
 
     $highestID = 0;
-    $outfitID = 0;
     foreach ($users as $user) {
         foreach ($user["outfits"] as $outfit) {
             if ($outfit["outfitID"] > $highestID) {
                 $highestID = $outfit["outfitID"];
-                $outfitID = $highestID + 1;
             }
+            $outfitID = $highestID + 1;
         }
     }
     
