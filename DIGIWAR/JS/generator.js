@@ -239,10 +239,6 @@ async function renderGeneratorPage() {
   //openPopup will open the generate outfit pop up window
   saveIt.addEventListener("click", function (event) {
 
-    if(document.getElementById('popupSelectedtop').style.backgroundImage === "" || document.getElementById('popupSelectedbottom').style.backgroundImage === "" || document.getElementById('popupSelectedshoe').style.backgroundImage) {
-      feedback("You need to generate clothes before creating an outfit!");
-    } else {
-
     openPopup();
 
     let form = document.getElementById('newOutfitBottom');
@@ -313,6 +309,5 @@ async function renderGeneratorPage() {
         feedback(error.message);
       }
     });
-  }
   });
 }
